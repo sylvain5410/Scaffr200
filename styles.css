@@ -50,3 +50,4 @@
   .dash-table th,.dash-table td{padding:7px 4px}.dash-table-wrap{overflow-x:auto}
   .buttons{grid-template-columns:1fr}.rotation{grid-template-columns:1fr 1.2fr 1fr}.rotation button{font-size:.75rem}
 }
+.view-facade-label{display:flex;align-items:center;gap:.6rem;max-width:360px;margin:.25rem 0 .65rem;font-weight:700}.view-facade-label select{flex:1;min-width:0}@media(max-width:700px){.view-facade-label{max-width:none;align-items:stretch;flex-direction:column;gap:.25rem}}
