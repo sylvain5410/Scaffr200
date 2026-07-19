@@ -1,8 +1,8 @@
 {
-  "name": "ScaffR200 V3.7.1",
+  "name": "ScaffR200 V3.9",
   "short_name": "ScaffR200",
   "description": "Préparation de chantiers Comabi R200",
-  "start_url": "./?v=18",
+  "start_url": "./?v=16",
   "display": "standalone",
   "background_color": "#edf2f7",
   "theme_color": "#0f1f35",

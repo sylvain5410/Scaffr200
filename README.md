@@ -1,3 +1,6 @@
-# ScaffR200 V3.7.1
+# ScaffR200 V3.9
 
-Correctif mobile : la vue 3D est maintenant affichée par défaut dans le tableau de bord, avec les onglets Plan / 3D, Paramètres et Matériel. Le cache PWA a été incrémenté pour forcer le chargement des fichiers corrigés.
+- Configuration du dernier niveau réglable séparément sur chaque façade.
+- Choix entre cadres complets et demi-cadres.
+- En mode demi-cadres : ajout automatique des montants de 1 m et de deux lisses par travée.
+- Mise à jour des vues et de la nomenclature.

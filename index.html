@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#0f1f35">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <title>ScaffR200 V3.7.1</title>
+  <title>ScaffR200 V3.9</title>
 </head>
 <body>
 <header class="app-header">
-  <div class="brand"><strong>ScaffR200</strong><span>V3.7.1</span></div>
+  <div class="brand"><strong>ScaffR200</strong><span>V3.9</span></div>
   <nav class="top-nav" aria-label="Navigation principale">
     <button class="active" data-tab="stock">Matériel</button>
     <button data-tab="project">Chantier</button>
@@ -46,7 +46,8 @@
 <section id="project" class="panel">
   <article class="form-card"><small>ÉTAPE 2</small><h1>Configuration du chantier</h1>
     <label>Nom du chantier<input id="name" value="Maison"></label>
-    <div class="grid3"><label>Hauteur de départ<input id="startHeight" type="number" min="0" max="6" step="0.5" value="1"></label><label>Hauteur à desservir<input id="targetHeight" type="number" min="1" step="0.5" value="7"></label><label>Hauteur des niveaux<select id="levelHeight"><option value="2" selected>2 m</option><option value="1">1 m</option></select></label></div>
+    <div class="grid3"><label>Hauteur de départ<input id="startHeight" type="number" min="0" max="6" step="0.5" value="0"></label><label>Hauteur de la façade<input id="facadeHeight" type="number" min="1" step="0.5" value="8"></label><label>Hauteur des niveaux<select id="levelHeight"><option value="2" selected>2 m</option><option value="1">1 m</option></select></label></div>
+    <div class="grid2"><label>Hauteur du dernier plancher<input id="lastDeckHeight" type="number" min="0" step="0.5" value="6"></label><div class="summary-box"><strong>Dernier niveau par façade</strong><br>Le choix cadre complet ou demi-cadres se règle dans l’étape « Façades ».</div></div>
     <label>Mode des travées<select id="mode"><option value="auto">Calcul automatique</option><option value="manual">Travées manuelles</option></select></label>
     <h2>Mode de saisie des longueurs</h2>
     <div class="mode-choice">
@@ -65,12 +66,7 @@
 </section>
 
 <section id="view3d" class="panel dashboard-panel">
-  <div class="mobile-dashboard-tabs" aria-label="Navigation du tableau de bord mobile">
-    <button type="button" class="active" data-mobile-dash="center">Plan / 3D</button>
-    <button type="button" data-mobile-dash="sidebar">Paramètres</button>
-    <button type="button" data-mobile-dash="materials">Matériel</button>
-  </div>
-  <div class="dashboard-grid mobile-show-center">
+  <div class="dashboard-grid">
     <aside class="dash-sidebar">
       <h2>PARAMÈTRES DU CHANTIER</h2>
       <label>Nom du projet<input id="dashName" readonly></label>
@@ -78,7 +74,7 @@
       <h2>DIMENSIONS DU BÂTIMENT</h2>
       <div class="mini-grid"><label>Longueur<input id="dashBuildingLength" readonly></label><label>Largeur<input id="dashBuildingDepth" readonly></label></div>
       <h2>CONFIGURATION DES FAÇADES</h2>
-      <div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Façade</th><th>Type</th><th>Long.</th><th>Hauteur droite</th><th>Position pointe</th><th>Pointe</th></tr></thead><tbody id="dashFacades"></tbody></table></div>
+      <div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Façade</th><th>Type</th><th>Long.</th><th>Hauteur façade</th><th>Position pointe</th><th>Pointe</th></tr></thead><tbody id="dashFacades"></tbody></table></div>
       <div id="dashGableSummary" class="summary-box"></div>
       <h2>DIAGONALES PAR FAÇADE</h2><div id="dashDiagonals" class="diag-list"></div>
       <button id="dashCalculate" class="primary">GÉNÉRER LES CALCULS</button>
