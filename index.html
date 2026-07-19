@@ -6,15 +6,15 @@
   <meta name="theme-color" content="#f59e0b">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <title>ScaffR200 V3.2</title>
+  <title>ScaffR200 V3.3</title>
 </head>
 <body>
-<header><div><small>PRÉPARATION D'ÉCHAFAUDAGE</small><h1>ScaffR200</h1></div><b>V3.2</b></header>
+<header><div><small>PRÉPARATION D'ÉCHAFAUDAGE</small><h1>ScaffR200</h1></div><b>V3.3</b></header>
 <nav>
   <button class="active" data-tab="stock">1. Matériel</button>
   <button data-tab="project">2. Chantier</button>
   <button data-tab="facades">3. Façades</button>
-  <button data-tab="view3d">4. Vue 3D</button>
+  <button data-tab="view3d">4. Plans</button>
   <button data-tab="materials">5. Liste</button>
   <button data-tab="saved">Chantiers</button>
 </nav>
@@ -28,13 +28,11 @@
       <label>Système principal<select id="stockSystem"><option value="r200p">R200 Progress acier</option><option value="r200r">R200 Record aluminium</option><option value="m368">M368 multidirectionnel</option></select></label>
       <label>Largeur d'échafaudage<select id="scaffoldWidth"><option value="0.8">0,80 m</option><option value="0.7">0,70 m</option><option value="1">1,00 m</option></select></label>
     </div>
-    <h3>Longueurs de travées disponibles</h3>
-    <div id="bayChoices" class="choice-grid"></div>
-    <h3>Familles à intégrer</h3>
-    <div id="stockFamilies" class="choice-grid"></div>
+    <h3>Longueurs de travées disponibles</h3><div id="bayChoices" class="choice-grid"></div>
+    <h3>Familles à intégrer</h3><div id="stockFamilies" class="choice-grid"></div>
     <div class="grid3">
       <label>Type de plancher<select id="stockDeck"><option value="alu-bois">Alu-bois 0,73 m</option><option value="acier">Acier</option><option value="alu">Aluminium</option></select></label>
-      <label>Type de garde-corps<select id="stockGuardrail"><option value="fusio">Fusio / monobloc</option><option value="classic">Lisses classiques</option></select></label>
+      <label>Protection latérale<select id="stockGuardrail"><option value="classic">Lisses + sous-lisses</option><option value="fusio">Garde-corps Fusio</option></select></label>
       <label>Type de diagonale<select id="stockDiagonal"><option value="rcm">RCM</option><option value="dv">DV</option></select></label>
     </div>
     <button id="validateStock" class="primary">Valider le matériel et créer le chantier</button>
@@ -47,8 +45,13 @@
     <label>Nom du chantier<input id="name" value="Maison"></label>
     <div class="grid2"><label>Hauteur de départ<input id="startHeight" type="number" min="0" max="4" step="0.5" value="1"></label><label>Hauteur à desservir<input id="targetHeight" type="number" min="1" step="0.5" value="7"></label></div>
     <div class="grid2"><label>Hauteur des niveaux<select id="levelHeight"><option value="2" selected>2 m</option><option value="1">1 m</option></select></label><label>Mode des travées<select id="mode"><option value="auto">Calcul automatique</option><option value="manual">Travées manuelles</option></select></label></div>
-    <h3>Dimensions du bâtiment</h3>
-    <div class="grid2"><label>Façades Nord / Sud<input id="width" type="number" min="1" step="0.1" value="12"></label><label>Façades Est / Ouest<input id="depth" type="number" min="1" step="0.1" value="8"></label></div>
+    <h3>Mode de saisie des longueurs</h3>
+    <div class="mode-choice">
+      <label class="choice"><input type="radio" name="lengthMode" value="building" checked><span>Dimensions du bâtiment</span></label>
+      <label class="choice"><input type="radio" name="lengthMode" value="scaffold"><span>Longueurs d'échafaudage</span></label>
+    </div>
+    <div id="buildingInputs"><h3>Dimensions du bâtiment</h3><div class="grid2"><label>Façades Nord / Sud<input id="width" type="number" min="1" step="0.1" value="12"></label><label>Façades Est / Ouest<input id="depth" type="number" min="1" step="0.1" value="8"></label></div></div>
+    <div id="scaffoldInputs" hidden><h3>Longueurs d'échafaudage par façade</h3><div class="grid2"><label>Nord<input id="northLength" type="number" min="0" step="0.1" value="12"></label><label>Est<input id="eastLength" type="number" min="0" step="0.1" value="8"></label><label>Sud<input id="southLength" type="number" min="0" step="0.1" value="12"></label><label>Ouest<input id="westLength" type="number" min="0" step="0.1" value="8"></label></div></div>
     <button id="generate" class="primary">Créer / recalculer les quatre façades</button>
     <div class="stats"><div><span>Longueur totale</span><strong id="perimeter">40 m</strong></div><div><span>Niveaux</span><strong id="levelsStat">3</strong></div><div><span>Surface</span><strong id="area">280 m²</strong></div></div>
   </article>
@@ -56,7 +59,7 @@
 
 <section id="facades" class="panel"><article><div class="head"><div><small>ÉTAPE 3</small><h2>Réglages par façade</h2></div><select id="activeFacade"></select></div><div id="facadeEditor"></div><div id="checks"></div><div class="canvas"><canvas id="plan" width="1200" height="760"></canvas></div></article></section>
 
-<section id="view3d" class="panel"><article><div class="head"><div><small>ÉTAPE 4</small><h2>Vue 3D détaillée</h2></div><span class="pill">Glisser pour tourner</span></div><p class="intro">Les cadres, les travées, les niveaux, les deux files de montants et la largeur réelle sont visibles.</p><div class="canvas"><canvas id="three" width="1200" height="850"></canvas></div><div class="buttons"><button id="left">↶</button><button id="reset">Réinitialiser</button><button id="right">↷</button></div></article></section>
+<section id="view3d" class="panel"><article><div class="head"><div><small>ÉTAPE 4</small><h2>Plans et vue 3D</h2></div><span class="pill">Façade active</span></div><p class="intro">Les travées, cadres, planchers, diagonales, plinthes, lisses et sous-lisses sont représentés.</p><div class="view-switch"><button data-view="iso" class="active">Vue 3D</button><button data-view="front">Vue de face</button><button data-view="side">Vue de côté</button><button data-view="top">Vue de dessus</button></div><div class="canvas"><canvas id="three" width="1200" height="850"></canvas></div><div class="buttons"><button id="left">↶</button><button id="reset">Réinitialiser</button><button id="right">↷</button></div></article></section>
 
 <section id="materials" class="panel"><article><div class="head"><div><small>ÉTAPE 5 — LISTE DE CHARGEMENT</small><h2 id="matTitle">Liste du matériel</h2></div><button id="print">Imprimer / PDF</button></div><div class="list-tools"><label>Vue<select id="listFacade"><option value="all">Total chantier</option></select></label><div id="familyFilters" class="chips"></div></div><div class="legend"><span>Référence</span><span>Désignation</span><span>Façade</span><span>Qté</span><span>Poids</span></div><div id="matList"></div></article></section>
 
