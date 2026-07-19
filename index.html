@@ -3,33 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f59e0b">
+  <meta name="theme-color" content="#0f1f35">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <title>ScaffR200 V3.4</title>
+  <title>ScaffR200 V3.5</title>
 </head>
 <body>
-<header><div><small>PRÉPARATION D'ÉCHAFAUDAGE</small><h1>ScaffR200</h1></div><b>V3.4</b></header>
-<nav>
-  <button class="active" data-tab="stock">1. Matériel</button>
-  <button data-tab="project">2. Chantier</button>
-  <button data-tab="facades">3. Façades</button>
-  <button data-tab="view3d">4. Plans</button>
-  <button data-tab="materials">5. Liste</button>
-  <button data-tab="saved">Chantiers</button>
-</nav>
+<header class="app-header">
+  <div class="brand"><strong>ScaffR200</strong><span>V3.5</span></div>
+  <nav class="top-nav" aria-label="Navigation principale">
+    <button class="active" data-tab="stock">Matériel</button>
+    <button data-tab="project">Chantier</button>
+    <button data-tab="facades">Façades</button>
+    <button data-tab="view3d">Vue 3D</button>
+    <button data-tab="materials">Liste</button>
+    <button data-tab="saved">Chantiers</button>
+  </nav>
+  <div class="header-actions"><button id="quickSave">Enregistrer</button><button id="quickLoad">Charger</button></div>
+</header>
 <main>
 <section id="stock" class="panel active">
-  <article>
+  <article class="form-card">
     <small>ÉTAPE 1 — AVANT DE CRÉER LE PROJET</small>
-    <h2>Choisir le matériel disponible</h2>
+    <h1>Choisir le matériel disponible</h1>
     <p class="intro">Ce choix devient la base du chantier. Seuls les éléments cochés seront proposés et calculés.</p>
     <div class="grid2">
       <label>Système principal<select id="stockSystem"><option value="r200p">R200 Progress acier</option><option value="r200r">R200 Record aluminium</option><option value="m368">M368 multidirectionnel</option></select></label>
       <label>Largeur d'échafaudage<select id="scaffoldWidth"><option value="0.8">0,80 m</option><option value="0.7">0,70 m</option><option value="1">1,00 m</option></select></label>
     </div>
-    <h3>Longueurs de travées disponibles</h3><div id="bayChoices" class="choice-grid"></div>
-    <h3>Familles à intégrer</h3><div id="stockFamilies" class="choice-grid"></div>
+    <h2>Longueurs de travées disponibles</h2><div id="bayChoices" class="choice-grid"></div>
+    <h2>Familles à intégrer</h2><div id="stockFamilies" class="choice-grid"></div>
     <div class="grid3">
       <label>Type de plancher<select id="stockDeck"><option value="alu-bois">Alu-bois 0,73 m</option><option value="acier">Acier</option><option value="alu">Aluminium</option></select></label>
       <label>Protection latérale<select id="stockGuardrail"><option value="classic">Lisses + sous-lisses</option><option value="fusio">Garde-corps Fusio</option></select></label>
@@ -41,29 +44,67 @@
 </section>
 
 <section id="project" class="panel">
-  <article><small>ÉTAPE 2</small><h2>Configuration du chantier</h2>
+  <article class="form-card"><small>ÉTAPE 2</small><h1>Configuration du chantier</h1>
     <label>Nom du chantier<input id="name" value="Maison"></label>
-    <div class="grid2"><label>Hauteur de départ<input id="startHeight" type="number" min="0" max="4" step="0.5" value="1"></label><label>Hauteur à desservir<input id="targetHeight" type="number" min="1" step="0.5" value="7"></label></div>
-    <div class="grid2"><label>Hauteur des niveaux<select id="levelHeight"><option value="2" selected>2 m</option><option value="1">1 m</option></select></label><label>Mode des travées<select id="mode"><option value="auto">Calcul automatique</option><option value="manual">Travées manuelles</option></select></label></div>
-    <h3>Mode de saisie des longueurs</h3>
+    <div class="grid3"><label>Hauteur de départ<input id="startHeight" type="number" min="0" max="6" step="0.5" value="1"></label><label>Hauteur à desservir<input id="targetHeight" type="number" min="1" step="0.5" value="7"></label><label>Hauteur des niveaux<select id="levelHeight"><option value="2" selected>2 m</option><option value="1">1 m</option></select></label></div>
+    <label>Mode des travées<select id="mode"><option value="auto">Calcul automatique</option><option value="manual">Travées manuelles</option></select></label>
+    <h2>Mode de saisie des longueurs</h2>
     <div class="mode-choice">
-      <label class="choice"><input type="radio" name="lengthMode" value="building" checked><span>Dimensions du bâtiment</span></label>
-      <label class="choice"><input type="radio" name="lengthMode" value="scaffold"><span>Longueurs d'échafaudage</span></label>
+      <label class="choice"><input type="radio" name="lengthMode" value="building" checked><span><strong>Dimensions du bâtiment</strong><small>Je saisis la longueur et la largeur.</small></span></label>
+      <label class="choice"><input type="radio" name="lengthMode" value="scaffold"><span><strong>Longueur d'échafaudage</strong><small>Je saisis les quatre façades.</small></span></label>
     </div>
-    <div id="buildingInputs"><h3>Dimensions du bâtiment</h3><div class="grid2"><label>Façades Nord / Sud<input id="width" type="number" min="1" step="0.1" value="12"></label><label>Façades Est / Ouest<input id="depth" type="number" min="1" step="0.1" value="8"></label></div></div>
-    <div id="scaffoldInputs" hidden><h3>Longueurs d'échafaudage par façade</h3><div class="grid2"><label>Nord<input id="northLength" type="number" min="0" step="0.1" value="12"></label><label>Est<input id="eastLength" type="number" min="0" step="0.1" value="8"></label><label>Sud<input id="southLength" type="number" min="0" step="0.1" value="12"></label><label>Ouest<input id="westLength" type="number" min="0" step="0.1" value="8"></label></div></div>
+    <div id="buildingInputs"><h2>Dimensions du bâtiment</h2><div class="grid2"><label>Façades Nord / Sud<input id="width" type="number" min="1" step="0.1" value="12"></label><label>Façades Est / Ouest<input id="depth" type="number" min="1" step="0.1" value="8"></label></div></div>
+    <div id="scaffoldInputs" hidden><h2>Longueurs d'échafaudage par façade</h2><div class="grid2"><label>Nord<input id="northLength" type="number" min="0" step="0.1" value="12"></label><label>Est<input id="eastLength" type="number" min="0" step="0.1" value="8"></label><label>Sud<input id="southLength" type="number" min="0" step="0.1" value="12"></label><label>Ouest<input id="westLength" type="number" min="0" step="0.1" value="8"></label></div></div>
     <button id="generate" class="primary">Créer / recalculer les quatre façades</button>
     <div class="stats"><div><span>Longueur totale</span><strong id="perimeter">40 m</strong></div><div><span>Niveaux</span><strong id="levelsStat">3</strong></div><div><span>Surface</span><strong id="area">280 m²</strong></div></div>
   </article>
 </section>
 
-<section id="facades" class="panel"><article><div class="head"><div><small>ÉTAPE 3</small><h2>Réglages par façade</h2></div><select id="activeFacade"></select></div><div id="facadeEditor"></div><div id="checks"></div><div class="canvas"><canvas id="plan" width="1200" height="760"></canvas></div></article></section>
+<section id="facades" class="panel">
+  <article class="form-card"><div class="section-head"><div><small>ÉTAPE 3</small><h1>Réglages par façade</h1></div><select id="activeFacade"></select></div><div id="facadeEditor"></div><div id="checks"></div><div class="canvas"><canvas id="plan" width="1200" height="760"></canvas></div></article>
+</section>
 
-<section id="view3d" class="panel"><article><div class="head"><div><small>ÉTAPE 4</small><h2>Plans et vue 3D</h2></div><span class="pill">Façade active</span></div><p class="intro">Les travées, cadres, planchers, trappes, échelles, diagonales, plinthes, lisses et sous-lisses sont représentés. La hauteur s’arrête à la dernière lisse.</p><div class="view-switch"><button data-view="iso" class="active">Vue 3D</button><button data-view="front">Vue de face</button><button data-view="side">Vue de côté</button><button data-view="top">Vue de dessus</button></div><div class="canvas"><canvas id="three" width="1200" height="850"></canvas></div><div class="buttons"><button id="left">↶</button><button id="reset">Réinitialiser</button><button id="right">↷</button></div></article></section>
+<section id="view3d" class="panel dashboard-panel">
+  <div class="dashboard-grid">
+    <aside class="dash-sidebar">
+      <h2>PARAMÈTRES DU CHANTIER</h2>
+      <label>Nom du projet<input id="dashName" readonly></label>
+      <div class="mini-grid"><label>Hauteur d'étage<input id="dashLevel" readonly></label><label>Nombre de niveaux<input id="dashLevels" readonly></label><label>Largeur échafaudage<input id="dashWidth" readonly></label></div>
+      <h2>DIMENSIONS DU BÂTIMENT</h2>
+      <div class="mini-grid"><label>Longueur<input id="dashBuildingLength" readonly></label><label>Largeur<input id="dashBuildingDepth" readonly></label></div>
+      <h2>CONFIGURATION DES FAÇADES</h2>
+      <div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Façade</th><th>Type</th><th>Long.</th><th>Bas</th><th>Sous pente</th><th>Pointe</th></tr></thead><tbody id="dashFacades"></tbody></table></div>
+      <div id="dashGableSummary" class="summary-box"></div>
+      <h2>DIAGONALES PAR FAÇADE</h2><div id="dashDiagonals" class="diag-list"></div>
+      <button id="dashCalculate" class="primary">GÉNÉRER LES CALCULS</button>
+    </aside>
 
-<section id="materials" class="panel"><article><div class="head"><div><small>ÉTAPE 5 — LISTE DE CHARGEMENT</small><h2 id="matTitle">Liste du matériel</h2></div><button id="print">Imprimer / PDF</button></div><div class="list-tools"><label>Vue<select id="listFacade"><option value="all">Total chantier</option></select></label><div id="familyFilters" class="chips"></div></div><div class="legend"><span>Référence</span><span>Désignation</span><span>Façade</span><span>Qté</span><span>Poids</span></div><div id="matList"></div></article></section>
+    <section class="dash-center">
+      <div class="dash-title"><h2>VUE 3D</h2><span id="dashActiveFacade" class="badge"></span></div>
+      <div class="view-switch"><button data-view="iso" class="active">3D</button><button data-view="front">Face</button><button data-view="side">Côté</button><button data-view="top">Dessus</button></div>
+      <div class="hero-canvas"><canvas id="three" width="1200" height="850"></canvas></div>
+      <div class="buttons rotation"><button id="left">↶ Tourner</button><button id="reset">Réinitialiser</button><button id="right">Tourner ↷</button></div>
+      <div class="mini-plans">
+        <div><h3>VUE DE FACE</h3><canvas id="miniFront" width="600" height="420"></canvas></div>
+        <div><h3>VUE DE CÔTÉ</h3><canvas id="miniSide" width="420" height="420"></canvas></div>
+        <div><h3>VUE DE DESSUS</h3><canvas id="miniTop" width="600" height="420"></canvas></div>
+      </div>
+      <div id="heightStrip" class="height-strip"></div>
+    </section>
 
-<section id="saved" class="panel"><article><div class="head"><h2>Chantiers enregistrés</h2><button id="save" class="primary compact">Sauvegarder</button></div><div class="buttons"><button id="exportJson">Exporter JSON</button><button id="importJson">Importer JSON</button><input id="importFile" type="file" accept="application/json" hidden></div><div id="savedList"></div></article></section>
+    <aside class="dash-materials">
+      <div class="segment"><button class="active">Total chantier</button><button>Par façade</button></div>
+      <h2>LISTE DU MATÉRIEL</h2>
+      <div class="dash-table-wrap material-scroll"><table class="dash-table material-table"><thead><tr><th>Réf.</th><th>Désignation</th><th>Qté</th><th>Poids</th></tr></thead><tbody id="dashMaterialRows"></tbody></table></div>
+      <div class="dash-total"><span>TOTAL GÉNÉRAL</span><strong id="dashMaterialTotal">0 kg</strong></div>
+      <div class="buttons"><button id="dashExport">Exporter</button><button id="dashPrint">Imprimer</button></div>
+    </aside>
+  </div>
+</section>
+
+<section id="materials" class="panel"><article class="form-card"><div class="section-head"><div><small>ÉTAPE 5 — LISTE DE CHARGEMENT</small><h1 id="matTitle">Liste du matériel</h1></div><button id="print">Imprimer / PDF</button></div><div class="list-tools"><label>Vue<select id="listFacade"><option value="all">Total chantier</option></select></label><div id="familyFilters" class="chips"></div></div><div class="legend"><span>Référence</span><span>Désignation</span><span>Façade</span><span>Qté</span><span>Poids</span></div><div id="matList"></div></article></section>
+
+<section id="saved" class="panel"><article class="form-card"><div class="section-head"><h1>Chantiers enregistrés</h1><button id="save" class="primary compact">Sauvegarder</button></div><div class="buttons"><button id="exportJson">Exporter JSON</button><button id="importJson">Importer JSON</button><input id="importFile" type="file" accept="application/json" hidden></div><div id="savedList"></div></article></section>
 </main>
 <script src="app.js"></script>
 </body></html>
