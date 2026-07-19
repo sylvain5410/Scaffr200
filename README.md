@@ -1,16 +1,11 @@
-# ScaffR200 V2.2
+# ScaffR200 V3.4
 
-Nouvelle base de préparation de chantiers pour échafaudage Comabi R200 Progress acier.
+Version métier avec :
+- façades droites ou pignons ;
+- vue 3D avec trappes et échelles d’accès ;
+- arrêt des montants à la dernière lisse ;
+- vues de face, côté et dessus ;
+- travées visibles en vue de dessus ;
+- liste recalculée selon les niveaux variables du pignon.
 
-## Nouveautés
-- hauteur de départ personnalisable par pas de 0,5 m ;
-- quatre façades reliées à 90° ;
-- calcul automatique ou modification manuelle des travées ;
-- recalcul indépendant de chaque façade ;
-- choix par travée : accès, cadre bas/haut, plancher, garde-corps, console, diagonale ;
-- accès visibles en 2D, en 3D et dans la nomenclature ;
-- vue 3D des quatre façades ;
-- contrôles simples de cohérence ;
-- sauvegarde locale, import/export JSON et impression PDF.
-
-Les quantités restent indicatives et doivent être vérifiées avec la notice Comabi et l'étude de chantier.
+Déployer le contenu du dossier à la racine du dépôt GitHub Pages.

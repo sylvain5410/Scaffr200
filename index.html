@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#f59e0b">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <title>ScaffR200 V3.3</title>
+  <title>ScaffR200 V3.4</title>
 </head>
 <body>
-<header><div><small>PRÉPARATION D'ÉCHAFAUDAGE</small><h1>ScaffR200</h1></div><b>V3.3</b></header>
+<header><div><small>PRÉPARATION D'ÉCHAFAUDAGE</small><h1>ScaffR200</h1></div><b>V3.4</b></header>
 <nav>
   <button class="active" data-tab="stock">1. Matériel</button>
   <button data-tab="project">2. Chantier</button>
@@ -59,7 +59,7 @@
 
 <section id="facades" class="panel"><article><div class="head"><div><small>ÉTAPE 3</small><h2>Réglages par façade</h2></div><select id="activeFacade"></select></div><div id="facadeEditor"></div><div id="checks"></div><div class="canvas"><canvas id="plan" width="1200" height="760"></canvas></div></article></section>
 
-<section id="view3d" class="panel"><article><div class="head"><div><small>ÉTAPE 4</small><h2>Plans et vue 3D</h2></div><span class="pill">Façade active</span></div><p class="intro">Les travées, cadres, planchers, diagonales, plinthes, lisses et sous-lisses sont représentés.</p><div class="view-switch"><button data-view="iso" class="active">Vue 3D</button><button data-view="front">Vue de face</button><button data-view="side">Vue de côté</button><button data-view="top">Vue de dessus</button></div><div class="canvas"><canvas id="three" width="1200" height="850"></canvas></div><div class="buttons"><button id="left">↶</button><button id="reset">Réinitialiser</button><button id="right">↷</button></div></article></section>
+<section id="view3d" class="panel"><article><div class="head"><div><small>ÉTAPE 4</small><h2>Plans et vue 3D</h2></div><span class="pill">Façade active</span></div><p class="intro">Les travées, cadres, planchers, trappes, échelles, diagonales, plinthes, lisses et sous-lisses sont représentés. La hauteur s’arrête à la dernière lisse.</p><div class="view-switch"><button data-view="iso" class="active">Vue 3D</button><button data-view="front">Vue de face</button><button data-view="side">Vue de côté</button><button data-view="top">Vue de dessus</button></div><div class="canvas"><canvas id="three" width="1200" height="850"></canvas></div><div class="buttons"><button id="left">↶</button><button id="reset">Réinitialiser</button><button id="right">↷</button></div></article></section>
 
 <section id="materials" class="panel"><article><div class="head"><div><small>ÉTAPE 5 — LISTE DE CHARGEMENT</small><h2 id="matTitle">Liste du matériel</h2></div><button id="print">Imprimer / PDF</button></div><div class="list-tools"><label>Vue<select id="listFacade"><option value="all">Total chantier</option></select></label><div id="familyFilters" class="chips"></div></div><div class="legend"><span>Référence</span><span>Désignation</span><span>Façade</span><span>Qté</span><span>Poids</span></div><div id="matList"></div></article></section>
 
