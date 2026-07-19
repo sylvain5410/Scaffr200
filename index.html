@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#0f1f35">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <title>ScaffR200 V3.5</title>
+  <title>ScaffR200 V3.6</title>
 </head>
 <body>
 <header class="app-header">
-  <div class="brand"><strong>ScaffR200</strong><span>V3.5</span></div>
+  <div class="brand"><strong>ScaffR200</strong><span>V3.6</span></div>
   <nav class="top-nav" aria-label="Navigation principale">
     <button class="active" data-tab="stock">Matériel</button>
     <button data-tab="project">Chantier</button>
@@ -65,7 +65,12 @@
 </section>
 
 <section id="view3d" class="panel dashboard-panel">
-  <div class="dashboard-grid">
+  <div class="mobile-dashboard-tabs" aria-label="Sections de la vue chantier">
+    <button type="button" class="active" data-mobile-dash="center">Plan</button>
+    <button type="button" data-mobile-dash="sidebar">Paramètres</button>
+    <button type="button" data-mobile-dash="materials">Matériel</button>
+  </div>
+  <div class="dashboard-grid mobile-show-center">
     <aside class="dash-sidebar">
       <h2>PARAMÈTRES DU CHANTIER</h2>
       <label>Nom du projet<input id="dashName" readonly></label>
