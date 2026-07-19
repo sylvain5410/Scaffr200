@@ -1,157 +1,31 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f59e0b" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="ScaffR200" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="icons/icon-192.svg" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>ScaffR200</title>
-</head>
-<body>
-  <header class="app-header">
-    <div>
-      <p class="eyebrow">COMABI R200 PROGRESS ACIER</p>
-      <h1>ScaffR200</h1>
-    </div>
-    <button id="installBtn" class="ghost" hidden>Installer</button>
-  </header>
-
-  <main>
-    <section class="card hero">
-      <div>
-        <h2>Préparer un chantier en quelques minutes</h2>
-        <p>Calcul estimatif, plan 2D et sauvegarde locale sur iPhone.</p>
-      </div>
-      <span class="badge">Mode chantier</span>
-    </section>
-
-    <nav class="tabs" aria-label="Navigation principale">
-      <button class="tab active" data-tab="project">Chantier</button>
-      <button class="tab" data-tab="materials">Matériel</button>
-      <button class="tab" data-tab="plan">Plan 2D</button>
-      <button class="tab" data-tab="saved">Mes chantiers</button>
-    </nav>
-
-    <section id="project" class="panel active">
-      <form id="projectForm" class="card form-grid">
-        <label>
-          Nom du chantier
-          <input id="name" type="text" placeholder="Ex. Façade mairie" required />
-        </label>
-
-        <label>
-          Nombre de travées
-          <div class="stepper">
-            <button type="button" data-step="bays" data-delta="-1">−</button>
-            <input id="bays" type="number" min="1" max="100" value="6" inputmode="numeric" />
-            <button type="button" data-step="bays" data-delta="1">+</button>
-          </div>
-          <small>3,00 m par travée</small>
-        </label>
-
-        <label>
-          Nombre de niveaux
-          <div class="stepper">
-            <button type="button" data-step="levels" data-delta="-1">−</button>
-            <input id="levels" type="number" min="1" max="30" value="5" inputmode="numeric" />
-            <button type="button" data-step="levels" data-delta="1">+</button>
-          </div>
-          <small>2,00 m par niveau</small>
-        </label>
-
-        <label>
-          Type de montage
-          <select id="mountType">
-            <option value="facade">Façade droite</option>
-            <option value="pignon">Pignon</option>
-            <option value="angle">Retour d’angle</option>
-          </select>
-        </label>
-
-        <label class="check">
-          <input id="hasAccess" type="checkbox" />
-          Ajouter une travée d’accès
-        </label>
-
-        <label class="check">
-          <input id="hasConsole" type="checkbox" />
-          Ajouter des consoles
-        </label>
-
-        <div class="summary">
-          <div><span>Longueur</span><strong id="lengthSummary">18 m</strong></div>
-          <div><span>Hauteur</span><strong id="heightSummary">10 m</strong></div>
-          <div><span>Surface</span><strong id="surfaceSummary">180 m²</strong></div>
-        </div>
-
-        <button class="primary full" type="submit">Calculer le matériel</button>
-      </form>
-
-      <div class="card warning">
-        <strong>Important</strong>
-        <p>Les quantités sont des estimations de préparation. Les amarrages, charges, consoles, bâchage et cas particuliers doivent être vérifiés selon la notice du fabricant, l’étude de chantier et les règles applicables.</p>
-      </div>
-    </section>
-
-    <section id="materials" class="panel">
-      <div class="card">
-        <div class="section-title">
-          <div>
-            <p class="eyebrow">ESTIMATION</p>
-            <h2 id="materialTitle">Matériel</h2>
-          </div>
-          <button id="printBtn" class="ghost">Exporter / PDF</button>
-        </div>
-        <div id="materialList" class="material-list"></div>
-        <p class="footnote">Hypothèses : planchers alu/bois, garde-corps classiques, contreventement estimé à une diagonale tous les 3 modules.</p>
-      </div>
-    </section>
-
-    <section id="plan" class="panel">
-      <div class="card">
-        <div class="section-title">
-          <div>
-            <p class="eyebrow">APERÇU</p>
-            <h2>Plan 2D</h2>
-          </div>
-          <span id="planDimensions" class="badge"></span>
-        </div>
-        <div class="canvas-wrap">
-          <canvas id="planCanvas" width="1200" height="700"></canvas>
-        </div>
-        <p class="footnote">Vue schématique non contractuelle.</p>
-      </div>
-    </section>
-
-    <section id="saved" class="panel">
-      <div class="card">
-        <div class="section-title">
-          <div>
-            <p class="eyebrow">LOCAL</p>
-            <h2>Mes chantiers</h2>
-          </div>
-          <button id="saveBtn" class="primary small">Sauvegarder</button>
-        </div>
-        <div id="savedList" class="saved-list"></div>
-      </div>
-    </section>
-  </main>
-
-  <template id="materialRowTemplate">
-    <div class="material-row">
-      <div>
-        <strong class="material-name"></strong>
-        <small class="material-note"></small>
-      </div>
-      <span class="qty"></span>
-    </div>
-  </template>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f59e0b"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>ScaffR200</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+</head><body>
+<header><div><small>COMABI R200 PROGRESS ACIER</small><h1>ScaffR200</h1></div><b>V0.2</b></header>
+<main>
+<nav>
+<button class="active" data-tab="chantier">Chantier</button><button data-tab="materiel">Matériel</button>
+<button data-tab="plan2d">Plan 2D</button><button data-tab="vue3d">Vue 3D</button><button data-tab="sauvegardes">Chantiers</button>
+</nav>
+<section id="chantier" class="panel active card">
+<h2>Nouveau chantier</h2>
+<label>Nom<input id="nom" placeholder="Ex. Façade mairie"></label>
+<div class="grid">
+<label>Travées de 3 m<div class="step"><button data-step="travees" data-d="-1">−</button><input id="travees" type="number" min="1" value="6"><button data-step="travees" data-d="1">+</button></div></label>
+<label>Niveaux de 2 m<div class="step"><button data-step="niveaux" data-d="-1">−</button><input id="niveaux" type="number" min="1" value="5"><button data-step="niveaux" data-d="1">+</button></div></label>
+</div>
+<label>Montage<select id="type"><option value="facade">Façade droite</option><option value="pignon">Pignon</option><option value="angle">Retour d’angle</option></select></label>
+<label class="check"><input id="acces" type="checkbox">Travée d’accès</label>
+<label class="check"><input id="consoles" type="checkbox">Consoles</label>
+<div class="resume"><div><span>Longueur</span><b id="longueur">18 m</b></div><div><span>Hauteur</span><b id="hauteur">10 m</b></div><div><span>Surface</span><b id="surface">180 m²</b></div></div>
+<button id="calculer" class="primary">Calculer</button>
+<p class="warn">Estimation de préparation uniquement. Amarrages, charges, bâchage, consoles et configurations particulières doivent être vérifiés selon la notice et l’étude du chantier.</p>
+</section>
+<section id="materiel" class="panel card"><div class="title"><h2>Liste du matériel</h2><button id="pdf">Exporter PDF</button></div><div id="liste"></div></section>
+<section id="plan2d" class="panel card"><h2>Plan 2D</h2><div class="canvas"><canvas id="c2d" width="1200" height="700"></canvas></div><p>Vue schématique non contractuelle.</p></section>
+<section id="vue3d" class="panel card"><h2>Vue 3D simplifiée</h2><div class="canvas"><canvas id="c3d" width="1200" height="760"></canvas></div><div class="rotate"><button id="gauche">↶ Tourner</button><button id="droite">Tourner ↷</button></div><p>Tu peux aussi faire glisser ton doigt horizontalement sur la vue.</p></section>
+<section id="sauvegardes" class="panel card"><div class="title"><h2>Mes chantiers</h2><button id="sauver" class="primary">Sauvegarder</button></div><div id="saves"></div></section>
+</main><script src="app.js"></script></body></html>

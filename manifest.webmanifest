@@ -1,20 +1,14 @@
 {
   "name": "ScaffR200",
   "short_name": "ScaffR200",
-  "description": "Préparation de chantiers Comabi R200 Progress acier",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f1f5f9",
+  "background_color": "#eef2f7",
   "theme_color": "#f59e0b",
   "lang": "fr",
   "icons": [
     {
-      "src": "icons/icon-192.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "icons/icon-512.svg",
+      "src": "icons/icon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }

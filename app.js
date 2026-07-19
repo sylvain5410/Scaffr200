@@ -1,239 +1,34 @@
-
-const $ = (id) => document.getElementById(id);
-const state = {
-  name: "",
-  bays: 6,
-  levels: 5,
-  mountType: "facade",
-  hasAccess: false,
-  hasConsole: false,
-  materials: []
-};
-
-const materialDefinitions = [
-  ["Socles à vis", s => 2 * (s.bays + 1), "Deux files de montants"],
-  ["Cadres R200 Progress acier", s => (s.bays + 1) * s.levels, "Cadres principaux de niveau"],
-  ["Planchers alu/bois 3,00 m", s => s.bays * s.levels, "Hypothèse : 1 plancher principal par travée et niveau"],
-  ["Longerons / lisses longitudinales", s => s.bays * (s.levels + 1) * 2, "Deux côtés, estimation de préparation"],
-  ["Garde-corps classiques", s => s.bays * Math.max(1, s.levels), "Protection périphérique estimative"],
-  ["Plinthes longitudinales 3,00 m", s => s.bays * Math.max(1, s.levels), "Une par travée au niveau de travail"],
-  ["Plinthes d’extrémité", s => 2 * Math.max(1, s.levels), "Deux extrémités"],
-  ["Diagonales", s => Math.ceil(s.bays / 3) * s.levels, "Une diagonale tous les 3 modules"],
-  ["Amarrages", s => Math.ceil((s.bays * s.levels) / 6), "Valeur indicative à vérifier par étude"],
-  ["Éléments d’accès", s => s.hasAccess ? s.levels : 0, "Échelle ou accès selon configuration"],
-  ["Consoles", s => s.hasConsole ? s.bays * 2 : 0, "Estimation, à valider selon largeur et implantation"],
-  ["Éléments retour d’angle", s => s.mountType === "angle" ? s.levels * 2 : 0, "Quantité indicative"]
-];
-
-function readForm() {
-  state.name = $("name").value.trim() || "Chantier sans nom";
-  state.bays = Math.max(1, Number($("bays").value || 1));
-  state.levels = Math.max(1, Number($("levels").value || 1));
-  state.mountType = $("mountType").value;
-  state.hasAccess = $("hasAccess").checked;
-  state.hasConsole = $("hasConsole").checked;
-  state.materials = materialDefinitions
-    .map(([name, calc, note]) => ({ name, qty: calc(state), note }))
-    .filter(item => item.qty > 0);
-}
-
-function updateSummary() {
-  const bays = Math.max(1, Number($("bays").value || 1));
-  const levels = Math.max(1, Number($("levels").value || 1));
-  const length = bays * 3;
-  const height = levels * 2;
-  $("lengthSummary").textContent = `${length} m`;
-  $("heightSummary").textContent = `${height} m`;
-  $("surfaceSummary").textContent = `${length * height} m²`;
-}
-
-function renderMaterials() {
-  const list = $("materialList");
-  list.innerHTML = "";
-  $("materialTitle").textContent = `${state.name} — ${state.bays * 3} m × ${state.levels * 2} m`;
-  const template = $("materialRowTemplate");
-  state.materials.forEach(item => {
-    const node = template.content.cloneNode(true);
-    node.querySelector(".material-name").textContent = item.name;
-    node.querySelector(".material-note").textContent = item.note;
-    node.querySelector(".qty").textContent = item.qty;
-    list.appendChild(node);
-  });
-}
-
-function drawPlan() {
-  const canvas = $("planCanvas");
-  const ctx = canvas.getContext("2d");
-  const padding = 70;
-  const w = canvas.width - padding * 2;
-  const h = canvas.height - padding * 2;
-  const bayW = w / state.bays;
-  const levelH = h / state.levels;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.lineWidth = 6;
-  ctx.strokeStyle = "#1e293b";
-  ctx.lineCap = "round";
-
-  for (let i = 0; i <= state.bays; i++) {
-    const x = padding + i * bayW;
-    ctx.beginPath();
-    ctx.moveTo(x, padding);
-    ctx.lineTo(x, padding + h);
-    ctx.stroke();
-  }
-  for (let j = 0; j <= state.levels; j++) {
-    const y = padding + j * levelH;
-    ctx.beginPath();
-    ctx.moveTo(padding, y);
-    ctx.lineTo(padding + w, y);
-    ctx.stroke();
-  }
-
-  ctx.strokeStyle = "#f59e0b";
-  ctx.lineWidth = 5;
-  for (let i = 0; i < state.bays; i += 3) {
-    for (let j = 0; j < state.levels; j++) {
-      const x1 = padding + i * bayW;
-      const x2 = padding + Math.min(i + 1, state.bays) * bayW;
-      const y1 = padding + (j + 1) * levelH;
-      const y2 = padding + j * levelH;
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
-      ctx.stroke();
-    }
-  }
-
-  ctx.fillStyle = "#111827";
-  ctx.font = "700 28px system-ui";
-  ctx.fillText(`${state.bays * 3} m`, canvas.width / 2 - 35, canvas.height - 20);
-  ctx.save();
-  ctx.translate(25, canvas.height / 2 + 35);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillText(`${state.levels * 2} m`, 0, 0);
-  ctx.restore();
-
-  $("planDimensions").textContent = `${state.bays} travées • ${state.levels} niveaux`;
-}
-
-function switchTab(tabId) {
-  document.querySelectorAll(".tab").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabId));
-  document.querySelectorAll(".panel").forEach(panel => panel.classList.toggle("active", panel.id === tabId));
-}
-
-function calculate() {
-  readForm();
-  renderMaterials();
-  drawPlan();
-}
-
-document.querySelectorAll(".tab").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
-
-document.querySelectorAll("[data-step]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const input = $(btn.dataset.step);
-    const delta = Number(btn.dataset.delta);
-    input.value = Math.max(Number(input.min || 1), Number(input.value || 1) + delta);
-    updateSummary();
-  });
-});
-
-["bays", "levels"].forEach(id => $(id).addEventListener("input", updateSummary));
-
-$("projectForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  calculate();
-  switchTab("materials");
-});
-
-$("printBtn").addEventListener("click", () => {
-  calculate();
-  window.print();
-});
-
-function getSaved() {
-  try { return JSON.parse(localStorage.getItem("scaffr200-projects") || "[]"); }
-  catch { return []; }
-}
-function setSaved(items) {
-  localStorage.setItem("scaffr200-projects", JSON.stringify(items));
-}
-function renderSaved() {
-  const container = $("savedList");
-  const items = getSaved();
-  container.innerHTML = "";
-  if (!items.length) {
-    container.innerHTML = '<div class="empty">Aucun chantier sauvegardé.</div>';
-    return;
-  }
-  items.forEach((item, index) => {
-    const row = document.createElement("div");
-    row.className = "saved-item";
-    row.innerHTML = `
-      <div>
-        <strong>${escapeHtml(item.name)}</strong>
-        <small>${item.bays} travées • ${item.levels} niveaux • ${new Date(item.savedAt).toLocaleDateString("fr-FR")}</small>
-      </div>
-      <div class="actions">
-        <button class="icon-btn" data-load="${index}">Ouvrir</button>
-        <button class="icon-btn danger" data-delete="${index}">Supprimer</button>
-      </div>`;
-    container.appendChild(row);
-  });
-}
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-$("saveBtn").addEventListener("click", () => {
-  calculate();
-  const items = getSaved();
-  items.unshift({ ...state, savedAt: new Date().toISOString() });
-  setSaved(items.slice(0, 50));
-  renderSaved();
-});
-
-$("savedList").addEventListener("click", (e) => {
-  const items = getSaved();
-  const load = e.target.dataset.load;
-  const del = e.target.dataset.delete;
-  if (load !== undefined) {
-    const item = items[Number(load)];
-    $("name").value = item.name;
-    $("bays").value = item.bays;
-    $("levels").value = item.levels;
-    $("mountType").value = item.mountType;
-    $("hasAccess").checked = item.hasAccess;
-    $("hasConsole").checked = item.hasConsole;
-    updateSummary();
-    calculate();
-    switchTab("project");
-  }
-  if (del !== undefined) {
-    items.splice(Number(del), 1);
-    setSaved(items);
-    renderSaved();
-  }
-});
-
-let deferredPrompt;
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  $("installBtn").hidden = false;
-});
-$("installBtn").addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  $("installBtn").hidden = true;
-});
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js"));
-}
-
-updateSummary();
-calculate();
-renderSaved();
+const $=id=>document.getElementById(id);
+let state={nom:"Chantier",travees:6,niveaux:5,type:"facade",acces:false,consoles:false,angle:-.55,materiel:[]};
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.tab));});
+document.querySelectorAll("[data-step]").forEach(b=>b.onclick=()=>{let i=$(b.dataset.step);i.value=Math.max(1,+i.value+(+b.dataset.d));resume();});
+["travees","niveaux"].forEach(id=>$(id).oninput=resume);
+function resume(){let t=Math.max(1,+$("travees").value||1),n=Math.max(1,+$("niveaux").value||1);$("longueur").textContent=t*3+" m";$("hauteur").textContent=n*2+" m";$("surface").textContent=t*3*n*2+" m²";}
+function lire(){state.nom=$("nom").value.trim()||"Chantier";state.travees=Math.max(1,+$("travees").value||1);state.niveaux=Math.max(1,+$("niveaux").value||1);state.type=$("type").value;state.acces=$("acces").checked;state.consoles=$("consoles").checked;let s=state;state.materiel=[
+["Socles à vis",2*(s.travees+1),"Deux files de montants"],
+["Cadres R200 Progress acier",(s.travees+1)*s.niveaux,"Estimation principale"],
+["Planchers alu/bois 3 m",s.travees*s.niveaux,"1 par travée et niveau"],
+["Longerons / lisses",s.travees*(s.niveaux+1)*2,"Estimation deux côtés"],
+["Garde-corps classiques",s.travees*s.niveaux,"Protection estimative"],
+["Plinthes 3 m",s.travees*s.niveaux,"Une par travée de travail"],
+["Plinthes d’extrémité",2*s.niveaux,"Deux extrémités"],
+["Diagonales",Math.ceil(s.travees/3)*s.niveaux,"Une tous les 3 modules"],
+["Amarrages",Math.ceil(s.travees*s.niveaux/6),"Indicatif, à vérifier"],
+["Éléments d’accès",s.acces?s.niveaux:0,"Selon accès retenu"],
+["Consoles",s.consoles?s.travees*2:0,"À valider"],
+["Éléments retour d’angle",s.type==="angle"?s.niveaux*2:0,"Indicatif"]
+].filter(x=>x[1]>0);}
+function rendu(){let l=$("liste");l.innerHTML=`<h3>${state.nom} — ${state.travees*3} m × ${state.niveaux*2} m</h3>`;state.materiel.forEach(x=>l.innerHTML+=`<div class="row"><div><b>${x[0]}</b><small>${x[2]}</small></div><span class="qty">${x[1]}</span></div>`);}
+function calc(){lire();rendu();draw2d();draw3d();}
+$("calculer").onclick=()=>{calc();document.querySelector('[data-tab="materiel"]').click();};$("pdf").onclick=()=>{calc();print();};
+function draw2d(){let c=$("c2d"),x=c.getContext("2d"),p=70,w=c.width-2*p,h=c.height-2*p,bw=w/state.travees,lh=h/state.niveaux;x.clearRect(0,0,c.width,c.height);x.lineCap="round";for(let i=0;i<=state.travees;i++)line(x,p+i*bw,p,p+i*bw,p+h,6,"#172033");for(let j=0;j<=state.niveaux;j++)line(x,p,p+j*lh,p+w,p+j*lh,5,"#172033");for(let i=0;i<state.travees;i+=3)for(let j=0;j<state.niveaux;j++)line(x,p+i*bw,p+(j+1)*lh,p+Math.min(i+1,state.travees)*bw,p+j*lh,5,"#f59e0b");}
+function line(x,a,b,c,d,w,col){x.beginPath();x.lineWidth=w;x.strokeStyle=col;x.moveTo(a,b);x.lineTo(c,d);x.stroke();}
+function draw3d(){let c=$("c3d"),x=c.getContext("2d"),p=105,w=c.width-2*p,h=c.height-2*p,bw=w/state.travees,lh=h/state.niveaux,dep=100,dx=Math.cos(state.angle)*dep,dy=Math.sin(state.angle)*dep;x.clearRect(0,0,c.width,c.height);x.lineCap="round";for(let i=0;i<=state.travees;i++){let X=p+i*bw;line(x,X,p,X,p+h,6,"#172033");line(x,X+dx,p+dy,X+dx,p+h+dy,4,"#526075");line(x,X,p,X+dx,p+dy,3,"#7b8799");line(x,X,p+h,X+dx,p+h+dy,3,"#7b8799");}for(let j=0;j<=state.niveaux;j++){let Y=p+j*lh;line(x,p,Y,p+w,Y,5,"#172033");line(x,p+dx,Y+dy,p+w+dx,Y+dy,3,"#526075");}for(let i=0;i<state.travees;i+=3)for(let j=0;j<state.niveaux;j++)line(x,p+i*bw,p+(j+1)*lh,p+Math.min(i+1,state.travees)*bw,p+j*lh,5,"#f59e0b");}
+$("gauche").onclick=()=>{state.angle-=.18;draw3d()};$("droite").onclick=()=>{state.angle+=.18;draw3d()};
+let sx=null;$("c3d").addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});$("c3d").addEventListener("touchmove",e=>{if(sx===null)return;let nx=e.touches[0].clientX;state.angle+=(nx-sx)*.006;sx=nx;draw3d()},{passive:true});$("c3d").addEventListener("touchend",()=>sx=null);
+function saves(){try{return JSON.parse(localStorage.getItem("scaffr200-v02")||"[]")}catch{return[]}}
+function renderSaves(){let a=saves(),d=$("saves");d.innerHTML=a.length?"":'<div class="empty">Aucun chantier sauvegardé.</div>';a.forEach((s,i)=>d.innerHTML+=`<div class="save"><div><b>${s.nom}</b><small>${s.travees} travées • ${s.niveaux} niveaux</small></div><div><button data-open="${i}">Ouvrir</button> <button data-del="${i}">Supprimer</button></div></div>`);}
+$("sauver").onclick=()=>{calc();let a=saves();a.unshift({...state});localStorage.setItem("scaffr200-v02",JSON.stringify(a.slice(0,50)));renderSaves();};
+$("saves").onclick=e=>{let a=saves();if(e.target.dataset.open!==undefined){let s=a[+e.target.dataset.open];$("nom").value=s.nom;$("travees").value=s.travees;$("niveaux").value=s.niveaux;$("type").value=s.type;$("acces").checked=s.acces;$("consoles").checked=s.consoles;resume();calc();document.querySelector('[data-tab="chantier"]').click()}if(e.target.dataset.del!==undefined){a.splice(+e.target.dataset.del,1);localStorage.setItem("scaffr200-v02",JSON.stringify(a));renderSaves()}};
+if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js"));
+resume();calc();renderSaves();
