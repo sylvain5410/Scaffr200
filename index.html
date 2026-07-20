@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0c4f86">
-<title>ScaffR200 Pro v4.2</title>
+<title>ScaffR200 Pro v4.3</title>
 <style>
 :root{--blue:#0c4f86;--blue2:#e8f1f8;--green:#24733c;--red:#a92a2a;--line:#d8e0e7;--bg:#f3f5f7}
 *{box-sizing:border-box}
@@ -60,7 +60,7 @@ button.primary{background:var(--blue);color:#fff} button.danger{background:var(-
 </head>
 <body>
 <header>
-<div><h1>ScaffR200 Pro <small>v4.2</small></h1><p>Calcul global, extrémités, accès, lisses et planchers alu-bois</p></div>
+<div><h1>ScaffR200 Pro <small>v4.3</small></h1><p>Calcul global, extrémités, accès, lisses et planchers alu-bois</p></div>
 <button id="printBtn" type="button">Imprimer / PDF</button>
 </header>
 <main>
@@ -292,7 +292,7 @@ function calculate(){
  $("#sumFacades").textContent=active+" façade"+(active>1?"s":"");
  $("#sumLength").textContent="Longueur : "+fmt(totalLength)+" m";
  $("#sumArea").textContent="Surface : "+fmt(totalArea)+" m²";
- $("#status").textContent="Liste v4.2 calculée pour toutes les façades";
+ $("#status").textContent="Liste v4.3 calculée pour toutes les façades";
  setTimeout(()=>$("#status").textContent="",2400);
  $("#needed").scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -351,5 +351,5 @@ loadState();buildFacades();
 facadeNames.forEach(n=>{const d=state.facades[n]||defaultFacade(),f=$("#facade-"+n);f.querySelector(".f-enabled").checked=d.enabled;f.querySelector(".f-access").checked=!!d.access;f.querySelector(".f-length").value=d.length;f.querySelector(".f-height").value=d.height;f.querySelector(".f-width").value=String(d.width);f.querySelector(".f-levels").value=d.deckLevels;f.querySelectorAll("[data-l]").forEach(x=>x.value=d.bays?.[x.dataset.l]||0);setMode(n,d.mode||"auto")});
 renderAll();
 </script>
-</body>
+<hr><h3>Options V4.3</h3><ul><li>Cales bois = socles à vis</li><li>Choix du départ par façade</li><li>Cadres asymétriques au dernier niveau</li></ul></body>
 </html>
