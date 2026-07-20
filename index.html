@@ -1,14 +1,108 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ScaffR200</title><link rel="stylesheet" href="styles.css"></head>
-<body><header><div><h1>ScaffR200</h1><p>Liste de matériel modifiable</p></div><button id="printBtn">Imprimer / PDF</button></header>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ScaffR200</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>ScaffR200</h1>
+    <p>Préparation de listes de matériel</p>
+  </div>
+  <button id="printBtn">Imprimer / PDF</button>
+</header>
+
 <main>
-<section class="toolbar">
-<input id="search" type="search" placeholder="Rechercher une référence ou une désignation…">
-<button id="showSelected">Voir seulement les quantités</button><button id="resetBtn" class="danger">Remettre à zéro</button>
-</section>
-<section class="summary"><strong id="lineCount">0 article sélectionné</strong><strong id="totalQty">Quantité totale : 0</strong><strong id="totalWeight">Poids estimé : 0 kg</strong></section>
-<div class="table-wrap"><table><thead><tr><th>Référence</th><th>Désignation</th><th>Dimensions</th><th>Poids</th><th>Quantité</th></tr></thead><tbody id="catalogue"></tbody></table></div>
-<section class="actions"><button id="exportCsv">Exporter CSV</button><button id="saveBtn">Enregistrer</button><span id="status"></span></section>
-<p class="note">Version 1 : liste issue de la nomenclature de la notice M368 / R200. Les quantités sont enregistrées dans ce navigateur. Vérifiez toujours la conformité du montage à la notice fabricant.</p>
-</main><script src="app.js"></script></body></html>
+  <section class="card">
+    <h2>Calcul rapide d’une façade droite</h2>
+    <div class="form-grid">
+      <label>Nom du chantier
+        <input id="projectName" type="text" placeholder="Ex. Résidence Dupont">
+      </label>
+
+      <label>Nombre de travées
+        <input id="bayCount" type="number" min="1" step="1" value="4">
+      </label>
+
+      <label>Longueur d’une travée
+        <select id="bayLength">
+          <option value="3">3,00 m</option>
+          <option value="2.5">2,50 m</option>
+          <option value="2">2,00 m</option>
+          <option value="1.5">1,50 m</option>
+        </select>
+      </label>
+
+      <label>Hauteur de travail
+        <input id="height" type="number" min="2" step="1" value="8">
+      </label>
+
+      <label>Niveaux planchés
+        <input id="deckLevels" type="number" min="1" step="1" value="4">
+      </label>
+
+      <label>Garde-corps
+        <select id="guardrailType">
+          <option value="fusio">Fusio avec plinthe</option>
+          <option value="standard">Garde-corps + plinthe séparée</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="calculateBtn" class="primary">Calculer la liste</button>
+      <span id="calcInfo"></span>
+    </div>
+
+    <p class="warning">
+      Cette fonction produit une estimation modifiable pour une façade droite simple.
+      Elle ne vérifie pas les ancrages, le contreventement complet, les charges, le vent,
+      le calage ni les configurations particulières.
+    </p>
+  </section>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Rechercher une référence ou une désignation…">
+    <button id="showSelected">Voir seulement les quantités</button>
+    <button id="resetBtn" class="danger">Remettre à zéro</button>
+  </section>
+
+  <section class="summary">
+    <strong id="lineCount">0 article sélectionné</strong>
+    <strong id="totalQty">Quantité totale : 0</strong>
+    <strong id="totalWeight">Poids estimé : 0 kg</strong>
+  </section>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Référence</th>
+          <th>Désignation</th>
+          <th>Dimensions</th>
+          <th>Poids</th>
+          <th>Quantité</th>
+        </tr>
+      </thead>
+      <tbody id="catalogue"></tbody>
+    </table>
+  </div>
+
+  <section class="actions">
+    <button id="exportCsv">Exporter CSV</button>
+    <button id="saveBtn">Enregistrer</button>
+    <span id="status"></span>
+  </section>
+
+  <p class="note">
+    Les quantités restent entièrement modifiables. Vérifiez toujours la liste finale
+    avec la notice fabricant et une personne compétente avant utilisation.
+  </p>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,18 +1,20 @@
-ScaffR200 – Version 1
+ScaffR200 — Version 2
 
 Contenu :
-- index.html : application
-- styles.css : mise en page
-- app.js : fonctionnement
-- catalogue.json : 323 références extraites de la nomenclature
+- Calcul rapide d'une façade droite simple
+- Liste complète modifiable
+- Sauvegarde locale
+- Export CSV
+- Impression / PDF
 
-Installation GitHub :
-1. Décompressez le ZIP.
-2. Dans le dépôt scaffr200, cliquez Add file > Upload files.
-3. Envoyez les 4 fichiers et validez avec Commit changes.
-4. Dans Settings > Pages, choisissez Deploy from a branch, branche main, dossier /root.
+Installation sur GitHub :
+1. Décompresser le ZIP.
+2. Dans le dépôt Scaffr200, supprimer ou remplacer les anciens fichiers.
+3. Envoyer index.html, styles.css, app.js et catalogue.json à la racine du dépôt.
+4. Valider avec Commit changes.
+5. Attendre environ une minute puis actualiser GitHub Pages.
 
-Utilisation locale :
-Le plus fiable est de publier via GitHub Pages. Certains navigateurs bloquent le chargement de catalogue.json lorsqu'on ouvre directement index.html.
-
-Important : cette V1 est un outil de préparation de liste. Elle ne remplace ni la notice fabricant, ni une note de calcul, ni un plan établi par une personne compétente.
+Important :
+Le calcul automatique est une estimation de préparation.
+Il ne remplace pas la notice fabricant, un plan de montage, une note de calcul
+ou la validation d'une personne compétente.
