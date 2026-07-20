@@ -1,20 +1,14 @@
-ScaffR200 — Version 2
+ScaffR200 v3
 
-Contenu :
-- Calcul rapide d'une façade droite simple
-- Liste complète modifiable
-- Sauvegarde locale
-- Export CSV
-- Impression / PDF
+Installation :
+1. Décompresse le ZIP.
+2. Ouvre le dépôt GitHub Scaffr200.
+3. Supprime ou remplace l'ancien index.html.
+4. Envoie le nouveau index.html à la racine du dépôt.
+5. Clique sur Commit changes.
+6. Attends environ une minute puis rouvre l'application.
 
-Installation sur GitHub :
-1. Décompresser le ZIP.
-2. Dans le dépôt Scaffr200, supprimer ou remplacer les anciens fichiers.
-3. Envoyer index.html, styles.css, app.js et catalogue.json à la racine du dépôt.
-4. Valider avec Commit changes.
-5. Attendre environ une minute puis actualiser GitHub Pages.
+Cette version contient tout dans un seul fichier et corrige le chargement sur iPhone.
 
-Important :
-Le calcul automatique est une estimation de préparation.
-Il ne remplace pas la notice fabricant, un plan de montage, une note de calcul
-ou la validation d'une personne compétente.
+Attention : le calcul reste une estimation pour façade droite simple et ne remplace
+ni la notice fabricant, ni un plan de montage, ni une note de calcul.
