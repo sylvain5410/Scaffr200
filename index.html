@@ -1,122 +1,14 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#123f6d">
-  <title>ScaffR200 V4.1</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="topbar">
-    <div>
-      <h1>ScaffR200 <span>V4.1</span></h1>
-      <p>Préparation d’échafaudages R200</p>
-    </div>
-    <button type="button" id="resetProject" class="ghost">Nouveau chantier</button>
-  </header>
-
-  <main class="app-shell">
-    <nav class="step-tabs" aria-label="Navigation principale">
-      <button type="button" class="tab active" data-page="chantier">1. Chantier</button>
-      <button type="button" class="tab" data-page="plans">2. Plans</button>
-      <button type="button" class="tab" data-page="materiel">3. Matériel</button>
-    </nav>
-
-    <section id="page-chantier" class="page active">
-      <div class="intro-card">
-        <div>
-          <h2>Dimensions par façade</h2>
-          <p>Indiquez la longueur, la hauteur et composez les travées dans l’ordre souhaité.</p>
-        </div>
-        <div class="project-field">
-          <label for="projectName">Nom du chantier</label>
-          <input id="projectName" value="Nouveau chantier">
-        </div>
-      </div>
-
-      <div id="facadeCards" class="facade-grid"></div>
-
-      <div class="sticky-actions">
-        <button type="button" id="goPlans" class="primary">Voir les plans</button>
-      </div>
-    </section>
-
-    <section id="page-plans" class="page">
-      <div class="toolbar card">
-        <label>Façade affichée
-          <select id="viewFacade"></select>
-        </label>
-        <div class="view-tabs" role="tablist">
-          <button type="button" class="view-tab active" data-view="3d">3D</button>
-          <button type="button" class="view-tab" data-view="face">Face</button>
-          <button type="button" class="view-tab" data-view="side">Côté</button>
-          <button type="button" class="view-tab" data-view="top">Dessus</button>
-        </div>
-      </div>
-
-      <div class="plan-layout">
-        <section class="viewer card">
-          <div class="viewer-head">
-            <div>
-              <h2 id="viewerTitle">Vue 3D</h2>
-              <p id="viewerSubtitle"></p>
-            </div>
-            <button type="button" id="resetView" class="ghost small">Recentrer</button>
-          </div>
-          <canvas id="planCanvas" width="1200" height="720" aria-label="Plan d'échafaudage"></canvas>
-          <p class="viewer-help">Vue 3D : glissez pour tourner, pincez ou utilisez la molette pour zoomer.</p>
-        </section>
-
-        <aside class="summary card">
-          <h3>Résumé de la façade</h3>
-          <dl id="viewSummary"></dl>
-          <button type="button" id="goMaterial" class="primary full">Ouvrir la liste matériel</button>
-        </aside>
-      </div>
-    </section>
-
-    <section id="page-materiel" class="page">
-      <div class="material-head card">
-        <div>
-          <h2>Liste de matériel</h2>
-          <p>Les quantités calculées restent entièrement modifiables.</p>
-        </div>
-        <div class="material-actions">
-          <button type="button" id="recalculate" class="ghost">Recalculer</button>
-          <button type="button" id="addMaterial" class="primary">+ Ajouter du matériel</button>
-        </div>
-      </div>
-
-      <div class="material-summary">
-        <div class="metric"><span>Lignes</span><strong id="lineCount">0</strong></div>
-        <div class="metric"><span>Quantité totale</span><strong id="totalQty">0</strong></div>
-        <div class="metric"><span>Éléments manuels</span><strong id="manualCount">0</strong></div>
-      </div>
-
-      <div class="table-wrap card">
-        <table>
-          <thead><tr><th>Référence</th><th>Désignation</th><th>Catégorie</th><th>Qté</th><th></th></tr></thead>
-          <tbody id="materialBody"></tbody>
-        </table>
-      </div>
-      <p class="catalog-note">Le catalogue fourni est une base éditable. Les références officielles complètes Tubesca-Comabi pourront être importées depuis votre catalogue interne.</p>
-    </section>
-  </main>
-
-  <dialog id="materialDialog">
-    <form method="dialog" class="dialog-card">
-      <h2>Ajouter un matériel</h2>
-      <label>Référence<input id="newRef" placeholder="Ex. R200-PERSO"></label>
-      <label>Désignation<input id="newName" placeholder="Ex. Filet de protection"></label>
-      <label>Catégorie<select id="newCategory"><option>Structure</option><option>Planchers</option><option>Protection</option><option>Accès</option><option>Ancrage</option><option>Calage</option><option>Divers</option></select></label>
-      <label>Quantité<input id="newQty" type="number" min="0" step="1" value="1"></label>
-      <div class="dialog-actions"><button type="button" value="cancel" class="ghost">Annuler</button><button type="button" id="confirmAdd" value="default" class="primary">Ajouter</button></div>
-    </form>
-  </dialog>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScaffR200</title><link rel="stylesheet" href="styles.css"></head>
+<body><header><div><h1>ScaffR200</h1><p>Liste de matériel modifiable</p></div><button id="printBtn">Imprimer / PDF</button></header>
+<main>
+<section class="toolbar">
+<input id="search" type="search" placeholder="Rechercher une référence ou une désignation…">
+<button id="showSelected">Voir seulement les quantités</button><button id="resetBtn" class="danger">Remettre à zéro</button>
+</section>
+<section class="summary"><strong id="lineCount">0 article sélectionné</strong><strong id="totalQty">Quantité totale : 0</strong><strong id="totalWeight">Poids estimé : 0 kg</strong></section>
+<div class="table-wrap"><table><thead><tr><th>Référence</th><th>Désignation</th><th>Dimensions</th><th>Poids</th><th>Quantité</th></tr></thead><tbody id="catalogue"></tbody></table></div>
+<section class="actions"><button id="exportCsv">Exporter CSV</button><button id="saveBtn">Enregistrer</button><span id="status"></span></section>
+<p class="note">Version 1 : liste issue de la nomenclature de la notice M368 / R200. Les quantités sont enregistrées dans ce navigateur. Vérifiez toujours la conformité du montage à la notice fabricant.</p>
+</main><script src="app.js"></script></body></html>

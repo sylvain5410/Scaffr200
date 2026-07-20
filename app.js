@@ -1,97 +1,12 @@
-const FACADE_NAMES=['Nord','Est','Sud','Ouest'];
-const defaultFacade=(name)=>({name,length:10,height:8,bays:[3,3,2,2],pignon:false,peakHeight:10,peakPosition:5,lastLevel:'cadres'});
-const state={projectName:'Nouveau chantier',facades:FACADE_NAMES.map(defaultFacade),viewFacade:0,view:'3d',camera:{yaw:-0.72,pitch:0.38,zoom:1},materials:[]};
-
-const baseCatalog=[
- {ref:'R200-CADRE-200',name:'Cadre R200 hauteur 2 m',category:'Structure',key:'frames'},
- {ref:'R200-DEMI-CADRE',name:'Demi-cadre / montant de rehausse 1 m',category:'Structure',key:'halfFrames'},
- {ref:'R200-LISSE-300',name:'Lisse 3 m',category:'Protection',key:'rails3'},
- {ref:'R200-LISSE-200',name:'Lisse 2 m',category:'Protection',key:'rails2'},
- {ref:'R200-LISSE-150',name:'Lisse 1,5 m',category:'Protection',key:'rails15'},
- {ref:'R200-LISSE-100',name:'Lisse 1 m',category:'Protection',key:'rails1'},
- {ref:'R200-PLINTHE-300',name:'Plinthe 3 m',category:'Protection',key:'toe3'},
- {ref:'R200-PLINTHE-200',name:'Plinthe 2 m',category:'Protection',key:'toe2'},
- {ref:'R200-PLINTHE-150',name:'Plinthe 1,5 m',category:'Protection',key:'toe15'},
- {ref:'R200-PLINTHE-100',name:'Plinthe 1 m',category:'Protection',key:'toe1'},
- {ref:'R200-DIAG',name:'Diagonale de façade',category:'Structure',key:'diags'},
- {ref:'R200-PLANCHER',name:'Plancher acier',category:'Planchers',key:'decks'},
- {ref:'R200-TRAPPE',name:'Plancher à trappe',category:'Accès',key:'traps'},
- {ref:'R200-ECHELLE',name:'Échelle d’accès',category:'Accès',key:'ladders'},
- {ref:'R200-SOCLE',name:'Socle réglable',category:'Calage',key:'bases'},
- {ref:'R200-CALE-BOIS',name:'Cale en bois sous socle',category:'Calage',key:'blocks'},
- {ref:'R200-GC-EXT',name:'Garde-corps d’extrémité',category:'Protection',key:'endRails'},
- {ref:'R200-PLINTHE-EXT',name:'Plinthe d’extrémité',category:'Protection',key:'endToe'},
- {ref:'R200-AMARRAGE',name:'Amarrage complet',category:'Ancrage',key:'anchors'}
-];
-
-const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
-function levels(f){return Math.max(1,Math.ceil(f.height/2));}
-function totalBays(f){return f.bays.reduce((a,b)=>a+b,0);}
-function fmt(n){return Number(n).toLocaleString('fr-FR',{maximumFractionDigits:2});}
-function save(){localStorage.setItem('scaffr200-v4',JSON.stringify(state));}
-function load(){try{const x=JSON.parse(localStorage.getItem('scaffr200-v4'));if(x){Object.assign(state,x);state.camera={yaw:-.72,pitch:.38,zoom:1,...x.camera};}}catch{}}
-
-function renderFacadeCards(){
- const root=$('#facadeCards');root.innerHTML='';
- state.facades.forEach((f,i)=>{
-  const card=document.createElement('article');card.className='facade-card';
-  card.innerHTML=`<div class="facade-title"><h3>Façade ${f.name}</h3><span class="badge">${levels(f)} niveaux</span></div>
-  <div class="field-grid">
-   <label>Longueur souhaitée (m)<input type="number" min="0" step="0.1" value="${f.length}" data-k="length"></label>
-   <label>Hauteur échafaudage (m)<input type="number" min="0" step="0.1" value="${f.height}" data-k="height"></label>
-   <label>Dernier niveau<select data-k="lastLevel"><option value="cadres" ${f.lastLevel==='cadres'?'selected':''}>Cadres complets</option><option value="demi" ${f.lastLevel==='demi'?'selected':''}>Demi-cadres</option></select></label>
-  </div>
-  <label class="switch-row"><input type="checkbox" data-k="pignon" ${f.pignon?'checked':''}> Façade en pignon</label>
-  <div class="pignon-fields ${f.pignon?'':'hidden'}">
-   <label>Hauteur de pointe (m)<input type="number" min="0" step="0.1" value="${f.peakHeight}" data-k="peakHeight"></label>
-   <label>Position de la pointe depuis la gauche (m)<input type="number" min="0" step="0.1" value="${f.peakPosition}" data-k="peakPosition"></label>
-  </div>
-  <div class="bay-editor"><h4>Travées</h4><div class="bay-list"></div>
-   <div class="bay-actions"><button class="small-btn" data-add="1">+ 1 m</button><button class="small-btn" data-add="1.5">+ 1,5 m</button><button class="small-btn" data-add="2">+ 2 m</button><button class="small-btn" data-add="2.5">+ 2,5 m</button><button class="small-btn" data-add="3">+ 3 m</button></div>
-   <div class="length-status"></div>
-  </div>`;
-  root.appendChild(card);
-  const update=()=>{const diff=totalBays(f)-Number(f.length);card.querySelector('.length-status').innerHTML=`Longueur des travées : <strong>${fmt(totalBays(f))} m</strong> · Écart : <strong class="${Math.abs(diff)>.01?'warn':''}">${diff>=0?'+':''}${fmt(diff)} m</strong>`;card.querySelector('.badge').textContent=`${levels(f)} niveaux`;};
-  const bayList=card.querySelector('.bay-list');
-  const drawBays=()=>{bayList.innerHTML='';f.bays.forEach((b,bi)=>{const p=document.createElement('div');p.className='bay-pill';p.innerHTML=`<select><option ${b===1?'selected':''}>1</option><option value="1.5" ${b===1.5?'selected':''}>1,5</option><option ${b===2?'selected':''}>2</option><option value="2.5" ${b===2.5?'selected':''}>2,5</option><option ${b===3?'selected':''}>3</option></select><span>m</span><button title="Supprimer">×</button>`;p.querySelector('select').addEventListener('input',e=>{f.bays[bi]=Number(e.target.value);update();changed();});p.querySelector('button').addEventListener('click',()=>{f.bays.splice(bi,1);drawBays();update();changed();});bayList.appendChild(p)});};
-  card.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',e=>{const k=e.target.dataset.k;f[k]=e.target.type==='checkbox'?e.target.checked:(e.target.tagName==='SELECT'?e.target.value:Number(e.target.value));if(k==='pignon')card.querySelector('.pignon-fields').classList.toggle('hidden',!f.pignon);update();changed();}));
-  card.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',()=>{f.bays.push(Number(btn.dataset.add));drawBays();update();changed();}));
-  drawBays();update();
- });
-}
-function changed(){save();populateFacadeSelect();draw();}
-function populateFacadeSelect(){const s=$('#viewFacade');const old=state.viewFacade;s.innerHTML=state.facades.map((f,i)=>`<option value="${i}">Façade ${f.name}</option>`).join('');s.value=old;}
-function setPage(name){$$('.page').forEach(p=>p.classList.remove('active'));$('#page-'+name).classList.add('active');$$('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===name));if(name==='plans')requestAnimationFrame(draw);if(name==='materiel')renderMaterials();}
-
-function calcQuantities(){
- const q={frames:0,halfFrames:0,rails3:0,rails2:0,rails15:0,rails1:0,toe3:0,toe2:0,toe15:0,toe1:0,diags:0,decks:0,traps:0,ladders:0,bases:0,blocks:0,endRails:0,endToe:0,anchors:0};
- state.facades.forEach(f=>{const n=levels(f),b=f.bays.length;q.frames+=(b+1)*n;q.halfFrames+=f.lastLevel==='demi'?(b+1):0;q.diags+=b*n;q.decks+=b*n;q.traps+=n;q.ladders+=n;q.bases+=(b+1)*2;q.blocks+=(b+1)*2;q.endRails+=2*n;q.endToe+=2;q.anchors+=Math.ceil((b*n)/4);f.bays.forEach(x=>{const kk=x===3?'3':x===2?'2':x===1.5?'15':'1';q['rails'+kk]+=2*n;q['toe'+kk]+=1;});});return q;
-}
-function recalcMaterials(){const q=calcQuantities();const manual=state.materials.filter(x=>x.manual);state.materials=baseCatalog.map(c=>({...c,qty:q[c.key]||0,manual:false})).concat(manual);save();renderMaterials();}
-function renderMaterials(){const body=$('#materialBody');body.innerHTML='';state.materials.forEach((m,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td><input value="${escapeHtml(m.ref)}" data-f="ref"></td><td><input value="${escapeHtml(m.name)}" data-f="name"></td><td><select data-f="category">${['Structure','Planchers','Protection','Accès','Ancrage','Calage','Divers'].map(c=>`<option ${c===m.category?'selected':''}>${c}</option>`).join('')}</select></td><td><input class="qty-input" type="number" min="0" step="1" value="${m.qty}" data-f="qty"></td><td><button class="delete-row">Supprimer</button></td>`;tr.querySelectorAll('[data-f]').forEach(el=>el.addEventListener('change',e=>{m[e.target.dataset.f]=e.target.dataset.f==='qty'?Math.max(0,Math.round(Number(e.target.value)||0)):e.target.value;m.manual=true;save();updateMaterialSummary();}));tr.querySelector('.delete-row').addEventListener('click',()=>{state.materials.splice(i,1);save();renderMaterials();});body.appendChild(tr);});updateMaterialSummary();}
-function updateMaterialSummary(){$('#lineCount').textContent=state.materials.length;$('#totalQty').textContent=state.materials.reduce((a,b)=>a+(Number(b.qty)||0),0);$('#manualCount').textContent=state.materials.filter(x=>x.manual).length;}
-function escapeHtml(v){return String(v).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
-
-const canvas=$('#planCanvas'),ctx=canvas.getContext('2d');let drag=null;
-function sizeCanvas(){const r=canvas.getBoundingClientRect(),d=Math.min(2,window.devicePixelRatio||1);canvas.width=Math.max(320,Math.round(r.width*d));canvas.height=Math.max(280,Math.round(r.height*d));ctx.setTransform(d,0,0,d,0,0);return {w:r.width,h:r.height};}
-function line(a,b,stroke='#1c567f',width=2){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
-function dot(p,r=3,fill='#123f6d'){ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();}
-function project(x,y,z,w,h){const {yaw,pitch,zoom}=state.camera;const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);let X=x*cy-z*sy,Z=x*sy+z*cy,Y=y;const Y2=Y*cp-Z*sp,Z2=Y*sp+Z*cp;const s=Math.min(w,h)*.085*zoom;return{x:w/2+X*s,y:h*.72-Y2*s,depth:Z2};}
-function draw(){if(!$('#page-plans').classList.contains('active'))return;const {w,h}=sizeCanvas();ctx.clearRect(0,0,w,h);const f=state.facades[state.viewFacade];$('#viewerTitle').textContent={'3d':'Vue 3D','face':'Vue de face','side':'Vue de côté','top':'Vue de dessus'}[state.view];$('#viewerSubtitle').textContent=`Façade ${f.name} · ${fmt(totalBays(f))} m · ${fmt(f.height)} m`;renderSummary(f);if(state.view==='3d')draw3D(f,w,h);else if(state.view==='face')drawFace(f,w,h);else if(state.view==='side')drawSide(f,w,h);else drawTop(f,w,h);}
-function bayXs(f){let x=-totalBays(f)/2;const a=[x];f.bays.forEach(b=>{x+=b;a.push(x)});return a;}
-function draw3D(f,w,h){const xs=bayXs(f),n=levels(f),depth=.8;const P=(x,y,z)=>project(x,y,z,w,h);ctx.fillStyle='#dbe7ef';ctx.beginPath();ctx.moveTo(P(xs[0]-1,0,-1).x,P(xs[0]-1,0,-1).y);ctx.lineTo(P(xs[xs.length-1]+1,0,-1).x,P(xs[xs.length-1]+1,0,-1).y);ctx.lineTo(P(xs[xs.length-1]+1,0,2).x,P(xs[xs.length-1]+1,0,2).y);ctx.lineTo(P(xs[0]-1,0,2).x,P(xs[0]-1,0,2).y);ctx.closePath();ctx.fill();
- for(const x of xs)for(const z of [0,depth])line(P(x,0,z),P(x,n*2+(f.lastLevel==='demi'?1:0),z),'#173f5f',3);
- for(let l=0;l<=n;l++){const y=l*2;for(let i=0;i<xs.length-1;i++){line(P(xs[i],y,0),P(xs[i+1],y,0),'#286c9b',2);line(P(xs[i],y,depth),P(xs[i+1],y,depth),'#286c9b',2);line(P(xs[i],y,0),P(xs[i],y,depth),'#6c8ca3',1.5);}}
- for(let l=1;l<=n;l++){const y=l*2;for(let i=0;i<xs.length-1;i++){const a=P(xs[i],y-.05,0),b=P(xs[i+1],y-.05,0),c=P(xs[i+1],y-.05,depth),d=P(xs[i],y-.05,depth);ctx.fillStyle=l%2?'#c7d5df':'#b7c8d4';ctx.beginPath();ctx.moveTo(a.x,a.y);[b,c,d].forEach(p=>ctx.lineTo(p.x,p.y));ctx.closePath();ctx.fill();ctx.strokeStyle='#7c98aa';ctx.stroke();line(P(xs[i],(l-1)*2,0),P(xs[i+1],l*2,0),'#d56624',2.2);}}
- for(const x of xs){dot(P(x,0,0),3,'#f28c28');dot(P(x,0,depth),3,'#f28c28');}
-}
-function fitScale(f,w,h){return Math.min((w-80)/Math.max(totalBays(f),1),(h-90)/Math.max(f.pignon?f.peakHeight:f.height,1));}
-function drawFace(f,w,h){const s=fitScale(f,w,h),left=(w-totalBays(f)*s)/2,bottom=h-45,xs=[0];f.bays.reduce((a,b)=>{xs.push(a+b);return a+b},0);ctx.strokeStyle='#9bb0bf';line({x:25,y:bottom},{x:w-25,y:bottom},'#9bb0bf',1);const n=levels(f);for(const x of xs)line({x:left+x*s,y:bottom},{x:left+x*s,y:bottom-f.height*s},'#173f5f',3);for(let l=0;l<=n;l++){const y=Math.min(l*2,f.height);line({x:left,y:bottom-y*s},{x:left+totalBays(f)*s,y:bottom-y*s},'#286c9b',2)}for(let l=1;l<=n;l++)for(let i=0;i<f.bays.length;i++)line({x:left+xs[i]*s,y:bottom-(l-1)*2*s},{x:left+xs[i+1]*s,y:bottom-Math.min(l*2,f.height)*s},'#d56624',2);if(f.pignon){const px=left+Math.min(f.peakPosition,totalBays(f))*s,py=bottom-f.peakHeight*s;line({x:left,y:bottom-f.height*s},{x:px,y:py},'#b42318',2);line({x:px,y:py},{x:left+totalBays(f)*s,y:bottom-f.height*s},'#b42318',2);ctx.fillStyle='#b42318';ctx.fillText(`Pointe ${fmt(f.peakHeight)} m`,px-35,py-8);}ctx.fillStyle='#314656';ctx.fillText(`${fmt(totalBays(f))} m`,w/2-18,h-15);}
-function drawSide(f,w,h){const s=Math.min((w-100)/1.2,(h-90)/Math.max(f.height,1)),left=w/2-.4*s,bottom=h-45,n=levels(f);for(const x of [0,.8])line({x:left+x*s,y:bottom},{x:left+x*s,y:bottom-f.height*s},'#173f5f',3);for(let l=0;l<=n;l++){const y=Math.min(l*2,f.height);line({x:left,y:bottom-y*s},{x:left+.8*s,y:bottom-y*s},'#286c9b',2)}ctx.fillStyle='#314656';ctx.fillText('Largeur 0,80 m',w/2-42,h-15);}
-function drawTop(f,w,h){const s=Math.min((w-80)/Math.max(totalBays(f),1),(h-100)/1.2),left=(w-totalBays(f)*s)/2,top=h/2-.4*s;ctx.strokeStyle='#173f5f';ctx.lineWidth=3;ctx.strokeRect(left,top,totalBays(f)*s,.8*s);let x=left;f.bays.forEach((b,i)=>{line({x,y:top},{x,y:top+.8*s},'#286c9b',2);ctx.fillStyle='#314656';ctx.fillText(`${fmt(b)} m`,x+b*s/2-12,top+.4*s);x+=b*s});line({x,y:top},{x,y:top+.8*s},'#286c9b',2);ctx.fillStyle='#314656';ctx.fillText(`Longueur totale ${fmt(totalBays(f))} m`,w/2-70,top+.8*s+30);}
-function renderSummary(f){const items=[['Longueur souhaitée',`${fmt(f.length)} m`],['Longueur travées',`${fmt(totalBays(f))} m`],['Hauteur',`${fmt(f.height)} m`],['Niveaux',levels(f)],['Travées',f.bays.length],['Dernier niveau',f.lastLevel==='demi'?'Demi-cadres':'Cadres'],['Pignon',f.pignon?'Oui':'Non']];$('#viewSummary').innerHTML=items.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('');}
-
-load();if(!state.materials?.length)recalcMaterials();renderFacadeCards();populateFacadeSelect();$('#projectName').value=state.projectName;
-$$('.tab').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));$('#goPlans').addEventListener('click',()=>setPage('plans'));$('#goMaterial').addEventListener('click',()=>setPage('materiel'));$('#projectName').addEventListener('change',e=>{state.projectName=e.target.value;save()});$('#viewFacade').addEventListener('change',e=>{state.viewFacade=Number(e.target.value);save();draw()});$$('.view-tab').forEach(b=>b.addEventListener('click',()=>{$$('.view-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.view=b.dataset.view;draw()}));$('#resetView').addEventListener('click',()=>{state.camera={yaw:-.72,pitch:.38,zoom:1};draw()});$('#recalculate').addEventListener('click',recalcMaterials);$('#addMaterial').addEventListener('click',()=>{const d=$('#materialDialog'); if(typeof d.showModal==='function') d.showModal(); else d.setAttribute('open','');});$('#confirmAdd').addEventListener('click',e=>{e.preventDefault();state.materials.push({ref:$('#newRef').value||'PERSO',name:$('#newName').value||'Matériel ajouté',category:$('#newCategory').value,qty:Math.max(0,Math.round(Number($('#newQty').value)||0)),manual:true});save();{const d=$('#materialDialog'); if(typeof d.close==='function') d.close(); else d.removeAttribute('open');}renderMaterials();});$('#resetProject').addEventListener('click',()=>{if(confirm('Créer un nouveau chantier et effacer les données actuelles ?')){localStorage.removeItem('scaffr200-v4');location.reload();}});
-canvas.addEventListener('pointerdown',e=>{if(state.view!=='3d')return;drag={x:e.clientX,y:e.clientY,yaw:state.camera.yaw,pitch:state.camera.pitch};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;state.camera.yaw=drag.yaw+(e.clientX-drag.x)*.01;state.camera.pitch=Math.max(-.2,Math.min(1.1,drag.pitch+(e.clientY-drag.y)*.008));draw()});canvas.addEventListener('pointerup',()=>{drag=null;save()});canvas.addEventListener('wheel',e=>{if(state.view!=='3d')return;e.preventDefault();state.camera.zoom=Math.max(.35,Math.min(2.6,state.camera.zoom*(e.deltaY>0?.9:1.1)));draw()},{passive:false});window.addEventListener('resize',draw);
-if(location.protocol.startsWith('http') && 'serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
+const tbody=document.querySelector('#catalogue');const search=document.querySelector('#search');const statusEl=document.querySelector('#status');
+let items=[],onlySelected=false;let quantities=JSON.parse(localStorage.getItem('scaffr200-quantities')||'{}');
+const fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:1}).format(n);
+function save(){localStorage.setItem('scaffr200-quantities',JSON.stringify(quantities));statusEl.textContent='Enregistré';setTimeout(()=>statusEl.textContent='',1500)}
+function render(){const q=search.value.trim().toLowerCase();tbody.innerHTML='';items.filter(x=>{const qty=Number(quantities[x.reference]||0);const match=(x.reference+' '+x.designation+' '+x.dimensions).toLowerCase().includes(q);return match&&(!onlySelected||qty>0)}).forEach(x=>{const qty=Number(quantities[x.reference]||0);const tr=document.createElement('tr');if(qty>0)tr.className='selected';tr.innerHTML=`<td>${x.reference}</td><td>${x.designation}</td><td>${x.dimensions||'—'}</td><td>${x.poids?x.poids+' kg':'—'}</td><td><input class="qty" type="number" min="0" step="1" value="${qty}" data-ref="${x.reference}"></td>`;tbody.appendChild(tr)});updateSummary()}
+function updateSummary(){let lines=0,total=0,weight=0;for(const x of items){const n=Number(quantities[x.reference]||0);if(n>0){lines++;total+=n;weight+=n*Number((x.poids||'0').replace(',','.'))}}document.querySelector('#lineCount').textContent=`${lines} article${lines>1?'s':''} sélectionné${lines>1?'s':''}`;document.querySelector('#totalQty').textContent=`Quantité totale : ${total}`;document.querySelector('#totalWeight').textContent=`Poids estimé : ${fmt(weight)} kg`}
+tbody.addEventListener('input',e=>{if(!e.target.matches('.qty'))return;quantities[e.target.dataset.ref]=Math.max(0,Number(e.target.value||0));e.target.closest('tr').classList.toggle('selected',quantities[e.target.dataset.ref]>0);updateSummary();save()});
+search.addEventListener('input',render);document.querySelector('#showSelected').onclick=e=>{onlySelected=!onlySelected;e.target.textContent=onlySelected?'Voir toute la liste':'Voir seulement les quantités';render()};
+document.querySelector('#resetBtn').onclick=()=>{if(confirm('Remettre toutes les quantités à zéro ?')){quantities={};save();render()}};document.querySelector('#saveBtn').onclick=save;document.querySelector('#printBtn').onclick=()=>window.print();
+document.querySelector('#exportCsv').onclick=()=>{const rows=[['Référence','Désignation','Dimensions','Poids unitaire kg','Quantité','Poids total kg']];items.forEach(x=>{const n=Number(quantities[x.reference]||0);if(n>0)rows.push([x.reference,x.designation,x.dimensions,x.poids,n,(n*Number((x.poids||'0').replace(',','.'))).toFixed(1).replace('.',',')])});const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(';')).join('
+');const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='liste-materiel-scaffr200.csv';a.click();URL.revokeObjectURL(a.href)};
+fetch('catalogue.json').then(r=>r.json()).then(data=>{items=data;render()}).catch(()=>{tbody.innerHTML='<tr><td colspan="5">Impossible de charger catalogue.json. Ouvrez l’application avec un petit serveur local ou déposez tous les fichiers sur GitHub Pages.</td></tr>'});
