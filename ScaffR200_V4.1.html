@@ -1,3 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#123f6d">
+  <title>ScaffR200 V4.1</title>
+  <style>
+:root{--blue:#123f6d;--blue2:#0d5b96;--bg:#f3f6f9;--card:#fff;--text:#17212b;--muted:#667481;--line:#d9e1e8;--accent:#f28c28;--danger:#b42318;--shadow:0 8px 24px rgba(18,63,109,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer}.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px max(18px,calc((100vw - 1500px)/2));background:var(--blue);color:#fff;position:sticky;top:0;z-index:20}.topbar h1{margin:0;font-size:24px}.topbar h1 span{font-size:13px;background:var(--accent);padding:3px 8px;border-radius:999px;vertical-align:middle}.topbar p{margin:2px 0 0;opacity:.8;font-size:13px}.app-shell{max-width:1500px;margin:auto;padding:18px}.step-tabs{display:flex;gap:8px;margin-bottom:16px;position:sticky;top:78px;z-index:15;background:var(--bg);padding:4px 0}.tab,.view-tab{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 16px;color:var(--blue);font-weight:700}.tab.active,.view-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}.page{display:none}.page.active{display:block}.card,.intro-card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.intro-card{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:20px;margin-bottom:16px}.intro-card h2,.material-head h2{margin:0 0 5px}.intro-card p,.material-head p{margin:0;color:var(--muted)}label{display:grid;gap:6px;font-size:13px;font-weight:700;color:#374553}input,select{width:100%;border:1px solid #bdcad5;border-radius:10px;padding:10px 11px;background:#fff;color:var(--text)}input:focus,select:focus{outline:3px solid rgba(13,91,150,.16);border-color:var(--blue2)}.project-field{min-width:280px}.facade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.facade-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.facade-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.facade-title h3{margin:0}.badge{background:#e9f2f9;color:var(--blue);padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}.field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.switch-row{display:flex;align-items:center;gap:10px;margin:14px 0}.switch-row input{width:auto}.pignon-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;margin-bottom:14px}.pignon-fields.hidden{display:none}.bay-editor{margin-top:14px}.bay-editor h4{margin:0 0 8px}.bay-list{display:flex;flex-wrap:wrap;gap:8px}.bay-pill{display:flex;align-items:center;gap:5px;background:#eef4f8;border:1px solid #c8d8e4;border-radius:10px;padding:5px}.bay-pill select{width:76px;padding:7px}.bay-pill button{border:0;background:transparent;color:var(--danger);font-weight:900;font-size:18px}.bay-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.small-btn{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 10px;font-weight:700;color:var(--blue)}.length-status{margin-top:10px;font-size:13px;color:var(--muted)}.length-status strong{color:var(--text)}.length-status .warn{color:var(--danger)}.primary,.ghost{border-radius:10px;padding:10px 14px;font-weight:800}.primary{background:var(--blue2);border:1px solid var(--blue2);color:#fff}.ghost{background:transparent;border:1px solid rgba(255,255,255,.45);color:inherit}.app-shell .ghost{border-color:var(--line);color:var(--blue);background:#fff}.small{padding:8px 10px}.full{width:100%}.sticky-actions{display:flex;justify-content:flex-end;margin:18px 0}.toolbar{display:flex;justify-content:space-between;align-items:end;gap:16px;padding:14px;margin-bottom:16px}.toolbar label{min-width:230px}.view-tabs{display:flex;gap:7px;flex-wrap:wrap}.plan-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px}.viewer{padding:14px;min-width:0}.viewer-head{display:flex;justify-content:space-between;gap:10px;align-items:start}.viewer h2{margin:0}.viewer p{margin:4px 0;color:var(--muted)}#planCanvas{display:block;width:100%;aspect-ratio:5/3;background:linear-gradient(#f8fbfd,#edf3f7);border:1px solid var(--line);border-radius:12px;touch-action:none}.viewer-help{font-size:12px}.summary{padding:18px}.summary h3{margin-top:0}.summary dl{display:grid;grid-template-columns:1fr auto;gap:10px 12px;margin-bottom:20px}.summary dt{color:var(--muted)}.summary dd{margin:0;font-weight:800}.material-head{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px}.material-actions{display:flex;gap:8px}.material-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}.metric span{display:block;color:var(--muted);font-size:13px}.metric strong{font-size:26px;color:var(--blue)}.table-wrap{overflow:auto}.table-wrap table{width:100%;border-collapse:collapse;min-width:720px}.table-wrap th,.table-wrap td{padding:11px;border-bottom:1px solid var(--line);text-align:left}.table-wrap th{font-size:12px;color:var(--muted);background:#f8fafc}.table-wrap input,.table-wrap select{padding:8px}.qty-input{width:90px}.delete-row{border:0;background:#fee4e2;color:var(--danger);border-radius:8px;padding:7px 10px}.catalog-note{font-size:12px;color:var(--muted)}dialog{border:0;border-radius:16px;padding:0;box-shadow:0 24px 70px rgba(0,0,0,.25);width:min(92vw,480px)}dialog::backdrop{background:rgba(4,20,35,.55)}.dialog-card{padding:22px;display:grid;gap:14px}.dialog-card h2{margin:0}.dialog-actions{display:flex;justify-content:flex-end;gap:8px}.dialog-actions .ghost{color:var(--blue);border-color:var(--line)}
+@media(max-width:900px){.facade-grid{grid-template-columns:1fr}.plan-layout{grid-template-columns:1fr}.summary{order:-1}.summary dl{grid-template-columns:repeat(4,1fr)}.summary dt,.summary dd{text-align:center}.toolbar{align-items:stretch;flex-direction:column}.toolbar label{min-width:0}.view-tabs{display:grid;grid-template-columns:repeat(4,1fr)}.view-tab{padding:10px 5px}.material-head{align-items:stretch;flex-direction:column}.material-actions{display:grid;grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.topbar{padding:12px 14px}.topbar p{display:none}.topbar h1{font-size:20px}.topbar .ghost{font-size:12px;padding:8px}.app-shell{padding:10px}.step-tabs{top:60px;gap:5px;overflow:auto}.tab{white-space:nowrap;flex:1;padding:9px 8px;font-size:13px}.intro-card{align-items:stretch;flex-direction:column;padding:15px}.project-field{min-width:0}.facade-card{padding:14px}.field-grid{grid-template-columns:1fr 1fr}.field-grid label:last-child{grid-column:1/-1}.pignon-fields{grid-template-columns:1fr}.plan-layout{gap:10px}.viewer{padding:8px}.viewer-head{align-items:center}.viewer-head h2{font-size:19px}.viewer-help{display:none}#planCanvas{aspect-ratio:1/1}.summary{padding:13px}.summary dl{grid-template-columns:1fr auto}.summary dt,.summary dd{text-align:left}.material-summary{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:1/-1}.material-actions{grid-template-columns:1fr}.sticky-actions .primary{width:100%;padding:13px}}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>ScaffR200 <span>V4.1</span></h1>
+      <p>Préparation d’échafaudages R200</p>
+    </div>
+    <button type="button" id="resetProject" class="ghost">Nouveau chantier</button>
+  </header>
+
+  <main class="app-shell">
+    <nav class="step-tabs" aria-label="Navigation principale">
+      <button type="button" class="tab active" data-page="chantier">1. Chantier</button>
+      <button type="button" class="tab" data-page="plans">2. Plans</button>
+      <button type="button" class="tab" data-page="materiel">3. Matériel</button>
+    </nav>
+
+    <section id="page-chantier" class="page active">
+      <div class="intro-card">
+        <div>
+          <h2>Dimensions par façade</h2>
+          <p>Indiquez la longueur, la hauteur et composez les travées dans l’ordre souhaité.</p>
+        </div>
+        <div class="project-field">
+          <label for="projectName">Nom du chantier</label>
+          <input id="projectName" value="Nouveau chantier">
+        </div>
+      </div>
+
+      <div id="facadeCards" class="facade-grid"></div>
+
+      <div class="sticky-actions">
+        <button type="button" id="goPlans" class="primary">Voir les plans</button>
+      </div>
+    </section>
+
+    <section id="page-plans" class="page">
+      <div class="toolbar card">
+        <label>Façade affichée
+          <select id="viewFacade"></select>
+        </label>
+        <div class="view-tabs" role="tablist">
+          <button type="button" class="view-tab active" data-view="3d">3D</button>
+          <button type="button" class="view-tab" data-view="face">Face</button>
+          <button type="button" class="view-tab" data-view="side">Côté</button>
+          <button type="button" class="view-tab" data-view="top">Dessus</button>
+        </div>
+      </div>
+
+      <div class="plan-layout">
+        <section class="viewer card">
+          <div class="viewer-head">
+            <div>
+              <h2 id="viewerTitle">Vue 3D</h2>
+              <p id="viewerSubtitle"></p>
+            </div>
+            <button type="button" id="resetView" class="ghost small">Recentrer</button>
+          </div>
+          <canvas id="planCanvas" width="1200" height="720" aria-label="Plan d'échafaudage"></canvas>
+          <p class="viewer-help">Vue 3D : glissez pour tourner, pincez ou utilisez la molette pour zoomer.</p>
+        </section>
+
+        <aside class="summary card">
+          <h3>Résumé de la façade</h3>
+          <dl id="viewSummary"></dl>
+          <button type="button" id="goMaterial" class="primary full">Ouvrir la liste matériel</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="page-materiel" class="page">
+      <div class="material-head card">
+        <div>
+          <h2>Liste de matériel</h2>
+          <p>Les quantités calculées restent entièrement modifiables.</p>
+        </div>
+        <div class="material-actions">
+          <button type="button" id="recalculate" class="ghost">Recalculer</button>
+          <button type="button" id="addMaterial" class="primary">+ Ajouter du matériel</button>
+        </div>
+      </div>
+
+      <div class="material-summary">
+        <div class="metric"><span>Lignes</span><strong id="lineCount">0</strong></div>
+        <div class="metric"><span>Quantité totale</span><strong id="totalQty">0</strong></div>
+        <div class="metric"><span>Éléments manuels</span><strong id="manualCount">0</strong></div>
+      </div>
+
+      <div class="table-wrap card">
+        <table>
+          <thead><tr><th>Référence</th><th>Désignation</th><th>Catégorie</th><th>Qté</th><th></th></tr></thead>
+          <tbody id="materialBody"></tbody>
+        </table>
+      </div>
+      <p class="catalog-note">Le catalogue fourni est une base éditable. Les références officielles complètes Tubesca-Comabi pourront être importées depuis votre catalogue interne.</p>
+    </section>
+  </main>
+
+  <dialog id="materialDialog">
+    <form method="dialog" class="dialog-card">
+      <h2>Ajouter un matériel</h2>
+      <label>Référence<input id="newRef" placeholder="Ex. R200-PERSO"></label>
+      <label>Désignation<input id="newName" placeholder="Ex. Filet de protection"></label>
+      <label>Catégorie<select id="newCategory"><option>Structure</option><option>Planchers</option><option>Protection</option><option>Accès</option><option>Ancrage</option><option>Calage</option><option>Divers</option></select></label>
+      <label>Quantité<input id="newQty" type="number" min="0" step="1" value="1"></label>
+      <div class="dialog-actions"><button type="button" value="cancel" class="ghost">Annuler</button><button type="button" id="confirmAdd" value="default" class="primary">Ajouter</button></div>
+    </form>
+  </dialog>
+
+  <script>
 const FACADE_NAMES=['Nord','Est','Sud','Ouest'];
 const defaultFacade=(name)=>({name,length:10,height:8,bays:[3,3,2,2],pignon:false,peakHeight:10,peakPosition:5,lastLevel:'cadres'});
 const state={projectName:'Nouveau chantier',facades:FACADE_NAMES.map(defaultFacade),viewFacade:0,view:'3d',camera:{yaw:-0.72,pitch:0.38,zoom:1},materials:[]};
@@ -95,3 +219,7 @@ load();if(!state.materials?.length)recalcMaterials();renderFacadeCards();populat
 $$('.tab').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));$('#goPlans').addEventListener('click',()=>setPage('plans'));$('#goMaterial').addEventListener('click',()=>setPage('materiel'));$('#projectName').addEventListener('change',e=>{state.projectName=e.target.value;save()});$('#viewFacade').addEventListener('change',e=>{state.viewFacade=Number(e.target.value);save();draw()});$$('.view-tab').forEach(b=>b.addEventListener('click',()=>{$$('.view-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.view=b.dataset.view;draw()}));$('#resetView').addEventListener('click',()=>{state.camera={yaw:-.72,pitch:.38,zoom:1};draw()});$('#recalculate').addEventListener('click',recalcMaterials);$('#addMaterial').addEventListener('click',()=>{const d=$('#materialDialog'); if(typeof d.showModal==='function') d.showModal(); else d.setAttribute('open','');});$('#confirmAdd').addEventListener('click',e=>{e.preventDefault();state.materials.push({ref:$('#newRef').value||'PERSO',name:$('#newName').value||'Matériel ajouté',category:$('#newCategory').value,qty:Math.max(0,Math.round(Number($('#newQty').value)||0)),manual:true});save();{const d=$('#materialDialog'); if(typeof d.close==='function') d.close(); else d.removeAttribute('open');}renderMaterials();});$('#resetProject').addEventListener('click',()=>{if(confirm('Créer un nouveau chantier et effacer les données actuelles ?')){localStorage.removeItem('scaffr200-v4');location.reload();}});
 canvas.addEventListener('pointerdown',e=>{if(state.view!=='3d')return;drag={x:e.clientX,y:e.clientY,yaw:state.camera.yaw,pitch:state.camera.pitch};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;state.camera.yaw=drag.yaw+(e.clientX-drag.x)*.01;state.camera.pitch=Math.max(-.2,Math.min(1.1,drag.pitch+(e.clientY-drag.y)*.008));draw()});canvas.addEventListener('pointerup',()=>{drag=null;save()});canvas.addEventListener('wheel',e=>{if(state.view!=='3d')return;e.preventDefault();state.camera.zoom=Math.max(.35,Math.min(2.6,state.camera.zoom*(e.deltaY>0?.9:1.1)));draw()},{passive:false});window.addEventListener('resize',draw);
 if(location.protocol.startsWith('http') && 'serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
+
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#123f6d">
-  <title>ScaffR200 V4</title>
+  <title>ScaffR200 V4.1</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -12,17 +12,17 @@
 <body>
   <header class="topbar">
     <div>
-      <h1>ScaffR200 <span>V4</span></h1>
+      <h1>ScaffR200 <span>V4.1</span></h1>
       <p>Préparation d’échafaudages R200</p>
     </div>
-    <button id="resetProject" class="ghost">Nouveau chantier</button>
+    <button type="button" id="resetProject" class="ghost">Nouveau chantier</button>
   </header>
 
   <main class="app-shell">
     <nav class="step-tabs" aria-label="Navigation principale">
-      <button class="tab active" data-page="chantier">1. Chantier</button>
-      <button class="tab" data-page="plans">2. Plans</button>
-      <button class="tab" data-page="materiel">3. Matériel</button>
+      <button type="button" class="tab active" data-page="chantier">1. Chantier</button>
+      <button type="button" class="tab" data-page="plans">2. Plans</button>
+      <button type="button" class="tab" data-page="materiel">3. Matériel</button>
     </nav>
 
     <section id="page-chantier" class="page active">
@@ -40,7 +40,7 @@
       <div id="facadeCards" class="facade-grid"></div>
 
       <div class="sticky-actions">
-        <button id="goPlans" class="primary">Voir les plans</button>
+        <button type="button" id="goPlans" class="primary">Voir les plans</button>
       </div>
     </section>
 
@@ -50,10 +50,10 @@
           <select id="viewFacade"></select>
         </label>
         <div class="view-tabs" role="tablist">
-          <button class="view-tab active" data-view="3d">3D</button>
-          <button class="view-tab" data-view="face">Face</button>
-          <button class="view-tab" data-view="side">Côté</button>
-          <button class="view-tab" data-view="top">Dessus</button>
+          <button type="button" class="view-tab active" data-view="3d">3D</button>
+          <button type="button" class="view-tab" data-view="face">Face</button>
+          <button type="button" class="view-tab" data-view="side">Côté</button>
+          <button type="button" class="view-tab" data-view="top">Dessus</button>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
               <h2 id="viewerTitle">Vue 3D</h2>
               <p id="viewerSubtitle"></p>
             </div>
-            <button id="resetView" class="ghost small">Recentrer</button>
+            <button type="button" id="resetView" class="ghost small">Recentrer</button>
           </div>
           <canvas id="planCanvas" width="1200" height="720" aria-label="Plan d'échafaudage"></canvas>
           <p class="viewer-help">Vue 3D : glissez pour tourner, pincez ou utilisez la molette pour zoomer.</p>
@@ -73,7 +73,7 @@
         <aside class="summary card">
           <h3>Résumé de la façade</h3>
           <dl id="viewSummary"></dl>
-          <button id="goMaterial" class="primary full">Ouvrir la liste matériel</button>
+          <button type="button" id="goMaterial" class="primary full">Ouvrir la liste matériel</button>
         </aside>
       </div>
     </section>
@@ -85,8 +85,8 @@
           <p>Les quantités calculées restent entièrement modifiables.</p>
         </div>
         <div class="material-actions">
-          <button id="recalculate" class="ghost">Recalculer</button>
-          <button id="addMaterial" class="primary">+ Ajouter du matériel</button>
+          <button type="button" id="recalculate" class="ghost">Recalculer</button>
+          <button type="button" id="addMaterial" class="primary">+ Ajouter du matériel</button>
         </div>
       </div>
 
@@ -113,7 +113,7 @@
       <label>Désignation<input id="newName" placeholder="Ex. Filet de protection"></label>
       <label>Catégorie<select id="newCategory"><option>Structure</option><option>Planchers</option><option>Protection</option><option>Accès</option><option>Ancrage</option><option>Calage</option><option>Divers</option></select></label>
       <label>Quantité<input id="newQty" type="number" min="0" step="1" value="1"></label>
-      <div class="dialog-actions"><button value="cancel" class="ghost">Annuler</button><button id="confirmAdd" value="default" class="primary">Ajouter</button></div>
+      <div class="dialog-actions"><button type="button" value="cancel" class="ghost">Annuler</button><button type="button" id="confirmAdd" value="default" class="primary">Ajouter</button></div>
     </form>
   </dialog>
 
