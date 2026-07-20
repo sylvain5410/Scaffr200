@@ -1,6 +1,12 @@
-# ScaffR200 V3.9
+# ScaffR200 V4.0
 
-- Configuration du dernier niveau réglable séparément sur chaque façade.
-- Choix entre cadres complets et demi-cadres.
-- En mode demi-cadres : ajout automatique des montants de 1 m et de deux lisses par travée.
-- Mise à jour des vues et de la nomenclature.
+Nouvelle interface simplifiée :
+- saisie des longueurs et hauteurs par façade ;
+- composition libre des travées ;
+- vues 3D, face, côté et dessus avec choix de la façade ;
+- liste de matériel entièrement éditable ;
+- ajout manuel de matériel ;
+- sauvegarde locale automatique ;
+- interface responsive mobile.
+
+Déploiement GitHub Pages : copier le contenu du dossier à la racine du dépôt puis attendre la publication.

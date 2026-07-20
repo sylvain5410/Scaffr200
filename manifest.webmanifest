@@ -1,11 +1,1 @@
-{
-  "name": "ScaffR200 V3.9",
-  "short_name": "ScaffR200",
-  "description": "Préparation de chantiers Comabi R200",
-  "start_url": "./?v=16",
-  "display": "standalone",
-  "background_color": "#edf2f7",
-  "theme_color": "#0f1f35",
-  "lang": "fr",
-  "icons": [{"src":"icons/icon.svg","sizes":"512x512","type":"image/svg+xml"}]
-}
+{"name":"ScaffR200 V4","short_name":"ScaffR200","start_url":"./","display":"standalone","background_color":"#f3f6f9","theme_color":"#123f6d","icons":[{"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
