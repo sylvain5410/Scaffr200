@@ -1,29 +1,38 @@
-ScaffR200 Pro v4.1
+ScaffR200 Pro v4.2
 
-Règles intégrées :
-- calcul cumulé des façades A, B, C et D ;
-- aucun garde-corps MDS dans le calcul automatique ;
-- 2 lisses par travée et par niveau ;
-- 1 plinthe par travée et par niveau planché ;
-- planchers alu-bois sur toutes les travées ;
-- jusqu’à 2 façades avec colonne d’accès sur toute la hauteur ;
-- pour chaque façade d’accès : 1 trappe et 1 échelle par niveau ;
-- les trappes remplacent les planchers alu-bois correspondants ;
-- au minimum 1 diagonale par façade ;
-- une diagonale supplémentaire pour ne pas dépasser 3 travées libres.
+Modifications :
+- aucun longeron n'est ajouté par le calcul automatique ;
+- ajout des garde-corps d'extrémité ;
+- ajout des plinthes d'extrémité ;
+- les quantités sont calculées par étage d'échafaudage ;
+- choix entre « Maison fermée — façades reliées » et « Façade(s) indépendante(s) ».
+
+Règles d'extrémité :
+1. Maison fermée :
+   - 2 garde-corps d'extrémité par façade et par étage ;
+   - 1 plinthe d'extrémité par façade et par étage.
+   Exemple : 4 façades et 3 étages = 24 garde-corps et 12 plinthes.
+
+2. Façade indépendante :
+   - 4 garde-corps d'extrémité par façade et par étage ;
+   - 2 plinthes d'extrémité par façade et par étage.
+   Exemple : 1 façade et 3 étages = 12 garde-corps et 6 plinthes.
+
+Les autres règles de la v4.1 sont conservées :
+- lisses ;
+- planchers alu-bois ;
+- trappes et échelles ;
+- diagonales ;
+- calcul cumulé des façades ;
+- catégories déroulantes et quantités modifiables.
 
 Installation :
-1. Décompresser ce ZIP.
-2. Remplacer l’ancien index.html dans le dépôt GitHub par celui-ci.
+1. Décompresser le ZIP.
+2. Remplacer l'ancien index.html sur GitHub.
 3. Cliquer sur Commit changes.
 4. Attendre environ une minute.
-5. Fermer puis rouvrir l’application sur l’iPhone.
+5. Fermer puis rouvrir l'application.
 
-Note :
-Certaines références pour les petites longueurs 1,20 m, 0,80 m et 0,44 m sont
-marquées « référence à confirmer ». Le calcul est bien réalisé, mais ces références
-devront être validées avec le catalogue exact utilisé au dépôt.
-
-Ce calcul reste une aide à la préparation. Les ancrages, calages, consoles,
-contreventements, charges et cas particuliers doivent être validés selon la notice
-fabricant et l’étude du chantier.
+Le calcul reste une aide à la préparation. Les ancrages, charges, calages,
+contreventements, consoles et cas particuliers doivent être vérifiés selon la
+notice fabricant et l'étude du chantier.
