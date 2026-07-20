@@ -1,14 +1,24 @@
-ScaffR200 v3
+ScaffR200 Pro v4
 
-Installation :
+Nouveautés :
+- 4 façades A, B, C et D ;
+- choix automatique ou manuel des travées ;
+- longueurs 3,00 / 2,50 / 2,00 / 1,50 / 1,20 / 0,80 / 0,44 m ;
+- matériel nécessaire placé en haut ;
+- classement par catégories déroulantes ;
+- boutons + et − pour modifier les quantités ;
+- recherche dans le catalogue ;
+- sauvegarde locale du chantier ;
+- export CSV et impression PDF.
+
+Installation sur GitHub :
 1. Décompresse le ZIP.
-2. Ouvre le dépôt GitHub Scaffr200.
-3. Supprime ou remplace l'ancien index.html.
-4. Envoie le nouveau index.html à la racine du dépôt.
-5. Clique sur Commit changes.
-6. Attends environ une minute puis rouvre l'application.
+2. Dans le dépôt Scaffr200, remplace l'ancien index.html par le nouveau.
+3. Clique sur Commit changes.
+4. Attends environ une minute.
+5. Ferme puis rouvre la page sur l'iPhone. En cas de cache, ouvre-la dans un onglet privé.
 
-Cette version contient tout dans un seul fichier et corrige le chargement sur iPhone.
-
-Attention : le calcul reste une estimation pour façade droite simple et ne remplace
-ni la notice fabricant, ni un plan de montage, ni une note de calcul.
+Important :
+Le moteur de calcul est une base d'estimation pour façades droites. Les règles de montage,
+ancrages, accès, calage, consoles, contreventement et cas particuliers restent à valider
+selon la notice fabricant et les exigences du chantier.
