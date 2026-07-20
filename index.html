@@ -1,12 +1,18 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.1</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.2</title>
 <style>
-:root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.metric{background:#eef4f8;padding:12px;border-radius:9px}.metric b{display:block;color:var(--b);font-size:20px}.notice{border-left:5px solid #d79a00;background:#fff4cf;padding:11px}.items{width:100%;border-collapse:collapse}.items th,.items td{padding:9px;border-bottom:1px solid #e8ecef;text-align:left}.qty{display:flex;align-items:center;gap:4px}.qty button{padding:5px 9px}.qty input{width:62px;padding:6px;text-align:center}.right{text-align:right!important}.badge{background:var(--b);color:#fff;border-radius:99px;padding:3px 8px;font-size:12px}.footer-actions{display:flex;gap:8px;flex-wrap:wrap;position:sticky;bottom:0;background:#ffffffee;padding:10px;border-top:1px solid var(--line)}@media(max-width:700px){.items th:nth-child(2),.items td:nth-child(2),.items th:nth-child(4),.items td:nth-child(4){display:none}.nav{top:73px}.facade-body .grid{grid-template-columns:1fr 1fr}}@media print{header,.nav,.footer-actions,.no-print{display:none!important}.page{display:block!important}.card{box-shadow:none}}
+:root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
+.manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.seq-row{display:grid;grid-template-columns:44px 1fr 42px 42px 42px;gap:6px;align-items:center}
+.seq-row .pos{font-weight:700;text-align:center}
+.seq-row button{padding:8px 6px}
+.seq-empty{padding:10px;border:1px dashed #b8c4ce;border-radius:8px;background:#fafafa}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.metric{background:#eef4f8;padding:12px;border-radius:9px}.metric b{display:block;color:var(--b);font-size:20px}.notice{border-left:5px solid #d79a00;background:#fff4cf;padding:11px}.items{width:100%;border-collapse:collapse}.items th,.items td{padding:9px;border-bottom:1px solid #e8ecef;text-align:left}.qty{display:flex;align-items:center;gap:4px}.qty button{padding:5px 9px}.qty input{width:62px;padding:6px;text-align:center}.right{text-align:right!important}.badge{background:var(--b);color:#fff;border-radius:99px;padding:3px 8px;font-size:12px}.footer-actions{display:flex;gap:8px;flex-wrap:wrap;position:sticky;bottom:0;background:#ffffffee;padding:10px;border-top:1px solid var(--line)}@media(max-width:700px){.items th:nth-child(2),.items td:nth-child(2),.items th:nth-child(4),.items td:nth-child(4){display:none}.nav{top:73px}.facade-body .grid{grid-template-columns:1fr 1fr}}@media print{header,.nav,.footer-actions,.no-print{display:none!important}.page{display:block!important}.card{box-shadow:none}}
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v5.1</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v5.2</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="documents">5. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.1 applique les règles métier validées, avec départs combinables et rehausse du dernier niveau. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.2 ajoute le plancher lié au cadre de départ et l'ordre manuel des travées par façade. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel"><div class="card"><h2>Résumé</h2><div class="summary"><div class="metric"><b id="mFacades">0</b>façades</div><div class="metric"><b id="mLength">0 m</b>longueur</div><div class="metric"><b id="mArea">0 m²</b>surface</div><div class="metric"><b id="mQty">0</b>pièces</div><div class="metric"><b id="mWeight">0 kg</b>poids estimé</div></div></div><div class="card"><h2>Liste de matériel</h2><div style="overflow:auto"><table class="items"><thead><tr><th>Désignation</th><th>Référence</th><th>Quantité</th><th class="right">Poids</th></tr></thead><tbody id="materialBody"></tbody></table></div></div></section>
@@ -27,7 +33,7 @@ m300:[refs.m300,2],
 manchon:[refs.manchon,2]
 };
 let q={},state={facades:{}};const $=s=>document.querySelector(s),fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);
-function def(i){return {enabled:i===0,length:12,height:6,width:.73,levels:3,access:i===0,mode:'auto',starts:{cadre2:true},asym:false,rehausse:false,bays:{3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0}}}NAMES.forEach((n,i)=>state.facades[n]=def(i));
+function def(i){return {enabled:i===0,length:12,height:6,width:.73,levels:3,access:i===0,mode:'auto',starts:{cadre2:true},asym:false,rehausse:false,baySequence:[],bays:{3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0}}}NAMES.forEach((n,i)=>state.facades[n]=def(i));
 function best(target){let T=Math.round(Math.max(0,target)*100),max=T+300,dp=Array(max+1).fill(null);dp[0]={n:0,p:null,l:null};for(let t=0;t<=max;t++)if(dp[t])for(const l of BAY_LENGTHS){let nt=t+Math.round(l*100);if(nt<=max&&(!dp[nt]||dp[t].n+1<dp[nt].n))dp[nt]={n:dp[t].n+1,p:t,l}}let c=0,s=1e99;for(let t=0;t<=max;t++)if(dp[t]){let z=Math.abs(t-T)*100+(t<T?20:0)+dp[t].n;if(z<s){s=z;c=t}}let o={3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0};while(c>0){let p=dp[c];o[p.l]++;c=p.p}return o}
 function bLen(b){return BAY_LENGTHS.reduce((s,l)=>s+l*(+b[l]||0),0)}function bCount(b){return BAY_LENGTHS.reduce((s,l)=>s+(+b[l]||0),0)}function comp(b){return BAY_LENGTHS.filter(l=>b[l]).map(l=>`${b[l]} × ${String(l).replace('.',',')} m`).join(' + ')||'aucune travée'}
 function build(){
@@ -47,6 +53,7 @@ function build(){
     let d=state.facades[n];
     d.enabled=i<count;
     if(!d.starts)d.starts={cadre2:true};
+    if(!Array.isArray(d.baySequence))d.baySequence=[];
     if(!d.width)d.width=.73;
     let el=document.createElement('div');
     el.className='facade';
@@ -68,15 +75,61 @@ function build(){
       </div>
       <div class="inline" style="margin-top:10px">
         <button class="auto primary">Travées automatiques</button>
-        <button class="manualBtn">Travées manuelles</button>
+        <button class="manualBtn">Travées manuelles ordonnées</button>
       </div>
-      <div class="grid manual ${d.mode==='manual'?'on':''}">
-        ${BAY_LENGTHS.map(l=>`<label>${String(l).replace('.',',')} m<input class="bay" data-l="${l}" type="number" min="0" step="1" value="${d.bays[l]||0}"></label>`).join('')}
+      <div class="manual ${d.mode==='manual'?'on':''}">
+        <div class="inline" style="margin-top:8px">
+          <select class="newBay">${BAY_LENGTHS.map(l=>`<option value="${l}">${String(l).replace('.',',')} m</option>`).join('')}</select>
+          <button class="addBay">+ Ajouter une travée</button>
+        </div>
+        <div class="manual-sequence"></div>
       </div>
       <div class="proposal"></div>
     </div>`;
     wrap.appendChild(el);
     el.querySelector('.width').value=String(d.width);
+
+    function renderSequence(){
+      const box=el.querySelector('.manual-sequence');
+      if(!d.baySequence.length){
+        box.innerHTML='<div class="seq-empty">Aucune travée manuelle. Ajoute les travées dans l’ordre réel de la façade.</div>';
+        return;
+      }
+      box.innerHTML=d.baySequence.map((l,idx)=>`
+        <div class="seq-row" data-i="${idx}">
+          <div class="pos">${idx+1}</div>
+          <select class="seqLen">${BAY_LENGTHS.map(x=>`<option value="${x}" ${+x===+l?'selected':''}>${String(x).replace('.',',')} m</option>`).join('')}</select>
+          <button class="up" title="Monter">↑</button>
+          <button class="down" title="Descendre">↓</button>
+          <button class="remove" title="Supprimer">×</button>
+        </div>`).join('');
+      box.querySelectorAll('.seqLen').forEach(s=>s.addEventListener('change',e=>{
+        const idx=+e.target.closest('.seq-row').dataset.i;
+        d.baySequence[idx]=+e.target.value;
+        sync();
+      }));
+      box.querySelectorAll('.up').forEach(b=>b.onclick=()=>{
+        const idx=+b.closest('.seq-row').dataset.i;
+        if(idx>0)[d.baySequence[idx-1],d.baySequence[idx]]=[d.baySequence[idx],d.baySequence[idx-1]];
+        renderSequence();sync();
+      });
+      box.querySelectorAll('.down').forEach(b=>b.onclick=()=>{
+        const idx=+b.closest('.seq-row').dataset.i;
+        if(idx<d.baySequence.length-1)[d.baySequence[idx+1],d.baySequence[idx]]=[d.baySequence[idx],d.baySequence[idx+1]];
+        renderSequence();sync();
+      });
+      box.querySelectorAll('.remove').forEach(b=>b.onclick=()=>{
+        const idx=+b.closest('.seq-row').dataset.i;
+        d.baySequence.splice(idx,1);renderSequence();sync();
+      });
+    }
+
+    function sequenceToBays(){
+      const out={};
+      BAY_LENGTHS.forEach(l=>out[l]=0);
+      d.baySequence.forEach(l=>out[l]=(out[l]||0)+1);
+      return out;
+    }
 
     function sync(){
       d.enabled=el.querySelector('.enabled').checked;
@@ -89,28 +142,40 @@ function build(){
       d.rehausse=el.querySelector('.rehausse').checked;
       d.starts={};
       el.querySelectorAll('.startCheck').forEach(x=>{if(x.checked)d.starts[x.dataset.key]=true});
-      el.querySelectorAll('.bay').forEach(x=>d.bays[x.dataset.l]=Math.max(0,Math.round(+x.value||0)));
-      let b=d.mode==='auto'?best(d.length):d.bays;
+      d.bays=d.mode==='manual'?sequenceToBays():d.bays;
+      let b=d.mode==='auto'?best(d.length):sequenceToBays();
       let starts=startChoices.filter(([key])=>d.starts[key]).map(([,label])=>label).join(' + ')||'aucun départ sélectionné';
-      el.querySelector('.proposal').textContent=`Composition : ${comp(b)} — ${fmt(bLen(b))} m | Départ : ${starts}`;
+      const order=d.mode==='manual'&&d.baySequence.length?' | Ordre : '+d.baySequence.map(x=>String(x).replace('.',',')).join(' → ')+' m':'';
+      el.querySelector('.proposal').textContent=`Composition : ${comp(b)} — ${fmt(bLen(b))} m | Départ : ${starts}${order}`;
     }
+
     el.querySelectorAll('input,select').forEach(x=>x.addEventListener('input',sync));
+    el.querySelector('.addBay').onclick=()=>{
+      d.baySequence.push(+el.querySelector('.newBay').value);
+      renderSequence();sync();
+    };
     el.querySelector('.auto').onclick=()=>{
       d.mode='auto';el.querySelector('.manual').classList.remove('on');
       el.querySelector('.auto').classList.add('primary');el.querySelector('.manualBtn').classList.remove('primary');sync()
     };
     el.querySelector('.manualBtn').onclick=()=>{
       d.mode='manual';el.querySelector('.manual').classList.add('on');
-      el.querySelector('.manualBtn').classList.add('primary');el.querySelector('.auto').classList.remove('primary');sync()
+      el.querySelector('.manualBtn').classList.add('primary');el.querySelector('.auto').classList.remove('primary');renderSequence();sync()
     };
-    sync();
+    renderSequence();sync();
   })
 }
 function add(r,n){if(r&&n)q[r]=(q[r]||0)+Math.round(n)}function calc(){q={};let fc=0,len=0,area=0,access=0;NAMES.forEach(n=>{let d=state.facades[n];if(d.enabled&&d.access)access++});if(access>2){alert('Deux façades d’accès maximum.');return}NAMES.forEach(n=>{let d=state.facades[n];if(!d.enabled)return;let b=d.mode==='auto'?best(d.length):d.bays,bc=bCount(b);if(!bc)return;fc++;let lines=bc+1,lifts=Math.max(1,Math.ceil(d.height/2)),levels=Math.max(1,Math.round(d.levels));len+=bLen(b);area+=bLen(b)*d.height;add(refs.socle,lines*2);if($('#useCales').checked)add(refs.cale,lines*2);let selectedStarts=d.starts||{};
 Object.keys(selectedStarts).filter(k=>selectedStarts[k]&&startMap[k]).forEach(k=>{
   let [startRef,mult]=startMap[k];
   add(startRef,lines*mult);
-});let remaining=Math.max(0,lifts-1);if(remaining>0){if(d.asym){add(refs.cadre2,lines*Math.max(0,remaining-1));add(refs.asym,lines)}else add(refs.cadre2,lines*remaining)}if($('#useEnd').checked){let indep=$('#configuration').value==='independent',key=d.width===1?'1':'.73';add(refs.endGuard[key],(indep?4:2)*levels);add(refs.endPlinth[key],(indep?2:1)*levels)}
+});
+if(selectedStarts.cadreDepart){
+  for(const l of BAY_LENGTHS){
+    let n=+b[l]||0;
+    if(n)add(refs.deck[l],n);
+  }
+}let remaining=Math.max(0,lifts-1);if(remaining>0){if(d.asym){add(refs.cadre2,lines*Math.max(0,remaining-1));add(refs.asym,lines)}else add(refs.cadre2,lines*remaining)}if($('#useEnd').checked){let indep=$('#configuration').value==='independent',key=d.width===1?'1':'.73';add(refs.endGuard[key],(indep?4:2)*levels);add(refs.endPlinth[key],(indep?2:1)*levels)}
 if(d.rehausse){
   add(refs.m100,lines);
   for(const l of BAY_LENGTHS){
@@ -119,7 +184,7 @@ if(d.rehausse){
   }
 }for(const l of BAY_LENGTHS){let n=+b[l]||0;if(!n)continue;if($('#useLisses').checked)add(refs.lisse[l],n*levels*2);if($('#usePlinthes').checked)add(refs.plinthe[l],n*levels);add(refs.deck[l],n*levels)}if(d.access){let first=BAY_LENGTHS.find(l=>b[l]>0)||3;add(refs.deck[first],-levels);add(refs.trap,levels);add(refs.ladder,levels)}if($('#useDiags').checked){let dc=Math.max(1,Math.ceil(bc/4))*lifts,order=BAY_LENGTHS.filter(l=>refs.diag[l]&&b[l]>0);for(let i=0;i<dc;i++)add(refs.diag[order[i%order.length]||3],1)}});render(fc,len,area);save()}
 function item(r){return ITEMS.find(x=>x.reference===r)||{reference:r,designation:r,poids:'0'}}function weight(x){return +(String(x.poids||'0').replace(',','.'))||0}function render(fc,len,area){let body=$('#materialBody');body.innerHTML='';let entries=Object.entries(q).filter(([,n])=>n>0).sort((a,b)=>item(a[0]).section.localeCompare(item(b[0]).section));let total=0,w=0;for(const [r,n] of entries){let it=item(r),ww=weight(it)*n;total+=n;w+=ww;let tr=document.createElement('tr');tr.innerHTML=`<td><b>${it.designation}</b><br><small>${it.section||''}</small></td><td>${r}</td><td><div class="qty"><button data-d="-1">−</button><input value="${n}" type="number" min="0"><button data-d="1">+</button></div></td><td class="right">${fmt(ww)} kg</td>`;let inp=tr.querySelector('input');tr.querySelectorAll('button').forEach(b=>b.onclick=()=>{q[r]=Math.max(0,(+inp.value||0)+(+b.dataset.d));render(fc,len,area)});inp.onchange=()=>{q[r]=Math.max(0,Math.round(+inp.value||0));render(fc,len,area)};body.appendChild(tr)}$('#mFacades').textContent=fc;$('#mLength').textContent=fmt(len)+' m';$('#mArea').textContent=fmt(area)+' m²';$('#mQty').textContent=total;$('#mWeight').textContent=fmt(w)+' kg'}
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-1',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-1'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-2',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-2'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 NAMES.forEach(n=>{
   const d=state.facades[n];
   if(!d.starts){
@@ -128,8 +193,9 @@ NAMES.forEach(n=>{
     else d.starts.cadre2=true;
   }
   if(typeof d.rehausse!=='boolean')d.rehausse=false;
+  if(!Array.isArray(d.baySequence))d.baySequence=[];
   if(!d.width)d.width=.73;
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Référence','Désignation','Quantité','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-1-liste.csv';a.click()}
-$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-1');location.reload()}};load();build();
+function csv(){let rows=[['Référence','Désignation','Quantité','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-2-liste.csv';a.click()}
+$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-2');location.reload()}};load();build();
 </script></body></html>
