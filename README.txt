@@ -1,24 +1,29 @@
-ScaffR200 Pro v4
+ScaffR200 Pro v4.1
 
-Nouveautés :
-- 4 façades A, B, C et D ;
-- choix automatique ou manuel des travées ;
-- longueurs 3,00 / 2,50 / 2,00 / 1,50 / 1,20 / 0,80 / 0,44 m ;
-- matériel nécessaire placé en haut ;
-- classement par catégories déroulantes ;
-- boutons + et − pour modifier les quantités ;
-- recherche dans le catalogue ;
-- sauvegarde locale du chantier ;
-- export CSV et impression PDF.
+Règles intégrées :
+- calcul cumulé des façades A, B, C et D ;
+- aucun garde-corps MDS dans le calcul automatique ;
+- 2 lisses par travée et par niveau ;
+- 1 plinthe par travée et par niveau planché ;
+- planchers alu-bois sur toutes les travées ;
+- jusqu’à 2 façades avec colonne d’accès sur toute la hauteur ;
+- pour chaque façade d’accès : 1 trappe et 1 échelle par niveau ;
+- les trappes remplacent les planchers alu-bois correspondants ;
+- au minimum 1 diagonale par façade ;
+- une diagonale supplémentaire pour ne pas dépasser 3 travées libres.
 
-Installation sur GitHub :
-1. Décompresse le ZIP.
-2. Dans le dépôt Scaffr200, remplace l'ancien index.html par le nouveau.
-3. Clique sur Commit changes.
-4. Attends environ une minute.
-5. Ferme puis rouvre la page sur l'iPhone. En cas de cache, ouvre-la dans un onglet privé.
+Installation :
+1. Décompresser ce ZIP.
+2. Remplacer l’ancien index.html dans le dépôt GitHub par celui-ci.
+3. Cliquer sur Commit changes.
+4. Attendre environ une minute.
+5. Fermer puis rouvrir l’application sur l’iPhone.
 
-Important :
-Le moteur de calcul est une base d'estimation pour façades droites. Les règles de montage,
-ancrages, accès, calage, consoles, contreventement et cas particuliers restent à valider
-selon la notice fabricant et les exigences du chantier.
+Note :
+Certaines références pour les petites longueurs 1,20 m, 0,80 m et 0,44 m sont
+marquées « référence à confirmer ». Le calcul est bien réalisé, mais ces références
+devront être validées avec le catalogue exact utilisé au dépôt.
+
+Ce calcul reste une aide à la préparation. Les ancrages, calages, consoles,
+contreventements, charges et cas particuliers doivent être validés selon la notice
+fabricant et l’étude du chantier.
