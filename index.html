@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.8</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.9</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -80,10 +80,10 @@
 .fullscreen-help{font-size:12px;opacity:.85}
 .plan-open-hint{text-align:center;font-size:12px;color:#52616d;margin-top:6px}
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v5.8</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v5.9</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="plans">5. Plans 2D / 3D</button><button data-page="controle">6. Contrôle</button><button data-page="documents">7. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.8 ajoute les dépassements gauche/droite par façade, un bâtiment 3D gris opaque et les protections complètes à tous les niveaux. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.9 corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
@@ -576,56 +576,46 @@ function planData(){
 function frontSvg(data){
   const {d,seq,levels,height,width}=data,labels=$('#showLabels').checked;
   if(!seq.length)return '<div class="empty-search">Aucune travée à dessiner.</div>';
-  const W=960,H=520,pad=82,drawW=W-pad*2,drawH=H-105,total=seq.reduce((a,b)=>a+b,0);
+  const W=960,H=560,pad=82,drawW=W-pad*2,total=seq.reduce((a,b)=>a+b,0);
   const mode=d.extendMode||'both',extLeft=(mode==='left'||mode==='both')?width:0,extRight=(mode==='right'||mode==='both')?width:0;
-  const visualTotal=total+extLeft+extRight,xScale=drawW/Math.max(visualTotal,.1),yScale=drawH/Math.max(height,2),baseY=H-58;
-  const start=pad+extLeft*xScale;
-  let xs=[start];seq.forEach(l=>xs.push(xs[xs.length-1]+l*xScale));
-  const leftReturn=start-extLeft*xScale,rightReturn=xs[xs.length-1]+extRight*xScale;
+  // La longueur saisie est la longueur totale de l'échafaudage.
+  const buildingLength=Math.max(.2,total-extLeft-extRight);
+  const xScale=drawW/Math.max(total,.1),headroom=1.15,yScale=(H-145)/Math.max(height+headroom,2),baseY=H-62;
+  const left=pad,right=pad+total*xScale;
+  let xs=[left];seq.forEach(l=>xs.push(xs[xs.length-1]+l*xScale));
+  const buildingLeft=left+extLeft*xScale,buildingRight=right-extRight*xScale;
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de face de ${escapeHtml(d.name)}">${svgDefs()}<rect width="${W}" height="${H}" fill="white"/>`;
-  // Main and return frames
-  [leftReturn,...xs,rightReturn].forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY}" class="svg-frame"/>`);
+  s+=`<rect x="${buildingLeft}" y="${baseY-height*yScale}" width="${Math.max(2,buildingRight-buildingLeft)}" height="${height*yScale}" fill="#eceff1" stroke="#9aa3aa" stroke-width="2" opacity=".75"/>`;
+  [left,...xs.slice(1,-1),right].forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY}" class="svg-frame"/>`);
   for(let lv=1;lv<=levels;lv++){
-    const yTop=baseY-(height/levels*lv)*yScale;
-    const yBottom=baseY-(height/levels*(lv-1))*yScale;
-    // Optional corner returns
-    if(extLeft){
-      s+=`<rect x="${leftReturn+2}" y="${yTop-7}" width="${start-leftReturn-4}" height="7" class="svg-deck"/>`;
-      s+=`<rect x="${leftReturn+2}" y="${yTop-18}" width="${start-leftReturn-4}" height="10" class="svg-toe"/>`;
-    }
-    if(extRight){
-      s+=`<rect x="${xs[xs.length-1]+2}" y="${yTop-7}" width="${rightReturn-xs[xs.length-1]-4}" height="7" class="svg-deck"/>`;
-      s+=`<rect x="${xs[xs.length-1]+2}" y="${yTop-18}" width="${rightReturn-xs[xs.length-1]-4}" height="10" class="svg-toe"/>`;
-    }
+    const yTop=baseY-(height/levels*lv)*yScale,yBottom=baseY-(height/levels*(lv-1))*yScale;
     for(let i=0;i<seq.length;i++){
       s+=`<rect x="${xs[i]+2}" y="${yTop-7}" width="${Math.max(2,xs[i+1]-xs[i]-4)}" height="7" class="svg-deck"/>`;
-      s+=`<rect x="${xs[i]+3}" y="${yTop-18}" width="${Math.max(2,xs[i+1]-xs[i]-6)}" height="10" class="svg-toe"/>`;
-      s+=`<line x1="${xs[i]}" y1="${yTop-36}" x2="${xs[i+1]}" y2="${yTop-36}" class="svg-rail"/><line x1="${xs[i]}" y1="${yTop-67}" x2="${xs[i+1]}" y2="${yTop-67}" class="svg-rail"/>`;
+      // Plinthe au-dessus du plancher, bien visible.
+      s+=`<rect x="${xs[i]+3}" y="${yTop-19}" width="${Math.max(2,xs[i+1]-xs[i]-6)}" height="11" class="svg-toe"/>`;
+      // Sous-lisse et garde-corps, y compris au dernier niveau.
+      s+=`<line x1="${xs[i]}" y1="${yTop-42}" x2="${xs[i+1]}" y2="${yTop-42}" class="svg-rail"/>`;
+      s+=`<line x1="${xs[i]}" y1="${yTop-76}" x2="${xs[i+1]}" y2="${yTop-76}" class="svg-rail"/>`;
     }
-    // Diagonals repeated on every lift
-    const diagPos=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
-    diagPos.forEach(pos=>{
-      if(pos<seq.length){
-        const reverse=lv%2===0;
-        const xa=reverse?xs[pos+1]-5:xs[pos]+5,xb=reverse?xs[pos]+5:xs[pos+1]-5;
-        s+=`<line x1="${xa}" y1="${yBottom-4}" x2="${xb}" y2="${yTop+4}" class="svg-diag"/>`;
-      }
+    // Protections d'extrémité visibles sur chaque niveau.
+    [left,right].forEach(x=>{
+      s+=`<line x1="${x}" y1="${yTop-42}" x2="${x+(x===left?18:-18)}" y2="${yTop-42}" class="svg-rail"/>`;
+      s+=`<line x1="${x}" y1="${yTop-76}" x2="${x+(x===left?18:-18)}" y2="${yTop-76}" class="svg-rail"/>`;
+      s+=`<rect x="${x+(x===left?1:-12)}" y="${yTop-19}" width="11" height="11" class="svg-toe"/>`;
     });
+    const diagPos=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
+    diagPos.forEach(pos=>{if(pos<seq.length){const rev=lv%2===0;s+=`<line x1="${rev?xs[pos+1]-5:xs[pos]+5}" y1="${yBottom-4}" x2="${rev?xs[pos]+5:xs[pos+1]-5}" y2="${yTop+4}" class="svg-diag"/>`;}});
   }
   if(d.access&&seq.length){
     const p=Math.max(0,Math.min(d.accessBay||0,seq.length-1)),cx=(xs[p]+xs[p+1])/2;
-    s+=`<rect x="${xs[p]+4}" y="${baseY-height*yScale+4}" width="${xs[p+1]-xs[p]-8}" height="${height*yScale-8}" class="svg-access" opacity=".28"/>`;
     for(let y=baseY-18;y>baseY-height*yScale+12;y-=24)s+=`<line x1="${cx-12}" y1="${y}" x2="${cx+12}" y2="${y}" stroke="#16945c" stroke-width="3"/>`;
     s+=`<line x1="${cx-15}" y1="${baseY-8}" x2="${cx-15}" y2="${baseY-height*yScale+8}" stroke="#16945c" stroke-width="4"/><line x1="${cx+15}" y1="${baseY-8}" x2="${cx+15}" y2="${baseY-height*yScale+8}" stroke="#16945c" stroke-width="4"/>`;
   }
-  if(d.rehausse)[leftReturn,...xs,rightReturn].forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY-height*yScale-45}" class="svg-frame"/>`);
   if(labels){
     seq.forEach((l,i)=>s+=`<text x="${(xs[i]+xs[i+1])/2}" y="${baseY+22}" text-anchor="middle" class="svg-label">T${i+1} - ${String(l).replace('.',',')} m</text>`);
-    if(extLeft)s+=`<text x="${(leftReturn+start)/2}" y="${baseY+22}" text-anchor="middle" class="svg-small">retour ${fmt(width)} m</text>`;
-    if(extRight)s+=`<text x="${(xs[xs.length-1]+rightReturn)/2}" y="${baseY+22}" text-anchor="middle" class="svg-small">retour ${fmt(width)} m</text>`;
-    s+=`<line x1="${leftReturn-25}" y1="${baseY}" x2="${leftReturn-25}" y2="${baseY-height*yScale}" class="svg-dimension"/><text x="15" y="${baseY-height*yScale/2}" class="svg-label" transform="rotate(-90 15 ${baseY-height*yScale/2})">${fmt(height)} m</text>`;
+    s+=`<text x="${W/2}" y="43" text-anchor="middle" class="svg-small">Échafaudage ${fmt(total)} m · bâtiment ${fmt(buildingLength)} m · dépassement G ${fmt(extLeft)} m / D ${fmt(extRight)} m</text>`;
   }
-  s+=`<text x="${W/2}" y="25" text-anchor="middle" class="svg-label">${escapeHtml(d.name)} - vue de face</text></svg>`;
+  s+=`<text x="${W/2}" y="22" text-anchor="middle" class="svg-label">${escapeHtml(d.name)} - vue de face</text></svg>`;
   return s;
 }
 function sideSvg(data){
@@ -650,30 +640,37 @@ function sideSvg(data){
   return s;
 }
 function topSvg(){
-  const keys=activeFacadeKeys(),W=900,H=600,cx=W/2,cy=H/2;
+  const keys=activeFacadeKeys(),W=900,H=620,cx=W/2,cy=H/2;
   if(!keys.length)return '<div class="empty-search">Aucune façade active.</div>';
-  const lengths={};keys.forEach(k=>lengths[k]=orderedBays(state.facades[k]).reduce((a,b)=>a+b,0));
-  const north=state.facades.A&&state.facades.A.enabled?lengths.A:Math.max(...Object.values(lengths),8);
-  const south=state.facades.C&&state.facades.C.enabled?lengths.C:north;
-  const east=state.facades.B&&state.facades.B.enabled?lengths.B:Math.max(north*.65,6);
-  const west=state.facades.D&&state.facades.D.enabled?lengths.D:east;
-  const bw=Math.min(570,Math.max(280,Math.max(north,south)*42)),bh=Math.min(340,Math.max(180,Math.max(east,west)*32));
-  const x=cx-bw/2,y=cy-bh/2;
-  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de dessus du chantier"><rect width="${W}" height="${H}" fill="white"/><rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="6" class="svg-building"/><text x="${cx}" y="${cy}" text-anchor="middle" class="svg-label">BÂTIMENT</text>`;
-  const sides=[
-    ['A',x,y-28,bw,10,'horizontal'],['C',x,y+bh+18,bw,10,'horizontal'],
-    ['B',x+bw+18,y,10,bh,'vertical'],['D',x-28,y,10,bh,'vertical']
-  ];
-  sides.forEach(([k,sx,sy,sw,sh,orient])=>{
-    const d=state.facades[k];if(!d||!d.enabled)return;
-    s+=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="#dcebf4" stroke="#174f78" stroke-width="2"/>`;
-    const seq=orderedBays(d),tot=seq.reduce((a,b)=>a+b,0),span=orient==='horizontal'?sw:sh;let p=0;
-    seq.forEach((l,i)=>{p+=l/tot*span;if(i<seq.length-1)s+=orient==='horizontal'?`<line x1="${sx+p}" y1="${sy}" x2="${sx+p}" y2="${sy+sh}" stroke="#174f78"/>`:`<line x1="${sx}" y1="${sy+p}" x2="${sx+sw}" y2="${sy+p}" stroke="#174f78"/>`});
-    if(d.access&&seq.length){let before=seq.slice(0,d.accessBay||0).reduce((a,b)=>a+b,0)/tot*span,sz=seq[Math.min(d.accessBay||0,seq.length-1)]/tot*span;s+=orient==='horizontal'?`<rect x="${sx+before}" y="${sy-3}" width="${sz}" height="${sh+6}" class="svg-access"/>`:`<rect x="${sx-3}" y="${sy+before}" width="${sw+6}" height="${sz}" class="svg-access"/>`}
-    const tx=orient==='horizontal'?sx+sw/2:(k==='B'?sx+28:sx-18),ty=orient==='horizontal'?(k==='A'?sy-10:sy+30):sy+sh/2;
-    s+=`<text x="${tx}" y="${ty}" text-anchor="middle" class="svg-label" ${orient==='vertical'?`transform="rotate(-90 ${tx} ${ty})"`:''}>${escapeHtml(d.name)} - ${fmt(tot)} m</text>`;
+  const info={};
+  keys.forEach(k=>{
+    const d=state.facades[k],total=orderedBays(d).reduce((a,b)=>a+b,0),w=+d.width||.73,mode=d.extendMode||'none';
+    const left=(mode==='left'||mode==='both')?w:0,right=(mode==='right'||mode==='both')?w:0;
+    info[k]={d,total,left,right,building:Math.max(.2,total-left-right)};
   });
-  s+=`<text x="70" y="65" class="svg-label">N</text><path d="M70 85L70 35M70 35l-8 14M70 35l8 14" stroke="#17212b" stroke-width="3" fill="none"/></svg>`;
+  const a=info.A||info.C||Object.values(info)[0],c=info.C||a,b=info.B||info.D||Object.values(info)[0],dd=info.D||b;
+  const buildingL=Math.max(a.building,c.building),buildingD=Math.max(b.building,dd.building);
+  const maxTotalL=Math.max(a.total,c.total),maxTotalD=Math.max(b.total,dd.total);
+  const scale=Math.min(48,650/Math.max(maxTotalL,1),390/Math.max(maxTotalD,1));
+  const bw=buildingL*scale,bh=buildingD*scale,x=cx-bw/2,y=cy-bh/2;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de dessus du chantier"><rect width="${W}" height="${H}" fill="white"/><rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="6" class="svg-building"/><text x="${cx}" y="${cy}" text-anchor="middle" class="svg-label">BÂTIMENT ${fmt(buildingL)} × ${fmt(buildingD)} m</text>`;
+  function drawSide(k){
+    const q=info[k];if(!q)return;const {d,total,left,right}=q,seq=orderedBays(d),th=Math.max(9,(+d.width||.73)*scale*.55);
+    let sx,sy,sw,sh,orient,start;
+    if(k==='A'){sx=x-left*scale;sy=y-th-12;sw=total*scale;sh=th;orient='h';start=sx}
+    if(k==='C'){sx=x-left*scale;sy=y+bh+12;sw=total*scale;sh=th;orient='h';start=sx}
+    if(k==='B'){sx=x+bw+12;sy=y-left*scale;sw=th;sh=total*scale;orient='v';start=sy}
+    if(k==='D'){sx=x-th-12;sy=y-left*scale;sw=th;sh=total*scale;orient='v';start=sy}
+    s+=`<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" fill="#dcebf4" stroke="#174f78" stroke-width="2"/>`;
+    let p=0;seq.forEach((l,i)=>{p+=l*scale;if(i<seq.length-1)s+=orient==='h'?`<line x1="${start+p}" y1="${sy}" x2="${start+p}" y2="${sy+sh}" stroke="#174f78"/>`:`<line x1="${sx}" y1="${start+p}" x2="${sx+sw}" y2="${start+p}" stroke="#174f78"/>`;});
+    // Draw extension zones distinctly.
+    if(left)s+=orient==='h'?`<rect x="${sx}" y="${sy}" width="${left*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy}" width="${sw}" height="${left*scale}" fill="#f4c87a" opacity=".8"/>`;
+    if(right)s+=orient==='h'?`<rect x="${sx+sw-right*scale}" y="${sy}" width="${right*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy+sh-right*scale}" width="${sw}" height="${right*scale}" fill="#f4c87a" opacity=".8"/>`;
+    const tx=orient==='h'?sx+sw/2:(k==='B'?sx+31:sx-21),ty=orient==='h'?(k==='A'?sy-9:sy+sh+22):sy+sh/2;
+    s+=`<text x="${tx}" y="${ty}" text-anchor="middle" class="svg-label" ${orient==='v'?`transform="rotate(-90 ${tx} ${ty})"`:''}>${escapeHtml(d.name)} - échafaudage ${fmt(total)} m</text>`;
+  }
+  ['A','B','C','D'].forEach(drawSide);
+  s+=`<rect x="55" y="545" width="22" height="12" fill="#f4c87a"/><text x="85" y="556" class="svg-small">Dépassement sélectionné</text><text x="70" y="65" class="svg-label">N</text><path d="M70 85L70 35M70 35l-8 14M70 35l8 14" stroke="#17212b" stroke-width="3" fill="none"/></svg>`;
   return s;
 }
 function project3D(x,y,z,ax,ay,scale,cx,cy){
@@ -685,27 +682,54 @@ function project3D(x,y,z,ax,ay,scale,cx,cy){
 function threeSvg(){
   const keys=activeFacadeKeys();
   if(!keys.length)return '<div class="empty-search">Aucune façade active à dessiner.</div>';
-  const W=960,H=650,ax=+$('#rotX').value,ay=+$('#rotY').value,zoom=+$('#zoom3d').value/100;
-  const side=(k,fallback)=>state.facades[k]&&state.facades[k].enabled?state.facades[k]:fallback;
-  const fallback=state.facades[keys[0]];
+  const W=960,H=680,ax=+$('#rotX').value,ay=+$('#rotY').value,zoom=+$('#zoom3d').value/100;
+  const fallback=state.facades[keys[0]],side=(k,fb)=>state.facades[k]&&state.facades[k].enabled?state.facades[k]:fb;
   const fa=side('A',fallback),fb=side('B',fallback),fc=side('C',fa),fd=side('D',fb);
-  const seqA=orderedBays(fa),seqB=orderedBays(fb),seqC=orderedBays(fc),seqD=orderedBays(fd);
-  const lenA=seqA.reduce((a,b)=>a+b,0)||8,lenB=seqB.reduce((a,b)=>a+b,0)||6;
-  const lenC=seqC.reduce((a,b)=>a+b,0)||lenA,lenD=seqD.reduce((a,b)=>a+b,0)||lenB;
-  const L=Math.max(lenA,lenC),D=Math.max(lenB,lenD);
-  const all=[fa,fb,fc,fd].filter(Boolean);
-  const height=Math.max(...all.map(d=>+d.height||2)),levels=Math.max(...all.map(d=>Math.max(1,Math.round(d.levels||1))));
-  const off=Math.max(.9,...all.map(d=>(+d.width||.73)+.18));
-  const totalSpan=Math.max(L+2*off,D+2*off,height*1.2);
-  const scale=Math.min(48,680/Math.max(totalSpan,6))*zoom,cx=W/2,cy=H*.72;
+  const getInfo=d=>{const seq=orderedBays(d),total=seq.reduce((a,b)=>a+b,0)||1,w=+d.width||.73,m=d.extendMode||'none';const left=(m==='left'||m==='both')?w:0,right=(m==='right'||m==='both')?w:0;return {d,seq,total,w,left,right,building:Math.max(.2,total-left-right)}};
+  const A=getInfo(fa),B=getInfo(fb),C=getInfo(fc),D4=getInfo(fd);
+  const L=Math.max(A.building,C.building),D=Math.max(B.building,D4.building);
+  const all=[fa,fb,fc,fd],height=Math.max(...all.map(d=>+d.height||2));
+  const margin=Math.max(...[A,B,C,D4].map(q=>q.w))+.35,totalSpan=Math.max(L+2*margin,D+2*margin,height+2);
+  const scale=Math.min(48,700/Math.max(totalSpan,6))*zoom,cx=W/2,cy=H*.73;
   const P=(x,y,z)=>project3D(x-L/2,y,z-D/2,ax,ay,scale,cx,cy);
-  let lines=[],polys=[];
-  const line=(a,b,cls,extra='')=>{let p=P(...a),q=P(...b);lines.push(`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="${cls}" ${extra}/>`);};
-  const poly=(pts,cls,extra='')=>polys.push(`<polygon points="${pts.map(v=>P(...v).join(',')).join(' ')}" class="${cls}" ${extra}/>`);
+  const depthOf=(pts)=>{const ry=ay*Math.PI/180;return pts.reduce((s,v)=>s+(v[0]-L/2)*Math.sin(ry)+(v[2]-D/2)*Math.cos(ry),0)/pts.length};
+  const objects=[];
+  const line=(a,b,cls,extra='')=>{const p=P(...a),q=P(...b);objects.push({depth:depthOf([a,b]),svg:`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="${cls}" ${extra}/>`});};
+  const poly=(pts,cls,extra='')=>objects.push({depth:depthOf(pts),svg:`<polygon points="${pts.map(v=>P(...v).join(',')).join(' ')}" class="${cls}" ${extra}/>`});
+  const cumulative=seq=>{let a=[0];seq.forEach(v=>a.push(a[a.length-1]+v));return a};
+
+  function scaffold(k,q){
+    const {d,seq,total,w,left,right}=q;if(!d.enabled||!seq.length)return;
+    const xs=cumulative(seq),h=+d.height||height,lev=Math.max(1,Math.round(d.levels||1));
+    // u=0 is total scaffold start. Building starts after the selected left extension.
+    const map=(u,y,dep)=>{
+      if(k==='A')return [(L-q.building)/2+(u-left),y,-margin+dep];
+      if(k==='C')return [L-(L-q.building)/2-(u-left),y,D+margin-dep];
+      if(k==='B')return [L+margin-dep,y,(D-q.building)/2+(u-left)];
+      return [-margin+dep,y,D-(D-q.building)/2-(u-left)];
+    };
+    const posts=[...xs];posts.forEach(u=>{line(map(u,0,0),map(u,h+1.05,0),'svg-frame');line(map(u,0,w),map(u,h+1.05,w),'svg-frame')});
+    const toe=(u1,u2,y)=>poly([map(u1,y,0),map(u2,y,0),map(u2,y+.17,0),map(u1,y+.17,0)],'svg-toe');
+    const endToe=(u,y)=>poly([map(u,y,0),map(u,y,w),map(u,y+.17,w),map(u,y+.17,0)],'svg-toe');
+    for(let lv=1;lv<=lev;lv++){
+      const y=h/lev*lv,y0=h/lev*(lv-1);
+      for(let i=0;i<seq.length;i++){
+        poly([map(xs[i],y,0),map(xs[i+1],y,0),map(xs[i+1],y,w),map(xs[i],y,w)],'svg-deck');
+        toe(xs[i],xs[i+1],y);
+        line(map(xs[i],y+.50,0),map(xs[i+1],y+.50,0),'svg-rail');
+        line(map(xs[i],y+1.00,0),map(xs[i+1],y+1.00,0),'svg-rail');
+      }
+      // End guardrails and end toe boards at true total scaffold ends.
+      [0,total].forEach(u=>{line(map(u,y+.50,0),map(u,y+.50,w),'svg-rail');line(map(u,y+1.00,0),map(u,y+1.00,w),'svg-rail');endToe(u,y)});
+      const diag=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
+      diag.forEach(i=>{if(i<seq.length){const rev=lv%2===0;line(map(rev?xs[i+1]:xs[i],y0,0),map(rev?xs[i]:xs[i+1],y,0),'svg-diag')}});
+    }
+  }
+  scaffold('A',A);scaffold('B',B);scaffold('C',C);scaffold('D',D4);
 
   if($('#showBuilding3d').checked){
     const wallH=Math.max(2,height*.82),roofH=Math.min(2.6,Math.max(1.2,D*.22));
-    // Opaque grey building shell.
+    // Opaque shell participates in depth sorting and masks rear scaffolds.
     poly([[0,0,0],[L,0,0],[L,wallH,0],[0,wallH,0]],'svg-wall3d');
     poly([[L,0,0],[L,0,D],[L,wallH,D],[L,wallH,0]],'svg-wall3d');
     poly([[L,0,D],[0,0,D],[0,wallH,D],[L,wallH,D]],'svg-wall3d');
@@ -713,82 +737,11 @@ function threeSvg(){
     poly([[0,wallH,0],[L,wallH,0],[L,wallH+roofH,D/2],[0,wallH+roofH,D/2]],'svg-roof3d');
     poly([[0,wallH,D],[L,wallH,D],[L,wallH+roofH,D/2],[0,wallH+roofH,D/2]],'svg-roof3d');
   }
-
-  function cumulative(seq){let a=[0];seq.forEach(v=>a.push(a[a.length-1]+v));return a}
-  function facadeScaffold(k,d,seq){
-    if(!d||!d.enabled||!seq.length)return;
-    const xs=cumulative(seq),tot=xs[xs.length-1],h=+d.height||height,lev=Math.max(1,Math.round(d.levels||levels)),w=+d.width||.73;
-    const diag=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
-    const mode=d.extendMode||'both';
-    const extLeft=(mode==='left'||mode==='both')?w:0;
-    const extRight=(mode==='right'||mode==='both')?w:0;
-    const map=(u,y,depth)=>{
-      if(k==='A')return [(L-tot)/2+u,y,-off+depth];
-      if(k==='C')return [L-(L-tot)/2-u,y,D+off-depth];
-      if(k==='B')return [L+off-depth,y,(D-tot)/2+u];
-      return [-off+depth,y,D-(D-tot)/2-u];
-    };
-    const positions=[...(extLeft?[-extLeft]:[]),...xs,...(extRight?[tot+extRight]:[])];
-    positions.forEach(u=>{
-      line(map(u,0,0),map(u,h+1.05,0),'svg-frame');
-      line(map(u,0,w),map(u,h+1.05,w),'svg-frame');
-    });
-    const toeQuad=(u1,u2,y,depth=0)=>{
-      poly([map(u1,y,depth),map(u2,y,depth),map(u2,y+.16,depth),map(u1,y+.16,depth)],'svg-toe');
-    };
-    const endToeQuad=(u,y)=>{
-      poly([map(u,y,0),map(u,y,w),map(u,y+.16,w),map(u,y+.16,0)],'svg-toe');
-    };
-    const endRails=(u,y)=>{
-      line(map(u,y+.50,0),map(u,y+.50,w),'svg-rail');
-      line(map(u,y+1.00,0),map(u,y+1.00,w),'svg-rail');
-    };
-    for(let lv=1;lv<=lev;lv++){
-      const yTop=h/lev*lv,yBottom=h/lev*(lv-1);
-      // Main platforms, longitudinal toe boards and guardrails.
-      for(let i=0;i<seq.length;i++){
-        poly([map(xs[i],yTop,0),map(xs[i+1],yTop,0),map(xs[i+1],yTop,w),map(xs[i],yTop,w)],'svg-deck','opacity=".76"');
-        toeQuad(xs[i],xs[i+1],yTop,0);
-        line(map(xs[i],yTop+.50,0),map(xs[i+1],yTop+.50,0),'svg-rail');
-        line(map(xs[i],yTop+1.00,0),map(xs[i+1],yTop+1.00,0),'svg-rail');
-      }
-      // Optional left and right corner extensions.
-      if(extLeft){
-        poly([map(-extLeft,yTop,0),map(0,yTop,0),map(0,yTop,w),map(-extLeft,yTop,w)],'svg-deck','opacity=".76"');
-        toeQuad(-extLeft,0,yTop,0);
-        line(map(-extLeft,yTop+.50,0),map(0,yTop+.50,0),'svg-rail');
-        line(map(-extLeft,yTop+1.00,0),map(0,yTop+1.00,0),'svg-rail');
-      }
-      if(extRight){
-        poly([map(tot,yTop,0),map(tot+extRight,yTop,0),map(tot+extRight,yTop,w),map(tot,yTop,w)],'svg-deck','opacity=".76"');
-        toeQuad(tot,tot+extRight,yTop,0);
-        line(map(tot,yTop+.50,0),map(tot+extRight,yTop+.50,0),'svg-rail');
-        line(map(tot,yTop+1.00,0),map(tot+extRight,yTop+1.00,0),'svg-rail');
-      }
-      // End guardrails and end toe boards at the actual outer ends.
-      const outerLeft=extLeft?-extLeft:0,outerRight=extRight?tot+extRight:tot;
-      endRails(outerLeft,yTop); endToeQuad(outerLeft,yTop);
-      endRails(outerRight,yTop); endToeQuad(outerRight,yTop);
-      // Diagonals repeated at every scaffold lift.
-      diag.forEach(i=>{
-        if(i<seq.length){
-          const reverse=lv%2===0;
-          line(map(reverse?xs[i+1]:xs[i],yBottom,0),map(reverse?xs[i]:xs[i+1],yTop,0),'svg-diag');
-        }
-      });
-    }
-    if(d.access){
-      const p=Math.max(0,Math.min(d.accessBay||0,seq.length-1)),mid=(xs[p]+xs[p+1])/2;
-      line(map(mid-.17,0,0),map(mid-.17,h,0),'svg-access');
-      line(map(mid+.17,0,0),map(mid+.17,h,0),'svg-access');
-      for(let y=.25;y<h;y+=.32)line(map(mid-.17,y,0),map(mid+.17,y,0),'svg-access');
-    }
-  }
-  facadeScaffold('A',fa,seqA);facadeScaffold('B',fb,seqB);facadeScaffold('C',fc,seqC);facadeScaffold('D',fd,seqD);
-
-  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue 3D complète des quatre façades"><rect width="${W}" height="${H}" fill="white"/>${polys.join('')}${lines.join('')}`;
-  s+=`<text x="${W/2}" y="27" text-anchor="middle" class="svg-label">Bâtiment complet — façades ${keys.map(k=>escapeHtml(state.facades[k].name||k)).join(' · ')}</text>`;
-  s+=`<text x="${W/2}" y="${H-18}" text-anchor="middle" class="svg-small">Rotation ${ay}° · inclinaison ${ax}° · zoom ${Math.round(zoom*100)} % · ${keys.length} façade(s) active(s)</text></svg>`;
+  // Painter's algorithm: far objects first, near objects last.
+  objects.sort((a,b)=>b.depth-a.depth);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue 3D complète"><rect width="${W}" height="${H}" fill="white"/>${objects.map(o=>o.svg).join('')}`;
+  s+=`<text x="${W/2}" y="27" text-anchor="middle" class="svg-label">Bâtiment opaque ${fmt(L)} × ${fmt(D)} m — échafaudages selon les longueurs totales saisies</text>`;
+  s+=`<text x="${W/2}" y="${H-18}" text-anchor="middle" class="svg-small">Rotation ${ay}° · inclinaison ${ax}° · zoom ${Math.round(zoom*100)} %</text></svg>`;
   return s;
 }
 function renderPlan(){
@@ -807,7 +760,7 @@ function renderPlan(){
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s), rotation libre autour du bâtiment.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-8',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-9',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -824,8 +777,8 @@ NAMES.forEach((n,i)=>{
   if(!d.width)d.width=.73;
   if(!['none','left','right','both'].includes(d.extendMode))d.extendMode='both';
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-8-liste.csv';a.click()}
-$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-8');location.reload()}};
+function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-9-liste.csv';a.click()}
+$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-9');location.reload()}};
 $('#planCanvas').addEventListener('click',openPlanFullscreen);
 if($('#closeFullscreen'))$('#closeFullscreen').addEventListener('click',closePlanFullscreen);
 if($('#planFullscreen'))$('#planFullscreen').addEventListener('click',e=>{if(e.target===$('#planFullscreen'))closePlanFullscreen()});

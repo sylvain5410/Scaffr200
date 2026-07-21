@@ -1,18 +1,11 @@
-ScaffR200 Pro v5.8
+ScaffR200 Pro v5.9
 
-Nouveautés et corrections
-- Bâtiment et toiture simulés en gris opaque dans la vue 3D.
-- Garde-corps longitudinaux dessinés à chaque niveau, y compris au dernier.
-- Plinthes longitudinales dessinées à chaque niveau.
-- Garde-corps d'extrémité et plinthes d'extrémité dessinés aux deux bouts.
-- Pour chaque façade, choix du dépassement :
-  * aucun ;
-  * gauche uniquement ;
-  * droite uniquement ;
-  * gauche et droite.
-- Le choix est enregistré et visible dans les vues de face et 3D.
-- Les diagonales restent répétées à tous les étages.
-- Plein écran, zoom tactile et rotation tactile conservés.
+Corrections :
+- Vue de face : plinthes et garde-corps du dernier niveau visibles.
+- Vue de dessus : dépassements gauche/droite visibles en orange.
+- Vue 3D : bâtiment et toiture opaques, avec tri de profondeur.
+- La longueur saisie est la longueur totale de l’échafaudage.
+  Exemple : 12 m avec dépassement des deux côtés et largeur 1 m = bâtiment d’environ 10 m.
+- La même logique est utilisée dans les vues face, dessus et 3D.
 
-Installation GitHub
-Utiliser de préférence le ZIP simple et remplacer uniquement index.html.
+Installation : remplacer les anciens fichiers sur GitHub par le contenu du ZIP.
