@@ -1,0 +1,14 @@
+ScaffR200 Pro v5.5 — version simple
+
+Le ZIP contient un seul fichier :
+- index.html
+
+Installation sur GitHub
+1. Ouvrir le dépôt Scaffr200.
+2. Supprimer ou remplacer l'ancien index.html.
+3. Envoyer le nouveau index.html.
+4. Cliquer sur « Commit changes ».
+5. Attendre quelques instants que GitHub Pages se mette à jour.
+
+Toutes les images sont intégrées directement dans index.html.
+Aucun dossier assets n'est nécessaire.
