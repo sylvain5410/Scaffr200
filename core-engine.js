@@ -34,6 +34,7 @@ class ComponentCatalog {
     ).slice(0,limit);
   }
   get size() { return this.components.size; }
+  exportData() { return this.values().map(c=>c.toJSON()); }
 }
 class BomLine {
   constructor(reference) { this.reference=reference;this.quantity=0;this.origins=new Map(); }

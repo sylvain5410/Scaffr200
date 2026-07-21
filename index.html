@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.1.5</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.2</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -91,17 +91,32 @@
 .core-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}
 .core-value{font-size:21px;font-weight:700;color:var(--b);display:block}
 .core-status{margin-top:10px;padding:9px;border-radius:8px;background:#eaf5ed;color:#205f34;font-weight:700}
+
+.catalog-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) minmax(160px,240px) auto;gap:8px;align-items:end}
+.catalog-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:12px 0}
+.catalog-table-wrap{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:10px}
+.catalog-table{width:100%;border-collapse:collapse;min-width:880px}
+.catalog-table th,.catalog-table td{padding:8px;border-bottom:1px solid #e5eaee;text-align:left;vertical-align:top}
+.catalog-table th{position:sticky;top:0;background:#eef4f8;z-index:1}
+.catalog-table tr.modified{background:#fff7dd}.catalog-table tr.provisional{background:#fff1f1}
+.catalog-actions{display:flex;gap:5px;flex-wrap:wrap}.catalog-actions button{padding:6px 8px}
+.catalog-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.catalog-form .wide{grid-column:span 2}.catalog-help{font-size:12px;color:#52616d}
+.catalog-tag{display:inline-block;border-radius:999px;padding:2px 7px;font-size:11px;font-weight:700}
+.catalog-tag.ok{background:#e5f4e9;color:#27633a}.catalog-tag.warn{background:#fff0cc;color:#7a4b00}.catalog-tag.edit{background:#e7f0fb;color:#174f78}
+@media(max-width:720px){.catalog-toolbar{grid-template-columns:1fr}.catalog-form .wide{grid-column:auto}}
+
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v6.1.5</small></h1><p>Configurateur chantier R200 / M368</p></header>
-<div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="plans">5. Plans 2D / 3D</button><button data-page="controle">6. Contrôle</button><button data-page="documents">7. Documents</button></div>
+<header><h1>ScaffR200 Pro <small>v6.2</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.1.5 introduit un noyau métier indépendant : catalogue central, objets composants et moteur de nomenclature séparé du rendu. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.2 ajoute un gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
 <div class="card"><h2>Résumé</h2><div class="summary"><div class="metric"><b id="mFacades">0</b>façades</div><div class="metric"><b id="mLength">0 m</b>longueur</div><div class="metric"><b id="mArea">0 m²</b>surface</div><div class="metric"><b id="mQty">0</b>pièces</div><div class="metric"><b id="mWeight">0 kg</b>poids estimé</div><div class="metric"><b id="mRefs">0</b>références</div></div><div class="bom-quality"><div class="quality-card"><b id="mKnown">100 %</b>des pièces avec poids renseigné</div><div class="quality-card"><b id="mAuto">0</b>pièces calculées automatiquement</div><div class="quality-card"><b id="mManual">0</b>pièces ajoutées manuellement</div></div></div>
 <div class="card core-engine">
-  <h2>Noyau métier V6.1.5</h2>
+  <h2>Noyau métier V6.2</h2>
   <div class="core-grid">
     <div><span class="core-value" id="coreCatalog">0</span>composants catalogués</div>
     <div><span class="core-value" id="coreLines">0</span>lignes de nomenclature</div>
@@ -120,6 +135,43 @@
 </div>
 <div class="card"><h2>Synthèse par famille</h2><div style="overflow:auto"><table class="items category-table"><thead><tr><th>Famille</th><th>Références</th><th>Quantité</th><th class="right">Poids</th></tr></thead><tbody id="categoryBody"></tbody></table></div></div>
 <div class="card"><h2>Nomenclature détaillée</h2><div style="overflow:auto"><table class="items"><thead><tr><th>Photo et désignation</th><th>Référence</th><th>Origine du calcul</th><th>Quantité</th><th class="right">Poids</th></tr></thead><tbody id="materialBody"></tbody></table></div></div>
+</section>
+
+
+<section class="page" id="catalogue">
+<div class="card"><h2>Catalogue des composants</h2>
+<p>Les corrections sont enregistrées localement dans ce navigateur. Le catalogue d'origine reste restaurable.</p>
+<div class="catalog-metrics">
+<div class="metric"><b id="catTotal">0</b>références actives</div>
+<div class="metric"><b id="catComplete">0 %</b>données complètes</div>
+<div class="metric"><b id="catModified">0</b>références modifiées</div>
+<div class="metric"><b id="catProvisional">0</b>références provisoires</div>
+</div>
+<div class="catalog-toolbar">
+<label>Recherche<input id="catalogSearch" placeholder="Référence, désignation, famille…"></label>
+<label>Famille<select id="catalogSection"><option value="">Toutes les familles</option></select></label>
+<button id="catalogNew" class="primary">Nouvelle référence</button>
+</div></div>
+<div class="card"><div class="catalog-table-wrap"><table class="catalog-table">
+<thead><tr><th>Référence</th><th>Désignation</th><th>Dimensions</th><th>Famille</th><th>Poids</th><th>État</th><th>Actions</th></tr></thead>
+<tbody id="catalogBody"></tbody></table></div></div>
+<div class="card"><h2 id="catalogFormTitle">Ajouter ou corriger un composant</h2>
+<div class="catalog-form">
+<label>Référence<input id="catRef"></label>
+<label class="wide">Désignation<input id="catDesignation"></label>
+<label>Dimensions<input id="catDimensions"></label>
+<label>Famille<input id="catFamily"></label>
+<label>Poids unitaire (kg)<input id="catWeight" type="number" min="0" step="0.01"></label>
+</div><div class="inline" style="margin-top:12px">
+<button id="catalogSave" class="primary">Enregistrer</button><button id="catalogCancel">Annuler</button>
+<span class="catalog-help" id="catalogMessage"></span></div></div>
+<div class="card"><h2>Import / export</h2><div class="inline">
+<button id="catalogExport">Exporter le catalogue JSON</button>
+<button id="catalogExportCsv">Exporter le catalogue CSV</button>
+<button id="catalogImportBtn">Importer un catalogue JSON</button>
+<button id="catalogReset" class="danger">Restaurer le catalogue d'origine</button>
+<input id="catalogImport" type="file" accept=".json,application/json" hidden>
+</div><p class="catalog-help">L'import accepte le format exporté par cette version. Les références portant le même numéro sont remplacées localement.</p></div>
 </section>
 
 <section class="page" id="plans">
@@ -852,7 +904,7 @@ function renderPlan(){
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s), rotation libre autour du bâtiment.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-1-5',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-2',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -869,13 +921,78 @@ NAMES.forEach((n,i)=>{
   if(!d.width)d.width=.73;
   if(!['none','left','right','both'].includes(d.extendMode))d.extendMode='both';
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-1-5-nomenclature.csv';a.click()}
-$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;
+function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-2-nomenclature.csv';a.click()}
+
+const CATALOG_STORAGE_KEY='scaffr200-v6-2-catalog-overrides';
+let catalogEditingRef='';
+function loadCatalogOverrides(){
+  try{const rows=JSON.parse(localStorage.getItem(CATALOG_STORAGE_KEY)||'[]');if(Array.isArray(rows))rows.forEach(r=>COMPONENT_CATALOG.register(r))}
+  catch(err){console.warn('Catalogue local illisible',err)}
+}
+function saveCatalogOverrides(){
+  localStorage.setItem(CATALOG_STORAGE_KEY,JSON.stringify(COMPONENT_CATALOG.values().filter(c=>COMPONENT_CATALOG.isModified(c.reference)).map(c=>c.toJSON())));
+}
+function catalogCompleteness(c){return ([c.reference,c.designation,c.section,c.dimensions].filter(Boolean).length+(c.weightKg>0?1:0))/5}
+function refreshCatalogSections(){
+  const s=$('#catalogSection'),v=s.value,rows=[...new Set(COMPONENT_CATALOG.values().map(c=>c.section).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr'));
+  s.innerHTML='<option value="">Toutes les familles</option>'+rows.map(x=>`<option>${escapeHtml(x)}</option>`).join('');s.value=rows.includes(v)?v:'';
+}
+function renderCatalog(){
+  refreshCatalogSections();
+  const term=normalizeText($('#catalogSearch').value),section=$('#catalogSection').value;
+  const all=COMPONENT_CATALOG.values().sort((a,b)=>a.section.localeCompare(b.section,'fr')||a.reference.localeCompare(b.reference,'fr'));
+  $('#catTotal').textContent=all.length;
+  $('#catModified').textContent=all.filter(c=>COMPONENT_CATALOG.isModified(c.reference)).length;
+  $('#catProvisional').textContent=all.filter(c=>c.provisional).length;
+  $('#catComplete').textContent=(all.length?Math.round(all.reduce((s,c)=>s+catalogCompleteness(c),0)/all.length*100):100)+' %';
+  const rows=all.filter(c=>(!term||normalizeText(`${c.reference} ${c.designation} ${c.dimensions} ${c.section}`).includes(term))&&(!section||c.section===section));
+  $('#catalogBody').innerHTML=rows.slice(0,500).map(c=>{
+    const changed=COMPONENT_CATALOG.isModified(c.reference);
+    const badge=c.provisional?'<span class="catalog-tag warn">À confirmer</span>':changed?'<span class="catalog-tag edit">Modifiée</span>':'<span class="catalog-tag ok">Validée</span>';
+    return `<tr class="${c.provisional?'provisional':changed?'modified':''}"><td><b>${escapeHtml(c.reference)}</b></td><td>${escapeHtml(c.designation)}</td><td>${escapeHtml(c.dimensions||'—')}</td><td>${escapeHtml(c.section||'—')}</td><td>${c.weightKg?fmt(c.weightKg)+' kg':'—'}</td><td>${badge}</td><td><div class="catalog-actions"><button data-cat-edit="${escapeHtml(c.reference)}">Modifier</button>${changed?`<button data-cat-restore="${escapeHtml(c.reference)}">Restaurer</button>`:''}</div></td></tr>`;
+  }).join('')||'<tr><td colspan="7">Aucune référence trouvée.</td></tr>';
+  document.querySelectorAll('[data-cat-edit]').forEach(b=>b.onclick=()=>editCatalogItem(b.dataset.catEdit));
+  document.querySelectorAll('[data-cat-restore]').forEach(b=>b.onclick=()=>{COMPONENT_CATALOG.restore(b.dataset.catRestore);saveCatalogOverrides();renderCatalog();calc()});
+}
+function clearCatalogForm(){
+  catalogEditingRef='';$('#catalogFormTitle').textContent='Ajouter ou corriger un composant';
+  ['catRef','catDesignation','catDimensions','catFamily','catWeight'].forEach(id=>$('#'+id).value='');
+  $('#catRef').disabled=false;$('#catalogMessage').textContent='';
+}
+function editCatalogItem(ref){
+  const c=COMPONENT_CATALOG.get(ref);catalogEditingRef=ref;$('#catalogFormTitle').textContent='Modifier '+ref;
+  $('#catRef').value=c.reference;$('#catRef').disabled=true;$('#catDesignation').value=c.designation;
+  $('#catDimensions').value=c.dimensions;$('#catFamily').value=c.section;$('#catWeight').value=c.weightKg||'';
+  $('#catalogMessage').textContent=COMPONENT_CATALOG.isBase(ref)?'Correction locale d’une référence du catalogue.':'Référence locale personnalisée.';
+}
+function saveCatalogForm(){
+  const reference=$('#catRef').value.trim(),designation=$('#catDesignation').value.trim(),dimensions=$('#catDimensions').value.trim(),section=$('#catFamily').value.trim(),poids=Number($('#catWeight').value||0);
+  if(!reference||!designation||!section){$('#catalogMessage').textContent='Référence, désignation et famille sont obligatoires.';return}
+  if(!Number.isFinite(poids)||poids<0){$('#catalogMessage').textContent='Poids invalide.';return}
+  if(!catalogEditingRef&&COMPONENT_CATALOG.has(reference)){$('#catalogMessage').textContent='Cette référence existe déjà. Utilisez Modifier.';return}
+  COMPONENT_CATALOG.register({reference,designation,dimensions,section,poids});saveCatalogOverrides();clearCatalogForm();renderCatalog();calc();
+}
+function downloadText(filename,text,type='application/json'){
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function exportCatalogJson(){downloadText('scaffr200-v6-2-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
+function exportCatalogCsv(){
+  const esc=v=>`"${String(v??'').replaceAll('"','""')}"`,rows=[['Référence','Désignation','Dimensions','Famille','Poids kg','Modifiée','Provisoire']];
+  COMPONENT_CATALOG.values().sort((a,b)=>a.reference.localeCompare(b.reference)).forEach(c=>rows.push([c.reference,c.designation,c.dimensions,c.section,c.weightKg,COMPONENT_CATALOG.isModified(c.reference)?'Oui':'Non',c.provisional?'Oui':'Non']));
+  downloadText('scaffr200-v6-2-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
+}
+function importCatalogFile(file){
+  const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),rows=Array.isArray(data)?data:data.components;if(!Array.isArray(rows))throw new Error('Format non reconnu');let n=0;rows.forEach(r=>{if(r&&r.reference&&r.designation){COMPONENT_CATALOG.register(r);n++}});saveCatalogOverrides();renderCatalog();calc();$('#catalogMessage').textContent=n+' référence(s) importée(s).'}catch(err){$('#catalogMessage').textContent='Import impossible : '+err.message}};reader.readAsText(file);
+}
+loadCatalogOverrides();
+
+$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();if(b.dataset.page==='catalogue')renderCatalog();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;
+$('#catalogSearch').oninput=renderCatalog;$('#catalogSection').onchange=renderCatalog;$('#catalogNew').onclick=clearCatalogForm;$('#catalogSave').onclick=saveCatalogForm;$('#catalogCancel').onclick=clearCatalogForm;$('#catalogExport').onclick=exportCatalogJson;$('#catalogExportCsv').onclick=exportCatalogCsv;$('#catalogImportBtn').onclick=()=>$('#catalogImport').click();$('#catalogImport').onchange=e=>{if(e.target.files[0])importCatalogFile(e.target.files[0]);e.target.value=''};$('#catalogReset').onclick=()=>{if(confirm('Restaurer toutes les données du catalogue d’origine ?')){COMPONENT_CATALOG.restoreAll();localStorage.removeItem(CATALOG_STORAGE_KEY);clearCatalogForm();renderCatalog();calc()}};
 $('#modelBtn').onclick=()=>{
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(BOM_ENGINE.exportModel(),null,2)],{type:'application/json'}));
-  a.download='scaffr200-v6-1-5-modele.json';a.click();
-};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v6-1-5');location.reload()}};
+  a.download='scaffr200-v6-2-modele.json';a.click();
+};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v6-2');location.reload()}};
 $('#planCanvas').addEventListener('click',openPlanFullscreen);
 if($('#closeFullscreen'))$('#closeFullscreen').addEventListener('click',closePlanFullscreen);
 if($('#planFullscreen'))$('#planFullscreen').addEventListener('click',e=>{if(e.target===$('#planFullscreen'))closePlanFullscreen()});
@@ -889,7 +1006,7 @@ $('#clearSearch').onclick=()=>{$('#partSearch').value='';renderSearch();$('#part
 $('#closeModal').onclick=closePart;
 $('#partModal').onclick=e=>{if(e.target===$('#partModal'))closePart()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePart()});
-load();build();renderSearch();
+load();build();renderSearch();renderCatalog();
 </script>
 
 <script>
