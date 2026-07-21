@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.6</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.7</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -60,11 +60,30 @@
 .svg-building{fill:#e8ecef;stroke:#8c9aa4;stroke-width:2}.svg-wall3d{fill:#e5dfd2;stroke:#8b8172;stroke-width:1.5}.svg-roof3d{fill:#4d5660;stroke:#27313a;stroke-width:2}
 .notice-source{font-size:11px;color:#5c6871;margin-top:5px}
 @media(max-width:760px){.view-controls{grid-template-columns:1fr}.plan-canvas{min-height:280px}}
+
+.svg-toe{fill:#e6a139;stroke:#9a5a00;stroke-width:1.2}
+.plan-canvas{cursor:grab;position:relative}
+.plan-canvas:active{cursor:grabbing}
+.plan-stage{transform-origin:0 0;will-change:transform}
+.fullscreen-plan{
+  position:fixed;inset:0;z-index:9999;background:#101820;display:none;flex-direction:column;
+}
+.fullscreen-plan.open{display:flex}
+.fullscreen-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;
+  background:#132638;color:#fff;border-bottom:1px solid #36516a
+}
+.fullscreen-head strong{font-size:16px}
+.fullscreen-head button{background:#fff;color:#17212b;border:0;border-radius:8px;padding:9px 13px;font-weight:700}
+.fullscreen-body{flex:1;overflow:hidden;position:relative;touch-action:none;background:#eef3f6}
+.fullscreen-body .plan-stage{position:absolute;left:0;top:0;width:100%}
+.fullscreen-help{font-size:12px;opacity:.85}
+.plan-open-hint{text-align:center;font-size:12px;color:#52616d;margin-top:6px}
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v5.6</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v5.7</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="plans">5. Plans 2D / 3D</button><button data-page="controle">6. Contrôle</button><button data-page="documents">7. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.6 affiche le bâtiment complet en 3D avec les quatre façades actives, rotation libre, inclinaison et zoom. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.7 ajoute le plein écran tactile, les diagonales et plinthes à tous les niveaux, ainsi que la continuité des planchers aux quatre angles. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
@@ -96,12 +115,12 @@
 </div>
 <div class="plan-panel">
 <h3 id="planTitle">Vue de face</h3>
-<div id="planCanvas" class="plan-canvas" aria-live="polite"></div>
+<div id="planCanvas" class="plan-canvas" aria-live="polite" title="Cliquer pour ouvrir en plein écran"></div><div class="plan-open-hint">Cliquer sur le plan pour l’ouvrir en plein écran.</div>
 <div class="plan-legend">
 <span class="legend-mark"><i></i>Cadres et lisses</span>
 <span class="legend-mark diag"><i></i>Diagonales</span>
 <span class="legend-mark deck"><i></i>Planchers</span>
-<span class="legend-mark access"><i></i>Accès</span>
+<span class="legend-mark access"><i></i>Accès</span><span class="legend-mark"><i style="background:#e6a139;height:9px"></i>Plinthes</span>
 </div>
 <p id="planInfo"></p>
 </div>
@@ -458,6 +477,75 @@ function renderSearch(){
 }
 
 let currentPlanView='front';
+
+const planGesture={scale:1,x:0,y:0,pointers:new Map(),lastDistance:0,lastCenter:null,dragStart:null};
+function resetPlanGesture(){planGesture.scale=1;planGesture.x=0;planGesture.y=0;planGesture.pointers.clear();planGesture.lastDistance=0;planGesture.lastCenter=null;applyPlanGesture()}
+function applyPlanGesture(){
+  const stage=$('#fullscreenBody .plan-stage');
+  if(stage)stage.style.transform=`translate(${planGesture.x}px,${planGesture.y}px) scale(${planGesture.scale})`;
+}
+function openPlanFullscreen(){
+  const source=$('#planCanvas .plan-stage');if(!source)return;
+  $('#fullscreenTitle').textContent=$('#planTitle').textContent;
+  $('#fullscreenBody').innerHTML=`<div class="plan-stage">${source.innerHTML}</div>`;
+  $('#planFullscreen').classList.add('open');
+  document.body.style.overflow='hidden';
+  resetPlanGesture();
+}
+function closePlanFullscreen(){
+  $('#planFullscreen').classList.remove('open');$('#fullscreenBody').innerHTML='';document.body.style.overflow='';
+}
+function pointerCenter(vals){return {x:vals.reduce((a,p)=>a+p.x,0)/vals.length,y:vals.reduce((a,p)=>a+p.y,0)/vals.length}}
+function pointerDistance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function bindPlanGestures(){
+  const body=$('#fullscreenBody');
+  body.addEventListener('pointerdown',e=>{
+    body.setPointerCapture(e.pointerId);
+    planGesture.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    const vals=[...planGesture.pointers.values()];
+    if(vals.length===1)planGesture.dragStart={x:e.clientX,y:e.clientY,baseX:planGesture.x,baseY:planGesture.y,rot:+$('#rotY').value,tilt:+$('#rotX').value};
+    if(vals.length===2){planGesture.lastDistance=pointerDistance(vals[0],vals[1]);planGesture.lastCenter=pointerCenter(vals)}
+  });
+  body.addEventListener('pointermove',e=>{
+    if(!planGesture.pointers.has(e.pointerId))return;
+    planGesture.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    const vals=[...planGesture.pointers.values()];
+    if(vals.length===1&&planGesture.dragStart){
+      const dx=e.clientX-planGesture.dragStart.x,dy=e.clientY-planGesture.dragStart.y;
+      if(currentPlanView==='three'){
+        $('#rotY').value=Math.max(-180,Math.min(180,planGesture.dragStart.rot+dx*.45));
+        $('#rotX').value=Math.max(-60,Math.min(60,planGesture.dragStart.tilt-dy*.25));
+        const data=planData();
+        $('#fullscreenBody .plan-stage').innerHTML=threeSvg();
+        $('#rotYOut').textContent=Math.round($('#rotY').value)+'°';$('#rotXOut').textContent=Math.round($('#rotX').value)+'°';
+      }else{
+        planGesture.x=planGesture.dragStart.baseX+dx;planGesture.y=planGesture.dragStart.baseY+dy;
+      }
+      applyPlanGesture();
+    }else if(vals.length===2){
+      const dist=pointerDistance(vals[0],vals[1]),center=pointerCenter(vals);
+      if(planGesture.lastDistance){
+        const old=planGesture.scale;
+        planGesture.scale=Math.max(.45,Math.min(4,planGesture.scale*(dist/planGesture.lastDistance)));
+        planGesture.x+=(center.x-(planGesture.lastCenter?.x||center.x));
+        planGesture.y+=(center.y-(planGesture.lastCenter?.y||center.y));
+        // Keep zoom centered around fingers approximately
+        planGesture.x-=(center.x)*(planGesture.scale-old)/Math.max(old,.01)*.15;
+        planGesture.y-=(center.y)*(planGesture.scale-old)/Math.max(old,.01)*.15;
+      }
+      planGesture.lastDistance=dist;planGesture.lastCenter=center;applyPlanGesture();
+    }
+  });
+  const finish=e=>{
+    planGesture.pointers.delete(e.pointerId);
+    const vals=[...planGesture.pointers.values()];
+    if(vals.length===1){const p=vals[0];planGesture.dragStart={x:p.x,y:p.y,baseX:planGesture.x,baseY:planGesture.y,rot:+$('#rotY').value,tilt:+$('#rotX').value}}
+    else{planGesture.dragStart=null;planGesture.lastDistance=0;planGesture.lastCenter=null}
+  };
+  body.addEventListener('pointerup',finish);body.addEventListener('pointercancel',finish);
+  body.addEventListener('wheel',e=>{e.preventDefault();planGesture.scale=Math.max(.45,Math.min(4,planGesture.scale*(e.deltaY<0?1.1:.9)));applyPlanGesture()},{passive:false});
+}
+
 function activeFacadeKeys(){return NAMES.filter(n=>state.facades[n]&&state.facades[n].enabled)}
 function refreshPlanFacades(){
   const sel=$('#planFacade'),old=sel.value,keys=activeFacadeKeys();
@@ -470,34 +558,51 @@ function planData(){
   return {key,d,seq:orderedBays(d),levels:Math.max(1,Math.round(d.levels||1)),height:+d.height||2,width:+d.width||.73};
 }
 function frontSvg(data){
-  const {d,seq,levels,height}=data,labels=$('#showLabels').checked;
+  const {d,seq,levels,height,width}=data,labels=$('#showLabels').checked;
   if(!seq.length)return '<div class="empty-search">Aucune travée à dessiner.</div>';
-  const W=960,H=520,pad=62,drawW=W-pad*2,drawH=H-105,total=seq.reduce((a,b)=>a+b,0);
-  const xScale=drawW/Math.max(total,.1),yScale=drawH/Math.max(height,2),baseY=H-58;
-  let xs=[pad];seq.forEach(l=>xs.push(xs[xs.length-1]+l*xScale));
+  const W=960,H=520,pad=82,drawW=W-pad*2,drawH=H-105,total=seq.reduce((a,b)=>a+b,0);
+  const visualTotal=total+2*width,xScale=drawW/Math.max(visualTotal,.1),yScale=drawH/Math.max(height,2),baseY=H-58;
+  const start=pad+width*xScale;
+  let xs=[start];seq.forEach(l=>xs.push(xs[xs.length-1]+l*xScale));
+  const leftReturn=pad,rightReturn=W-pad;
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de face de ${escapeHtml(d.name)}">${svgDefs()}<rect width="${W}" height="${H}" fill="white"/>`;
-  for(let i=0;i<xs.length;i++)s+=`<line x1="${xs[i]}" y1="${baseY-height*yScale}" x2="${xs[i]}" y2="${baseY}" class="svg-frame"/>`;
+  // Main and return frames
+  [leftReturn,...xs,rightReturn].forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY}" class="svg-frame"/>`);
   for(let lv=1;lv<=levels;lv++){
-    let y=baseY-(height/levels*lv)*yScale;
+    const yTop=baseY-(height/levels*lv)*yScale;
+    const yBottom=baseY-(height/levels*(lv-1))*yScale;
+    // Corner returns
+    s+=`<rect x="${leftReturn+2}" y="${yTop-7}" width="${start-leftReturn-4}" height="7" class="svg-deck"/>`;
+    s+=`<rect x="${xs[xs.length-1]+2}" y="${yTop-7}" width="${rightReturn-xs[xs.length-1]-4}" height="7" class="svg-deck"/>`;
+    s+=`<rect x="${leftReturn+2}" y="${yTop-18}" width="${start-leftReturn-4}" height="10" class="svg-toe"/>`;
+    s+=`<rect x="${xs[xs.length-1]+2}" y="${yTop-18}" width="${rightReturn-xs[xs.length-1]-4}" height="10" class="svg-toe"/>`;
     for(let i=0;i<seq.length;i++){
-      s+=`<rect x="${xs[i]+2}" y="${y-7}" width="${Math.max(2,xs[i+1]-xs[i]-4)}" height="7" class="svg-deck"/>`;
-      s+=`<line x1="${xs[i]}" y1="${y-36}" x2="${xs[i+1]}" y2="${y-36}" class="svg-rail"/><line x1="${xs[i]}" y1="${y-67}" x2="${xs[i+1]}" y2="${y-67}" class="svg-rail"/>`;
+      s+=`<rect x="${xs[i]+2}" y="${yTop-7}" width="${Math.max(2,xs[i+1]-xs[i]-4)}" height="7" class="svg-deck"/>`;
+      s+=`<rect x="${xs[i]+3}" y="${yTop-18}" width="${Math.max(2,xs[i+1]-xs[i]-6)}" height="10" class="svg-toe"/>`;
+      s+=`<line x1="${xs[i]}" y1="${yTop-36}" x2="${xs[i+1]}" y2="${yTop-36}" class="svg-rail"/><line x1="${xs[i]}" y1="${yTop-67}" x2="${xs[i+1]}" y2="${yTop-67}" class="svg-rail"/>`;
     }
+    // Diagonals repeated on every lift
+    const diagPos=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
+    diagPos.forEach(pos=>{
+      if(pos<seq.length){
+        const reverse=lv%2===0;
+        const xa=reverse?xs[pos+1]-5:xs[pos]+5,xb=reverse?xs[pos]+5:xs[pos+1]-5;
+        s+=`<line x1="${xa}" y1="${yBottom-4}" x2="${xb}" y2="${yTop+4}" class="svg-diag"/>`;
+      }
+    });
   }
-  const diagPos=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
-  diagPos.forEach(pos=>{if(pos<seq.length)s+=`<line x1="${xs[pos]+5}" y1="${baseY-4}" x2="${xs[pos+1]-5}" y2="${baseY-Math.min(2,height)*yScale+4}" class="svg-diag"/>`});
   if(d.access&&seq.length){
     const p=Math.max(0,Math.min(d.accessBay||0,seq.length-1)),cx=(xs[p]+xs[p+1])/2;
-    s+=`<rect x="${xs[p]+4}" y="${baseY-height*yScale+4}" width="${xs[p+1]-xs[p]-8}" height="${height*yScale-8}" class="svg-access" opacity=".33"/>`;
+    s+=`<rect x="${xs[p]+4}" y="${baseY-height*yScale+4}" width="${xs[p+1]-xs[p]-8}" height="${height*yScale-8}" class="svg-access" opacity=".28"/>`;
     for(let y=baseY-18;y>baseY-height*yScale+12;y-=24)s+=`<line x1="${cx-12}" y1="${y}" x2="${cx+12}" y2="${y}" stroke="#16945c" stroke-width="3"/>`;
     s+=`<line x1="${cx-15}" y1="${baseY-8}" x2="${cx-15}" y2="${baseY-height*yScale+8}" stroke="#16945c" stroke-width="4"/><line x1="${cx+15}" y1="${baseY-8}" x2="${cx+15}" y2="${baseY-height*yScale+8}" stroke="#16945c" stroke-width="4"/>`;
   }
-  if(d.rehausse){
-    xs.forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY-height*yScale-45}" class="svg-frame"/>`);
-  }
+  if(d.rehausse)[leftReturn,...xs,rightReturn].forEach(x=>s+=`<line x1="${x}" y1="${baseY-height*yScale}" x2="${x}" y2="${baseY-height*yScale-45}" class="svg-frame"/>`);
   if(labels){
     seq.forEach((l,i)=>s+=`<text x="${(xs[i]+xs[i+1])/2}" y="${baseY+22}" text-anchor="middle" class="svg-label">T${i+1} - ${String(l).replace('.',',')} m</text>`);
-    s+=`<line x1="${pad-25}" y1="${baseY}" x2="${pad-25}" y2="${baseY-height*yScale}" class="svg-dimension"/><text x="15" y="${baseY-height*yScale/2}" class="svg-label" transform="rotate(-90 15 ${baseY-height*yScale/2})">${fmt(height)} m</text>`;
+    s+=`<text x="${(leftReturn+start)/2}" y="${baseY+22}" text-anchor="middle" class="svg-small">retour ${fmt(width)} m</text>`;
+    s+=`<text x="${(xs[xs.length-1]+rightReturn)/2}" y="${baseY+22}" text-anchor="middle" class="svg-small">retour ${fmt(width)} m</text>`;
+    s+=`<line x1="${leftReturn-25}" y1="${baseY}" x2="${leftReturn-25}" y2="${baseY-height*yScale}" class="svg-dimension"/><text x="15" y="${baseY-height*yScale/2}" class="svg-label" transform="rotate(-90 15 ${baseY-height*yScale/2})">${fmt(height)} m</text>`;
   }
   s+=`<text x="${W/2}" y="25" text-anchor="middle" class="svg-label">${escapeHtml(d.name)} - vue de face</text></svg>`;
   return s;
@@ -507,8 +612,14 @@ function sideSvg(data){
   const hScale=360/Math.max(height,2),wScale=260/Math.max(width,1),x1=250,x2=x1+width*wScale;
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de côté">${svgDefs()}<rect width="${W}" height="${H}" fill="white"/>`;
   s+=`<line x1="${x1}" y1="${baseY-height*hScale}" x2="${x1}" y2="${baseY}" class="svg-frame"/><line x1="${x2}" y1="${baseY-height*hScale}" x2="${x2}" y2="${baseY}" class="svg-frame"/>`;
-  for(let lv=1;lv<=levels;lv++){let y=baseY-(height/levels*lv)*hScale;s+=`<rect x="${x1}" y="${y-8}" width="${x2-x1}" height="8" class="svg-deck"/><line x1="${x1}" y1="${y-45}" x2="${x2}" y2="${y-45}" class="svg-rail"/>`}
-  s+=`<line x1="${x1+4}" y1="${baseY-4}" x2="${x2-4}" y2="${baseY-Math.min(2,height)*hScale}" class="svg-diag"/>`;
+  for(let lv=1;lv<=levels;lv++){
+    const yTop=baseY-(height/levels*lv)*hScale,yBottom=baseY-(height/levels*(lv-1))*hScale;
+    s+=`<rect x="${x1}" y="${yTop-8}" width="${x2-x1}" height="8" class="svg-deck"/>`;
+    s+=`<rect x="${x1+2}" y="${yTop-20}" width="${x2-x1-4}" height="11" class="svg-toe"/>`;
+    s+=`<line x1="${x1}" y1="${yTop-45}" x2="${x2}" y2="${yTop-45}" class="svg-rail"/>`;
+    const reverse=lv%2===0;
+    s+=`<line x1="${reverse?x2-4:x1+4}" y1="${yBottom-4}" x2="${reverse?x1+4:x2-4}" y2="${yTop+4}" class="svg-diag"/>`;
+  }
   if(d.rehausse)s+=`<line x1="${x1}" y1="${baseY-height*hScale}" x2="${x1}" y2="${baseY-height*hScale-48}" class="svg-frame"/><line x1="${x2}" y1="${baseY-height*hScale}" x2="${x2}" y2="${baseY-height*hScale-48}" class="svg-frame"/>`;
   if(labels){
     s+=`<line x1="${x1}" y1="${baseY+28}" x2="${x2}" y2="${baseY+28}" class="svg-dimension"/><text x="${(x1+x2)/2}" y="${baseY+49}" text-anchor="middle" class="svg-label">${fmt(width)} m</text>`;
@@ -584,24 +695,45 @@ function threeSvg(){
   function cumulative(seq){let a=[0];seq.forEach(v=>a.push(a[a.length-1]+v));return a}
   function facadeScaffold(k,d,seq){
     if(!d||!d.enabled||!seq.length)return;
-    const xs=cumulative(seq),tot=xs[xs.length-1],h=+d.height||height,lev=Math.max(1,Math.round(d.levels||levels));
+    const xs=cumulative(seq),tot=xs[xs.length-1],h=+d.height||height,lev=Math.max(1,Math.round(d.levels||levels)),w=+d.width||.73;
     const diag=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
+    // The scaffold extends one scaffold width beyond both building corners.
+    const ext=w;
     const map=(u,y,depth)=>{
       if(k==='A')return [(L-tot)/2+u,y,-off+depth];
       if(k==='C')return [L-(L-tot)/2-u,y,D+off-depth];
       if(k==='B')return [L+off-depth,y,(D-tot)/2+u];
       return [-off+depth,y,D-(D-tot)/2-u];
     };
-    xs.forEach(u=>{line(map(u,0,0),map(u,h,0),'svg-frame');line(map(u,0,+d.width||.73),map(u,h,+d.width||.73),'svg-frame')});
+    const allX=[-ext,...xs,tot+ext];
+    allX.forEach(u=>{line(map(u,0,0),map(u,h,0),'svg-frame');line(map(u,0,w),map(u,h,w),'svg-frame')});
     for(let lv=1;lv<=lev;lv++){
-      const y=h/lev*lv;
+      const yTop=h/lev*lv,yBottom=h/lev*(lv-1);
+      // Main bays
       for(let i=0;i<seq.length;i++){
-        poly([map(xs[i],y,0),map(xs[i+1],y,0),map(xs[i+1],y,+d.width||.73),map(xs[i],y,+d.width||.73)],'svg-deck','opacity=".68"');
-        line(map(xs[i],y-.35,0),map(xs[i+1],y-.35,0),'svg-rail');
-        line(map(xs[i],y-.70,0),map(xs[i+1],y-.70,0),'svg-rail');
+        poly([map(xs[i],yTop,0),map(xs[i+1],yTop,0),map(xs[i+1],yTop,w),map(xs[i],yTop,w)],'svg-deck','opacity=".68"');
+        // Toe board on outer edge
+        line(map(xs[i],yTop-.12,0),map(xs[i+1],yTop-.12,0),'svg-toe','stroke-width="7"');
+        line(map(xs[i],yTop-.35,0),map(xs[i+1],yTop-.35,0),'svg-rail');
+        line(map(xs[i],yTop-.70,0),map(xs[i+1],yTop-.70,0),'svg-rail');
       }
+      // Corner walking returns
+      poly([map(-ext,yTop,0),map(0,yTop,0),map(0,yTop,w),map(-ext,yTop,w)],'svg-deck','opacity=".68"');
+      poly([map(tot,yTop,0),map(tot+ext,yTop,0),map(tot+ext,yTop,w),map(tot,yTop,w)],'svg-deck','opacity=".68"');
+      line(map(-ext,yTop-.12,0),map(0,yTop-.12,0),'svg-toe','stroke-width="7"');
+      line(map(tot,yTop-.12,0),map(tot+ext,yTop-.12,0),'svg-toe','stroke-width="7"');
+      // Diagonals on each lift
+      diag.forEach(i=>{
+        if(i<seq.length){
+          const reverse=lv%2===0;
+          line(
+            map(reverse?xs[i+1]:xs[i],yBottom,0),
+            map(reverse?xs[i]:xs[i+1],yTop,0),
+            'svg-diag'
+          );
+        }
+      });
     }
-    diag.forEach(i=>{if(i<seq.length)line(map(xs[i],0,0),map(xs[i+1],Math.min(2,h),0),'svg-diag')});
     if(d.access){
       const p=Math.max(0,Math.min(d.accessBay||0,seq.length-1)),mid=(xs[p]+xs[p+1])/2;
       line(map(mid-.17,0,0),map(mid-.17,h,0),'svg-access');
@@ -627,12 +759,12 @@ function renderPlan(){
   else if(currentPlanView==='side'){content=sideSvg(data);title='Vue de côté'}
   else{content=threeSvg();title='Vue 3D — bâtiment complet'}
   $('#planTitle').textContent=title;
-  $('#planCanvas').innerHTML=`<div style="transform:scale(${scale});transform-origin:top center">${content}</div>`;
+  $('#planCanvas').innerHTML=`<div class="plan-stage" style="transform:scale(${scale});transform-origin:top center">${content}</div>`;
   $('#threeControls').style.display=currentPlanView==='three'?'block':'none';
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s), rotation libre autour du bâtiment.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-6',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-7',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -648,8 +780,13 @@ NAMES.forEach((n,i)=>{
   if(typeof d.accessBay!=='number')d.accessBay=0;
   if(!d.width)d.width=.73;
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-6-liste.csv';a.click()}
-$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-6');location.reload()}};
+function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-7-liste.csv';a.click()}
+$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-7');location.reload()}};
+$('#planCanvas').addEventListener('click',openPlanFullscreen);
+$('#closeFullscreen').addEventListener('click',closePlanFullscreen);
+$('#planFullscreen').addEventListener('click',e=>{if(e.target===$('#planFullscreen'))closePlanFullscreen()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlanFullscreen()});
+bindPlanGestures();
 $('#viewTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;currentPlanView=b.dataset.view;$('#viewTabs').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));renderPlan()});
 $('#planFacade').addEventListener('change',renderPlan);
 ['planScale','showLabels','rotY','rotX','zoom3d','showBuilding3d'].forEach(id=>$('#'+id).addEventListener('input',renderPlan));
@@ -659,4 +796,12 @@ $('#closeModal').onclick=closePart;
 $('#partModal').onclick=e=>{if(e.target===$('#partModal'))closePart()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePart()});
 load();build();renderSearch();
-</script></body></html>
+</script>
+<div id="planFullscreen" class="fullscreen-plan" role="dialog" aria-modal="true" aria-label="Plan en plein écran">
+  <div class="fullscreen-head">
+    <div><strong id="fullscreenTitle">Plan</strong><div class="fullscreen-help">Glisser : déplacer · pincer : zoomer · en 3D, glisser : pivoter</div></div>
+    <button id="closeFullscreen" type="button">Fermer ✕</button>
+  </div>
+  <div id="fullscreenBody" class="fullscreen-body"></div>
+</div>
+</body></html>
