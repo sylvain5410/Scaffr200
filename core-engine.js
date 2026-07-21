@@ -16,7 +16,14 @@ class Component {
   }
 }
 class ComponentCatalog {
-  constructor(items=[]) { this.components=new Map();items.forEach(raw=>this.register(raw)); }
+  constructor(items=[]) {
+    this.components=new Map();
+    this.baseComponents=new Map();
+    items.forEach(raw=>{
+      const component=this.register(raw);
+      this.baseComponents.set(component.reference,component);
+    });
+  }
   register(raw) {
     const component=raw instanceof Component?raw:new Component(raw);
     if(component.reference)this.components.set(component.reference,component);
@@ -25,10 +32,24 @@ class ComponentCatalog {
   get(reference) {
     return this.components.get(reference)||new Component({reference,designation:reference,poids:0});
   }
+  has(reference) { return this.components.has(reference); }
+  isBase(reference) { return this.baseComponents.has(reference); }
+  isModified(reference) {
+    const base=this.baseComponents.get(reference),current=this.components.get(reference);
+    if(!current)return false;
+    if(!base)return true;
+    return JSON.stringify(base.toJSON())!==JSON.stringify(current.toJSON());
+  }
+  restore(reference) {
+    if(this.baseComponents.has(reference))this.components.set(reference,this.baseComponents.get(reference));
+    else this.components.delete(reference);
+  }
+  restoreAll() { this.components=new Map(this.baseComponents); }
+  values() { return [...this.components.values()]; }
   search(term,limit=40) {
     const needle=String(term||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     if(!needle)return [];
-    return [...this.components.values()].filter(c=>
+    return this.values().filter(c=>
       `${c.reference} ${c.designation} ${c.section} ${c.dimensions}`
         .normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(needle)
     ).slice(0,limit);

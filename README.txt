@@ -1,15 +1,9 @@
-ScaffR200 Pro V6.2
+ScaffR200 Pro V6.2.1
+
+Correctif de la V6.2 :
+- l’onglet Catalogue s’ouvre correctement ;
+- les méthodes values, has, isModified, restore et restoreAll du catalogue sont présentes ;
+- la navigation active d’abord la page, puis lance son rendu ;
+- les sauvegardes V6.2 et antérieures restent compatibles.
 
 Ouvrir index.html dans un navigateur récent.
-
-Nouveautés :
-- onglet Catalogue ;
-- édition locale des références, désignations, dimensions, familles et poids ;
-- indicateurs de complétude et de données provisoires ;
-- import/export JSON et export CSV ;
-- restauration du catalogue d'origine ;
-- prise en compte immédiate des corrections dans la nomenclature ;
-- compatibilité avec les sauvegardes précédentes.
-
-Les corrections sont conservées dans le stockage local du navigateur.
-Exportez le catalogue JSON pour les sauvegarder ou les transférer.

@@ -1,7 +1,4 @@
-V6.2
-- Gestionnaire de catalogue intégré.
-- Recherche et filtre par famille.
-- Création et correction locale de composants.
-- Validation visuelle des références provisoires.
-- Import/export du catalogue.
-- Aucune donnée fabricant n'est inventée : les lignes AUTO restent signalées.
+V6.2.1
+- Correction du clic sur l’onglet Catalogue.
+- Correction du noyau ComponentCatalog incomplet dans la V6.2.
+- Sécurisation du gestionnaire de navigation.
