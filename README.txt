@@ -1,29 +1,20 @@
-ScaffR200 Pro v5.5
+ScaffR200 Pro v5.6
 
-Nouveautés principales
-- nouvel onglet « Plans 2D / 3D » ;
-- vue de face de chaque façade ;
-- vue de dessus du chantier avec les façades actives ;
-- vue de côté avec hauteur, largeur et niveaux ;
-- vue 3D interactive avec rotation, inclinaison et zoom ;
-- sélection de la façade à visualiser ;
-- affichage des travées dans leur ordre réel ;
-- représentation des cadres, lisses, planchers, accès et diagonales ;
-- prise en compte des hauteurs, niveaux, largeurs et rehausses ;
-- affichage facultatif des cotes et repères ;
-- visuels de familles de pièces extraits de la notice Comabi fournie.
+Nouveauté principale
+- Vue 3D complète du bâtiment.
+- Les quatre façades actives sont représentées simultanément.
+- Chaque façade conserve son ordre de travées, sa hauteur, ses niveaux,
+  ses diagonales, ses planchers et son accès.
+- Rotation horizontale, inclinaison et zoom.
+- Possibilité d'afficher ou de masquer le bâtiment afin de mieux observer
+  les échafaudages arrière.
+- Les vues de face, de côté et de dessus de la V5.5 sont conservées.
 
-Important sur les visuels de pièces
-Les images extraites de la notice représentent des familles de matériel.
-Une image peut donc illustrer plusieurs références proches. La désignation,
-la référence, les dimensions et le poids restent les données d'identification
-principales.
-
-Installation GitHub Pages
+Installation sur GitHub
 1. Décompresser le ZIP.
-2. Envoyer index.html et le dossier assets à la racine du dépôt.
-3. Conserver exactement le nom du dossier assets.
-4. Valider avec « Commit changes ».
+2. Dans le dépôt GitHub, choisir Add file puis Upload files.
+3. Glisser index.html, README.txt et le dossier assets.
+4. Cliquer sur Commit changes.
 5. Attendre la mise à jour de GitHub Pages.
 
 Avertissement

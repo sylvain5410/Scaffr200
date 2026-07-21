@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.5</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v5.6</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -57,14 +57,14 @@
 .svg-deck{fill:#9b7549;stroke:#654827;stroke-width:1}
 .svg-access{fill:#d9f4e6;stroke:#16945c;stroke-width:3}
 .svg-dimension{stroke:#52616d;stroke-width:1;marker-start:url(#arrow);marker-end:url(#arrow)}
-.svg-building{fill:#e8ecef;stroke:#8c9aa4;stroke-width:2}
+.svg-building{fill:#e8ecef;stroke:#8c9aa4;stroke-width:2}.svg-wall3d{fill:#e5dfd2;stroke:#8b8172;stroke-width:1.5}.svg-roof3d{fill:#4d5660;stroke:#27313a;stroke-width:2}
 .notice-source{font-size:11px;color:#5c6871;margin-top:5px}
 @media(max-width:760px){.view-controls{grid-template-columns:1fr}.plan-canvas{min-height:280px}}
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v5.5</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v5.6</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="plans">5. Plans 2D / 3D</button><button data-page="controle">6. Contrôle</button><button data-page="documents">7. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.5 ajoute les vues de face, de dessus, de côté et une vue 3D interactive synchronisées avec les façades. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V5.6 affiche le bâtiment complet en 3D avec les quatre façades actives, rotation libre, inclinaison et zoom. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
@@ -87,7 +87,7 @@
 <button type="button" data-view="front" class="on">Vue de face</button>
 <button type="button" data-view="top">Vue de dessus</button>
 <button type="button" data-view="side">Vue de côté</button>
-<button type="button" data-view="three">Vue 3D</button>
+<button type="button" data-view="three">Vue 3D complète</button>
 </div>
 <div class="view-controls">
 <label>Façade<select id="planFacade"></select></label>
@@ -106,11 +106,11 @@
 <p id="planInfo"></p>
 </div>
 <div class="plan-panel" id="threeControls" style="display:none;margin-top:12px">
-<h3>Commandes 3D</h3>
+<h3>Commandes 3D — bâtiment complet</h3>
 <div class="view-controls">
 <label>Rotation horizontale<input id="rotY" type="range" min="-180" max="180" value="-35"><output id="rotYOut">-35°</output></label>
 <label>Inclinaison<input id="rotX" type="range" min="-60" max="60" value="20"><output id="rotXOut">20°</output></label>
-<label>Zoom<input id="zoom3d" type="range" min="55" max="150" value="90"><output id="zoom3dOut">90 %</output></label>
+<label>Zoom<input id="zoom3d" type="range" min="55" max="150" value="90"><output id="zoom3dOut">90 %</output></label><label class="check"><input id="showBuilding3d" type="checkbox" checked>Afficher le bâtiment</label>
 </div>
 </div>
 <p class="plan-note">Les dessins sont des représentations de préparation basées sur les données saisies. Ils ne constituent pas une étude de stabilité ni un plan d’exécution validé par le fabricant.</p>
@@ -550,27 +550,70 @@ function project3D(x,y,z,ax,ay,scale,cx,cy){
   let Y=y*Math.cos(rx)-Z*Math.sin(rx);
   return [cx+X*scale,cy-Y*scale];
 }
-function threeSvg(data){
-  const {d,seq,height,width,levels}=data;
-  if(!seq.length)return '<div class="empty-search">Aucune travée à dessiner.</div>';
-  const W=900,H=600,ax=+$('#rotX').value,ay=+$('#rotY').value,zoom=+$('#zoom3d').value/100;
-  const total=seq.reduce((a,b)=>a+b,0),scale=Math.min(52,650/Math.max(total,5))*zoom,cx=W/2,cy=H*.72;
+function threeSvg(){
+  const keys=activeFacadeKeys();
+  if(!keys.length)return '<div class="empty-search">Aucune façade active à dessiner.</div>';
+  const W=960,H=650,ax=+$('#rotX').value,ay=+$('#rotY').value,zoom=+$('#zoom3d').value/100;
+  const side=(k,fallback)=>state.facades[k]&&state.facades[k].enabled?state.facades[k]:fallback;
+  const fallback=state.facades[keys[0]];
+  const fa=side('A',fallback),fb=side('B',fallback),fc=side('C',fa),fd=side('D',fb);
+  const seqA=orderedBays(fa),seqB=orderedBays(fb),seqC=orderedBays(fc),seqD=orderedBays(fd);
+  const lenA=seqA.reduce((a,b)=>a+b,0)||8,lenB=seqB.reduce((a,b)=>a+b,0)||6;
+  const lenC=seqC.reduce((a,b)=>a+b,0)||lenA,lenD=seqD.reduce((a,b)=>a+b,0)||lenB;
+  const L=Math.max(lenA,lenC),D=Math.max(lenB,lenD);
+  const all=[fa,fb,fc,fd].filter(Boolean);
+  const height=Math.max(...all.map(d=>+d.height||2)),levels=Math.max(...all.map(d=>Math.max(1,Math.round(d.levels||1))));
+  const off=Math.max(.9,...all.map(d=>(+d.width||.73)+.18));
+  const totalSpan=Math.max(L+2*off,D+2*off,height*1.2);
+  const scale=Math.min(48,680/Math.max(totalSpan,6))*zoom,cx=W/2,cy=H*.72;
+  const P=(x,y,z)=>project3D(x-L/2,y,z-D/2,ax,ay,scale,cx,cy);
   let lines=[],polys=[];
-  const P=(x,y,z)=>project3D(x-total/2,y,z-width/2,ax,ay,scale,cx,cy);
-  let xs=[0];seq.forEach(l=>xs.push(xs[xs.length-1]+l));
-  const line=(a,b,cls)=>{let p=P(...a),q=P(...b);lines.push(`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="${cls}"/>`)};
-  xs.forEach(x=>{line([x,0,0],[x,height,0],'svg-frame');line([x,0,width],[x,height,width],'svg-frame')});
-  for(let lv=1;lv<=levels;lv++){
-    let y=height/levels*lv;
-    for(let i=0;i<seq.length;i++){
-      let pts=[[xs[i],y,0],[xs[i+1],y,0],[xs[i+1],y,width],[xs[i],y,width]].map(v=>P(...v).join(',')).join(' ');
-      polys.push(`<polygon points="${pts}" class="svg-deck" opacity=".72"/>`);
-      line([xs[i],y-.35,0],[xs[i+1],y-.35,0],'svg-rail');line([xs[i],y-.7,0],[xs[i+1],y-.7,0],'svg-rail');
+  const line=(a,b,cls,extra='')=>{let p=P(...a),q=P(...b);lines.push(`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" class="${cls}" ${extra}/>`);};
+  const poly=(pts,cls,extra='')=>polys.push(`<polygon points="${pts.map(v=>P(...v).join(',')).join(' ')}" class="${cls}" ${extra}/>`);
+
+  if($('#showBuilding3d').checked){
+    const wallH=Math.max(2,height*.82),roofH=Math.min(2.6,Math.max(1.2,D*.22));
+    poly([[0,0,0],[L,0,0],[L,wallH,0],[0,wallH,0]],'svg-wall3d','opacity=".92"');
+    poly([[L,0,0],[L,0,D],[L,wallH,D],[L,wallH,0]],'svg-wall3d','opacity=".92"');
+    poly([[L,0,D],[0,0,D],[0,wallH,D],[L,wallH,D]],'svg-wall3d','opacity=".86"');
+    poly([[0,0,D],[0,0,0],[0,wallH,0],[0,wallH,D]],'svg-wall3d','opacity=".86"');
+    poly([[0,wallH,0],[L,wallH,0],[L,wallH+roofH,D/2],[0,wallH+roofH,D/2]],'svg-roof3d','opacity=".95"');
+    poly([[0,wallH,D],[L,wallH,D],[L,wallH+roofH,D/2],[0,wallH+roofH,D/2]],'svg-roof3d','opacity=".95"');
+  }
+
+  function cumulative(seq){let a=[0];seq.forEach(v=>a.push(a[a.length-1]+v));return a}
+  function facadeScaffold(k,d,seq){
+    if(!d||!d.enabled||!seq.length)return;
+    const xs=cumulative(seq),tot=xs[xs.length-1],h=+d.height||height,lev=Math.max(1,Math.round(d.levels||levels));
+    const diag=(d.diagBays||[]).length?d.diagBays:Array.from({length:Math.max(1,Math.ceil(seq.length/4))},(_,i)=>Math.min(i*4,seq.length-1));
+    const map=(u,y,depth)=>{
+      if(k==='A')return [(L-tot)/2+u,y,-off+depth];
+      if(k==='C')return [L-(L-tot)/2-u,y,D+off-depth];
+      if(k==='B')return [L+off-depth,y,(D-tot)/2+u];
+      return [-off+depth,y,D-(D-tot)/2-u];
+    };
+    xs.forEach(u=>{line(map(u,0,0),map(u,h,0),'svg-frame');line(map(u,0,+d.width||.73),map(u,h,+d.width||.73),'svg-frame')});
+    for(let lv=1;lv<=lev;lv++){
+      const y=h/lev*lv;
+      for(let i=0;i<seq.length;i++){
+        poly([map(xs[i],y,0),map(xs[i+1],y,0),map(xs[i+1],y,+d.width||.73),map(xs[i],y,+d.width||.73)],'svg-deck','opacity=".68"');
+        line(map(xs[i],y-.35,0),map(xs[i+1],y-.35,0),'svg-rail');
+        line(map(xs[i],y-.70,0),map(xs[i+1],y-.70,0),'svg-rail');
+      }
+    }
+    diag.forEach(i=>{if(i<seq.length)line(map(xs[i],0,0),map(xs[i+1],Math.min(2,h),0),'svg-diag')});
+    if(d.access){
+      const p=Math.max(0,Math.min(d.accessBay||0,seq.length-1)),mid=(xs[p]+xs[p+1])/2;
+      line(map(mid-.17,0,0),map(mid-.17,h,0),'svg-access');
+      line(map(mid+.17,0,0),map(mid+.17,h,0),'svg-access');
+      for(let y=.25;y<h;y+=.32)line(map(mid-.17,y,0),map(mid+.17,y,0),'svg-access');
     }
   }
-  const diagPos=(d.diagBays||[]).length?d.diagBays:[0];
-  diagPos.forEach(i=>{if(i<seq.length)line([xs[i],0,0],[xs[i+1],Math.min(2,height),0],'svg-diag')});
-  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue 3D interactive"><rect width="${W}" height="${H}" fill="white"/>${polys.join('')}${lines.join('')}<text x="${W/2}" y="28" text-anchor="middle" class="svg-label">${escapeHtml(d.name)} - vue 3D interactive</text><text x="${W/2}" y="${H-18}" text-anchor="middle" class="svg-small">Rotation ${ay}° · inclinaison ${ax}° · zoom ${Math.round(zoom*100)} %</text></svg>`;
+  facadeScaffold('A',fa,seqA);facadeScaffold('B',fb,seqB);facadeScaffold('C',fc,seqC);facadeScaffold('D',fd,seqD);
+
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue 3D complète des quatre façades"><rect width="${W}" height="${H}" fill="white"/>${polys.join('')}${lines.join('')}`;
+  s+=`<text x="${W/2}" y="27" text-anchor="middle" class="svg-label">Bâtiment complet — façades ${keys.map(k=>escapeHtml(state.facades[k].name||k)).join(' · ')}</text>`;
+  s+=`<text x="${W/2}" y="${H-18}" text-anchor="middle" class="svg-small">Rotation ${ay}° · inclinaison ${ax}° · zoom ${Math.round(zoom*100)} % · ${keys.length} façade(s) active(s)</text></svg>`;
   return s;
 }
 function renderPlan(){
@@ -582,14 +625,14 @@ function renderPlan(){
   if(currentPlanView==='front'){content=frontSvg(data);title='Vue de face'}
   else if(currentPlanView==='top'){content=topSvg();title='Vue de dessus'}
   else if(currentPlanView==='side'){content=sideSvg(data);title='Vue de côté'}
-  else{content=threeSvg(data);title='Vue 3D'}
+  else{content=threeSvg();title='Vue 3D — bâtiment complet'}
   $('#planTitle').textContent=title;
   $('#planCanvas').innerHTML=`<div style="transform:scale(${scale});transform-origin:top center">${content}</div>`;
   $('#threeControls').style.display=currentPlanView==='three'?'block':'none';
   const total=data.seq.reduce((a,b)=>a+b,0);
-  $('#planInfo').textContent=`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
+  $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s), rotation libre autour du bâtiment.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-5',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v5-6',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -605,11 +648,11 @@ NAMES.forEach((n,i)=>{
   if(typeof d.accessBay!=='number')d.accessBay=0;
   if(!d.width)d.width=.73;
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-5-liste.csv';a.click()}
-$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-5');location.reload()}};
+function csv(){let rows=[['Référence','Désignation','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r);rows.push([r,it.designation,n,(state.extraMaterials||{})[r]||0,weight(it),weight(it)*n])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v5-6-liste.csv';a.click()}
+$('#nav').onclick=e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.page==='controle')renderControls();if(b.dataset.page==='materiel')renderSearch();if(b.dataset.page==='plans')renderPlan();document.querySelectorAll('.nav button,.page').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#'+b.dataset.page).classList.add('on')};$('#nextBtn').onclick=()=>{let bs=[...document.querySelectorAll('.nav button')],i=bs.findIndex(x=>x.classList.contains('on'));bs[Math.min(i+1,bs.length-1)].click()};$('#facadeCount').onchange=build;$('#calculateBtn').onclick=()=>{calc();document.querySelector('[data-page="materiel"]').click()};$('#saveBtn').onclick=save;$('#printBtn').onclick=()=>window.print();$('#csvBtn').onclick=csv;$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v5-6');location.reload()}};
 $('#viewTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;currentPlanView=b.dataset.view;$('#viewTabs').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));renderPlan()});
 $('#planFacade').addEventListener('change',renderPlan);
-['planScale','showLabels','rotY','rotX','zoom3d'].forEach(id=>$('#'+id).addEventListener('input',renderPlan));
+['planScale','showLabels','rotY','rotX','zoom3d','showBuilding3d'].forEach(id=>$('#'+id).addEventListener('input',renderPlan));
 $('#partSearch').addEventListener('input',renderSearch);
 $('#clearSearch').onclick=()=>{$('#partSearch').value='';renderSearch();$('#partSearch').focus()};
 $('#closeModal').onclick=closePart;
