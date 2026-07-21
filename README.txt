@@ -1,33 +1,26 @@
-ScaffR200 Pro v5.3
+ScaffR200 Pro v5.4
 
-Nouveautés principales :
-- placement précis de l'accès sur une travée choisie ;
-- placement manuel des diagonales sur les travées choisies ;
-- conservation du placement lors du déplacement des travées ;
-- calcul des trappes et échelles selon la travée d'accès sélectionnée ;
-- calcul des diagonales selon leur position, ou automatiquement si aucune position n'est choisie ;
-- nouvel onglet « Contrôle » ;
-- alertes sur les façades sans travée ou sans élément de départ ;
-- contrôle de la limite de deux façades avec accès ;
-- contrôle indicatif des trois travées libres maximum entre zones diagonalées ;
-- correction du calcul manuel pour utiliser directement la séquence ordonnée des travées.
+Nouveautés :
+- façades nommées Nord, Est, Sud et Ouest par défaut ;
+- nom de chaque façade entièrement modifiable ;
+- recherche dans la bibliothèque de matériel par nom, référence, section ou dimensions ;
+- ajout manuel d'une pièce et de sa quantité sans modifier le calcul automatique ;
+- indication de la quantité ajoutée manuellement dans la liste ;
+- vignettes d'identification à côté de chaque matériel ;
+- fiche détaillée au clic : désignation, référence, section, dimensions et poids ;
+- export CSV avec une colonne « Ajout manuel » ;
+- récupération automatique d'une sauvegarde V5.3 lors de la première ouverture.
 
-Les fonctions des versions précédentes sont conservées :
-- largeur 0,73 m par défaut ;
-- départs combinables ;
-- cadre de départ avec un plancher alu-bois supplémentaire par travée ;
-- rehausse du dernier niveau ;
-- cadres asymétriques ;
-- protections d'extrémité ;
-- cales bois égales au nombre de socles à vis ;
-- export CSV et impression PDF.
+Les vignettes intégrées sont des illustrations schématiques hors ligne.
+Elles pourront être remplacées progressivement par les photographies officielles
+des pièces lorsque celles-ci seront disponibles et validées.
 
-Installation :
+Installation GitHub Pages :
 1. Décompresser le ZIP.
-2. Remplacer l'ancien index.html sur GitHub.
-3. Cliquer sur « Commit changes ».
+2. Remplacer l'ancien index.html par celui de la V5.4.
+3. Valider avec « Commit changes ».
 4. Attendre la mise à jour de GitHub Pages.
 
 Important :
-Le contrôle automatique est une aide à la préparation. Il ne remplace ni la
-notice fabricant, ni l'étude de stabilité, ni la vérification du chantier.
+Le calcul et le contrôle automatique restent des aides à la préparation.
+Ils ne remplacent pas la notice fabricant, l'étude de stabilité ni la vérification du chantier.
