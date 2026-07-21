@@ -1,19 +1,18 @@
-ScaffR200 Pro v5.7.1 corrigée
+ScaffR200 Pro v5.8
 
-Corrections
-- L'onglet Façades s'affiche de nouveau normalement.
-- Les boutons Vue de face, Vue de dessus, Vue de côté et Vue 3D fonctionnent.
-- La fenêtre plein écran est chargée avant le script.
-- Protection supplémentaire contre les éléments d'interface manquants.
-
-Fonctions conservées
-- plein écran ;
-- zoom tactile à deux doigts ;
-- rotation tactile en vue 3D ;
-- diagonales à tous les niveaux ;
-- plinthes ;
-- retours de plancher aux angles.
+Nouveautés et corrections
+- Bâtiment et toiture simulés en gris opaque dans la vue 3D.
+- Garde-corps longitudinaux dessinés à chaque niveau, y compris au dernier.
+- Plinthes longitudinales dessinées à chaque niveau.
+- Garde-corps d'extrémité et plinthes d'extrémité dessinés aux deux bouts.
+- Pour chaque façade, choix du dépassement :
+  * aucun ;
+  * gauche uniquement ;
+  * droite uniquement ;
+  * gauche et droite.
+- Le choix est enregistré et visible dans les vues de face et 3D.
+- Les diagonales restent répétées à tous les étages.
+- Plein écran, zoom tactile et rotation tactile conservés.
 
 Installation GitHub
-Remplacez les anciens fichiers par ceux contenus dans ce ZIP, puis cliquez sur
-Commit changes.
+Utiliser de préférence le ZIP simple et remplacer uniquement index.html.
