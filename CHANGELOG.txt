@@ -1,7 +1,6 @@
-V6.3.4
-- Correction de la largeur du niveau supplémentaire des pignons.
-- Cas 18 m / 6 m à l'égout / 9 m au faîtage : 4 travées centrales en partie haute.
-- Diagonale automatique sur la travée la plus haute.
-- Plancher à trappe automatique sur le niveau supplémentaire.
-- Échelle d'accès représentée dans la vue 3D.
-- Préparation de l'ajout de ces éléments au calcul matériel.
+V6.3.5
+- Correction du volume 3D : le faîtage n'augmente plus la hauteur des façades latérales.
+- Séparation de la hauteur d'égout et de la hauteur de faîtage.
+- Correction du dessin des rehausses sur les façades B et D.
+- Ajout des lisses intérieure/extérieure et des retours d'extrémité.
+- Prolongement correct des montants du dernier niveau.
