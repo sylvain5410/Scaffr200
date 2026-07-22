@@ -1,8 +1,9 @@
-V6.3.1
-- Ajout du type de façade droite ou pignon.
-- Ajout des hauteurs à l’égout et au faîtage.
-- Dessin du pignon en 2D et en 3D.
-- Adaptation graphique des montants et niveaux au profil.
-- Surface triangulaire intégrée au métrage.
-- Contrôles de cohérence des hauteurs.
-- Compatibilité avec les sauvegardes antérieures.
+V6.3.2
+- Refonte de l'onglet Matériel en nomenclature modifiable.
+- Ajout des quantités calculées et quantités retenues.
+- Sauvegarde des corrections de quantité par référence.
+- Suppression de la synthèse par famille.
+- Correction de la saisie de la hauteur au faîtage.
+- Correction des morceaux manquants avec plusieurs pignons.
+- Rotation 3D à la souris et au tactile.
+- Zoom 3D à la molette.

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.3.1</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.3.2</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -126,17 +126,32 @@
 .gable-field[hidden]{display:none!important}
 .facade-type-note{font-size:12px;color:#52616d;margin-top:4px}
 .gable-badge{display:inline-block;padding:2px 7px;border-radius:999px;background:#fff0cc;color:#7a4b00;font-size:11px;font-weight:700;margin-left:6px}
+
+.material-note{font-size:13px;color:#52616d}
+.editable-bom{min-width:1050px}
+.editable-bom input[type=number]{width:92px;padding:7px}
+.editable-bom .calculated-qty{font-weight:700;text-align:right}
+.editable-bom tr.overridden{background:#fff8df}
+.editable-bom tr.manual-line{background:#eef7ff}
+.bom-actions{display:flex;gap:5px;flex-wrap:wrap}
+.bom-actions button{padding:6px 8px}
+.qty-retained{display:flex;align-items:center;gap:4px}
+.qty-retained button{padding:5px 8px}
+.lock-badge{display:inline-block;margin-top:4px;padding:2px 6px;border-radius:999px;background:#fff0cc;color:#7a4b00;font-size:11px;font-weight:700}
+.plan-canvas.three-interactive{cursor:grab;touch-action:none;user-select:none}
+.plan-canvas.three-interactive.dragging{cursor:grabbing}
+
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v6.3.1</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v6.3.2</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.3.0 ajoute la sélection et l’édition graphique des façades depuis les plans et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.3.2 ajoute une liste de matériel calculée et modifiable, corrige la saisie des pignons et stabilise la vue 3D avec rotation directe et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
 <div class="card"><h2>Résumé</h2><div class="summary"><div class="metric"><b id="mFacades">0</b>façades</div><div class="metric"><b id="mLength">0 m</b>longueur</div><div class="metric"><b id="mArea">0 m²</b>surface</div><div class="metric"><b id="mQty">0</b>pièces</div><div class="metric"><b id="mWeight">0 kg</b>poids estimé</div><div class="metric"><b id="mRefs">0</b>références</div></div><div class="bom-quality"><div class="quality-card"><b id="mKnown">100 %</b>des pièces avec poids renseigné</div><div class="quality-card"><b id="mAuto">0</b>pièces calculées automatiquement</div><div class="quality-card"><b id="mManual">0</b>pièces ajoutées manuellement</div></div></div>
 <div class="card core-engine">
-  <h2>Noyau métier V6.3.1</h2>
+  <h2>Noyau métier V6.3.2</h2>
   <div class="core-grid">
     <div><span class="core-value" id="coreCatalog">0</span>composants catalogués</div>
     <div><span class="core-value" id="coreLines">0</span>lignes de nomenclature</div>
@@ -153,8 +168,20 @@
 </div>
 <div id="searchResults" class="search-results"><div class="empty-search">Commence à saisir le nom ou la référence d’une pièce.</div></div>
 </div>
-<div class="card"><h2>Synthèse par famille</h2><div style="overflow:auto"><table class="items category-table"><thead><tr><th>Famille</th><th>Références</th><th>Quantité</th><th class="right">Poids</th></tr></thead><tbody id="categoryBody"></tbody></table></div></div>
-<div class="card"><h2>Nomenclature détaillée</h2><div style="overflow:auto"><table class="items"><thead><tr><th>Photo et désignation</th><th>Référence</th><th>Origine du calcul</th><th>Quantité</th><th class="right">Poids</th></tr></thead><tbody id="materialBody"></tbody></table></div></div>
+<div class="card">
+<h2>Liste du matériel calculé et retenu</h2>
+<p class="material-note">La quantité calculée reste visible. La quantité retenue peut être modifiée, verrouillée à zéro ou rétablie au calcul automatique.</p>
+<div style="overflow:auto">
+<table class="items editable-bom">
+<thead><tr>
+<th>Matériel</th><th>Référence</th><th>Origine</th>
+<th class="right">Qté calculée</th><th>Qté retenue</th>
+<th class="right">Poids total</th><th>Actions</th>
+</tr></thead>
+<tbody id="materialBody"></tbody>
+</table>
+</div>
+</div>
 </section>
 
 
@@ -294,7 +321,7 @@ m200:[refs.m200,2],
 m300:[refs.m300,2],
 manchon:[refs.manchon,2]
 };
-let q={},bomLedger={},currentBomContext='Calcul automatique',lastSummary={fc:0,len:0,area:0},state={facades:{},extraMaterials:{}};const $=s=>document.querySelector(s),fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);
+let q={},bomLedger={},currentBomContext='Calcul automatique',lastSummary={fc:0,len:0,area:0},state={facades:{},extraMaterials:{},materialOverrides:{}};const $=s=>document.querySelector(s),fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);
 function def(i){return {name:DEFAULT_FACADE_NAMES[i],enabled:i===0,type:'straight',length:12,height:6,ridgeHeight:8,width:.73,levels:3,access:i===0,mode:'auto',starts:{cadre2:true},asym:false,rehausse:false,baySequence:[],accessBay:0,diagBays:[],extendMode:'both',bays:{3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0}}}NAMES.forEach((n,i)=>state.facades[n]=def(i));
 function best(target){let T=Math.round(Math.max(0,target)*100),max=T+300,dp=Array(max+1).fill(null);dp[0]={n:0,p:null,l:null};for(let t=0;t<=max;t++)if(dp[t])for(const l of BAY_LENGTHS){let nt=t+Math.round(l*100);if(nt<=max&&(!dp[nt]||dp[t].n+1<dp[nt].n))dp[nt]={n:dp[t].n+1,p:t,l}}let c=0,s=1e99;for(let t=0;t<=max;t++)if(dp[t]){let z=Math.abs(t-T)*100+(t<T?20:0)+dp[t].n;if(z<s){s=z;c=t}}let o={3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0};while(c>0){let p=dp[c];o[p.l]++;c=p.p}return o}
 function bLen(b){return BAY_LENGTHS.reduce((s,l)=>s+l*(+b[l]||0),0)}function bCount(b){return BAY_LENGTHS.reduce((s,l)=>s+(+b[l]||0),0)}function comp(b){return BAY_LENGTHS.filter(l=>b[l]).map(l=>`${b[l]} × ${String(l).replace('.',',')} m`).join(' + ')||'aucune travée'}
@@ -399,7 +426,7 @@ function build(){
         <label>Type de façade<select class="facadeType"><option value="straight">Façade droite</option><option value="gable">Pignon</option></select></label>
         <label>Longueur (m)<input class="length" type="number" step=".01" min="0" value="${d.length}"></label>
         <label><span class="heightLabel">${d.type==='gable'?'Hauteur à l’égout':'Hauteur'} (m)</span><input class="height" type="number" step=".5" min="2" value="${d.height}"></label>
-        <label class="gable-field" ${d.type==='gable'?'':'hidden'}>Hauteur au faîtage (m)<input class="ridgeHeight" type="number" step=".5" min="2" value="${d.ridgeHeight}"><span class="facade-type-note">La pointe doit être supérieure ou égale à l’égout.</span></label>
+        <label class="gable-field" ${d.type==='gable'?'':'hidden'}>Hauteur au faîtage (m)<input class="ridgeHeight deferred-number" type="number" step=".5" min="2" value="${d.ridgeHeight}"><span class="facade-type-note">La pointe doit être supérieure ou égale à l’égout.</span></label>
         <label>Largeur<select class="width"><option value=".73">0,73 m</option><option value="1">1,00 m</option></select></label>
         <label>Niveaux planchés<input class="levels" type="number" min="1" step="1" value="${d.levels}"></label>
         <label>Dépassement aux angles<select class="extendMode">
@@ -505,8 +532,11 @@ function build(){
       d.enabled=el.querySelector('.enabled').checked;
       d.type=el.querySelector('.facadeType').value||'straight';
       d.length=+el.querySelector('.length').value||0;d.height=Math.max(2,+el.querySelector('.height').value||2);
-      d.ridgeHeight=Math.max(d.height,+el.querySelector('.ridgeHeight').value||d.height);
-      el.querySelector('.ridgeHeight').value=d.ridgeHeight;
+      const ridgeInput=el.querySelector('.ridgeHeight');
+      if(ridgeInput.value!==''){
+        d.ridgeHeight=Math.max(d.height,+ridgeInput.value||d.height);
+        ridgeInput.value=d.ridgeHeight;
+      }
       el.querySelector('.gable-field').hidden=d.type!=='gable';
       el.querySelector('.heightLabel').textContent=d.type==='gable'?'Hauteur à l’égout':'Hauteur';
       d.width=+el.querySelector('.width').value||.73;d.levels=Math.max(1,+el.querySelector('.levels').value||1);
@@ -521,7 +551,13 @@ function build(){
       el.querySelector('.proposal').textContent=`${d.type==='gable'?`Pignon : égout ${fmt(d.height)} m / faîtage ${fmt(d.ridgeHeight)} m | `:''}Composition : ${comp(b)} — ${fmt(bLen(b))} m | Départ : ${starts} | Dépassement : ${extLabel}${order}${acc}${diags}`;
     }
 
-    el.querySelectorAll('input,select').forEach(x=>x.addEventListener('input',sync));
+    el.querySelectorAll('input,select').forEach(x=>{
+      if(x.classList.contains('ridgeHeight')){
+        x.addEventListener('focus',()=>x.select());
+        x.addEventListener('change',sync);
+        x.addEventListener('blur',()=>{if(x.value==='')x.value=d.ridgeHeight;sync()});
+      }else x.addEventListener('input',sync);
+    });
     el.querySelector('.addBay').onclick=()=>{d.baySequence.push(+el.querySelector('.newBay').value);renderSequence();sync()};
     el.querySelector('.auto').onclick=()=>{d.mode='auto';el.querySelector('.manual').classList.remove('on');el.querySelector('.auto').classList.add('primary');el.querySelector('.manualBtn').classList.remove('primary');renderAutoPlacement();sync()};
     el.querySelector('.manualBtn').onclick=()=>{d.mode='manual';el.querySelector('.manual').classList.add('on');el.querySelector('.manualBtn').classList.add('primary');el.querySelector('.auto').classList.remove('primary');renderSequence();renderAutoPlacement();sync()};
@@ -610,34 +646,124 @@ function renderControls(){
 }
 function item(r){return COMPONENT_CATALOG.get(r)}
 function weight(x){return x instanceof Component?x.weightKg:Component.parseWeight(x&&x.poids)}
+function effectiveMaterialQuantity(reference,calculated){
+  const overrides=state.materialOverrides||{};
+  return Object.prototype.hasOwnProperty.call(overrides,reference)
+    ? Math.max(0,Math.round(+overrides[reference]||0))
+    : Math.max(0,Math.round(+calculated||0));
+}
+function setMaterialOverride(reference,value){
+  state.materialOverrides=state.materialOverrides||{};
+  state.materialOverrides[reference]=Math.max(0,Math.round(+value||0));
+  save();
+}
+function clearMaterialOverride(reference){
+  state.materialOverrides=state.materialOverrides||{};
+  delete state.materialOverrides[reference];
+  save();
+}
+function materialReferences(){
+  const refsSet=new Set([
+    ...Object.keys(q||{}),
+    ...Object.keys(state.extraMaterials||{}),
+    ...Object.keys(state.materialOverrides||{})
+  ]);
+  return [...refsSet];
+}
 function render(fc,len,area){
   lastSummary={fc,len,area};
-  let body=$('#materialBody');body.innerHTML='';
-  let entries=Object.entries(q).filter(([,n])=>n>0).sort((a,b)=>(item(a[0]).section||'').localeCompare(item(b[0]).section||'')||(item(a[0]).designation||'').localeCompare(item(b[0]).designation||''));
-  let total=0,w=0,knownQty=0,manualQty=0;const categories={};
-  for(const [r,n] of entries){
-    let it=item(r),unit=weight(it),ww=unit*n,isExtra=+(state.extraMaterials||{})[r]>0;
-    total+=n;w+=ww;if(unit>0)knownQty+=n;manualQty+=Math.min(n,+(state.extraMaterials||{})[r]||0);
-    const cat=it.section||'Autres composants';categories[cat]=categories[cat]||{refs:0,qty:0,weight:0};categories[cat].refs++;categories[cat].qty+=n;categories[cat].weight+=ww;
-    const origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([name,v])=>`${escapeHtml(name)} : ${v}`).join('<br>')||'Calcul';
-    let tr=document.createElement('tr');
-    tr.innerHTML=`<td><div class="part-cell"><img class="part-thumb" src="${partImage(it)}" alt="${escapeHtml(it.designation)}"><div class="part-text"><b>${escapeHtml(it.designation)}</b><small>${escapeHtml(it.section||'')}</small>${isExtra?`<span class="extra-badge">Ajout manuel : ${(state.extraMaterials||{})[r]}</span>`:''}${unit<=0?'<span class="data-warning">Poids à confirmer</span>':''}</div></div></td><td>${escapeHtml(r)}</td><td><div class="origin-list">${origins}</div></td><td><div class="qty"><button data-d="-1">−</button><input value="${n}" type="number" min="0"><button data-d="1">+</button></div></td><td class="right">${unit>0?fmt(ww)+' kg':'—'}</td>`;
+  const body=$('#materialBody');body.innerHTML='';
+  const entries=materialReferences()
+    .map(r=>[r,Math.max(0,Math.round(+(q[r]||0)))])
+    .filter(([r,calculated])=>calculated>0||effectiveMaterialQuantity(r,calculated)>0)
+    .sort((a,b)=>(item(a[0]).designation||'').localeCompare(item(b[0]).designation||''));
+
+  let total=0,w=0,knownQty=0,manualQty=0;
+  const families=new Set();
+
+  for(const [r,calculated] of entries){
+    const it=item(r),unit=weight(it);
+    const retained=effectiveMaterialQuantity(r,calculated);
+    const overridden=Object.prototype.hasOwnProperty.call(state.materialOverrides||{},r);
+    const manualAdded=+(state.extraMaterials||{})[r]||0;
+    const ww=unit*retained;
+    total+=retained;w+=ww;if(unit>0)knownQty+=retained;
+    manualQty+=Math.min(retained,manualAdded);
+    families.add(it.section||'Autres composants');
+
+    const origins=Object.entries(bomLedger[r]||{})
+      .filter(([,v])=>v!==0)
+      .map(([name,v])=>`${escapeHtml(name)} : ${v}`)
+      .join('<br>') || (manualAdded?'Ajout manuel':'Calcul');
+
+    const tr=document.createElement('tr');
+    if(overridden)tr.classList.add('overridden');
+    if(calculated===0&&retained>0)tr.classList.add('manual-line');
+    tr.innerHTML=`
+      <td>
+        <div class="part-cell">
+          <img class="part-thumb" src="${partImage(it)}" alt="${escapeHtml(it.designation)}">
+          <div class="part-text">
+            <b>${escapeHtml(it.designation)}</b>
+            <small>${escapeHtml(it.section||'')}</small>
+            ${manualAdded?`<span class="extra-badge">Ajout manuel : ${manualAdded}</span>`:''}
+            ${overridden?'<span class="lock-badge">Quantité retenue modifiée</span>':''}
+            ${unit<=0?'<span class="data-warning">Poids à confirmer</span>':''}
+          </div>
+        </div>
+      </td>
+      <td>${escapeHtml(r)}</td>
+      <td><div class="origin-list">${origins}</div></td>
+      <td class="calculated-qty">${calculated}</td>
+      <td>
+        <div class="qty-retained">
+          <button type="button" data-step="-1">−</button>
+          <input class="retained-input" value="${retained}" type="number" min="0" step="1">
+          <button type="button" data-step="1">+</button>
+        </div>
+      </td>
+      <td class="right">${unit>0?fmt(ww)+' kg':'—'}</td>
+      <td>
+        <div class="bom-actions">
+          <button type="button" class="restore-qty" ${overridden?'':'disabled'}>Rétablir calcul</button>
+          <button type="button" class="remove-line">Mettre à zéro</button>
+        </div>
+      </td>`;
+
     tr.querySelector('.part-thumb').onclick=()=>openPart(it);
-    let inp=tr.querySelector('input');
-    tr.querySelectorAll('.qty button').forEach(b=>b.onclick=()=>{q[r]=Math.max(0,(+inp.value||0)+(+b.dataset.d));render(fc,len,area)});
-    inp.onchange=()=>{q[r]=Math.max(0,Math.round(+inp.value||0));render(fc,len,area)};
-    body.appendChild(tr)
+    const inp=tr.querySelector('.retained-input');
+    const apply=value=>{
+      setMaterialOverride(r,value);
+      render(fc,len,area);
+    };
+    tr.querySelectorAll('[data-step]').forEach(btn=>{
+      btn.onclick=()=>apply(Math.max(0,(+inp.value||0)+(+btn.dataset.step)));
+    });
+    inp.onchange=()=>apply(inp.value);
+    tr.querySelector('.restore-qty').onclick=()=>{
+      clearMaterialOverride(r);
+      render(fc,len,area);
+    };
+    tr.querySelector('.remove-line').onclick=()=>apply(0);
+    body.appendChild(tr);
   }
-  const catBody=$('#categoryBody');catBody.innerHTML='';
-  Object.entries(categories).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([name,c])=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${escapeHtml(name)}</td><td>${c.refs}</td><td>${c.qty}</td><td class="right">${fmt(c.weight)} kg</td>`;catBody.appendChild(tr)});
-  $('#mFacades').textContent=fc;$('#mLength').textContent=fmt(len)+' m';$('#mArea').textContent=fmt(area)+' m²';$('#mQty').textContent=total;$('#mWeight').textContent=fmt(w)+' kg';$('#mRefs').textContent=entries.length;
-  $('#mKnown').textContent=(total?Math.round(knownQty/total*100):100)+' %';$('#mManual').textContent=manualQty;$('#mAuto').textContent=Math.max(0,total-manualQty);
+
+  $('#mFacades').textContent=fc;
+  $('#mLength').textContent=fmt(len)+' m';
+  $('#mArea').textContent=fmt(area)+' m²';
+  $('#mQty').textContent=total;
+  $('#mWeight').textContent=fmt(w)+' kg';
+  $('#mRefs').textContent=entries.filter(([r,c])=>effectiveMaterialQuantity(r,c)>0).length;
+  $('#mKnown').textContent=(total?Math.round(knownQty/total*100):100)+' %';
+  $('#mManual').textContent=manualQty;
+  $('#mAuto').textContent=Math.max(0,total-manualQty);
+
   const core=BOM_ENGINE.summary();
   $('#coreCatalog').textContent=COMPONENT_CATALOG.size;
   $('#coreLines').textContent=entries.length;
   $('#coreInstances').textContent=total;
-  $('#coreFamilies').textContent=Object.keys(categories).length;
-  $('#coreStatus').textContent=`Moteur actif · modèle indépendant révision ${core.revision} · ${core.provisional} pièce(s) avec donnée provisoire.`;
+  $('#coreFamilies').textContent=families.size;
+  $('#coreStatus').textContent=`Moteur actif · modèle indépendant révision ${core.revision} · quantités retenues modifiables et sauvegardées.`;
 }
 function renderSearch(){
   const term=normalizeText($('#partSearch').value.trim()),box=$('#searchResults');
@@ -652,8 +778,10 @@ function renderSearch(){
     row.querySelector('button').onclick=()=>{
       const amount=Math.max(1,Math.round(+$('#extraQty').value||1));
       state.extraMaterials=state.extraMaterials||{};
+state.materialOverrides=state.materialOverrides||{};
       state.extraMaterials[it.reference]=(state.extraMaterials[it.reference]||0)+amount;
       q[it.reference]=(q[it.reference]||0)+amount;
+      if(state.materialOverrides&&state.materialOverrides[it.reference]===0)delete state.materialOverrides[it.reference];
       save();render(lastSummary.fc,lastSummary.len,lastSummary.area);
       $('#status').textContent=`${amount} × ${it.designation} ajouté(s) manuellement.`;
     };
@@ -731,6 +859,47 @@ function bindPlanGestures(){
   body.addEventListener('wheel',e=>{e.preventDefault();planGesture.scale=Math.max(.45,Math.min(4,planGesture.scale*(e.deltaY<0?1.1:.9)));applyPlanGesture()},{passive:false});
 }
 
+
+
+const inlineThreeGesture={active:false,pointerId:null,x:0,y:0,rot:0,tilt:0};
+function bindInlineThreeGestures(){
+  const canvas=$('#planCanvas');
+  canvas.addEventListener('pointerdown',e=>{
+    if(currentPlanView!=='three')return;
+    const facade=e.target.closest('[data-facade]');
+    if(facade)return;
+    inlineThreeGesture.active=true;
+    inlineThreeGesture.pointerId=e.pointerId;
+    inlineThreeGesture.x=e.clientX;inlineThreeGesture.y=e.clientY;
+    inlineThreeGesture.rot=+$('#rotY').value;inlineThreeGesture.tilt=+$('#rotX').value;
+    canvas.setPointerCapture(e.pointerId);
+    canvas.classList.add('dragging');
+    e.preventDefault();
+  });
+  canvas.addEventListener('pointermove',e=>{
+    if(!inlineThreeGesture.active||e.pointerId!==inlineThreeGesture.pointerId||currentPlanView!=='three')return;
+    const dx=e.clientX-inlineThreeGesture.x,dy=e.clientY-inlineThreeGesture.y;
+    $('#rotY').value=Math.max(-180,Math.min(180,inlineThreeGesture.rot+dx*.45));
+    $('#rotX').value=Math.max(-60,Math.min(60,inlineThreeGesture.tilt-dy*.28));
+    renderPlan();
+    canvas.classList.add('dragging');
+    e.preventDefault();
+  });
+  const finish=e=>{
+    if(e.pointerId!==inlineThreeGesture.pointerId)return;
+    inlineThreeGesture.active=false;inlineThreeGesture.pointerId=null;
+    canvas.classList.remove('dragging');
+  };
+  canvas.addEventListener('pointerup',finish);
+  canvas.addEventListener('pointercancel',finish);
+  canvas.addEventListener('wheel',e=>{
+    if(currentPlanView!=='three')return;
+    e.preventDefault();
+    const current=+$('#zoom3d').value||100;
+    $('#zoom3d').value=Math.max(45,Math.min(220,current+(e.deltaY<0?8:-8)));
+    renderPlan();
+  },{passive:false});
+}
 
 let selectedPlanFacade='A';
 function availableFacadeKeys(){
@@ -977,16 +1146,15 @@ function threeSvg(){
       return [-margin+dep,y,D-(D-q.building)/2-(u-left)];
     };
     const posts=[...xs];posts.forEach(u=>{
-      const postTop=facadeProfileHeight(d,u,total)+1.05+(d.rehausse?1:0);
-      line(map(u,0,0),map(u,postTop,0),'svg-frame');line(map(u,0,w),map(u,postTop,w),'svg-frame');
+      const postTop=h+1.05+(d.rehausse?1:0);
+      line(map(u,0,0),map(u,postTop,0),'svg-frame');
+      line(map(u,0,w),map(u,postTop,w),'svg-frame');
     });
     const toe=(u1,u2,y)=>poly([map(u1,y,0),map(u2,y,0),map(u2,y+.17,0),map(u1,y+.17,0)],'svg-toe');
     const endToe=(u,y)=>poly([map(u,y,0),map(u,y,w),map(u,y+.17,w),map(u,y+.17,0)],'svg-toe');
     for(let lv=1;lv<=lev;lv++){
       const y=h/lev*lv,y0=h/lev*(lv-1);
       for(let i=0;i<seq.length;i++){
-        const bayMid=(xs[i]+xs[i+1])/2;
-        if(y>facadeProfileHeight(d,bayMid,total)+.01)continue;
         poly([map(xs[i],y,0),map(xs[i+1],y,0),map(xs[i+1],y,w),map(xs[i],y,w)],'svg-deck');
         toe(xs[i],xs[i+1],y);
         line(map(xs[i],y+.50,0),map(xs[i+1],y+.50,0),'svg-rail');
@@ -1072,11 +1240,12 @@ function renderPlan(){
   $('#planTitle').textContent=title;
   $('#planCanvas').innerHTML=`<div class="plan-stage" style="transform:scale(${scale});transform-origin:top center">${content}</div>`;
   $('#threeControls').style.display=currentPlanView==='three'?'block':'none';
+  $('#planCanvas').classList.toggle('three-interactive',currentPlanView==='three');
   renderPlanEditor();
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s). Cliquez sur une façade pour l’éditer.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${data.d.type==='gable'?`pignon ${fmt(data.d.height)} m à l’égout / ${fmt(data.d.ridgeHeight)} m au faîtage`:`${fmt(data.height)} m de hauteur`}, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-3-1',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-3-2',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -1093,7 +1262,7 @@ NAMES.forEach((n,i)=>{
   if(!d.width)d.width=.73;
   if(!['none','left','right','both'].includes(d.extendMode))d.extendMode='both';
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-3-1-nomenclature.csv';a.click()}
+function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-3-2-nomenclature.csv';a.click()}
 
 const CATALOG_STORAGE_KEY='scaffr200-v6-2-catalog-overrides';
 let catalogEditingRef='';
@@ -1147,11 +1316,11 @@ function saveCatalogForm(){
 function downloadText(filename,text,type='application/json'){
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
-function exportCatalogJson(){downloadText('scaffr200-v6-3-1-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
+function exportCatalogJson(){downloadText('scaffr200-v6-3-2-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
 function exportCatalogCsv(){
   const esc=v=>`"${String(v??'').replaceAll('"','""')}"`,rows=[['Référence','Désignation','Dimensions','Famille','Poids kg','Modifiée','Provisoire']];
   COMPONENT_CATALOG.values().sort((a,b)=>a.reference.localeCompare(b.reference)).forEach(c=>rows.push([c.reference,c.designation,c.dimensions,c.section,c.weightKg,COMPONENT_CATALOG.isModified(c.reference)?'Oui':'Non',c.provisional?'Oui':'Non']));
-  downloadText('scaffr200-v6-3-1-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
+  downloadText('scaffr200-v6-3-2-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
 }
 function importCatalogFile(file){
   const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),rows=Array.isArray(data)?data:data.components;if(!Array.isArray(rows))throw new Error('Format non reconnu');let n=0;rows.forEach(r=>{if(r&&r.reference&&r.designation){COMPONENT_CATALOG.register(r);n++}});saveCatalogOverrides();renderCatalog();calc();$('#catalogMessage').textContent=n+' référence(s) importée(s).'}catch(err){$('#catalogMessage').textContent='Import impossible : '+err.message}};reader.readAsText(file);
@@ -1163,9 +1332,10 @@ $('#catalogSearch').oninput=renderCatalog;$('#catalogSection').onchange=renderCa
 $('#modelBtn').onclick=()=>{
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(BOM_ENGINE.exportModel(),null,2)],{type:'application/json'}));
-  a.download='scaffr200-v6-3-1-modele.json';a.click();
-};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v6-2');location.reload()}};
+  a.download='scaffr200-v6-3-2-modele.json';a.click();
+};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v6-3-2');location.reload()}};
 $('#planCanvas').addEventListener('click',e=>{
+  if(inlineThreeGesture.active)return;
   const target=e.target.closest('[data-facade]');
   if(target&&target.dataset.facade)selectPlanFacade(target.dataset.facade);
 });
@@ -1174,12 +1344,14 @@ if($('#closeFullscreen'))$('#closeFullscreen').addEventListener('click',closePla
 if($('#planFullscreen'))$('#planFullscreen').addEventListener('click',e=>{if(e.target===$('#planFullscreen'))closePlanFullscreen()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlanFullscreen()});
 bindPlanGestures();
+bindInlineThreeGestures();
 $('#viewTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;currentPlanView=b.dataset.view;$('#viewTabs').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));renderPlan()});
 $('#planFacade').addEventListener('change',e=>{selectedPlanFacade=e.target.value;renderPlan()});
 
 $('#planFacadeButtons').addEventListener('click',e=>{const b=e.target.closest('[data-plan-facade]');if(b)selectPlanFacade(b.dataset.planFacade)});
 ['planEditEnabled','planEditType','planEditLength','planEditHeight','planEditRidgeHeight','planEditWidth','planEditLevels','planEditExtend','planEditAccess','planEditRehausse'].forEach(id=>$('#'+id).addEventListener('change',updateSelectedFacadeFromPlan));
 $('#planEditName').addEventListener('change',updateSelectedFacadeFromPlan);
+$('#planEditRidgeHeight').addEventListener('focus',e=>e.target.select());
 
 ['planScale','showLabels','rotY','rotX','zoom3d','showBuilding3d'].forEach(id=>$('#'+id).addEventListener('input',renderPlan));
 $('#partSearch').addEventListener('input',renderSearch);
