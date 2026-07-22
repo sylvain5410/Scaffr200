@@ -1,6 +1,8 @@
-V6.3.5
-- Correction du volume 3D : le faîtage n'augmente plus la hauteur des façades latérales.
-- Séparation de la hauteur d'égout et de la hauteur de faîtage.
-- Correction du dessin des rehausses sur les façades B et D.
-- Ajout des lisses intérieure/extérieure et des retours d'extrémité.
-- Prolongement correct des montants du dernier niveau.
+V6.4.0
+- Nouveau style 3D technique inspiré de la notice Comabi R200.
+- Ajout des rosaces, vérins, écrous et platines.
+- Planchers métalliques nervurés et crochets visibles.
+- Échelle à barreaux et trappe mieux identifiée.
+- Tubes, garde-corps et diagonales avec rendu métallique.
+- Bâtiment estompé et ajout d'un plan de sol.
+- Correction de la hauteur du volume principal au niveau de l'égout.
