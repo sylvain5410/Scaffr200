@@ -1,6 +1,7 @@
-V6.4.1
-- Correction du plan de façade réduit visuellement à un rectangle.
-- Nouvelle élévation technique détaillée.
-- Correction du blocage de rotation au-dessus d'une façade.
-- Rotation 360°, zoom, inclinaison et préréglages caméra.
-- Ajout d'une projection perspective.
+V7.0
+- Nouveau moteur de vue 3D sur canevas persistant.
+- Suppression de la projection SVG déformée.
+- Interaction tactile fiable sans remplacement du dessin pendant le geste.
+- Rotation 360°, zoom par pincement/molette et déplacement à deux doigts.
+- Nouveau modèle volumique inspiré de la photo de référence.
+- Planchers, tubes, rosaces, garde-corps, plinthes, diagonales, vérins et échelles.
