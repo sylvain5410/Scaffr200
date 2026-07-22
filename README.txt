@@ -1,21 +1,13 @@
-ScaffR200 Pro V6.4.0 - Vue 3D technique
+ScaffR200 Pro V6.4.1
 
-Cette version améliore le rendu 3D en s'inspirant des conventions visuelles
-de la notice de montage Comabi R200 fournie comme référence.
-
-Améliorations :
-- Tubes gris métalliques avec ombrage et extrémités arrondies.
-- Rosaces visibles sur les montants.
-- Vérins de pied, écrous de réglage et platines.
-- Planchers métalliques nervurés.
-- Crochets/colliers représentés aux appuis.
-- Plancher à trappe mieux différencié.
-- Échelle avec barreaux.
-- Plinthes métalliques orange.
-- Garde-corps et diagonales plus proches d'un dessin de notice.
-- Sol technique et bâtiment plus discret.
-- Hauteur des murs maintenue à l'égout ; le faîtage agit seulement sur le toit/pignon.
-- Compatibilité avec les sauvegardes V6.3.5 et antérieures.
-
-Le dessin reste une représentation technique simplifiée et non une reproduction
-contractuelle des pièces du fabricant.
+Correctifs majeurs :
+- Vue de face reconstruite comme une élévation technique d'échafaudage.
+- Bâtiment en fond discret pointillé, sans rectangle dominant.
+- Montants, rosaces, vérins, platines, planchers, plinthes, garde-corps,
+  diagonales, trappe et échelle visibles en façade.
+- Rotation directement sur toute la vue 3D, même au-dessus des façades.
+- Rotation horizontale continue à 360 degrés.
+- Zoom molette/pincement et inclinaison élargie.
+- Boutons Face A, Face B, Face C, Face D, Perspective et Vue haute.
+- Projection perspective pour mieux percevoir les volumes.
+- Compatibilité avec les sauvegardes V6.4.0 et antérieures.

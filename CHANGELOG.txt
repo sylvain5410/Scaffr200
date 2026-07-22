@@ -1,8 +1,6 @@
-V6.4.0
-- Nouveau style 3D technique inspiré de la notice Comabi R200.
-- Ajout des rosaces, vérins, écrous et platines.
-- Planchers métalliques nervurés et crochets visibles.
-- Échelle à barreaux et trappe mieux identifiée.
-- Tubes, garde-corps et diagonales avec rendu métallique.
-- Bâtiment estompé et ajout d'un plan de sol.
-- Correction de la hauteur du volume principal au niveau de l'égout.
+V6.4.1
+- Correction du plan de façade réduit visuellement à un rectangle.
+- Nouvelle élévation technique détaillée.
+- Correction du blocage de rotation au-dessus d'une façade.
+- Rotation 360°, zoom, inclinaison et préréglages caméra.
+- Ajout d'une projection perspective.
