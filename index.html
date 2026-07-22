@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.2.1</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 Pro v6.3.0</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -106,17 +106,33 @@
 .catalog-tag.ok{background:#e5f4e9;color:#27633a}.catalog-tag.warn{background:#fff0cc;color:#7a4b00}.catalog-tag.edit{background:#e7f0fb;color:#174f78}
 @media(max-width:720px){.catalog-toolbar{grid-template-columns:1fr}.catalog-form .wide{grid-column:auto}}
 
+
+.plan-editor{border:1px solid var(--line);border-radius:12px;padding:13px;margin:12px 0;background:#f8fafb}
+.plan-editor-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.plan-editor-head h3{margin:0}.facade-selector{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.facade-selector button{border:1px solid #b8c4ce;background:white}
+.facade-selector button.on{background:var(--b);color:white;border-color:var(--b)}
+.facade-selector button.off::after{content:" · inactive";font-size:11px;font-weight:400}
+.plan-editor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}
+.plan-editor-status{font-size:12px;color:#52616d;margin-top:9px}.plan-editor .check{padding-top:24px}
+.plan-facade-selectable{cursor:pointer}
+.plan-facade-selected line,.plan-facade-selected rect,.plan-facade-selected polygon{stroke:#d97706!important;stroke-width:3.5px!important}
+.plan-facade-selected text{font-weight:700;fill:#8a4a00!important}
+.plan-canvas svg [data-facade]:hover line,.plan-canvas svg [data-facade]:hover rect,.plan-canvas svg [data-facade]:hover polygon{stroke-width:3px}
+.plan-edit-badge{display:inline-block;border-radius:99px;padding:4px 9px;background:#e7f0fb;color:#174f78;font-size:12px;font-weight:700}
+@media(max-width:700px){.plan-editor .check{padding-top:0}}
+
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v6.2.1</small></h1><p>Configurateur chantier R200 / M368</p></header>
+<header><h1>ScaffR200 Pro <small>v6.3.0</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.2.1 corrige l’ouverture de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La V6.3.0 ajoute la sélection et l’édition graphique des façades depuis les plans et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
 <div class="card"><h2>Résumé</h2><div class="summary"><div class="metric"><b id="mFacades">0</b>façades</div><div class="metric"><b id="mLength">0 m</b>longueur</div><div class="metric"><b id="mArea">0 m²</b>surface</div><div class="metric"><b id="mQty">0</b>pièces</div><div class="metric"><b id="mWeight">0 kg</b>poids estimé</div><div class="metric"><b id="mRefs">0</b>références</div></div><div class="bom-quality"><div class="quality-card"><b id="mKnown">100 %</b>des pièces avec poids renseigné</div><div class="quality-card"><b id="mAuto">0</b>pièces calculées automatiquement</div><div class="quality-card"><b id="mManual">0</b>pièces ajoutées manuellement</div></div></div>
 <div class="card core-engine">
-  <h2>Noyau métier V6.2.1</h2>
+  <h2>Noyau métier V6.3.0</h2>
   <div class="core-grid">
     <div><span class="core-value" id="coreCatalog">0</span>composants catalogués</div>
     <div><span class="core-value" id="coreLines">0</span>lignes de nomenclature</div>
@@ -181,16 +197,40 @@
 <button type="button" data-view="front" class="on">Vue de face</button>
 <button type="button" data-view="top">Vue de dessus</button>
 <button type="button" data-view="side">Vue de côté</button>
-<button type="button" data-view="three">Vue 3D complète</button>
+<button type="button" data-view="three">Vue 3D complète</button><button type="button" id="openPlanBtn">Plein écran</button>
 </div>
 <div class="view-controls">
 <label>Façade<select id="planFacade"></select></label>
 <label>Échelle du dessin<input id="planScale" type="range" min="70" max="140" value="100"><output id="planScaleOut">100 %</output></label>
 <label class="check"><input id="showLabels" type="checkbox" checked>Afficher les cotes et repères</label>
 </div>
+
+<div class="plan-editor no-print" id="planEditor">
+  <div class="plan-editor-head">
+    <h3>Édition graphique de la façade</h3>
+    <span class="plan-edit-badge" id="planEditBadge">Façade</span>
+  </div>
+  <div class="facade-selector" id="planFacadeButtons" aria-label="Sélection directe des façades"></div>
+  <div class="plan-editor-grid">
+    <label>Nom<input id="planEditName"></label>
+    <label class="check"><input id="planEditEnabled" type="checkbox">Façade active</label>
+    <label>Longueur totale (m)<input id="planEditLength" type="number" min="0" step=".01"></label>
+    <label>Hauteur (m)<input id="planEditHeight" type="number" min="2" step=".5"></label>
+    <label>Largeur<select id="planEditWidth"><option value=".73">0,73 m</option><option value="1">1,00 m</option></select></label>
+    <label>Niveaux planchés<input id="planEditLevels" type="number" min="1" step="1"></label>
+    <label>Dépassement aux angles<select id="planEditExtend">
+      <option value="none">Aucun</option><option value="left">Gauche</option>
+      <option value="right">Droite</option><option value="both">Deux côtés</option>
+    </select></label>
+    <label class="check"><input id="planEditAccess" type="checkbox">Accès toute hauteur</label>
+    <label class="check"><input id="planEditRehausse" type="checkbox">Rehausse au dernier étage</label>
+  </div>
+  <div class="plan-editor-status" id="planEditStatus">Cliquez sur une façade du plan 2D/3D ou utilisez les boutons ci-dessus.</div>
+</div>
+
 <div class="plan-panel">
 <h3 id="planTitle">Vue de face</h3>
-<div id="planCanvas" class="plan-canvas" aria-live="polite" title="Cliquer pour ouvrir en plein écran"></div><div class="plan-open-hint">Cliquer sur le plan pour l’ouvrir en plein écran.</div>
+<div id="planCanvas" class="plan-canvas" aria-live="polite" title="Cliquer pour ouvrir en plein écran"></div><div class="plan-open-hint">Cliquer sur une façade pour la sélectionner. Utiliser « Plein écran » pour agrandir le plan.</div>
 <div class="plan-legend">
 <span class="legend-mark"><i></i>Cadres et lisses</span>
 <span class="legend-mark diag"><i></i>Diagonales</span>
@@ -655,15 +695,76 @@ function bindPlanGestures(){
   body.addEventListener('wheel',e=>{e.preventDefault();planGesture.scale=Math.max(.45,Math.min(4,planGesture.scale*(e.deltaY<0?1.1:.9)));applyPlanGesture()},{passive:false});
 }
 
+
+let selectedPlanFacade='A';
+function availableFacadeKeys(){
+  const count=Math.max(1,Math.min(4,+$('#facadeCount').value||4));
+  return NAMES.slice(0,count);
+}
+function selectedFacade(){
+  if(!availableFacadeKeys().includes(selectedPlanFacade))selectedPlanFacade=availableFacadeKeys()[0]||'A';
+  return state.facades[selectedPlanFacade]||state.facades.A;
+}
+function syncFacadeCardFromPlan(key){
+  const idx=NAMES.indexOf(key),card=document.querySelectorAll('#facadeList .facade')[idx],d=state.facades[key];
+  if(!card||!d)return;
+  const set=(sel,val,prop='value')=>{const el=card.querySelector(sel);if(el)el[prop]=val};
+  set('.facade-name',d.name||DEFAULT_FACADE_NAMES[idx]);
+  set('.enabled',!!d.enabled,'checked');set('.length',d.length);set('.height',d.height);
+  set('.width',String(d.width||.73));set('.levels',d.levels);set('.extendMode',d.extendMode||'none');
+  set('.access',!!d.access,'checked');set('.rehausse',!!d.rehausse,'checked');
+}
+function renderPlanEditor(){
+  const keys=availableFacadeKeys(),d=selectedFacade(),idx=NAMES.indexOf(selectedPlanFacade);
+  $('#planFacadeButtons').innerHTML=keys.map(k=>{
+    const f=state.facades[k],active=k===selectedPlanFacade;
+    return `<button type="button" data-plan-facade="${k}" class="${active?'on':''} ${f.enabled?'':'off'}">${escapeHtml(f.name||DEFAULT_FACADE_NAMES[NAMES.indexOf(k)])}</button>`;
+  }).join('');
+  $('#planEditBadge').textContent=`${d.name||DEFAULT_FACADE_NAMES[idx]} · ${d.enabled?'active':'inactive'}`;
+  $('#planEditName').value=d.name||DEFAULT_FACADE_NAMES[idx];
+  $('#planEditEnabled').checked=!!d.enabled;
+  $('#planEditLength').value=d.length;$('#planEditHeight').value=d.height;
+  $('#planEditWidth').value=String(d.width||.73);$('#planEditLevels').value=d.levels;
+  $('#planEditExtend').value=d.extendMode||'none';$('#planEditAccess').checked=!!d.access;
+  $('#planEditRehausse').checked=!!d.rehausse;
+  $('#planEditStatus').textContent=`Édition de ${d.name||selectedPlanFacade}. Les modifications actualisent immédiatement les plans et la nomenclature.`;
+}
+function selectPlanFacade(key){
+  if(!availableFacadeKeys().includes(key))return;
+  selectedPlanFacade=key;
+  const select=$('#planFacade');
+  if([...select.options].some(o=>o.value===key))select.value=key;
+  renderPlan();
+}
+function updateSelectedFacadeFromPlan(){
+  const key=selectedPlanFacade,d=selectedFacade(),idx=NAMES.indexOf(key);
+  const wantsAccess=$('#planEditAccess').checked;
+  const otherAccess=NAMES.filter(k=>k!==key&&state.facades[k].enabled&&state.facades[k].access).length;
+  if(wantsAccess&&otherAccess>=2){
+    $('#planEditAccess').checked=!!d.access;
+    $('#planEditStatus').textContent='Deux façades d’accès maximum.';
+    return;
+  }
+  d.name=$('#planEditName').value.trim()||DEFAULT_FACADE_NAMES[idx];
+  d.enabled=$('#planEditEnabled').checked;
+  d.length=Math.max(0,+$('#planEditLength').value||0);
+  d.height=Math.max(2,+$('#planEditHeight').value||2);
+  d.width=+$('#planEditWidth').value||.73;
+  d.levels=Math.max(1,Math.round(+$('#planEditLevels').value||1));
+  d.extendMode=$('#planEditExtend').value||'none';
+  d.access=wantsAccess;d.rehausse=$('#planEditRehausse').checked;
+  syncFacadeCardFromPlan(key);calc();renderPlan();
+}
+
 function activeFacadeKeys(){return NAMES.filter(n=>state.facades[n]&&state.facades[n].enabled)}
 function refreshPlanFacades(){
-  const sel=$('#planFacade'),old=sel.value,keys=activeFacadeKeys();
-  sel.innerHTML=keys.map(n=>`<option value="${n}">${escapeHtml(state.facades[n].name||n)}</option>`).join('');
-  if(keys.includes(old))sel.value=old;
+  const sel=$('#planFacade'),old=selectedPlanFacade||sel.value,keys=availableFacadeKeys();
+  sel.innerHTML=keys.map(n=>`<option value="${n}">${escapeHtml(state.facades[n].name||n)}${state.facades[n].enabled?'':' — inactive'}</option>`).join('');
+  selectedPlanFacade=keys.includes(old)?old:(keys[0]||'A');sel.value=selectedPlanFacade;
 }
 function svgDefs(){return `<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M8 4L0 0v8z" fill="#52616d"/></marker></defs>`}
 function planData(){
-  const key=$('#planFacade').value||activeFacadeKeys()[0]||'A',d=state.facades[key]||state.facades.A;
+  const key=selectedPlanFacade||$('#planFacade').value||availableFacadeKeys()[0]||'A',d=state.facades[key]||state.facades.A;
   return {key,d,seq:orderedBays(d),levels:Math.max(1,Math.round(d.levels||1)),height:+d.height||2,width:+d.width||.73};
 }
 function frontSvg(data){
@@ -677,7 +778,7 @@ function frontSvg(data){
   const left=pad,right=pad+total*xScale;
   let xs=[left];seq.forEach(l=>xs.push(xs[xs.length-1]+l*xScale));
   const buildingLeft=left+extLeft*xScale,buildingRight=right-extRight*xScale;
-  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de face de ${escapeHtml(d.name)}">${svgDefs()}<rect width="${W}" height="${H}" fill="white"/>`;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" data-facade="${data.key}" class="plan-facade-selectable ${data.key===selectedPlanFacade?'plan-facade-selected':''}" aria-label="Vue de face de ${escapeHtml(d.name)}">${svgDefs()}<rect width="${W}" height="${H}" fill="white"/>`;
   s+=`<rect x="${buildingLeft}" y="${baseY-height*yScale}" width="${Math.max(2,buildingRight-buildingLeft)}" height="${height*yScale}" fill="#eceff1" stroke="#9aa3aa" stroke-width="2" opacity=".75"/>`;
   // Cadres/montants prolongés jusqu'à la hauteur du dernier garde-corps.
   const normalFrameTop=height+1.05;
@@ -763,7 +864,8 @@ function topSvg(){
   const bw=buildingL*scale,bh=buildingD*scale,x=cx-bw/2,y=cy-bh/2;
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Vue de dessus du chantier"><rect width="${W}" height="${H}" fill="white"/><rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="6" class="svg-building"/><text x="${cx}" y="${cy}" text-anchor="middle" class="svg-label">BÂTIMENT ${fmt(buildingL)} × ${fmt(buildingD)} m</text>`;
   function drawSide(k){
-    const q=info[k];if(!q)return;const {d,total,left,right}=q,seq=orderedBays(d),th=Math.max(9,(+d.width||.73)*scale*.55);
+    const q=info[k];if(!q)return;
+    s+=`<g data-facade="${k}" class="plan-facade-selectable ${k===selectedPlanFacade?'plan-facade-selected':''}">`;const {d,total,left,right}=q,seq=orderedBays(d),th=Math.max(9,(+d.width||.73)*scale*.55);
     let sx,sy,sw,sh,orient,start;
     if(k==='A'){sx=x-left*scale;sy=y-th-12;sw=total*scale;sh=th;orient='h';start=sx}
     if(k==='C'){sx=x-left*scale;sy=y+bh+12;sw=total*scale;sh=th;orient='h';start=sx}
@@ -775,7 +877,7 @@ function topSvg(){
     if(left)s+=orient==='h'?`<rect x="${sx}" y="${sy}" width="${left*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy}" width="${sw}" height="${left*scale}" fill="#f4c87a" opacity=".8"/>`;
     if(right)s+=orient==='h'?`<rect x="${sx+sw-right*scale}" y="${sy}" width="${right*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy+sh-right*scale}" width="${sw}" height="${right*scale}" fill="#f4c87a" opacity=".8"/>`;
     const tx=orient==='h'?sx+sw/2:(k==='B'?sx+31:sx-21),ty=orient==='h'?(k==='A'?sy-9:sy+sh+22):sy+sh/2;
-    s+=`<text x="${tx}" y="${ty}" text-anchor="middle" class="svg-label" ${orient==='v'?`transform="rotate(-90 ${tx} ${ty})"`:''}>${escapeHtml(d.name)} - échafaudage ${fmt(total)} m</text>`;
+    s+=`<text x="${tx}" y="${ty}" text-anchor="middle" class="svg-label" ${orient==='v'?`transform="rotate(-90 ${tx} ${ty})"`:''}>${escapeHtml(d.name)} - échafaudage ${fmt(total)} m</text></g>`;
   }
   ['A','B','C','D'].forEach(drawSide);
   s+=`<rect x="55" y="545" width="22" height="12" fill="#f4c87a"/><text x="85" y="556" class="svg-small">Dépassement sélectionné</text><text x="70" y="65" class="svg-label">N</text><path d="M70 85L70 35M70 35l-8 14M70 35l8 14" stroke="#17212b" stroke-width="3" fill="none"/></svg>`;
@@ -791,8 +893,11 @@ function threeSvg(){
   const keys=activeFacadeKeys();
   if(!keys.length)return '<div class="empty-search">Aucune façade active à dessiner.</div>';
   const W=960,H=680,ax=+$('#rotX').value,ay=+$('#rotY').value,zoom=+$('#zoom3d').value/100;
-  const fallback=state.facades[keys[0]],side=(k,fb)=>state.facades[k]&&state.facades[k].enabled?state.facades[k]:fb;
-  const fa=side('A',fallback),fb=side('B',fallback),fc=side('C',fa),fd=side('D',fb);
+  const fallback=state.facades[keys[0]];
+  // Chaque côté conserve désormais son propre état. Une façade inactive ne doit jamais
+  // recopier les options (notamment la rehausse) d'une façade active.
+  const side=k=>state.facades[k]||{...fallback,enabled:false,rehausse:false};
+  const fa=side('A'),fb=side('B'),fc=side('C'),fd=side('D');
   const getInfo=d=>{const seq=orderedBays(d),total=seq.reduce((a,b)=>a+b,0)||1,w=+d.width||.73,m=d.extendMode||'none';const left=(m==='left'||m==='both')?w:0,right=(m==='right'||m==='both')?w:0;return {d,seq,total,w,left,right,building:Math.max(.2,total-left-right)}};
   const A=getInfo(fa),B=getInfo(fb),C=getInfo(fc),D4=getInfo(fd);
   const L=Math.max(A.building,C.building),D=Math.max(B.building,D4.building);
@@ -873,7 +978,7 @@ function threeSvg(){
   Object.keys(facadeObjects).forEach(k=>{
     const arr=facadeObjects[k].sort((a,b)=>a.depth-b.depth);
     // Positive camera depth is closer because nearer objects are drawn last.
-    (facadeDepth[k]>=0?front:rear).push({depth:facadeDepth[k],svg:arr.map(o=>o.svg).join('')});
+    (facadeDepth[k]>=0?front:rear).push({depth:facadeDepth[k],svg:`<g data-facade="${k}" class="plan-facade-selectable ${k===selectedPlanFacade?'plan-facade-selected':''}">${arr.map(o=>o.svg).join('')}</g>`});
   });
   rear.sort((a,b)=>a.depth-b.depth);
   front.sort((a,b)=>a.depth-b.depth);
@@ -901,10 +1006,11 @@ function renderPlan(){
   $('#planTitle').textContent=title;
   $('#planCanvas').innerHTML=`<div class="plan-stage" style="transform:scale(${scale});transform-origin:top center">${content}</div>`;
   $('#threeControls').style.display=currentPlanView==='three'?'block':'none';
+  renderPlanEditor();
   const total=data.seq.reduce((a,b)=>a+b,0);
-  $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s), rotation libre autour du bâtiment.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
+  $('#planInfo').textContent=currentPlanView==='three'?`Vue globale : ${activeFacadeKeys().length} façade(s) active(s). Cliquez sur une façade pour l’éditer.`:`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${fmt(data.height)} m de hauteur, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-2-1',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v6-3-0',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -921,7 +1027,7 @@ NAMES.forEach((n,i)=>{
   if(!d.width)d.width=.73;
   if(!['none','left','right','both'].includes(d.extendMode))d.extendMode='both';
 })}}catch(e){}$('#projectName').value=state.projectName||'';$('#clientName').value=state.clientName||'';$('#address').value=state.address||'';$('#system').value=state.system||'R200 Progress';$('#configuration').value=state.configuration||'closed';$('#facadeCount').value=state.facadeCount||4}
-function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-2-1-nomenclature.csv';a.click()}
+function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];Object.entries(q).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v6-3-0-nomenclature.csv';a.click()}
 
 const CATALOG_STORAGE_KEY='scaffr200-v6-2-catalog-overrides';
 let catalogEditingRef='';
@@ -975,11 +1081,11 @@ function saveCatalogForm(){
 function downloadText(filename,text,type='application/json'){
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
-function exportCatalogJson(){downloadText('scaffr200-v6-2-1-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
+function exportCatalogJson(){downloadText('scaffr200-v6-3-0-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
 function exportCatalogCsv(){
   const esc=v=>`"${String(v??'').replaceAll('"','""')}"`,rows=[['Référence','Désignation','Dimensions','Famille','Poids kg','Modifiée','Provisoire']];
   COMPONENT_CATALOG.values().sort((a,b)=>a.reference.localeCompare(b.reference)).forEach(c=>rows.push([c.reference,c.designation,c.dimensions,c.section,c.weightKg,COMPONENT_CATALOG.isModified(c.reference)?'Oui':'Non',c.provisional?'Oui':'Non']));
-  downloadText('scaffr200-v6-2-1-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
+  downloadText('scaffr200-v6-3-0-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
 }
 function importCatalogFile(file){
   const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),rows=Array.isArray(data)?data:data.components;if(!Array.isArray(rows))throw new Error('Format non reconnu');let n=0;rows.forEach(r=>{if(r&&r.reference&&r.designation){COMPONENT_CATALOG.register(r);n++}});saveCatalogOverrides();renderCatalog();calc();$('#catalogMessage').textContent=n+' référence(s) importée(s).'}catch(err){$('#catalogMessage').textContent='Import impossible : '+err.message}};reader.readAsText(file);
@@ -991,22 +1097,31 @@ $('#catalogSearch').oninput=renderCatalog;$('#catalogSection').onchange=renderCa
 $('#modelBtn').onclick=()=>{
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(BOM_ENGINE.exportModel(),null,2)],{type:'application/json'}));
-  a.download='scaffr200-v6-2-1-modele.json';a.click();
+  a.download='scaffr200-v6-3-0-modele.json';a.click();
 };$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v6-2');location.reload()}};
-$('#planCanvas').addEventListener('click',openPlanFullscreen);
+$('#planCanvas').addEventListener('click',e=>{
+  const target=e.target.closest('[data-facade]');
+  if(target&&target.dataset.facade)selectPlanFacade(target.dataset.facade);
+});
+$('#openPlanBtn').addEventListener('click',openPlanFullscreen);
 if($('#closeFullscreen'))$('#closeFullscreen').addEventListener('click',closePlanFullscreen);
 if($('#planFullscreen'))$('#planFullscreen').addEventListener('click',e=>{if(e.target===$('#planFullscreen'))closePlanFullscreen()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlanFullscreen()});
 bindPlanGestures();
 $('#viewTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;currentPlanView=b.dataset.view;$('#viewTabs').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));renderPlan()});
-$('#planFacade').addEventListener('change',renderPlan);
+$('#planFacade').addEventListener('change',e=>{selectedPlanFacade=e.target.value;renderPlan()});
+
+$('#planFacadeButtons').addEventListener('click',e=>{const b=e.target.closest('[data-plan-facade]');if(b)selectPlanFacade(b.dataset.planFacade)});
+['planEditEnabled','planEditLength','planEditHeight','planEditWidth','planEditLevels','planEditExtend','planEditAccess','planEditRehausse'].forEach(id=>$('#'+id).addEventListener('change',updateSelectedFacadeFromPlan));
+$('#planEditName').addEventListener('change',updateSelectedFacadeFromPlan);
+
 ['planScale','showLabels','rotY','rotX','zoom3d','showBuilding3d'].forEach(id=>$('#'+id).addEventListener('input',renderPlan));
 $('#partSearch').addEventListener('input',renderSearch);
 $('#clearSearch').onclick=()=>{$('#partSearch').value='';renderSearch();$('#partSearch').focus()};
 $('#closeModal').onclick=closePart;
 $('#partModal').onclick=e=>{if(e.target===$('#partModal'))closePart()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePart()});
-load();build();renderSearch();renderCatalog();
+load();build();selectedPlanFacade=availableFacadeKeys().find(k=>state.facades[k].enabled)||availableFacadeKeys()[0]||'A';renderSearch();renderCatalog();
 </script>
 
 <script>

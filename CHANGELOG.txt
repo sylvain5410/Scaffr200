@@ -1,4 +1,7 @@
-V6.2.1
-- Correction du clic sur l’onglet Catalogue.
-- Correction du noyau ComponentCatalog incomplet dans la V6.2.
-- Sécurisation du gestionnaire de navigation.
+V6.3.0
+- Ajout de l'édition graphique des façades.
+- Ajout de la sélection par clic sur le plan 2D ou 3D.
+- Ajout d'un panneau de propriétés contextuel.
+- Ajout d'une surbrillance de sélection.
+- Synchronisation avec la page Façades et le moteur de nomenclature.
+- Maintien de l'affectation indépendante des rehausses par façade.
