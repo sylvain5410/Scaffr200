@@ -1,9 +1,9 @@
-V6.3.2
-- Refonte de l'onglet Matériel en nomenclature modifiable.
-- Ajout des quantités calculées et quantités retenues.
-- Sauvegarde des corrections de quantité par référence.
-- Suppression de la synthèse par famille.
-- Correction de la saisie de la hauteur au faîtage.
-- Correction des morceaux manquants avec plusieurs pignons.
-- Rotation 3D à la souris et au tactile.
-- Zoom 3D à la molette.
+V6.3.3
+- Rotation 3D plein écran à un doigt.
+- Zoom 3D plein écran par pincement.
+- Rotation horizontale complète.
+- Ouverture plein écran par clic sur le dessin.
+- Niveaux de plancher des pignons alignés sur les autres façades.
+- Ajout automatique de niveaux supérieurs sous le faîtage.
+- Réduction progressive des travées pour suivre la pente.
+- Montants adaptés au profil du pignon.

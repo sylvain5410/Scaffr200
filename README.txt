@@ -1,28 +1,26 @@
-ScaffR200 Pro V6.3.2
+ScaffR200 Pro V6.3.3
 
-Corrections principales :
+Nouveautés et corrections :
 
-1. Onglet Matériel
-- Une seule liste du matériel calculé.
-- Quantité calculée conservée comme référence.
-- Quantité retenue modifiable et sauvegardée.
-- Rétablissement individuel du calcul automatique.
-- Mise à zéro individuelle d'une ligne.
-- Ajout manuel par recherche toujours disponible.
-- Poids et totaux recalculés sur les quantités retenues.
+1. Vue 3D plein écran
+- Rotation tactile à un doigt.
+- Rotation horizontale complète pour voir les quatre faces.
+- Inclinaison verticale tactile.
+- Zoom par pincement à deux doigts.
+- Zoom à la molette sur ordinateur.
+- Gestes fiabilisés sur tablette et téléphone.
 
 2. Pignons
-- La hauteur au faîtage peut être effacée puis remplacée.
-- Validation seulement à la sortie du champ ou lors de la validation.
-- Sélection automatique du nombre au focus.
+- Les niveaux courants restent alignés avec les autres façades.
+- Le pas vertical est partagé entre les façades actives.
+- Si le faîtage dépasse l'égout, un ou plusieurs niveaux supplémentaires sont ajoutés.
+- Les travées supérieures sont réduites progressivement pour suivre la pente du toit.
+- Les montants suivent le profil du pignon.
 
-3. Vue 3D
-- Échafaudages de pignons continus jusqu'à la hauteur maximale.
-- Suppression des planchers manquants avec deux pignons.
-- Rotation directe par clic-glisser dans la vue normale.
-- Rotation tactile.
-- Zoom à la molette.
-- Les curseurs de rotation et de zoom restent disponibles.
+3. Plein écran
+- Un clic sur le dessin ouvre la vue plein écran.
+- Un premier clic sur une autre façade la sélectionne.
+- Un clic sur la façade déjà sélectionnée ouvre le plein écran.
 
-Compatibilité avec les sauvegardes V6.x.
+Compatibilité avec les sauvegardes V6.3.2 et antérieures.
 Ouvrir index.html dans un navigateur récent.
