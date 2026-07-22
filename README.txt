@@ -1,13 +1,12 @@
-ScaffR200 Pro V6.3.0
+ScaffR200 Pro V6.3.1
 
+Gestion des façades en pignon :
+- choix « Façade droite » ou « Pignon » ;
+- hauteur à l’égout et hauteur au faîtage ;
+- profil triangulaire visible en vue de face et en 3D ;
+- surface incluant le triangle du pignon ;
+- échafaudage représenté par niveaux selon le profil ;
+- rehausse toujours indépendante pour chaque façade.
+
+La nomenclature d’un pignon est estimée de manière conservatrice à partir de la hauteur maximale au faîtage.
 Ouvrir index.html dans un navigateur récent.
-
-Nouveautés :
-- sélection directe d'une façade dans les vues de face, de dessus, de côté et 3D ;
-- surbrillance de la façade sélectionnée ;
-- panneau d'édition contextuel dans l'onglet Plans ;
-- activation/désactivation, nom, dimensions, niveaux, accès, dépassement et rehausse ;
-- mise à jour immédiate des plans, du contrôle et de la nomenclature ;
-- conservation du gestionnaire de catalogue V6.2.x.
-
-Le bouton « Plein écran » ouvre explicitement le plan agrandi.

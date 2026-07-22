@@ -1,7 +1,8 @@
-V6.3.0
-- Ajout de l'édition graphique des façades.
-- Ajout de la sélection par clic sur le plan 2D ou 3D.
-- Ajout d'un panneau de propriétés contextuel.
-- Ajout d'une surbrillance de sélection.
-- Synchronisation avec la page Façades et le moteur de nomenclature.
-- Maintien de l'affectation indépendante des rehausses par façade.
+V6.3.1
+- Ajout du type de façade droite ou pignon.
+- Ajout des hauteurs à l’égout et au faîtage.
+- Dessin du pignon en 2D et en 3D.
+- Adaptation graphique des montants et niveaux au profil.
+- Surface triangulaire intégrée au métrage.
+- Contrôles de cohérence des hauteurs.
+- Compatibilité avec les sauvegardes antérieures.
