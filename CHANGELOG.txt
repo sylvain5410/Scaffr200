@@ -1,7 +1,7 @@
-V7.0
-- Nouveau moteur de vue 3D sur canevas persistant.
-- Suppression de la projection SVG déformée.
-- Interaction tactile fiable sans remplacement du dessin pendant le geste.
-- Rotation 360°, zoom par pincement/molette et déplacement à deux doigts.
-- Nouveau modèle volumique inspiré de la photo de référence.
-- Planchers, tubes, rosaces, garde-corps, plinthes, diagonales, vérins et échelles.
+V7.1
+- Nouveau moteur Three.js/WebGL.
+- Géométrie 3D réelle pour les familles de pièces.
+- OrbitControls tactile et souris.
+- Sélection et inspection des composants.
+- Filtres par famille.
+- Ombres et matériaux métalliques.
