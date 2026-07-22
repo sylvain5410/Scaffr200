@@ -1,6 +1,10 @@
-V7.2
-- Inspection repliable.
-- Rotation non bloquée par le panneau.
-- Dépassements d’extrémité visibles.
-- Faîtage corrigé selon l’orientation des pignons.
-- Diagonales recalées sur les rosaces et alternées.
+V7.3
+- Suppression d’OrbitControls.
+- Contrôle orbital natif par Pointer Events.
+- Capture du pointeur pendant la rotation.
+- Rotation souris et tactile sur toute la surface du canvas.
+- Zoom par molette et pincement.
+- Panoramique à deux doigts.
+- Panneau Inspection fermé par défaut.
+- Sélection par double-clic pour éviter le conflit avec la rotation.
+- Migration des sauvegardes V7.2, V7.1 et V7.0.
