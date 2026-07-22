@@ -1,7 +1,6 @@
-V7.1
-- Nouveau moteur Three.js/WebGL.
-- Géométrie 3D réelle pour les familles de pièces.
-- OrbitControls tactile et souris.
-- Sélection et inspection des composants.
-- Filtres par famille.
-- Ombres et matériaux métalliques.
+V7.2
+- Inspection repliable.
+- Rotation non bloquée par le panneau.
+- Dépassements d’extrémité visibles.
+- Faîtage corrigé selon l’orientation des pignons.
+- Diagonales recalées sur les rosaces et alternées.
