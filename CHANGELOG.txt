@@ -1,9 +1,7 @@
-V6.3.3
-- Rotation 3D plein écran à un doigt.
-- Zoom 3D plein écran par pincement.
-- Rotation horizontale complète.
-- Ouverture plein écran par clic sur le dessin.
-- Niveaux de plancher des pignons alignés sur les autres façades.
-- Ajout automatique de niveaux supérieurs sous le faîtage.
-- Réduction progressive des travées pour suivre la pente.
-- Montants adaptés au profil du pignon.
+V6.3.4
+- Correction de la largeur du niveau supplémentaire des pignons.
+- Cas 18 m / 6 m à l'égout / 9 m au faîtage : 4 travées centrales en partie haute.
+- Diagonale automatique sur la travée la plus haute.
+- Plancher à trappe automatique sur le niveau supplémentaire.
+- Échelle d'accès représentée dans la vue 3D.
+- Préparation de l'ajout de ces éléments au calcul matériel.
