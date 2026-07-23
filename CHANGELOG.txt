@@ -1,10 +1,1 @@
-V7.4
-- Nouvelle présentation sombre « vue chantier ».
-- Suppression de l’indicateur Rotation active.
-- Ajout des lisses et protections d’extrémité.
-- Ajout des plinthes longitudinales et transversales.
-- Refonte des planchers à trappe.
-- Refonte des échelles d’accès par niveau.
-- Application réelle des dépassements sélectionnés.
-- Séparation des dimensions bâtiment et échafaudage.
-- Amélioration des matériaux et du contraste.
+V8.0 — Nouveau moteur d’assemblage R200.
