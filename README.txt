@@ -1,9 +1,11 @@
-ScaffR200 PRO v8.1.2
+ScaffR200 PRO V8.1.3
 
 Ouvrir index.html dans un navigateur récent.
 
 Corrections principales :
-- pignons : diagonales placées sur la travée la plus haute et prolongées jusqu'au sommet ;
-- dépassements : prolongement jusqu'au montant extérieur de la façade perpendiculaire ;
-- longueurs des travées conservées sans élargissement ;
-- reprise automatique des sauvegardes v8.1.1 et antérieures.
+- nomenclature cohérente avec les travées réellement affichées ;
+- planchers à trappe sur la travée la plus haute du pignon ;
+- diagonales courantes espacées de trois travées libres ;
+- diagonale supplémentaire de pignon uniquement sur les étages supérieurs.
+
+Les résultats restent une aide à l'estimation. Vérifier le montage, les charges, les ancrages et les cas particuliers selon la notice fabricant et l'étude de chantier.

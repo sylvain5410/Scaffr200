@@ -1,7 +1,9 @@
-v8.1.2 — 23/07/2026
+ScaffR200 PRO V8.1.3
 
-- Diagonales de pignon déplacées sur la travée montant le plus haut.
-- Diagonales prolongées niveau par niveau jusqu'au sommet du pignon.
-- Dépassements augmentés de 0,48 m pour rejoindre l'axe du montant extérieur adjacent.
-- Aucune modification de longueur des travées.
-- Identifiants de version, exports et sauvegarde locale mis à jour.
+- Correction de la nomenclature des planchers, trappes, échelles, lisses, plinthes, protections d'extrémité et diagonales à partir des niveaux et travées réellement actifs.
+- Sur un pignon, la travée d'accès est automatiquement la travée qui monte le plus haut.
+- Le plancher à trappe et l'échelle suivent cette travée à chaque niveau où elle est active.
+- Les diagonales normales suivent la règle : une travée diagonalée puis trois travées libres.
+- Sur un pignon, une diagonale supplémentaire est ajoutée sur la travée la plus haute uniquement au-dessus de l'égout, jusqu'au sommet.
+- La vue technique, la vue WebGL et la nomenclature utilisent désormais les mêmes règles de placement.
+- Migration de version et noms d'exports mis à jour en V8.1.3.
