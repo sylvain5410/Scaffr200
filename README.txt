@@ -1,12 +1,9 @@
-ScaffR200 PRO v8.1.1 — version corrigée
+ScaffR200 PRO v8.1.2
 
-Ouvrir directement le fichier index.html de ce dossier.
+Ouvrir index.html dans un navigateur récent.
 
-Correction de mise à jour :
-- tous les titres et indicateurs affichent maintenant v8.1.1 ;
-- nouvelle clé de sauvegarde locale scaffr200-v8-1-1 ;
-- reprise automatique des chantiers des versions précédentes ;
-- le bouton Réinitialiser efface aussi les anciennes sauvegardes v8.0 et v8.1 ;
-- les noms des fichiers exportés indiquent v8.1.1.
-
-Un badge « Build corrigé 8.1.1 · 23/07/2026 » apparaît sous le titre.
+Corrections principales :
+- pignons : diagonales placées sur la travée la plus haute et prolongées jusqu'au sommet ;
+- dépassements : prolongement jusqu'au montant extérieur de la façade perpendiculaire ;
+- longueurs des travées conservées sans élargissement ;
+- reprise automatique des sauvegardes v8.1.1 et antérieures.
