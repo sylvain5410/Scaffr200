@@ -1,10 +1,7 @@
-V9.0 — 23/07/2026
-- Nouveau moteur core-engine.js inclus dans la livraison.
-- Assistant d'implantation complète depuis la page Chantier.
-- Calcul automatique des niveaux selon une hauteur de niveau paramétrable.
-- Placement automatique de l'accès, au centre ou sur la travée la plus haute du pignon.
-- Modèle de nomenclature unique avec registre des origines.
-- Contrôle métier enrichi et indice de préparation.
-- Estimation indicative des racks et du nombre de camions.
-- Exports et stockage local migrés vers V9.0.
-- Compatibilité de reprise avec la V8.1.3.1.
+V9.1
+- Nouvelle option d'accès : trappes/échelles ou escaliers.
+- Escaliers représentés dans la vue 3D et comptés dans la nomenclature.
+- Ancrages calculés automatiquement : 1 par tranche de 24 m² et par façade.
+- Ancrages placés sur les cadres et affichés sur les vues.
+- Rapport d'impression complet : matériel, poids total, vues de chaque façade, dessus et côté.
+- Suppression des indicateurs racks et transport de la synthèse.
