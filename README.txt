@@ -1,13 +1,13 @@
-ScaffR200 PRO V8.0 — moteur d’assemblage R200
+ScaffR200 PRO V8.1
+==================
 
-- Angles partagés entre façades.
-- Retours d’angle corrigés.
-- Diagonales par travée et par niveau.
-- Échelles intégrées aux trappes.
-- Garde-corps et plinthes d’extrémité transversaux.
-- Rosaces et vérins visibles.
-- Dépassements construits avec lisses et planchers.
-- Migration depuis V7.4.
+Ouvrez index.html dans un navigateur récent connecté à Internet pour charger Three.js.
 
-Cette version reste une reconstruction procédurale : les références fabricant
-exactes devront être complétées à partir de documents techniques Comabi R200.
+Corrections principales :
+- les façades restent indépendantes ; aucun montant d’angle commun n’est créé ;
+- un dépassement d’angle sort de la largeur de la façade perpendiculaire ;
+- le dépassement est une structure complète : montants, vérins, rosaces, lisses, planchers, garde-corps, plinthes, diagonales et cadre extérieur ;
+- sur les pignons, les garde-corps et plinthes d’extrémité suivent les travées réellement présentes à chaque niveau ;
+- nomenclature 3D liée aux pièces générées.
+
+Les configurations réelles doivent rester vérifiées selon la notice du fabricant et l’étude de chantier.

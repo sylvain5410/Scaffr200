@@ -1,1 +1,7 @@
-V8.0 — Nouveau moteur d’assemblage R200.
+V8.1
+- Suppression des montants d’angle partagés introduits en V8.0.
+- Maintien de quatre façades indépendantes.
+- Dépassement calculé selon la largeur de la façade perpendiculaire.
+- Dépassement transformé en travée structurelle complète.
+- Recalcul des cadres, garde-corps et plinthes d’extrémité sur pignons.
+- Migration du stockage local vers scaffr200-v8-1 avec reprise des données V8.0.

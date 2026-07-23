@@ -335,7 +335,7 @@
 <header><h1>ScaffR200 Pro <small>v8.0</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La v8.0 introduit une vue chantier sombre et complète la géométrie 3D avec des événements souris et tactiles indépendants, puis conserve la liste de matériel calculée et modifiable, corrige la saisie des pignons et stabilise la vue 3D avec rotation directe fiable sur souris et écran tactile et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La v8.1 corrige les dépassements d’angle et les extrémités de pignon. Elle conserve une vue chantier sombre et complète la géométrie 3D avec des événements souris et tactiles indépendants, puis conserve la liste de matériel calculée et modifiable, corrige la saisie des pignons et stabilise la vue 3D avec rotation directe fiable sur souris et écran tactile et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
@@ -1676,17 +1676,22 @@ function threeSvg(){
 function v7FacadeSceneData(){
   const enabled=activeFacadeKeys();
   const facades={};
-  const overhangLength=d=>{
-    const w=Math.max(.5,+d.width||.73);
+  const adjacentFacade={A:{left:'D',right:'B'},B:{left:'A',right:'C'},C:{left:'B',right:'D'},D:{left:'C',right:'A'}};
+  const overhangLength=(key,d)=>{
+    const neighbours=adjacentFacade[key]||{};
+    const adjacentWidth=side=>{
+      const other=state.facades[neighbours[side]];
+      return Math.max(.5,+(other&&other.enabled?other.width:d.width)||.73);
+    };
     return {
-      left:(d.extendMode==='left'||d.extendMode==='both')?w:0,
-      right:(d.extendMode==='right'||d.extendMode==='both')?w:0
+      left:(d.extendMode==='left'||d.extendMode==='both')?adjacentWidth('left'):0,
+      right:(d.extendMode==='right'||d.extendMode==='both')?adjacentWidth('right'):0
     };
   };
   enabled.forEach(k=>{
     const d=state.facades[k];
     normalizeFacadeShape(d);
-    const ext=overhangLength(d);
+    const ext=overhangLength(k,d);
     facades[k]={
       key:k,d,
       seq:orderedBays(d),
@@ -1699,12 +1704,12 @@ function v7FacadeSceneData(){
     };
   });
   const fa=state.facades.A,fb=state.facades.B,fc=state.facades.C,fd=state.facades.D;
-  const effective=(d)=>{
-    const ext=overhangLength(d);
+  const effective=(key,d)=>{
+    const ext=overhangLength(key,d);
     return Math.max(2,(+d.length||0)-ext.left-ext.right);
   };
-  const buildingLength=Math.max(2,effective(fa),effective(fc));
-  const buildingDepth=Math.max(2,effective(fb),effective(fd));
+  const buildingLength=Math.max(2,effective('A',fa),effective('C',fc));
+  const buildingDepth=Math.max(2,effective('B',fb),effective('D',fd));
   const length=Math.max(+fa.length||0,+fc.length||0,buildingLength);
   const depth=Math.max(+fb.length||0,+fd.length||0,buildingDepth);
   const eave=Math.max(2,...[fa,fb,fc,fd].map(d=>+d.height||2));
@@ -1715,9 +1720,9 @@ async function createScaff3D(host){
   host.innerHTML=`
     <div class="scaff3d-loading">Chargement du moteur 3D…</div>
     <div class="scaff3d-overlay">
-      <div class="scaff3d-status">Moteur d’assemblage R200 v8.0</div>
+      <div class="scaff3d-status">Moteur d’assemblage R200 v8.1</div>
 <div class="scaff3d-badge-v8">ASSEMBLAGE R200</div>
-<div class="scaff3d-quality">Angles partagés · accès intégrés · nomenclature liée</div>
+<div class="scaff3d-quality">Façades indépendantes · dépassements complets · pignons corrigés</div>
       <div class="scaff3d-camera-controls" aria-label="Commandes de caméra">
         <span></span><button type="button" data-camera-step="up" title="Tourner vers le haut">↑ Haut</button><span></span>
         <button type="button" data-camera-step="left" title="Tourner à gauche">← Gauche</button>
@@ -1769,7 +1774,7 @@ async function createScaff3D(host){
   const camera=new THREE.PerspectiveCamera(32,1,.05,300);
   renderer.domElement.style.touchAction='none';
 
-  // v8.0 : caméra orbitale native gérée directement par le canvas.
+  // v8.1 : caméra orbitale native et façades indépendantes.
   const cameraState={
     target:new THREE.Vector3(0,3,0),
     yaw:.72,
@@ -1944,13 +1949,7 @@ async function createScaff3D(host){
     Object.values(families).forEach(clearGroup);selectable.length=0;partCounts.clear();
     const data=v7FacadeSceneData();buildBuilding(data);
 
-    const cornerTop=Math.max(data.eave+1.2,...Object.values(data.facades).map(f=>f.top||0));
-    [[data.buildingLength+.48,-.48,'AB'],[data.buildingLength+.48,data.buildingDepth+.48,'BC'],[-.48,data.buildingDepth+.48,'CD'],[-.48,-.48,'DA']].forEach(([x,z,c])=>{
-      const p=[x,0,z];
-      addCornerStandardV8(families.standards,p,cornerTop,{family:'standards',name:'Montant d’angle partagé',ref:'R200-ANGLE',corner:c});
-      addBaseJackV8(families.bases,p,{family:'bases',name:'Vérin d’angle',ref:'R200-VERIN-ANGLE',corner:c});
-    });
-
+    // V8.1 : les façades restent indépendantes. Aucun montant d’angle partagé.
     data.enabled.forEach(key=>{
       const f=data.facades[key],d=f.d,seq=f.seq,w=f.width;if(!seq.length)return;
       const xs=[0];seq.forEach(l=>xs.push(xs.at(-1)+l));const total=xs.at(-1);
@@ -1991,20 +1990,47 @@ async function createScaff3D(host){
             addTube(families.diagonals,facadeMap(key,rev?x2:x1,prev+.16,outside,data),facadeMap(key,rev?x1:x2,fy-.14,outside,data),.019,{family:'diagonals',name:'Diagonale de façade',ref:'R200-DIAG',facade:key,level},materials.tubeDark);
           }
         });
-        addEndFrameV8(key,0,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité gauche',ref:'R200-GC-EXT',facade:key});
-        addEndFrameV8(key,total,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité droite',ref:'R200-GC-EXT',facade:key});
+        // Sur un pignon, les protections d’extrémité suivent la première et la dernière
+        // travée réellement présentes à ce niveau. Elles ne restent plus aux coins bas.
+        if(active.length){
+          const leftU=xs[active[0]],rightU=xs[active.at(-1)+1];
+          if(!(f.leftExtension>0&&Math.abs(leftU)<.001))
+            addEndFrameV8(key,leftU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité gauche',ref:'R200-GC-EXT',facade:key,level});
+          if(!(f.rightExtension>0&&Math.abs(rightU-total)<.001))
+            addEndFrameV8(key,rightU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité droite',ref:'R200-GC-EXT',facade:key,level});
+        }
       });
 
       const extensions=[];
       if(f.leftExtension>0)extensions.push({u:0,dir:-1,len:f.leftExtension,label:'gauche'});
       if(f.rightExtension>0)extensions.push({u:total,dir:1,len:f.rightExtension,label:'droite'});
-      extensions.forEach(ext=>floors.forEach((fy,level)=>{
+      extensions.forEach(ext=>{
         const u2=ext.u+ext.dir*ext.len;
-        [0,w].forEach(dep=>addTube(families.ledgers,facadeMap(key,ext.u,fy,dep,data),facadeMap(key,u2,fy,dep,data),.022,{family:'ledgers',name:`Dépassement ${ext.label}`,ref:'R200-DEPASSEMENT',facade:key,level}));
-        const c=facadeMap(key,(ext.u+u2)/2,fy-.055,w/2,data);
-        const s=(key==='A'||key==='C')?[ext.len,.085,w-.035]:[w-.035,.085,ext.len];
-        addDeck(families.decks,c,s,{family:'decks',name:`Plancher de dépassement ${ext.label}`,ref:'R200-PL-DEP',facade:key,level});
-      }));
+        const extensionTop=Math.max(...floors)+1.05+(d.rehausse?1:0);
+
+        // La partie sortante est une structure complète : deux montants extérieurs,
+        // vérins et rosaces, pas seulement un plancher en porte-à-faux.
+        [0,w].forEach(dep=>{
+          const p0=facadeMap(key,u2,.22,dep,data);
+          addTube(families.standards,p0,facadeMap(key,u2,extensionTop,dep,data),.027,{family:'standards',name:`Montant de dépassement ${ext.label}`,ref:'R200-MONTANT-DEP',facade:key});
+          addBaseJackV8(families.bases,[p0[0],0,p0[2]],{family:'bases',name:'Vérin de dépassement',ref:'R200-VERIN',facade:key});
+          for(let y=.5;y<extensionTop-.1;y+=.5)addRosette(families.rosettes,facadeMap(key,u2,y,dep,data),{family:'rosettes',name:'Rosace de dépassement',ref:'R200-ROSACE',facade:key});
+        });
+
+        floors.forEach((fy,level)=>{
+          const prev=level?floors[level-1]:0;
+          [0,w].forEach(dep=>addTube(families.ledgers,facadeMap(key,ext.u,fy,dep,data),facadeMap(key,u2,fy,dep,data),.022,{family:'ledgers',name:`Lisse de dépassement ${ext.label}`,ref:'R200-DEPASSEMENT',facade:key,level}));
+          const c=facadeMap(key,(ext.u+u2)/2,fy-.055,w/2,data);
+          const size=(key==='A'||key==='C')?[ext.len-.035,.085,w-.035]:[w-.035,.085,ext.len-.035];
+          addDeck(families.decks,c,size,{family:'decks',name:`Plancher de dépassement ${ext.label}`,ref:'R200-PL-DEP',facade:key,level});
+          const outside=(key==='A'||key==='D')?0:w;
+          [.5,1].forEach(dy=>addTube(families.guardrails,facadeMap(key,ext.u,fy+dy,outside,data),facadeMap(key,u2,fy+dy,outside,data),.021,{family:'guardrails',name:'Garde-corps de dépassement',ref:'R200-GC-DEP',facade:key,level}));
+          addToeBoard(families.toeBoards,key,ext.u,u2,fy,outside,data,{family:'toeBoards',name:'Plinthe de dépassement',ref:'R200-PLINTHE-DEP',facade:key,level});
+          const rev=(level+(ext.dir<0?1:0))%2===1;
+          addTube(families.diagonals,facadeMap(key,rev?u2:ext.u,prev+.16,outside,data),facadeMap(key,rev?ext.u:u2,fy-.14,outside,data),.019,{family:'diagonals',name:'Diagonale de dépassement',ref:'R200-DIAG-DEP',facade:key,level},materials.tubeDark);
+          addEndFrameV8(key,u2,fy,w,data,{family:'guardrails',name:`Cadre d’extrémité ${ext.label}`,ref:'R200-GC-EXT',facade:key,level});
+        });
+      });
     });
 
     const ground=new THREE.Mesh(new THREE.PlaneGeometry(Math.max(data.length,data.buildingLength)+7,Math.max(data.depth,data.buildingDepth)+7),new THREE.MeshStandardMaterial({color:0x303437,roughness:.98}));
@@ -2228,7 +2254,7 @@ function renderPlan(){
     ?`Vue V7 : glissez avec un doigt pour tourner, pincez avec deux doigts pour zoomer et déplacer.`
     :`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${data.d.type==='gable'?`pignon ${fmt(data.d.height)} m à l’égout / ${fmt(data.d.ridgeHeight)} m au faîtage`:`${fmt(data.height)} m de hauteur`}, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v8-0',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v8-0')||localStorage.getItem('scaffr200-v7-4')||localStorage.getItem('scaffr200-v7-3-1')||localStorage.getItem('scaffr200-v7-3')||localStorage.getItem('scaffr200-v7-2')||localStorage.getItem('scaffr200-v7-1')||localStorage.getItem('scaffr200-v7-0')||localStorage.getItem('scaffr200-v6-4-1')||localStorage.getItem('scaffr200-v6-4-0')||localStorage.getItem('scaffr200-v6-3-5')||localStorage.getItem('scaffr200-v6-3-4')||localStorage.getItem('scaffr200-v6-3-3')||localStorage.getItem('scaffr200-v6-3-2')||localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;localStorage.setItem('scaffr200-v8-1',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v8-1')||localStorage.getItem('scaffr200-v8-0')||localStorage.getItem('scaffr200-v7-4')||localStorage.getItem('scaffr200-v7-3-1')||localStorage.getItem('scaffr200-v7-3')||localStorage.getItem('scaffr200-v7-2')||localStorage.getItem('scaffr200-v7-1')||localStorage.getItem('scaffr200-v7-0')||localStorage.getItem('scaffr200-v6-4-1')||localStorage.getItem('scaffr200-v6-4-0')||localStorage.getItem('scaffr200-v6-3-5')||localStorage.getItem('scaffr200-v6-3-4')||localStorage.getItem('scaffr200-v6-3-3')||localStorage.getItem('scaffr200-v6-3-2')||localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
