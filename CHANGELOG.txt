@@ -1,9 +1,6 @@
-V9.2
-- Simplification complète de la liste de matériel.
-- Quantités modifiables avec boutons tactiles + / -.
-- Affichage du poids unitaire, du poids de ligne et du poids total.
-- Illustrations intégrées hors ligne pour chaque famille de pièce.
-- Nouvelle règle d'ancrage : premier rang au 2e étage, 1 cadre sur 2, 1 étage sur 2, en quinconce.
-- Synchronisation du calcul et de la représentation 3D des ancrages.
-- Rapport imprimable enrichi avec liste illustrée et vues chantier.
-- Mise en page mobile-first pour iPhone.
+V9.2.1
+- Correction de l’onglet Façades vide ou incomplet sur iPhone.
+- Reconstruction des réglages de façade à chaque ouverture de l’onglet.
+- Présentation mobile des réglages en une colonne.
+- Plans : ancrages positionnés 0,35 m sous le plancher sur le cadre.
+- Plans : implantation synchronisée avec la nomenclature (2e étage, 1 cadre sur 2, 1 étage sur 2, quinconce).

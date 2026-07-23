@@ -1,14 +1,10 @@
-ScaffR200 PRO V9.2 — édition iPhone
+ScaffR200 PRO V9.2.1
 
-Ouvrir index.html dans Safari.
+Correctif iPhone de la V9.2.
 
-Nouveautés :
-- liste de matériel simplifiée avec illustration, désignation, quantité modifiable, poids unitaire et poids de ligne ;
-- poids total affiché en fin de liste et recalculé immédiatement ;
-- ancrages à partir du 2e étage, puis un cadre sur deux et un étage sur deux, en quinconce ;
-- même implantation d'ancrages dans la 3D, les vues et la nomenclature ;
-- impression avec liste illustrée, poids total, vue de chaque façade, dessus, côté et isométrique ;
-- interface de nomenclature optimisée pour l'iPhone.
+- L’onglet Façades reconstruit désormais systématiquement les formulaires de configuration à son ouverture.
+- Les options de façade sont affichées sur une seule colonne sur iPhone.
+- Les ancrages des plans utilisent exactement la même implantation que le calcul matériel.
+- Les symboles d’ancrage sont dessinés légèrement plus bas sur les cadres.
 
-Les poids provisoires à 0 kg peuvent être renseignés dans le catalogue intégré.
-Les résultats doivent être validés selon la notice fabricant et l'étude de stabilité du chantier.
+Ouvrir index.html dans Safari sur iPhone.
