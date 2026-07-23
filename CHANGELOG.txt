@@ -1,9 +1,10 @@
-ScaffR200 PRO V8.1.1
+ScaffR200 PRO v8.1.1 — correctif de déploiement
 
-Corrections principales :
-- Dépassement d’angle : la travée terminale conserve exactement sa longueur normale.
-- Le dépassement est obtenu uniquement par le positionnement de la façade, à hauteur de la largeur de la façade perpendiculaire.
-- Suppression de la petite travée artificielle dont la longueur était égale à la largeur de l’échafaudage voisin.
-- Rehausse au dernier niveau : ajout des deux lisses/garde-corps supplémentaires.
-- Pignons : conservation des cadres dès qu’une travée voisine existe au niveau concerné.
-- Dessin complet des deux plans de cadres aux extrémités des façades indépendantes.
+- Correction du titre HTML resté en v8.0.
+- Correction du numéro de version visible dans l'en-tête.
+- Correction de l'intitulé du noyau métier.
+- Isolation de la sauvegarde dans la clé scaffr200-v8-1-1.
+- Migration automatique depuis v8.1 et v8.0.
+- Correction du bouton de réinitialisation.
+- Correction des noms de fichiers exportés.
+- Ajout d'un identifiant visuel de build.
