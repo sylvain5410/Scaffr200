@@ -1,7 +1,9 @@
-V8.1
-- Suppression des montants d’angle partagés introduits en V8.0.
-- Maintien de quatre façades indépendantes.
-- Dépassement calculé selon la largeur de la façade perpendiculaire.
-- Dépassement transformé en travée structurelle complète.
-- Recalcul des cadres, garde-corps et plinthes d’extrémité sur pignons.
-- Migration du stockage local vers scaffr200-v8-1 avec reprise des données V8.0.
+ScaffR200 PRO V8.1.1
+
+Corrections principales :
+- Dépassement d’angle : la travée terminale conserve exactement sa longueur normale.
+- Le dépassement est obtenu uniquement par le positionnement de la façade, à hauteur de la largeur de la façade perpendiculaire.
+- Suppression de la petite travée artificielle dont la longueur était égale à la largeur de l’échafaudage voisin.
+- Rehausse au dernier niveau : ajout des deux lisses/garde-corps supplémentaires.
+- Pignons : conservation des cadres dès qu’une travée voisine existe au niveau concerné.
+- Dessin complet des deux plans de cadres aux extrémités des façades indépendantes.

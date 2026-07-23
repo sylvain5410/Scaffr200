@@ -1,13 +1,10 @@
-ScaffR200 PRO V8.1
-==================
+ScaffR200 PRO V8.1.1
 
-Ouvrez index.html dans un navigateur récent connecté à Internet pour charger Three.js.
+Ouvrir index.html dans un navigateur récent avec une connexion Internet pour charger le moteur Three.js.
 
-Corrections principales :
-- les façades restent indépendantes ; aucun montant d’angle commun n’est créé ;
-- un dépassement d’angle sort de la largeur de la façade perpendiculaire ;
-- le dépassement est une structure complète : montants, vérins, rosaces, lisses, planchers, garde-corps, plinthes, diagonales et cadre extérieur ;
-- sur les pignons, les garde-corps et plinthes d’extrémité suivent les travées réellement présentes à chaque niveau ;
-- nomenclature 3D liée aux pièces générées.
+Cette version corrige :
+1. La longueur de la travée de dépassement d’angle, qui reste identique aux autres travées.
+2. Les deux garde-corps supplémentaires de la rehausse au dernier niveau.
+3. Les cadres manquants dans les configurations en pignon.
 
-Les configurations réelles doivent rester vérifiées selon la notice du fabricant et l’étude de chantier.
+Les façades restent indépendantes. Le dépassement est obtenu par un décalage de position égal à la largeur de l’échafaudage perpendiculaire, sans allonger ni ajouter une travée de dimension spéciale.

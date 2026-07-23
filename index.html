@@ -335,7 +335,7 @@
 <header><h1>ScaffR200 Pro <small>v8.0</small></h1><p>Configurateur chantier R200 / M368</p></header>
 <div class="nav" id="nav"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La v8.1 corrige les dépassements d’angle et les extrémités de pignon. Elle conserve une vue chantier sombre et complète la géométrie 3D avec des événements souris et tactiles indépendants, puis conserve la liste de matériel calculée et modifiable, corrige la saisie des pignons et stabilise la vue 3D avec rotation directe fiable sur souris et écran tactile et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
+<section class="page on" id="chantier"><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice">La v8.1.1 corrige la longueur des travées de dépassement, les rehausses et les cadres de pignon. Elle conserve une vue chantier sombre et complète la géométrie 3D avec des événements souris et tactiles indépendants, puis conserve la liste de matériel calculée et modifiable, corrige la saisie des pignons et stabilise la vue 3D avec rotation directe fiable sur souris et écran tactile et conserve l’ouverture correcte de l’onglet Catalogue et conserve le gestionnaire de catalogue : édition locale, validation, import/export et suivi de la qualité des données. Le rendu 3D stable de la V6.0.2 est conservé. Elle corrige les protections du dernier niveau, affiche les dépassements en vue de dessus et interprète la longueur saisie comme la longueur totale de l’échafaudage. Les ancrages, charges, consoles, bâches, calages spéciaux et cas particuliers restent à vérifier selon la notice fabricant et l’étude du chantier.</div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label></div></div></section>
 <section class="page" id="materiel">
@@ -1720,9 +1720,9 @@ async function createScaff3D(host){
   host.innerHTML=`
     <div class="scaff3d-loading">Chargement du moteur 3D…</div>
     <div class="scaff3d-overlay">
-      <div class="scaff3d-status">Moteur d’assemblage R200 v8.1</div>
+      <div class="scaff3d-status">Moteur d’assemblage R200 v8.1.1</div>
 <div class="scaff3d-badge-v8">ASSEMBLAGE R200</div>
-<div class="scaff3d-quality">Façades indépendantes · dépassements complets · pignons corrigés</div>
+<div class="scaff3d-quality">Façades indépendantes · travées inchangées · rehausses et pignons corrigés</div>
       <div class="scaff3d-camera-controls" aria-label="Commandes de caméra">
         <span></span><button type="button" data-camera-step="up" title="Tourner vers le haut">↑ Haut</button><span></span>
         <button type="button" data-camera-step="left" title="Tourner à gauche">← Gauche</button>
@@ -1774,7 +1774,7 @@ async function createScaff3D(host){
   const camera=new THREE.PerspectiveCamera(32,1,.05,300);
   renderer.domElement.style.touchAction='none';
 
-  // v8.1 : caméra orbitale native et façades indépendantes.
+  // v8.1.1 : caméra orbitale native et façades indépendantes.
   const cameraState={
     target:new THREE.Vector3(0,3,0),
     yaw:.72,
@@ -1949,7 +1949,7 @@ async function createScaff3D(host){
     Object.values(families).forEach(clearGroup);selectable.length=0;partCounts.clear();
     const data=v7FacadeSceneData();buildBuilding(data);
 
-    // V8.1 : les façades restent indépendantes. Aucun montant d’angle partagé.
+    // V8.1.1 : les façades restent indépendantes. Aucun montant d’angle partagé.
     data.enabled.forEach(key=>{
       const f=data.facades[key],d=f.d,seq=f.seq,w=f.width;if(!seq.length)return;
       const xs=[0];seq.forEach(l=>xs.push(xs.at(-1)+l));const total=xs.at(-1);
@@ -1957,9 +1957,17 @@ async function createScaff3D(host){
 
       xs.forEach((u,idx)=>{
         const profile=d.type==='gable'?facadeProfileHeight(d,u,total):floors.at(-1);
-        const top=profile+1.05+(d.rehausse?1:0);
+        // V8.1.1 : un cadre doit exister dès qu'une travée voisine est active à ce niveau.
+        // On ne se contente plus de la hauteur du profil au droit exact du montant, ce qui
+        // supprimait certains cadres sous les pentes de pignon.
+        let requiredFloor=0;
+        floors.forEach(fy=>{
+          const activeAtFloor=d.type==='gable'?gableUpperBayIndices(d,seq,xs,fy):seq.map((_,i)=>i);
+          if(activeAtFloor.some(i=>i===idx||i+1===idx))requiredFloor=Math.max(requiredFloor,fy);
+        });
+        const top=Math.max(profile,requiredFloor)+1.05+(d.rehausse?1:0);
         [0,w].forEach(dep=>{
-          if((idx===0||idx===xs.length-1)&&dep===w)return;
+          // Deux plans complets sont dessinés, y compris aux extrémités : les façades sont indépendantes.
           const p0=facadeMap(key,u,.22,dep,data);
           addTube(families.standards,p0,facadeMap(key,u,top,dep,data),.027,{family:'standards',name:'Montant R200',ref:'R200-MONTANT',facade:key});
           addBaseJackV8(families.bases,[p0[0],0,p0[2]],{family:'bases',name:'Vérin réglable',ref:'R200-VERIN',facade:key});
@@ -1994,43 +2002,31 @@ async function createScaff3D(host){
         // travée réellement présentes à ce niveau. Elles ne restent plus aux coins bas.
         if(active.length){
           const leftU=xs[active[0]],rightU=xs[active.at(-1)+1];
-          if(!(f.leftExtension>0&&Math.abs(leftU)<.001))
-            addEndFrameV8(key,leftU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité gauche',ref:'R200-GC-EXT',facade:key,level});
-          if(!(f.rightExtension>0&&Math.abs(rightU-total)<.001))
-            addEndFrameV8(key,rightU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité droite',ref:'R200-GC-EXT',facade:key,level});
+          addEndFrameV8(key,leftU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité gauche',ref:'R200-GC-EXT',facade:key,level});
+          addEndFrameV8(key,rightU,fy,w,data,{family:'guardrails',name:'Cadre d’extrémité droite',ref:'R200-GC-EXT',facade:key,level});
         }
       });
 
-      const extensions=[];
-      if(f.leftExtension>0)extensions.push({u:0,dir:-1,len:f.leftExtension,label:'gauche'});
-      if(f.rightExtension>0)extensions.push({u:total,dir:1,len:f.rightExtension,label:'droite'});
-      extensions.forEach(ext=>{
-        const u2=ext.u+ext.dir*ext.len;
-        const extensionTop=Math.max(...floors)+1.05+(d.rehausse?1:0);
-
-        // La partie sortante est une structure complète : deux montants extérieurs,
-        // vérins et rosaces, pas seulement un plancher en porte-à-faux.
-        [0,w].forEach(dep=>{
-          const p0=facadeMap(key,u2,.22,dep,data);
-          addTube(families.standards,p0,facadeMap(key,u2,extensionTop,dep,data),.027,{family:'standards',name:`Montant de dépassement ${ext.label}`,ref:'R200-MONTANT-DEP',facade:key});
-          addBaseJackV8(families.bases,[p0[0],0,p0[2]],{family:'bases',name:'Vérin de dépassement',ref:'R200-VERIN',facade:key});
-          for(let y=.5;y<extensionTop-.1;y+=.5)addRosette(families.rosettes,facadeMap(key,u2,y,dep,data),{family:'rosettes',name:'Rosace de dépassement',ref:'R200-ROSACE',facade:key});
+      // V8.1.1 : la rehausse du dernier niveau reçoit bien ses deux lisses supplémentaires.
+      if(d.rehausse&&floors.length){
+        const fy=floors.at(-1);
+        const activeTop=d.type==='gable'?gableUpperBayIndices(d,seq,xs,fy):seq.map((_,i)=>i);
+        const outside=(key==='A'||key==='D')?0:w;
+        activeTop.forEach(i=>{
+          const x1=xs[i],x2=xs[i+1];
+          [1.5,2.0].forEach(dy=>addTube(
+            families.guardrails,
+            facadeMap(key,x1,fy+dy,outside,data),
+            facadeMap(key,x2,fy+dy,outside,data),
+            .021,
+            {family:'guardrails',name:dy<1.8?'Sous-lisse de rehausse':'Garde-corps de rehausse',ref:'R200-GC-REHAUSSE',facade:key,level:floors.length}
+          ));
         });
+      }
 
-        floors.forEach((fy,level)=>{
-          const prev=level?floors[level-1]:0;
-          [0,w].forEach(dep=>addTube(families.ledgers,facadeMap(key,ext.u,fy,dep,data),facadeMap(key,u2,fy,dep,data),.022,{family:'ledgers',name:`Lisse de dépassement ${ext.label}`,ref:'R200-DEPASSEMENT',facade:key,level}));
-          const c=facadeMap(key,(ext.u+u2)/2,fy-.055,w/2,data);
-          const size=(key==='A'||key==='C')?[ext.len-.035,.085,w-.035]:[w-.035,.085,ext.len-.035];
-          addDeck(families.decks,c,size,{family:'decks',name:`Plancher de dépassement ${ext.label}`,ref:'R200-PL-DEP',facade:key,level});
-          const outside=(key==='A'||key==='D')?0:w;
-          [.5,1].forEach(dy=>addTube(families.guardrails,facadeMap(key,ext.u,fy+dy,outside,data),facadeMap(key,u2,fy+dy,outside,data),.021,{family:'guardrails',name:'Garde-corps de dépassement',ref:'R200-GC-DEP',facade:key,level}));
-          addToeBoard(families.toeBoards,key,ext.u,u2,fy,outside,data,{family:'toeBoards',name:'Plinthe de dépassement',ref:'R200-PLINTHE-DEP',facade:key,level});
-          const rev=(level+(ext.dir<0?1:0))%2===1;
-          addTube(families.diagonals,facadeMap(key,rev?u2:ext.u,prev+.16,outside,data),facadeMap(key,rev?ext.u:u2,fy-.14,outside,data),.019,{family:'diagonals',name:'Diagonale de dépassement',ref:'R200-DIAG-DEP',facade:key,level},materials.tubeDark);
-          addEndFrameV8(key,u2,fy,w,data,{family:'guardrails',name:`Cadre d’extrémité ${ext.label}`,ref:'R200-GC-EXT',facade:key,level});
-        });
-      });
+      // V8.1.1 : aucun mini-bay élargi n'est ajouté. La travée terminale normale
+      // conserve sa longueur d'origine ; seul son positionnement fait dépasser la façade
+      // de la largeur de l'échafaudage perpendiculaire (startOffset / buildingLength).
     });
 
     const ground=new THREE.Mesh(new THREE.PlaneGeometry(Math.max(data.length,data.buildingLength)+7,Math.max(data.depth,data.buildingDepth)+7),new THREE.MeshStandardMaterial({color:0x303437,roughness:.98}));
