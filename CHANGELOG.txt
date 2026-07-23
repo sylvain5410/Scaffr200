@@ -1,10 +1,9 @@
-V7.3
-- Suppression d’OrbitControls.
-- Contrôle orbital natif par Pointer Events.
-- Capture du pointeur pendant la rotation.
-- Rotation souris et tactile sur toute la surface du canvas.
-- Zoom par molette et pincement.
-- Panoramique à deux doigts.
-- Panneau Inspection fermé par défaut.
-- Sélection par double-clic pour éviter le conflit avec la rotation.
-- Migration des sauvegardes V7.2, V7.1 et V7.0.
+V7.3.1
+- Remplacement du contrôle Pointer Events par des gestionnaires souris et tactile dédiés.
+- Écoute en phase de capture afin d’éviter les conflits avec les gestes de la vue de plan.
+- Rotation continue via les événements mousemove/mouseup de la fenêtre.
+- Ajout de boutons de rotation de secours.
+- Ajout d’un bouton de réinitialisation.
+- Ajout d’une vue isométrique.
+- Ajout d’un indicateur d’état de rotation.
+- Migration depuis la sauvegarde V7.3.

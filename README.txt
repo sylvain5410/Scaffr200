@@ -1,20 +1,17 @@
-ScaffR200 PRO V7.3 — correction définitive de la rotation 3D
+ScaffR200 PRO V7.3.1 — correctif de navigation 3D
 
-Principale correction :
-- La caméra n’utilise plus OrbitControls.
-- La rotation est gérée directement par le canvas WebGL.
-- Un doigt ou le clic gauche fait pivoter la scène.
-- Le pincement à deux doigts contrôle le zoom.
-- Le déplacement à deux doigts déplace la cible de la caméra.
-- La molette contrôle le zoom sur ordinateur.
-- Le canvas capture le pointeur pendant tout le geste.
-- Les couches d’interface ne peuvent plus bloquer la rotation.
-- Le panneau Inspection est fermé par défaut et repliable.
-- Un double-clic permet d’inspecter une pièce sans perturber la rotation.
+Corrections principales :
+- Rotation par clic gauche + glisser avec événements souris natifs.
+- Rotation par un doigt avec événements tactiles natifs.
+- Les événements sont capturés avant les anciens gestionnaires du plan.
+- Le déplacement continue même lorsque le pointeur sort du canvas.
+- Zoom par molette et pincement.
+- Panoramique à deux doigts.
+- Indicateur « Rotation active » pendant le geste.
+- Commandes visibles gauche, droite, haut et bas.
+- Bouton de réinitialisation et vue isométrique.
+- Double-clic pour inspecter une pièce sans perturber la rotation.
+- Migration automatique depuis V7.3 et les versions précédentes.
 
-Les fonctions de géométrie, les dépassements, le faîtage et les diagonales
-de la V7.2 sont conservés.
-
-Migration automatique depuis V7.2, V7.1, V7.0 et les versions antérieures.
-
-La scène Three.js est chargée depuis jsDelivr et nécessite une connexion Internet.
+La géométrie de la V7.3 est conservée.
+La scène Three.js nécessite une connexion Internet pour charger le moteur.
