@@ -1,10 +1,12 @@
-ScaffR200 PRO V9.2.1
+ScaffR200 PRO V9.2.2
 
-Correctif iPhone de la V9.2.
+Version optimisée pour iPhone.
 
-- L’onglet Façades reconstruit désormais systématiquement les formulaires de configuration à son ouverture.
-- Les options de façade sont affichées sur une seule colonne sur iPhone.
-- Les ancrages des plans utilisent exactement la même implantation que le calcul matériel.
-- Les symboles d’ancrage sont dessinés légèrement plus bas sur les cadres.
+Corrections principales :
+- onglet Matériel sécurisé même lorsqu’une référence automatique n’existe pas dans le catalogue ;
+- échelles 3D redessinées avec inclinaison, montants et barreaux réalistes ;
+- ancrages affichés en rouge dans la vue 3D ;
+- ancrages conservés en rouge et légèrement abaissés sur les plans ;
+- nomenclature simple avec quantité modifiable et poids total.
 
-Ouvrir index.html dans Safari sur iPhone.
+Ouvrir index.html dans Safari.

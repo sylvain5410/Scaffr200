@@ -1,6 +1,7 @@
-V9.2.1
-- Correction de l’onglet Façades vide ou incomplet sur iPhone.
-- Reconstruction des réglages de façade à chaque ouverture de l’onglet.
-- Présentation mobile des réglages en une colonne.
-- Plans : ancrages positionnés 0,35 m sous le plancher sur le cadre.
-- Plans : implantation synchronisée avec la nomenclature (2e étage, 1 cadre sur 2, 1 étage sur 2, quinconce).
+V9.2.2
+- Correction de l’erreur à l’ouverture de l’onglet Matériel.
+- Ajout d’un composant de secours pour les références automatiques absentes du catalogue.
+- Nouvelle géométrie 3D des échelles : inclinaison longitudinale, deux montants, barreaux et dépassement au-dessus du plancher.
+- Ancrages rouges dans la vue 3D.
+- Ancrages rouges et abaissés sur les plans.
+- Mise à jour des numéros de version et des exports.
