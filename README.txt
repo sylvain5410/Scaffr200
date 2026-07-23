@@ -1,17 +1,25 @@
-ScaffR200 PRO V7.3.1 — correctif de navigation 3D
+ScaffR200 PRO V7.4 — Vue chantier
 
-Corrections principales :
-- Rotation par clic gauche + glisser avec événements souris natifs.
-- Rotation par un doigt avec événements tactiles natifs.
-- Les événements sont capturés avant les anciens gestionnaires du plan.
-- Le déplacement continue même lorsque le pointeur sort du canvas.
-- Zoom par molette et pincement.
-- Panoramique à deux doigts.
-- Indicateur « Rotation active » pendant le geste.
-- Commandes visibles gauche, droite, haut et bas.
-- Bouton de réinitialisation et vue isométrique.
-- Double-clic pour inspecter une pièce sans perturber la rotation.
-- Migration automatique depuis V7.3 et les versions précédentes.
+Cette version rapproche la vue 3D de la référence visuelle fournie.
 
-La géométrie de la V7.3 est conservée.
-La scène Three.js nécessite une connexion Internet pour charger le moteur.
+Améliorations :
+- Interface 3D sombre de type logiciel de chantier/CAO.
+- Suppression de l’indicateur « Rotation active ».
+- Matériaux métalliques plus clairs et contrastés.
+- Bâtiment opaque avec toiture en tuiles rouge terre.
+- Lisses continues sur les façades.
+- Lisses, sous-lisses et garde-corps aux extrémités.
+- Plinthes longitudinales sur les deux côtés.
+- Plinthes d’extrémité.
+- Planchers à trappe identifiés dans la travée d’accès.
+- Trappe articulée visible.
+- Échelles séparées par niveau, avec montants et barreaux.
+- Dépassements gauche/droite appliqués selon le choix de chaque façade.
+- Dimensions du bâtiment recalculées hors dépassements.
+- Commandes de caméra conservées : souris, tactile, zoom, boutons et vue ISO.
+- Migration depuis V7.3.1 et les versions précédentes.
+
+Remarque :
+Le rendu est une reconstruction WebGL procédurale. Il se rapproche de la
+référence mais ne reproduit pas encore chaque pièce fabricant au millimètre.
+La scène nécessite une connexion Internet pour charger Three.js.
