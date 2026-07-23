@@ -1,10 +1,14 @@
-ScaffR200 PRO V9.1
+ScaffR200 PRO V9.2 — édition iPhone
+
+Ouvrir index.html dans Safari.
 
 Nouveautés :
-- choix de l'accès par planchers à trappe/échelles ou par escaliers ;
-- calcul des ancrages à raison d'un ancrage par tranche de 24 m² de façade ;
-- ancrages positionnés sur les cadres et visibles en élévation et en 3D ;
-- impression regroupant la nomenclature, le poids total et une vue de chaque façade, plus les vues de dessus et de côté ;
-- nomenclature simplifiée autour du poids total, sans gestion de stock.
+- liste de matériel simplifiée avec illustration, désignation, quantité modifiable, poids unitaire et poids de ligne ;
+- poids total affiché en fin de liste et recalculé immédiatement ;
+- ancrages à partir du 2e étage, puis un cadre sur deux et un étage sur deux, en quinconce ;
+- même implantation d'ancrages dans la 3D, les vues et la nomenclature ;
+- impression avec liste illustrée, poids total, vue de chaque façade, dessus, côté et isométrique ;
+- interface de nomenclature optimisée pour l'iPhone.
 
-Les références et poids provisoires des escaliers et ancrages peuvent être complétés dans le catalogue.
+Les poids provisoires à 0 kg peuvent être renseignés dans le catalogue intégré.
+Les résultats doivent être validés selon la notice fabricant et l'étude de stabilité du chantier.

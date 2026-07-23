@@ -1,7 +1,9 @@
-V9.1
-- Nouvelle option d'accès : trappes/échelles ou escaliers.
-- Escaliers représentés dans la vue 3D et comptés dans la nomenclature.
-- Ancrages calculés automatiquement : 1 par tranche de 24 m² et par façade.
-- Ancrages placés sur les cadres et affichés sur les vues.
-- Rapport d'impression complet : matériel, poids total, vues de chaque façade, dessus et côté.
-- Suppression des indicateurs racks et transport de la synthèse.
+V9.2
+- Simplification complète de la liste de matériel.
+- Quantités modifiables avec boutons tactiles + / -.
+- Affichage du poids unitaire, du poids de ligne et du poids total.
+- Illustrations intégrées hors ligne pour chaque famille de pièce.
+- Nouvelle règle d'ancrage : premier rang au 2e étage, 1 cadre sur 2, 1 étage sur 2, en quinconce.
+- Synchronisation du calcul et de la représentation 3D des ancrages.
+- Rapport imprimable enrichi avec liste illustrée et vues chantier.
+- Mise en page mobile-first pour iPhone.

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 PRO v9.1</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><title>ScaffR200 PRO v9.2</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -33,7 +33,8 @@
 .facade-name{max-width:230px;padding:7px 9px}
 @media(max-width:700px){.material-tools{grid-template-columns:1fr 90px}.material-tools button{grid-column:1/-1}.search-item{grid-template-columns:48px 1fr}.search-item button{grid-column:1/-1}.part-thumb{width:44px;height:44px}.part-cell{min-width:220px}}
 
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.metric{background:#eef4f8;padding:12px;border-radius:9px}.metric b{display:block;color:var(--b);font-size:20px}.notice{border-left:5px solid #d79a00;background:#fff4cf;padding:11px}.items{width:100%;border-collapse:collapse}.items th,.items td{padding:9px;border-bottom:1px solid #e8ecef;text-align:left}.qty{display:flex;align-items:center;gap:4px}.qty button{padding:5px 9px}.qty input{width:62px;padding:6px;text-align:center}.right{text-align:right!important}.badge{background:var(--b);color:#fff;border-radius:99px;padding:3px 8px;font-size:12px}.footer-actions{display:flex;gap:8px;flex-wrap:wrap;position:sticky;bottom:0;background:#ffffffee;padding:10px;border-top:1px solid var(--line)}@media(max-width:700px){.items th:nth-child(2),.items td:nth-child(2),.items th:nth-child(4),.items td:nth-child(4){display:none}.nav{top:73px}.facade-body .grid{grid-template-columns:1fr 1fr}}@media print{body>*:not(#printReport){display:none!important}#printReport{display:block!important}.print-sheet{page-break-after:always}.print-sheet:last-child{page-break-after:auto}.print-view svg{width:100%;height:auto}.print-bom{width:100%;border-collapse:collapse}.print-bom th,.print-bom td{border-bottom:1px solid #bbb;padding:5px;text-align:left}.print-bom .right{text-align:right!important}}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.metric{background:#eef4f8;padding:12px;border-radius:9px}.metric b{display:block;color:var(--b);font-size:20px}.notice{border-left:5px solid #d79a00;background:#fff4cf;padding:11px}.items{width:100%;border-collapse:collapse}.items th,.items td{padding:9px;border-bottom:1px solid #e8ecef;text-align:left}.qty{display:flex;align-items:center;gap:4px}.qty button{padding:5px 9px}.qty input{width:62px;padding:6px;text-align:center}.right{text-align:right!important}.badge{background:var(--b);color:#fff;border-radius:99px;padding:3px 8px;font-size:12px}.footer-actions{display:flex;gap:8px;flex-wrap:wrap;position:sticky;bottom:0;background:#ffffffee;padding:10px;border-top:1px solid var(--line)}@media(max-width:700px){.items th:nth-child(2),.items td:nth-child(2),.items th:nth-child(4),.items td:nth-child(4){display:none}.nav{top:73px}.facade-body .grid{grid-template-columns:1fr 1fr}}.simple-bom-list{display:flex;flex-direction:column;gap:10px}.simple-bom-row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:11px;padding:11px;border:1px solid var(--line);border-radius:12px;background:#fff}.simple-bom-photo{width:64px;height:64px;object-fit:contain;border-radius:10px;background:#eef4f8}.simple-bom-name{font-weight:700;font-size:15px;line-height:1.2}.simple-bom-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:13px}.simple-bom-details span{display:block;color:#66727b;font-size:11px;margin-bottom:2px}.simple-qty{display:flex;align-items:center;gap:7px;margin-top:9px}.simple-qty button{min-width:42px;min-height:42px;font-size:20px;padding:5px}.simple-qty input{width:76px;min-height:42px;text-align:center;font-size:17px;font-weight:700}.simple-total{display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:16px;border-radius:12px;background:var(--b);color:#fff;font-size:18px}.simple-total strong{font-size:24px}.simple-count{text-align:center;padding:10px;color:#53616c}.print-thumb{width:42px;height:42px;object-fit:contain;vertical-align:middle;margin-right:8px}.print-total{font-size:20px;font-weight:700;text-align:right;margin-top:12px}@media(max-width:700px){main{padding:8px}.card{padding:12px}.simple-bom-row{grid-template-columns:58px minmax(0,1fr);padding:10px}.simple-bom-photo{width:58px;height:58px}.simple-bom-details{grid-template-columns:1fr 1fr}.simple-total{position:sticky;bottom:8px;z-index:3;box-shadow:0 3px 16px #0004}}
+@media print{body>*:not(#printReport){display:none!important}#printReport{display:block!important}.print-sheet{page-break-after:always}.print-sheet:last-child{page-break-after:auto}.print-view svg{width:100%;height:auto}.print-bom{width:100%;border-collapse:collapse}.print-bom th,.print-bom td{border-bottom:1px solid #bbb;padding:5px;text-align:left}.print-bom .right{text-align:right!important}}
 
 .plan-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .plan-toolbar button.on{background:var(--blue);color:white}
@@ -334,45 +335,22 @@
 
 .v9-hero{border-left:5px solid #b11b1e;background:linear-gradient(135deg,rgba(177,27,30,.08),rgba(10,79,131,.05))}.v9-hero h2{display:flex;align-items:center;gap:8px}.v9-hero h2:after{content:"NOUVEAU";font-size:10px;padding:3px 7px;border-radius:999px;background:#b11b1e;color:white}.control-error,.control-warn,.control-ok{padding:10px 12px;border-radius:8px;margin:8px 0;border-left:4px solid}.control-error{background:#fff1f1;border-color:#b11b1e}.control-warn{background:#fff8e8;border-color:#d08a00}.control-ok{background:#eef9f1;border-color:#24834a}.scaff3d-badge-v8{background:rgba(10,79,131,.92)}
 </style></head><body>
-<header><h1>ScaffR200 Pro <small>v9.1</small></h1><p>Configurateur chantier R200 / M368</p><span style="display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#ffffff22;font-size:11px;font-weight:700">Build 9.1 · 23/07/2026</span></header>
-<div class="nav" id="nav" data-build="9.1-20260723"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
+<header><h1>ScaffR200 Pro <small>v9.2</small></h1><p>Configurateur chantier R200 / M368</p><span style="display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#ffffff22;font-size:11px;font-weight:700">Build 9.2 · 23/07/2026</span></header>
+<div class="nav" id="nav" data-build="9.2-20260723"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V9.1</h2><p>Renseignez le chantier puis lancez une implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice"><b>V9.1 :</b> assistant d’implantation automatique, modèle de nomenclature unifié, contrôle métier enrichi et estimation logistique. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
+<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V9.2</h2><p>Renseignez le chantier puis lancez une implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice"><b>V9.2 :</b> nomenclature simplifiée pour iPhone, quantités modifiables et ancrages implantés au 2ᵉ étage puis un cadre sur deux et un étage sur deux en quinconce. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
-<section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label><label>Type d’accès<select id="accessMode"><option value="trap">Planchers à trappe + échelles</option><option value="stairs">Escaliers</option></select></label><label class="check"><input id="useAnchors" type="checkbox" checked>Ajouter les ancrages (1 pour 24 m²)</label></div></div></section>
+<section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label><label>Type d’accès<select id="accessMode"><option value="trap">Planchers à trappe + échelles</option><option value="stairs">Escaliers</option></select></label><label class="check"><input id="useAnchors" type="checkbox" checked>Ajouter les ancrages (2ᵉ étage, 1 cadre sur 2, 1 étage sur 2, en quinconce)</label></div></div></section>
 <section class="page" id="materiel">
-<div class="card"><h2>Résumé</h2><div class="summary"><div class="metric"><b id="mFacades">0</b>façades</div><div class="metric"><b id="mLength">0 m</b>longueur</div><div class="metric"><b id="mArea">0 m²</b>surface</div><div class="metric"><b id="mQty">0</b>pièces</div><div class="metric"><b id="mWeight">0 kg</b>poids estimé</div><div class="metric"><b id="mRefs">0</b>références</div></div><div class="bom-quality"><div class="quality-card"><b id="mKnown">100 %</b>des pièces avec poids renseigné</div><div class="quality-card"><b id="mAuto">0</b>pièces calculées automatiquement</div><div class="quality-card"><b id="mManual">0</b>pièces ajoutées manuellement</div></div></div>
-<div class="card core-engine">
-  <h2>Noyau métier v9.1</h2>
-  <div class="core-grid">
-    <div><span class="core-value" id="coreCatalog">0</span>composants catalogués</div>
-    <div><span class="core-value" id="coreLines">0</span>lignes de nomenclature</div>
-    <div><span class="core-value" id="coreInstances">0</span>instances calculées</div>
-    <div><span class="core-value" id="coreFamilies">0</span>familles utilisées</div>
-  </div>
-  <div class="core-status" id="coreStatus">Initialisation du moteur…</div>
-</div>
-<div class="card no-print"><h2>Ajouter du matériel</h2>
-<div class="material-tools">
-<label>Rechercher une pièce<input id="partSearch" type="search" placeholder="Cadre, lisse, plancher, référence…"></label>
-<label>Quantité<input id="extraQty" type="number" min="1" step="1" value="1"></label>
-<button id="clearSearch">Effacer</button>
-</div>
-<div id="searchResults" class="search-results"><div class="empty-search">Commence à saisir le nom ou la référence d’une pièce.</div></div>
-</div>
-<div class="card">
-<h2>Liste du matériel calculé et retenu</h2>
-<p class="material-note">La quantité calculée reste visible. La quantité retenue peut être modifiée, verrouillée à zéro ou rétablie au calcul automatique.</p>
-<div style="overflow:auto">
-<table class="items editable-bom">
-<thead><tr>
-<th>Matériel</th><th>Référence</th><th>Origine</th>
-<th class="right">Qté calculée</th><th>Qté retenue</th>
-<th class="right">Poids total</th><th>Actions</th>
-</tr></thead>
-<tbody id="materialBody"></tbody>
-</table>
-</div>
+<div class="card simple-bom-card">
+  <h2>Liste de matériel</h2>
+  <p class="material-note">Touchez la quantité pour la modifier. Le poids total se recalcule immédiatement.</p>
+  <div class="simple-bom-list" id="materialBody"></div>
+  <div class="simple-total"><span>Poids total</span><strong id="mWeight">0 kg</strong></div>
+  <div class="simple-count"><span id="mQty">0</span> pièces · <span id="mRefs">0</span> éléments différents</div>
+  <span id="mFacades" hidden>0</span><span id="mLength" hidden>0 m</span><span id="mArea" hidden>0 m²</span>
+  <span id="mKnown" hidden>100 %</span><span id="mAuto" hidden>0</span><span id="mManual" hidden>0</span>
+  <span id="coreCatalog" hidden>0</span><span id="coreLines" hidden>0</span><span id="coreInstances" hidden>0</span><span id="coreFamilies" hidden>0</span><span id="coreStatus" hidden></span>
 </div>
 </section>
 
@@ -484,7 +462,7 @@
 <p class="plan-note">Les dessins sont des représentations de préparation basées sur les données saisies. Ils ne constituent pas une étude de stabilité ni un plan d’exécution validé par le fabricant.</p>
 </div>
 </section>
-<section class="page" id="controle"><div class="card"><h2>Contrôle métier V9.1</h2><div class="summary"><div class="metric"><b id="controlScore">0 %</b>indice de préparation</div><div class="metric"><b id="controlErrors">0</b>erreurs</div><div class="metric"><b id="controlWarnings">0</b>avertissements</div></div><div class="inline" style="margin-top:12px"><button id="controlRun" class="primary">Vérifier maintenant</button></div></div>
+<section class="page" id="controle"><div class="card"><h2>Contrôle métier V9.2</h2><div class="summary"><div class="metric"><b id="controlScore">0 %</b>indice de préparation</div><div class="metric"><b id="controlErrors">0</b>erreurs</div><div class="metric"><b id="controlWarnings">0</b>avertissements</div></div><div class="inline" style="margin-top:12px"><button id="controlRun" class="primary">Vérifier maintenant</button></div></div>
 <div class="card"><h2>Contrôle du montage</h2>
 <p>Ce contrôle repère les oublis les plus courants. Il ne remplace pas l’étude ni la notice fabricant.</p>
 <div id="controlList" class="controls"></div>
@@ -539,6 +517,8 @@ function partKind(it){
   if(s.includes('lisse')||s.includes('longeron'))return 'rail';
   if(s.includes('plinthe'))return 'toe';
   if(s.includes('socle')||s.includes('pied')||s.includes('cale'))return 'base';
+  if(s.includes('ancrage'))return 'anchor';
+  if(s.includes('escalier'))return 'stair';
   if(s.includes('echelle'))return 'ladder';
   if(s.includes('montant')||s.includes('poteau')||s.includes('manchon'))return 'post';
   return 'part';
@@ -553,15 +533,13 @@ function partImage(it){
     deck:'<polygon points="12,35 78,22 90,56 24,70"/><path d="M22 39l58-11M27 48l58-11M31 57l58-11"/>',
     base:'<path d="M50 18v50M38 68h24M28 80h44M42 18h16"/>',
     ladder:'<path d="M32 14v72M68 14v72M32 24h36M32 38h36M32 52h36M32 66h36M32 80h36"/>',
+    stair:'<path d="M18 78h16V64h14V50h14V36h20M18 82h64M22 22l56 56"/>',
+    anchor:'<path d="M16 50h56M72 32v36M80 38v24M22 44l-8 6 8 6"/>',
     post:'<path d="M50 10v80M42 20h16M42 40h16M42 60h16M42 80h16"/>',
     part:'<circle cx="50" cy="45" r="24"/><path d="M26 45h48M50 21v48"/>'
   };
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="130" viewBox="0 0 100 100"><rect width="100" height="100" rx="8" fill="#eef4f8"/><g fill="none" stroke="#0a4f83" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${drawings[k]}</g><text x="50" y="96" text-anchor="middle" font-family="Arial" font-size="7" fill="#17212b">${label}</text></svg>`;
-  const noticeImages={
-    base:'assets/notice-base.jpg',post:'assets/notice-post.jpg',frame:'assets/notice-frame.jpg',
-    diag:'assets/notice-diag.jpg',rail:'assets/notice-rail.jpg',toe:'assets/notice-toe.jpg',deck:'assets/notice-deck.jpg'
-  };
-  return noticeImages[k]||('data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg));
+  return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
 }
 function openPart(it){
   $('#modalTitle').textContent=it.designation||it.reference;
@@ -790,6 +768,27 @@ function computeLogistics(totalWeight,totalPieces){
   const trucks=totalWeight<=0?0:Math.max(1,Math.ceil(totalWeight/12000));
   return {racks,trucks,label:trucks?`${trucks} camion${trucks>1?'s':''} estimé${trucks>1?'s':''}`:'À confirmer'};
 }
+
+function anchorPositions(d,seq,xs){
+  if(!seq.length)return [];
+  const floors=scaffoldFloorLevels(d);
+  // Le 2e étage correspond au deuxième plancher (en général 4 m).
+  // Puis un étage sur deux : indices 1, 3, 5…
+  const rows=floors.filter((_,i)=>i>=1&&((i-1)%2===0));
+  const total=xs.at(-1)||0;
+  const out=[];
+  rows.forEach((y,rowIndex)=>{
+    // Ancrages sur les cadres (lignes de montants), un cadre sur deux.
+    // Le décalage alterne à chaque rangée pour créer le quinconce.
+    const parity=rowIndex%2;
+    for(let frameIndex=parity;frameIndex<xs.length;frameIndex+=2){
+      const u=xs[frameIndex];
+      if(d.type==='gable'&&facadeProfileHeight(d,u,total)+.01<y)continue;
+      out.push({u,y,frameIndex,rowIndex});
+    }
+  });
+  return out;
+}
 function calc(){
   BOM_ENGINE.reset();q={};bomLedger={};currentBomContext='Calcul automatique';let fc=0,len=0,area=0,access=0;
   NAMES.forEach(n=>{let d=state.facades[n];if(d.enabled&&d.access)access++});
@@ -809,7 +808,7 @@ function calc(){
     if(remaining>0){if(d.asym){add(refs.cadre2,lines*Math.max(0,remaining-1));add(refs.asym,lines)}else add(refs.cadre2,lines*remaining)}
     const xs=[0];seq.forEach(l=>xs.push(xs.at(-1)+l));
     const floorLevels=scaffoldFloorLevels(d);
-    // V9.1 : les deux cadres qui ferment la travée sommitale du pignon
+    // V9.2 : les deux cadres qui ferment la travée sommitale du pignon
     // sont visibles en 3D et doivent aussi être présents dans la nomenclature.
     // Ils étaient absents du calcul forfaitaire, d'où l'écart typique 100 / 102.
     if(d.type==='gable'&&floorLevels.some(fy=>fy>d.height+.01)){
@@ -836,8 +835,8 @@ function calc(){
       }
     });
     if($('#useAnchors')?.checked){
-      const facadeArea=d.type==='gable'?bLen(b)*(d.height+(maxH-d.height)/2):bLen(b)*d.height;
-      add(refs.anchor,Math.max(1,Math.ceil(facadeArea/24)),'Ancrages — 1 pour 24 m²');
+      const anchors=anchorPositions(d,seq,xs);
+      if(anchors.length)add(refs.anchor,anchors.length,'Ancrages — 2e étage, 1 cadre sur 2, 1 étage sur 2, quinconce');
     }
     if($('#useEnd').checked){let indep=$('#configuration').value==='independent',key=d.width===1?'1':'.73';add(refs.endGuard[key],(indep?4:2)*endLevelCount);add(refs.endPlinth[key],(indep?2:1)*endLevelCount)}
     if(d.rehausse){add(refs.m100,lines);const topActive=d.type==='gable'?gableUpperBayIndices(d,seq,xs,floorLevels.at(-1)||d.height):seq.map((_,i)=>i);topActive.forEach(i=>add(refs.lisse[seq[i]],2))}
@@ -917,93 +916,24 @@ function render(fc,len,area){
     .map(r=>[r,Math.max(0,Math.round(+(q[r]||0)))])
     .filter(([r,calculated])=>calculated>0||effectiveMaterialQuantity(r,calculated)>0)
     .sort((a,b)=>(item(a[0]).designation||'').localeCompare(item(b[0]).designation||''));
-
-  let total=0,w=0,knownQty=0,manualQty=0;
+  let total=0,totalWeight=0,knownQty=0,manualQty=0;
   const families=new Set();
-
   for(const [r,calculated] of entries){
-    const it=item(r),unit=weight(it);
-    const retained=effectiveMaterialQuantity(r,calculated);
-    const overridden=Object.prototype.hasOwnProperty.call(state.materialOverrides||{},r);
+    const it=item(r),unit=weight(it),retained=effectiveMaterialQuantity(r,calculated);
     const manualAdded=+(state.extraMaterials||{})[r]||0;
-    const ww=unit*retained;
-    total+=retained;w+=ww;if(unit>0)knownQty+=retained;
-    manualQty+=Math.min(retained,manualAdded);
-    families.add(it.section||'Autres composants');
-
-    const origins=Object.entries(bomLedger[r]||{})
-      .filter(([,v])=>v!==0)
-      .map(([name,v])=>`${escapeHtml(name)} : ${v}`)
-      .join('<br>') || (manualAdded?'Ajout manuel':'Calcul');
-
-    const tr=document.createElement('tr');
-    if(overridden)tr.classList.add('overridden');
-    if(calculated===0&&retained>0)tr.classList.add('manual-line');
-    tr.innerHTML=`
-      <td>
-        <div class="part-cell">
-          <img class="part-thumb" src="${partImage(it)}" alt="${escapeHtml(it.designation)}">
-          <div class="part-text">
-            <b>${escapeHtml(it.designation)}</b>
-            <small>${escapeHtml(it.section||'')}</small>
-            ${manualAdded?`<span class="extra-badge">Ajout manuel : ${manualAdded}</span>`:''}
-            ${overridden?'<span class="lock-badge">Quantité retenue modifiée</span>':''}
-            ${unit<=0?'<span class="data-warning">Poids à confirmer</span>':''}
-          </div>
-        </div>
-      </td>
-      <td>${escapeHtml(r)}</td>
-      <td><div class="origin-list">${origins}</div></td>
-      <td class="calculated-qty">${calculated}</td>
-      <td>
-        <div class="qty-retained">
-          <button type="button" data-step="-1">−</button>
-          <input class="retained-input" value="${retained}" type="number" min="0" step="1">
-          <button type="button" data-step="1">+</button>
-        </div>
-      </td>
-      <td class="right">${unit>0?fmt(ww)+' kg':'—'}</td>
-      <td>
-        <div class="bom-actions">
-          <button type="button" class="restore-qty" ${overridden?'':'disabled'}>Rétablir calcul</button>
-          <button type="button" class="remove-line">Mettre à zéro</button>
-        </div>
-      </td>`;
-
-    tr.querySelector('.part-thumb').onclick=()=>openPart(it);
-    const inp=tr.querySelector('.retained-input');
-    const apply=value=>{
-      setMaterialOverride(r,value);
-      render(fc,len,area);
-    };
-    tr.querySelectorAll('[data-step]').forEach(btn=>{
-      btn.onclick=()=>apply(Math.max(0,(+inp.value||0)+(+btn.dataset.step)));
-    });
+    const lineWeight=unit*retained;
+    total+=retained;totalWeight+=lineWeight;if(unit>0)knownQty+=retained;manualQty+=Math.min(retained,manualAdded);families.add(it.section||'Autres composants');
+    const row=document.createElement('div');row.className='simple-bom-row';
+    row.innerHTML=`<img class="simple-bom-photo" src="${partImage(it)}" alt="${escapeHtml(it.designation)}"><div><div class="simple-bom-name">${escapeHtml(it.designation)}</div><div class="simple-bom-details"><div><span>Poids unitaire</span><b>${unit>0?fmt(unit)+' kg':'À renseigner'}</b></div><div><span>Poids de la ligne</span><b>${unit>0?fmt(lineWeight)+' kg':'—'}</b></div></div><div class="simple-qty"><button type="button" data-step="-1" aria-label="Retirer une pièce">−</button><input value="${retained}" type="number" min="0" step="1" inputmode="numeric" aria-label="Quantité de ${escapeHtml(it.designation)}"><button type="button" data-step="1" aria-label="Ajouter une pièce">+</button></div></div>`;
+    row.querySelector('.simple-bom-photo').onclick=()=>openPart(it);
+    const inp=row.querySelector('input');
+    const apply=value=>{setMaterialOverride(r,value);render(fc,len,area)};
+    row.querySelectorAll('[data-step]').forEach(btn=>btn.onclick=()=>apply(Math.max(0,(+inp.value||0)+(+btn.dataset.step))));
     inp.onchange=()=>apply(inp.value);
-    tr.querySelector('.restore-qty').onclick=()=>{
-      clearMaterialOverride(r);
-      render(fc,len,area);
-    };
-    tr.querySelector('.remove-line').onclick=()=>apply(0);
-    body.appendChild(tr);
+    body.appendChild(row);
   }
-
-  $('#mFacades').textContent=fc;
-  $('#mLength').textContent=fmt(len)+' m';
-  $('#mArea').textContent=fmt(area)+' m²';
-  $('#mQty').textContent=total;
-  $('#mWeight').textContent=fmt(w)+' kg';const logistics=computeLogistics(w,total);if($('#mRacks'))$('#mRacks').textContent=logistics.racks;if($('#mTransport'))$('#mTransport').textContent=logistics.label;
-  $('#mRefs').textContent=entries.filter(([r,c])=>effectiveMaterialQuantity(r,c)>0).length;
-  $('#mKnown').textContent=(total?Math.round(knownQty/total*100):100)+' %';
-  $('#mManual').textContent=manualQty;
-  $('#mAuto').textContent=Math.max(0,total-manualQty);
-
-  const core=BOM_ENGINE.summary();
-  $('#coreCatalog').textContent=COMPONENT_CATALOG.size;
-  $('#coreLines').textContent=entries.length;
-  $('#coreInstances').textContent=total;
-  $('#coreFamilies').textContent=families.size;
-  $('#coreStatus').textContent=`Moteur actif · modèle indépendant révision ${core.revision} · quantités retenues modifiables et sauvegardées.`;
+  $('#mFacades').textContent=fc;$('#mLength').textContent=fmt(len)+' m';$('#mArea').textContent=fmt(area)+' m²';$('#mQty').textContent=total;$('#mWeight').textContent=fmt(totalWeight)+' kg';$('#mRefs').textContent=entries.filter(([r,c])=>effectiveMaterialQuantity(r,c)>0).length;$('#mKnown').textContent=(total?Math.round(knownQty/total*100):100)+' %';$('#mManual').textContent=manualQty;$('#mAuto').textContent=Math.max(0,total-manualQty);
+  const core=BOM_ENGINE.summary();$('#coreCatalog').textContent=COMPONENT_CATALOG.size;$('#coreLines').textContent=entries.length;$('#coreInstances').textContent=total;$('#coreFamilies').textContent=families.size;$('#coreStatus').textContent=`Moteur actif · révision ${core.revision}`;
 }
 function renderSearch(){
   const term=normalizeText($('#partSearch').value.trim()),box=$('#searchResults');
@@ -1786,7 +1716,7 @@ async function createScaff3D(host){
   host.innerHTML=`
     <div class="scaff3d-loading">Chargement du moteur 3D…</div>
     <div class="scaff3d-overlay">
-      <div class="scaff3d-status">Moteur d’assemblage R200 v9.1</div>
+      <div class="scaff3d-status">Moteur d’assemblage R200 v9.2</div>
 <div class="scaff3d-badge-v8">ASSEMBLAGE R200</div>
 <div class="scaff3d-quality">Façades indépendantes · nomenclature synchronisée · trappes sur travée haute · diagonales 1 sur 4 + renfort pignon</div>
       <div class="scaff3d-camera-controls" aria-label="Commandes de caméra">
@@ -2094,14 +2024,13 @@ async function createScaff3D(host){
       });
 
       if($('#useAnchors')?.checked){
-        const facadeArea=total*(d.type==='gable'?(d.height+(facadeMaxHeight(d)-d.height)/2):d.height);
-        const count=Math.max(1,Math.ceil(facadeArea/24));
-        for(let ai=0;ai<count;ai++){
-          const ui=xs[Math.min(xs.length-1,Math.round((ai+1)*(xs.length-1)/(count+1)))];
-          const ay=Math.min(floors.at(-1)||d.height,2+2*(ai%Math.max(1,floors.length)));
-          const p1=facadeMap(key,ui,ay,0,data),p2=facadeMap(key,ui,ay,-.55,data);
-          addTube(families.ledgers,p1,p2,.025,{family:'anchors',name:'Ancrage de façade',ref:'AUTO-ANCRAGE',facade:key},materials.tubeDark);
-        }
+        anchorPositions(d,seq,xs).forEach((anchor,ai)=>{
+          const outside=(key==='A'||key==='D')?0:w;
+          const wallSide=outside===0?-.55:w+.55;
+          const p1=facadeMap(key,anchor.u,anchor.y,outside,data);
+          const p2=facadeMap(key,anchor.u,anchor.y,wallSide,data);
+          addTube(families.ledgers,p1,p2,.025,{family:'anchors',name:'Ancrage de façade',ref:'AUTO-ANCRAGE',facade:key,level:anchor.rowIndex+2,index:ai},materials.tubeDark);
+        });
       }
 
       // V8.1.3 : la rehausse du dernier niveau reçoit bien ses deux lisses supplémentaires.
@@ -2344,10 +2273,10 @@ function renderPlan(){
   renderPlanEditor();
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'
-    ?`Vue 3D v9.1 : glissez avec un doigt pour tourner, pincez avec deux doigts pour zoomer et déplacer.`
+    ?`Vue 3D v9.2 : glissez avec un doigt pour tourner, pincez avec deux doigts pour zoomer et déplacer.`
     :`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${data.d.type==='gable'?`pignon ${fmt(data.d.height)} m à l’égout / ${fmt(data.d.ridgeHeight)} m au faîtage`:`${fmt(data.height)} m de hauteur`}, largeur ${fmt(data.width)} m.`;
 }
-function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;state.accessMode=$('#accessMode')?.value||'trap';state.useAnchors=$('#useAnchors')?.checked!==false;localStorage.setItem('scaffr200-v9-1',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v9-1')||localStorage.getItem('scaffr200-v8-1-3-1')||localStorage.getItem('scaffr200-v8-1-3')||localStorage.getItem('scaffr200-v8-1-1')||localStorage.getItem('scaffr200-v8-1')||localStorage.getItem('scaffr200-v8-0')||localStorage.getItem('scaffr200-v7-4')||localStorage.getItem('scaffr200-v7-3-1')||localStorage.getItem('scaffr200-v7-3')||localStorage.getItem('scaffr200-v7-2')||localStorage.getItem('scaffr200-v7-1')||localStorage.getItem('scaffr200-v7-0')||localStorage.getItem('scaffr200-v6-4-1')||localStorage.getItem('scaffr200-v6-4-0')||localStorage.getItem('scaffr200-v6-3-5')||localStorage.getItem('scaffr200-v6-3-4')||localStorage.getItem('scaffr200-v6-3-3')||localStorage.getItem('scaffr200-v6-3-2')||localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
+function save(){state.projectName=$('#projectName').value;state.clientName=$('#clientName').value;state.address=$('#address').value;state.system=$('#system').value;state.configuration=$('#configuration').value;state.facadeCount=+$('#facadeCount').value;state.accessMode=$('#accessMode')?.value||'trap';state.useAnchors=$('#useAnchors')?.checked!==false;localStorage.setItem('scaffr200-v9-2',JSON.stringify(state));$('#status').textContent='Chantier sauvegardé.'}function load(){try{let s=JSON.parse(localStorage.getItem('scaffr200-v9-2')||localStorage.getItem('scaffr200-v8-1-3-1')||localStorage.getItem('scaffr200-v8-1-3')||localStorage.getItem('scaffr200-v8-1-1')||localStorage.getItem('scaffr200-v8-1')||localStorage.getItem('scaffr200-v8-0')||localStorage.getItem('scaffr200-v7-4')||localStorage.getItem('scaffr200-v7-3-1')||localStorage.getItem('scaffr200-v7-3')||localStorage.getItem('scaffr200-v7-2')||localStorage.getItem('scaffr200-v7-1')||localStorage.getItem('scaffr200-v7-0')||localStorage.getItem('scaffr200-v6-4-1')||localStorage.getItem('scaffr200-v6-4-0')||localStorage.getItem('scaffr200-v6-3-5')||localStorage.getItem('scaffr200-v6-3-4')||localStorage.getItem('scaffr200-v6-3-3')||localStorage.getItem('scaffr200-v6-3-2')||localStorage.getItem('scaffr200-v6-2')||localStorage.getItem('scaffr200-v6-1-5')||localStorage.getItem('scaffr200-v6-1')||localStorage.getItem('scaffr200-v6-0-2')||localStorage.getItem('scaffr200-v6-0-1')||localStorage.getItem('scaffr200-v5-10')||localStorage.getItem('scaffr200-v5-9')||localStorage.getItem('scaffr200-v5-8')||localStorage.getItem('scaffr200-v5-7')||localStorage.getItem('scaffr200-v5-6')||localStorage.getItem('scaffr200-v5-5')||localStorage.getItem('scaffr200-v5-4')||localStorage.getItem('scaffr200-v5-3'));if(s){state={...state,...s,facades:{...state.facades,...s.facades}};
 state.extraMaterials=state.extraMaterials||{};
 NAMES.forEach((n,i)=>{
   const d=state.facades[n];
@@ -2368,16 +2297,15 @@ NAMES.forEach((n,i)=>{
 function buildPrintReport(){
   calc();
   const report=$('#printReport');
-  const rows=materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).map(([r,n])=>{const it=item(r),w=weight(it);return `<tr><td>${escapeHtml(it.designation)}</td><td>${escapeHtml(r)}</td><td class="right">${n}</td><td class="right">${w?fmt(w*n)+' kg':'—'}</td></tr>`}).join('');
-  let totalWeight=0;materialReferences().forEach(r=>{const n=effectiveMaterialQuantity(r,q[r]||0),w=weight(item(r));if(w)totalWeight+=n*w});
-  const keys=availableFacadeKeys();
+  let totalWeight=0;
+  const rows=materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).map(([r,n])=>{const it=item(r),w=weight(it);if(w)totalWeight+=n*w;return `<tr><td><img class="print-thumb" src="${partImage(it)}" alt="">${escapeHtml(it.designation)}</td><td class="right">${n}</td><td class="right">${w?fmt(w)+' kg':'—'}</td><td class="right">${w?fmt(w*n)+' kg':'—'}</td></tr>`}).join('');
+  const keys=NAMES.filter(k=>state.facades[k].enabled);
+  const oldSelected=selectedPlanFacade;
   const views=keys.map(k=>{selectedPlanFacade=k;const d=planData();return `<div class="print-sheet"><h2>${escapeHtml(d.d.name)} — vue de face</h2><div class="print-view">${frontSvg(d)}</div></div>`}).join('');
-  const old=selectedPlanFacade;selectedPlanFacade=keys[0]||'A';
-  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v9.1</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><p><b>Poids total estimé : ${fmt(totalWeight)} kg</b></p><table class="print-bom"><thead><tr><th>Matériel</th><th>Référence</th><th class="right">Qté</th><th class="right">Poids</th></tr></thead><tbody>${rows}</tbody></table></div>${views}<div class="print-sheet"><h2>Vue de dessus</h2><div class="print-view">${topSvg()}</div></div><div class="print-sheet"><h2>Vue de côté</h2><div class="print-view">${sideSvg(planData())}</div></div>`;
-  selectedPlanFacade=old;
+  selectedPlanFacade=oldSelected;
+  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v9.2</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><table class="print-bom"><thead><tr><th>Élément</th><th class="right">Quantité</th><th class="right">Poids unitaire</th><th class="right">Poids ligne</th></tr></thead><tbody>${rows}</tbody></table><div class="print-total">Poids total : ${fmt(totalWeight)} kg</div></div>${views}<div class="print-sheet"><h2>Vue de dessus</h2><div class="print-view">${topSvg()}</div></div><div class="print-sheet"><h2>Vue de côté</h2><div class="print-view">${sideSvg(planData())}</div></div><div class="print-sheet"><h2>Vue isométrique</h2><div class="print-view">${threeSvg()}</div></div>`;
 }
-
-function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v9-1-nomenclature.csv';a.click()}
+function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v9-2-nomenclature.csv';a.click()}
 
 const CATALOG_STORAGE_KEY='scaffr200-v6-2-catalog-overrides';
 let catalogEditingRef='';
@@ -2431,11 +2359,11 @@ function saveCatalogForm(){
 function downloadText(filename,text,type='application/json'){
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
-function exportCatalogJson(){downloadText('scaffr200-v9-1-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
+function exportCatalogJson(){downloadText('scaffr200-v9-2-catalogue.json',JSON.stringify({schema:'scaffr200-catalog-1',version:'6.2',exportedAt:new Date().toISOString(),components:COMPONENT_CATALOG.exportData()},null,2))}
 function exportCatalogCsv(){
   const esc=v=>`"${String(v??'').replaceAll('"','""')}"`,rows=[['Référence','Désignation','Dimensions','Famille','Poids kg','Modifiée','Provisoire']];
   COMPONENT_CATALOG.values().sort((a,b)=>a.reference.localeCompare(b.reference)).forEach(c=>rows.push([c.reference,c.designation,c.dimensions,c.section,c.weightKg,COMPONENT_CATALOG.isModified(c.reference)?'Oui':'Non',c.provisional?'Oui':'Non']));
-  downloadText('scaffr200-v9-1-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
+  downloadText('scaffr200-v9-2-catalogue.csv','\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\n'),'text/csv;charset=utf-8');
 }
 function importCatalogFile(file){
   const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),rows=Array.isArray(data)?data:data.components;if(!Array.isArray(rows))throw new Error('Format non reconnu');let n=0;rows.forEach(r=>{if(r&&r.reference&&r.designation){COMPONENT_CATALOG.register(r);n++}});saveCatalogOverrides();renderCatalog();calc();$('#catalogMessage').textContent=n+' référence(s) importée(s).'}catch(err){$('#catalogMessage').textContent='Import impossible : '+err.message}};reader.readAsText(file);
@@ -2450,8 +2378,8 @@ $('#catalogSearch').oninput=renderCatalog;$('#catalogSection').onchange=renderCa
 $('#modelBtn').onclick=()=>{
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob([JSON.stringify(BOM_ENGINE.exportModel(),null,2)],{type:'application/json'}));
-  a.download='scaffr200-v9-1-modele.json';a.click();
-};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v9-1');localStorage.removeItem('scaffr200-v8-1-3-1');localStorage.removeItem('scaffr200-v8-1-3');localStorage.removeItem('scaffr200-v8-1-1');localStorage.removeItem('scaffr200-v8-1');localStorage.removeItem('scaffr200-v8-0');location.reload()}};
+  a.download='scaffr200-v9-2-modele.json';a.click();
+};$('#resetBtn').onclick=()=>{if(confirm('Effacer le chantier ?')){localStorage.removeItem('scaffr200-v9-2');localStorage.removeItem('scaffr200-v8-1-3-1');localStorage.removeItem('scaffr200-v8-1-3');localStorage.removeItem('scaffr200-v8-1-1');localStorage.removeItem('scaffr200-v8-1');localStorage.removeItem('scaffr200-v8-0');location.reload()}};
 $('#planCanvas').addEventListener('click',e=>{
   if(inlineThreeGesture.active||inlineThreeGesture.moved){inlineThreeGesture.moved=false;return;}
   const target=e.target.closest('[data-facade]');
@@ -2496,7 +2424,7 @@ load();build();selectedPlanFacade=availableFacadeKeys().find(k=>state.facades[k]
 window.addEventListener('error', function(event) {
   const status = document.getElementById('status');
   if (status) status.textContent = 'Une erreur de dessin a été détectée. Les autres onglets restent utilisables.';
-  console.error('ScaffR200 v9.1:', event.error || event.message);
+  console.error('ScaffR200 v9.2:', event.error || event.message);
 });
 </script>
 
