@@ -1,9 +1,9 @@
-ScaffR200 PRO V8.1.3
+ScaffR200 PRO V8.1.3.1
 
-- Correction de la nomenclature des planchers, trappes, échelles, lisses, plinthes, protections d'extrémité et diagonales à partir des niveaux et travées réellement actifs.
-- Sur un pignon, la travée d'accès est automatiquement la travée qui monte le plus haut.
-- Le plancher à trappe et l'échelle suivent cette travée à chaque niveau où elle est active.
-- Les diagonales normales suivent la règle : une travée diagonalée puis trois travées libres.
-- Sur un pignon, une diagonale supplémentaire est ajoutée sur la travée la plus haute uniquement au-dessus de l'égout, jusqu'au sommet.
-- La vue technique, la vue WebGL et la nomenclature utilisent désormais les mêmes règles de placement.
-- Migration de version et noms d'exports mis à jour en V8.1.3.
+- Correction du décompte des cadres sur les façades avec pignon.
+- Ajout dans la nomenclature des deux cadres visibles qui ferment la travée sommitale du pignon.
+- Suppression de l'écart observé entre la vue 3D (102 cadres) et la liste de matériel (100 cadres) pour la configuration signalée.
+- Conservation des planchers à trappe sur la travée la plus haute.
+- Conservation des diagonales courantes espacées de trois travées libres et du renfort supplémentaire aux niveaux supérieurs du pignon.
+- Nouvelle clé de sauvegarde V8.1.3.1 avec récupération automatique des données V8.1.3.
+- Noms des fichiers exportés mis à jour.
