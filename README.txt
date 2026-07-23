@@ -1,11 +1,14 @@
-ScaffR200 PRO V8.1.3.1
+ScaffR200 PRO V9.0
+==================
 
 Ouvrir index.html dans un navigateur récent.
 
-Correction principale :
-- les deux cadres de fermeture de la travée sommitale d’un pignon sont désormais comptés dans la nomenclature ;
-- un résultat de 100 cadres dans la V8.1.3 devient ainsi 102 lorsque ces deux cadres sont visibles dans la vue 3D ;
-- les sauvegardes de la V8.1.3 sont reprises automatiquement.
+Nouveautés principales :
+- assistant de conception automatique ;
+- calcul des niveaux, accès et implantation des travées ;
+- nomenclature pilotée par un moteur unique ;
+- contrôle métier avec indice de préparation ;
+- estimation du poids, des racks et du transport ;
+- migration automatique des sauvegardes V8.1.3.1.
 
-Les règles de trappes et de diagonales introduites dans la V8.1.3 sont conservées.
-Les résultats restent une aide à l'estimation. Vérifier le montage, les charges, les ancrages et les cas particuliers selon la notice fabricant et l'étude de chantier.
+Important : les résultats sont une aide à la préparation. Toute implantation doit être validée selon la notice fabricant, les règles applicables et l'étude du chantier.

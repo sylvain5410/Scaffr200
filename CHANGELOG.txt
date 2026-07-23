@@ -1,9 +1,10 @@
-ScaffR200 PRO V8.1.3.1
-
-- Correction du décompte des cadres sur les façades avec pignon.
-- Ajout dans la nomenclature des deux cadres visibles qui ferment la travée sommitale du pignon.
-- Suppression de l'écart observé entre la vue 3D (102 cadres) et la liste de matériel (100 cadres) pour la configuration signalée.
-- Conservation des planchers à trappe sur la travée la plus haute.
-- Conservation des diagonales courantes espacées de trois travées libres et du renfort supplémentaire aux niveaux supérieurs du pignon.
-- Nouvelle clé de sauvegarde V8.1.3.1 avec récupération automatique des données V8.1.3.
-- Noms des fichiers exportés mis à jour.
+V9.0 — 23/07/2026
+- Nouveau moteur core-engine.js inclus dans la livraison.
+- Assistant d'implantation complète depuis la page Chantier.
+- Calcul automatique des niveaux selon une hauteur de niveau paramétrable.
+- Placement automatique de l'accès, au centre ou sur la travée la plus haute du pignon.
+- Modèle de nomenclature unique avec registre des origines.
+- Contrôle métier enrichi et indice de préparation.
+- Estimation indicative des racks et du nombre de camions.
+- Exports et stockage local migrés vers V9.0.
+- Compatibilité de reprise avec la V8.1.3.1.

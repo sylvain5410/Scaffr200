@@ -1,100 +1,50 @@
-class Component {
-  constructor(data={}) {
+(function(){
+'use strict';
+class Component{
+  constructor(data={}){
     this.reference=String(data.reference||'').trim();
-    this.designation=String(data.designation||this.reference).trim();
+    this.designation=String(data.designation||this.reference||'Composant').trim();
     this.dimensions=String(data.dimensions||'').trim();
-    this.section=String(data.section||'Matériel ajouté').trim();
-    this.weightKg=Component.parseWeight(data.poids);
-    this.provisional=this.reference.startsWith('AUTO-')||this.weightKg<=0;
-    Object.freeze(this);
+    this.section=String(data.section||'Autres composants').trim();
+    this.weightKg=Component.parseWeight(data.weightKg??data.poids);
+    this.provisional=Boolean(data.provisional)||this.reference.startsWith('AUTO-');
   }
-  static parseWeight(value) { return Number(String(value??'0').replace(',','.'))||0; }
-  get poids() { return String(this.weightKg).replace('.',','); }
-  toJSON() {
-    return {reference:this.reference,designation:this.designation,dimensions:this.dimensions,
-      section:this.section,poids:this.weightKg,provisional:this.provisional};
+  static parseWeight(value){
+    if(typeof value==='number')return Number.isFinite(value)?value:0;
+    const n=Number(String(value??'0').replace(',','.').replace(/[^0-9.-]/g,''));
+    return Number.isFinite(n)&&n>=0?n:0;
   }
+  toJSON(){return {reference:this.reference,designation:this.designation,dimensions:this.dimensions,section:this.section,poids:this.weightKg,weightKg:this.weightKg,provisional:this.provisional}}
 }
-class ComponentCatalog {
-  constructor(items=[]) {
-    this.components=new Map();
-    this.baseComponents=new Map();
-    items.forEach(raw=>{
-      const component=this.register(raw);
-      this.baseComponents.set(component.reference,component);
-    });
-  }
-  register(raw) {
-    const component=raw instanceof Component?raw:new Component(raw);
-    if(component.reference)this.components.set(component.reference,component);
-    return component;
-  }
-  get(reference) {
-    return this.components.get(reference)||new Component({reference,designation:reference,poids:0});
-  }
-  has(reference) { return this.components.has(reference); }
-  isBase(reference) { return this.baseComponents.has(reference); }
-  isModified(reference) {
-    const base=this.baseComponents.get(reference),current=this.components.get(reference);
-    if(!current)return false;
-    if(!base)return true;
-    return JSON.stringify(base.toJSON())!==JSON.stringify(current.toJSON());
-  }
-  restore(reference) {
-    if(this.baseComponents.has(reference))this.components.set(reference,this.baseComponents.get(reference));
-    else this.components.delete(reference);
-  }
-  restoreAll() { this.components=new Map(this.baseComponents); }
-  values() { return [...this.components.values()]; }
-  search(term,limit=40) {
-    const needle=String(term||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-    if(!needle)return [];
-    return this.values().filter(c=>
-      `${c.reference} ${c.designation} ${c.section} ${c.dimensions}`
-        .normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(needle)
-    ).slice(0,limit);
-  }
-  get size() { return this.components.size; }
-  exportData() { return this.values().map(c=>c.toJSON()); }
+class ComponentCatalog{
+  constructor(rows=[]){this.base=new Map();this.current=new Map();rows.forEach(r=>{const c=new Component(r);if(c.reference){this.base.set(c.reference,c);this.current.set(c.reference,new Component(c.toJSON()));}})}
+  get size(){return this.current.size}
+  has(ref){return this.current.has(String(ref))}
+  get(ref){const key=String(ref);if(!this.current.has(key))this.current.set(key,new Component({reference:key,designation:'Référence '+key,section:'À identifier',provisional:true}));return this.current.get(key)}
+  values(){return [...this.current.values()]}
+  register(data){const c=new Component(data);if(!c.reference)throw new Error('Référence obligatoire');this.current.set(c.reference,c);return c}
+  isBase(ref){return this.base.has(String(ref))}
+  isModified(ref){const k=String(ref),a=this.base.get(k),b=this.current.get(k);if(!b)return false;if(!a)return true;return JSON.stringify(a.toJSON())!==JSON.stringify(b.toJSON())}
+  restore(ref){const k=String(ref);if(this.base.has(k))this.current.set(k,new Component(this.base.get(k).toJSON()));else this.current.delete(k)}
+  restoreAll(){this.current=new Map([...this.base].map(([k,v])=>[k,new Component(v.toJSON())]))}
+  search(term,limit=40){const t=String(term||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();return this.values().filter(c=>!t||`${c.reference} ${c.designation} ${c.dimensions} ${c.section}`.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(t)).slice(0,limit)}
+  exportData(){return this.values().map(c=>c.toJSON())}
 }
-class BomLine {
-  constructor(reference) { this.reference=reference;this.quantity=0;this.origins=new Map(); }
-  add(quantity,origin='Calcul automatique') {
-    const amount=Math.round(Number(quantity)||0);if(!amount)return;
-    this.quantity+=amount;
-    this.origins.set(origin,(this.origins.get(origin)||0)+amount);
-    if(this.origins.get(origin)===0)this.origins.delete(origin);
+class BomEngine{
+  constructor(catalog){this.catalog=catalog;this.reset()}
+  reset(){this.quantities={};this.ledger={};this.instances=[]}
+  add(reference,quantity,origin='Calcul automatique'){
+    const ref=String(reference||'').trim(),qty=Number(quantity||0);if(!ref||!Number.isFinite(qty)||qty===0)return;
+    this.catalog.get(ref);this.quantities[ref]=(this.quantities[ref]||0)+qty;
+    if(!this.ledger[ref])this.ledger[ref]={};this.ledger[ref][origin]=(this.ledger[ref][origin]||0)+qty;
+    this.instances.push({id:`P-${this.instances.length+1}`,reference:ref,quantity:qty,origin});
   }
+  toQuantityObject(){return Object.fromEntries(Object.entries(this.quantities).map(([k,v])=>[k,Math.round(v)]))}
+  toLedgerObject(){return JSON.parse(JSON.stringify(this.ledger))}
+  summary(){return {lines:Object.keys(this.quantities).length,instances:this.instances.reduce((s,x)=>s+x.quantity,0),families:new Set(Object.keys(this.quantities).map(r=>this.catalog.get(r).section)).size}}
+  exportModel(){return {schema:'scaffr200-project-model-2',version:'9.0',exportedAt:new Date().toISOString(),components:this.catalog.exportData(),bom:this.toQuantityObject(),ledger:this.toLedgerObject(),instances:this.instances}}
 }
-class BomEngine {
-  constructor(catalog) { this.catalog=catalog;this.lines=new Map();this.revision=0; }
-  reset() { this.lines.clear();this.revision++; }
-  add(reference,quantity,origin='Calcul automatique') {
-    if(!reference||!quantity)return;
-    const line=this.lines.get(reference)||new BomLine(reference);
-    line.add(quantity,origin);
-    if(line.quantity===0)this.lines.delete(reference);else this.lines.set(reference,line);
-  }
-  entries() { return [...this.lines.values()].filter(line=>line.quantity>0); }
-  toQuantityObject() { return Object.fromEntries(this.entries().map(line=>[line.reference,line.quantity])); }
-  toLedgerObject() {
-    return Object.fromEntries(this.entries().map(line=>[
-      line.reference,Object.fromEntries([...line.origins.entries()].filter(([,v])=>v!==0))
-    ]));
-  }
-  summary() {
-    const lines=this.entries();
-    const quantity=lines.reduce((sum,line)=>sum+line.quantity,0);
-    const weight=lines.reduce((sum,line)=>sum+this.catalog.get(line.reference).weightKg*line.quantity,0);
-    const families=new Set(lines.map(line=>this.catalog.get(line.reference).section));
-    const provisional=lines.reduce((sum,line)=>sum+(this.catalog.get(line.reference).provisional?line.quantity:0),0);
-    return {lines:lines.length,quantity,weight,families:families.size,provisional,revision:this.revision};
-  }
-  exportModel() {
-    return {schema:'scaffr200-bom-1',generatedAt:new Date().toISOString(),revision:this.revision,
-      lines:this.entries().map(line=>({component:this.catalog.get(line.reference).toJSON(),
-        quantity:line.quantity,origins:Object.fromEntries(line.origins)}))};
-  }
-}
-const COMPONENT_CATALOG=new ComponentCatalog(ITEMS);
-const BOM_ENGINE=new BomEngine(COMPONENT_CATALOG);
+window.Component=Component;
+window.COMPONENT_CATALOG=new ComponentCatalog(window.ITEMS||[]);
+window.BOM_ENGINE=new BomEngine(window.COMPONENT_CATALOG);
+})();
