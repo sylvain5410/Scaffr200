@@ -1,11 +1,8 @@
-V9.3.4 — Base stable
-- Harmonisation de tous les numéros de version visibles vers V9.3.4.
-- Mise à jour du numéro de build, du rapport imprimé, de la vue 3D et des journaux d’erreur.
-- Ajout d’instructions anti-cache et d’un paramètre de version sur core-engine.js.
-- Renommage cohérent du fichier d’export du catalogue.
-- Aucune modification du moteur de calcul ni de la logique des façades.
+V9.4 — 24/07/2026
+- Correction de l'accès toute hauteur sur les pignons : maintien de la travée sommitale dans les niveaux supérieurs.
+- Ajout du plancher à trappe et de l'échelle sur la travée la plus haute dans les vues et le calcul.
+- Ajout d'un choix de garde-corps intérieur pour chaque façade : aucun / 1 lisse / 2 lisses / 2 lisses + plinthe.
+- Synchronisation du nouveau choix avec la nomenclature et la vue 3D.
 
-V9.3.3
-- Correction de la façade manquante dans la nomenclature, les vues de face et la 3D.
-- Repli automatique vers les travées automatiques lorsqu’une façade était enregistrée en mode manuel sans aucune travée.
-- Nettoyage des anciennes sauvegardes incohérentes.
+V9.3.4
+- Base stable officielle et correctif cache iPhone/Safari.

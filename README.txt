@@ -1,9 +1,12 @@
-ScaffR200 PRO V9.3.4 — Base stable
+ScaffR200 PRO — V9.4
 
-Base officielle issue de la V9.3.3 fonctionnelle.
-- Numéros de version harmonisés dans l’interface, la 3D, l’impression et les journaux d’erreur.
-- Cache navigateur neutralisé et moteur chargé avec un identifiant de version.
-- Moteur de calcul des façades conservé sans modification fonctionnelle.
-- Correctif V9.3.3 de façade manquante conservé.
+Base : V9.3.4 CACHE FIX stable.
 
-Version cache-fix : fichiers principaux renommés pour empêcher Safari/Fichiers de réutiliser la V9.3.2.
+Évolutions V9.4 :
+- Pignons : les échelles et planchers à trappe sont maintenant représentés et comptés sur la travée sommitale jusqu'au niveau le plus haut.
+- Nouveau réglage par façade : garde-corps intérieur.
+- Choix disponibles : aucun, 1 lisse, 2 lisses, ou 2 lisses + 1 plinthe.
+- Le choix modifie automatiquement la liste de matériel.
+- Les protections intérieures sont également visibles dans la vue 3D.
+
+Lancer index.html.
