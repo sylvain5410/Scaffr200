@@ -1,4 +1,4 @@
-V9.4.2
-- Correction erreur JavaScript bloquant la vue 3D (référence de façade incorrecte).
-- Vue de face : trappe et échelle dessinées niveau par niveau sur la travée d’accès effective du pignon.
-- Nouveau nom de moteur et paramètre de cache.
+V9.5 - 24/07/2026
+- Mode travées manuelles ordonnées confirmé comme implantation commune aux calculs et vues.
+- Diagnostic enrichi : façades, travées, niveaux, accès et zones diagonalées.
+- Conservation des corrections V9.4.2 pour la 3D et les accès de pignon.
