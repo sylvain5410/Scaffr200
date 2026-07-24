@@ -1,3 +1,3 @@
-ScaffR200 PRO V9.6.2
-Ouvrir index.html.
-Correction réelle du moteur WebGL : le complément de hauteur est placé à la base.
+ScaffR200 PRO V9.6.3
+Base : V9.6.2.
+La vue de face reprend le même départ de hauteur à la base que la vue 3D.

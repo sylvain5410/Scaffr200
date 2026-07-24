@@ -1,7 +1,4 @@
-V9.6.2
-- Correction du branchement des niveaux dans la vue 3D WebGL.
-- 9 m : départ 1 m puis niveaux de 2 m.
-- 9,50 m : départ 1,50 m puis niveaux de 2 m.
-- 10 m : départ 2 m puis niveaux de 2 m.
-- 10,50 m : départ 2,50 m puis niveaux de 2 m.
-- Mise à jour des identifiants visibles du moteur 3D et du cache.
+V9.6.3
+- Vue de face synchronisée avec la logique de hauteur de la vue 3D.
+- Complément de hauteur placé à la base : 9 m = 1 m, 9,50 m = 1,50 m, 10 m = 2 m, 10,50 m = 2,50 m.
+- Trappes, échelles, planchers, lisses, plinthes et diagonales suivent ces niveaux dans la vue de face.
