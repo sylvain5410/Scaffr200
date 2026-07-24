@@ -1,5 +1,2 @@
-ScaffR200 PRO V9.2.5
-
-Correctif prioritaire pour iPhone : les onglets s'ouvrent de nouveau même lorsqu'un module secondaire rencontre une erreur.
-
-Ouvrir index.html dans Safari.
+ScaffR200 PRO V9.2.6
+Correctif iPhone : l’onglet Façades restaure et affiche toujours les réglages, même après une sauvegarde ancienne ou incomplète. Les modifications sont recalculées et sauvegardées automatiquement.

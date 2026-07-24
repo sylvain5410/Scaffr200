@@ -1,6 +1,5 @@
-ScaffR200 PRO V9.2.5 — correctif de navigation iPhone
-
-- Correction de la régression empêchant l'ouverture des onglets.
-- Ajout d'une navigation de secours indépendante des calculs secondaires.
-- Un onglet reste accessible même si son rendu ou son calcul rencontre une erreur.
-- Conservation de la mise en page d'impression V9.2.4.
+V9.2.6
+- Correction de la configuration des façades sur iPhone.
+- Réparation automatique des anciennes données de façade incomplètes ou corrompues.
+- Les champs, sélecteurs et cases à cocher mettent à jour le modèle et la sauvegarde.
+- Navigation et calcul protégés contre une façade manquante.
