@@ -1,15 +1,8 @@
-V9.3.0
-- Reprise de la base stable V9.2.2.
-- Conservation du formulaire complet de configuration des façades.
-- Nomenclature simple maintenue avec désignations et poids issus du catalogue.
-- Impression regroupée : Nord/Sud, Est/Ouest, dessus/côté, puis 3D.
-- Recalcul systématique avant impression.
-- Cohérence des numéros de version et de build.
+ScaffR200 PRO V9.3.1 — 24/07/2026
 
-V9.2.2
-- Correction de l’erreur à l’ouverture de l’onglet Matériel.
-- Ajout d’un composant de secours pour les références automatiques absentes du catalogue.
-- Nouvelle géométrie 3D des échelles : inclinaison longitudinale, deux montants, barreaux et dépassement au-dessus du plancher.
-- Ancrages rouges dans la vue 3D.
-- Ancrages rouges et abaissés sur les plans.
-- Mise à jour des numéros de version et des exports.
+- Correction de l’erreur « #partSearch null » à l’ouverture de l’onglet Matériel.
+- Le catalogue embarqué est maintenant transmis correctement au moteur : les vrais noms et poids unitaires s’affichent.
+- Calcul du poids de ligne et du poids total restauré.
+- Impression : Nord et Sud sur la même feuille ; Est et Ouest sur la suivante.
+- La vue 3D imprimée est capturée avec le même moteur WebGL et le même modèle que l’onglet 3D.
+- Repli automatique sur la vue schématique uniquement si la capture WebGL est impossible.
