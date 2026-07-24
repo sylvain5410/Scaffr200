@@ -1,4 +1,9 @@
-V9.5 - 24/07/2026
+ScaffR200 PRO V9.6
+- Réglage du plancher par travée : auto, normal, trappe + échelle, aucun.
+- Synchronisation nomenclature, vue de face et 3D.
+- Conservation des accès et diagonales manuels.
+
+V9.6 - 24/07/2026
 - Mode travées manuelles ordonnées confirmé comme implantation commune aux calculs et vues.
 - Diagnostic enrichi : façades, travées, niveaux, accès et zones diagonalées.
 - Conservation des corrections V9.4.2 pour la 3D et les accès de pignon.

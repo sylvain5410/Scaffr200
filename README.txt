@@ -1,4 +1,4 @@
-ScaffR200 PRO V9.5
+ScaffR200 PRO V9.6
 
 Ouvrir index.html.
 Base : V9.4.2 stable.
