@@ -1,4 +1,5 @@
-ScaffR200 PRO V9.7.2
+ScaffR200 PRO V9.7.3
 
-Composition de départ simplifiée par cases à cocher, par façade.
-Le cadre 2 m place le premier plancher à 1 m. Les montants et le cadre de départ se cumulent sous le cadre. Le manchon est ajouté à la nomenclature sans modifier la hauteur utile.
+Correction du calcul automatique de la composition de départ.
+Pour une hauteur de 5 m : cadre 2 m directement au départ, premier plancher à 1 m, puis niveaux à 3 m et 5 m.
+Ouvrir index.html.

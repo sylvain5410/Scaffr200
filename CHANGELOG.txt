@@ -1,7 +1,7 @@
-V9.7.2
-- Remplacement des quantités de montants par de simples cases à cocher.
-- Ajout des cases Cadre 2 m, Cadre de départ et Manchon de départ.
-- Composition indépendante pour chaque façade.
-- Synchronisation avec la vue de face, la vue 3D et la nomenclature.
-- Cadre 2 m : premier plancher à 1 m.
-- Montants et cadre de départ cumulés sous le cadre.
+V9.7.3
+- Correction de automaticStartHeight.
+- 4 m : premier plancher à 2 m.
+- 5 m : premier plancher à 1 m.
+- 9,50 m : premier plancher à 1,50 m.
+- 10,50 m : premier plancher à 2,50 m.
+- Synchronisation vue de face, vue 3D et nomenclature.
