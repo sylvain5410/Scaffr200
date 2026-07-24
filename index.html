@@ -336,9 +336,9 @@
 .v9-hero{border-left:5px solid #b11b1e;background:linear-gradient(135deg,rgba(177,27,30,.08),rgba(10,79,131,.05))}.v9-hero h2{display:flex;align-items:center;gap:8px}.v9-hero h2:after{content:"NOUVEAU";font-size:10px;padding:3px 7px;border-radius:999px;background:#b11b1e;color:white}.control-error,.control-warn,.control-ok{padding:10px 12px;border-radius:8px;margin:8px 0;border-left:4px solid}.control-error{background:#fff1f1;border-color:#b11b1e}.control-warn{background:#fff8e8;border-color:#d08a00}.control-ok{background:#eef9f1;border-color:#24834a}.scaff3d-badge-v8{background:rgba(10,79,131,.92)}
 </style></head><body>
 <header><h1>ScaffR200 Pro <small>v9.3.2</small></h1><p>Configurateur chantier R200 / M368</p><span style="display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#ffffff22;font-size:11px;font-weight:700">Build 9.3.2 · 24/07/2026</span></header>
-<div class="nav" id="nav" data-build="9.3.2-20260724"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
+<div class="nav" id="nav" data-build="9.3.3-20260724"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V9.3.1</h2><p>Renseignez le chantier puis lancez une implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice"><b>V9.3.1 :</b> correctif de stabilité : catalogue correctement chargé, liste de matériel avec désignations et poids, navigation sans erreur et impression 3D issue du même moteur que la vue interactive. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
+<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V9.3.3</h2><p>Renseignez le chantier puis lancez une implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div></div><div class="card notice"><b>V9.3.3 :</b> correctif de stabilité : catalogue correctement chargé, liste de matériel avec désignations et poids, navigation sans erreur et impression 3D issue du même moteur que la vue interactive. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 lisses par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label><label>Type d’accès<select id="accessMode"><option value="trap">Planchers à trappe + échelles</option><option value="stairs">Escaliers</option></select></label><label class="check"><input id="useAnchors" type="checkbox" checked>Ajouter les ancrages (2ᵉ étage, 1 cadre sur 2, 1 étage sur 2, en quinconce)</label></div></div></section>
 <section class="page" id="materiel">
@@ -553,8 +553,17 @@ function openPart(it){
 }
 function closePart(){$('#partModal').classList.remove('on');$('#partModal').setAttribute('aria-hidden','true')}
 function orderedBays(d){
-  if(d.mode==='manual'&&Array.isArray(d.baySequence))return [...d.baySequence];
-  const b=best(d.length),out=[];
+  // Une ancienne sauvegarde pouvait laisser une façade en mode manuel avec
+  // une séquence vide. Elle disparaissait alors du calcul, des vues et de la 3D.
+  // Une séquence manuelle n'est utilisée que lorsqu'elle contient réellement
+  // au moins une travée valide ; sinon la composition automatique prend le relais.
+  if(d.mode==='manual'&&Array.isArray(d.baySequence)){
+    const manual=d.baySequence.map(Number).filter(l=>BAY_LENGTHS.includes(l));
+    if(manual.length)return manual;
+    d.mode='auto';
+    d.baySequence=[];
+  }
+  const b=best(Math.max(0,+d.length||0)),out=[];
   BAY_LENGTHS.forEach(l=>{for(let i=0;i<(b[l]||0);i++)out.push(+l)});
   return out;
 }
@@ -821,8 +830,19 @@ function anchorPositions(d,seq,xs){
 }
 function calc(){
   // iPhone/Safari : mémorise toujours les valeurs visibles avant tout calcul.
-  // Cela évite qu’une façade (notamment Nord/A) reste dans un ancien état.
   syncAllFacadeCardsFromDOM();
+  // Répare les anciennes sauvegardes incohérentes : toutes les façades situées
+  // dans le nombre sélectionné restent configurables, et une façade active avec
+  // une longueur positive ne peut plus être perdue à cause d'un mode manuel vide.
+  const configuredCount=Math.max(1,Math.min(4,+($('#facadeCount')?.value||state.facadeCount||4)));
+  NAMES.forEach((key,i)=>{
+    const d=state.facades[key];
+    if(!d)return;
+    if(i>=configuredCount)d.enabled=false;
+    if(i<configuredCount&&d.enabled&&d.mode==='manual'&&(!Array.isArray(d.baySequence)||!d.baySequence.length)){
+      d.mode='auto';d.baySequence=[];
+    }
+  });
   BOM_ENGINE.reset();q={};bomLedger={};currentBomContext='Calcul automatique';let fc=0,len=0,area=0,access=0;
   NAMES.forEach(n=>{let d=state.facades[n];if(d.enabled&&d.access)access++});
   if(access>2){alert('Deux façades d’accès maximum.');return}
@@ -2419,7 +2439,7 @@ async function buildPrintReport(){
   const iso=`<div class="print-sheet print-sheet-3d"><h2>Vue isométrique 3D</h2><div class="print-view">${isoContent}</div></div>`;
   selectedPlanFacade=oldSelected;
 
-  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v9.3.2</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><table class="print-bom"><thead><tr><th>Élément</th><th class="right">Quantité</th><th class="right">Poids unitaire</th><th class="right">Poids ligne</th></tr></thead><tbody>${rows}</tbody></table><div class="print-total">Poids total : ${fmt(totalWeight)} kg</div></div>${northSouth}${eastWest}${topAndSide}${iso}`;
+  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v9.3.3</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><table class="print-bom"><thead><tr><th>Élément</th><th class="right">Quantité</th><th class="right">Poids unitaire</th><th class="right">Poids ligne</th></tr></thead><tbody>${rows}</tbody></table><div class="print-total">Poids total : ${fmt(totalWeight)} kg</div></div>${northSouth}${eastWest}${topAndSide}${iso}`;
 }
 function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v9-3-2-nomenclature.csv';a.click()}
 

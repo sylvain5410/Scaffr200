@@ -1,5 +1,4 @@
-V9.3.2
-- Correction de la façade Nord parfois ignorée après configuration sur iPhone.
-- Synchronisation forcée des quatre formulaires de façade avant chaque calcul.
-- La nomenclature, les vues de face, la vue 3D et l’impression utilisent désormais le même état de façade.
-- Version et build mis à jour.
+V9.3.3
+- Correction de la façade manquante dans la nomenclature, les vues de face et la 3D.
+- Repli automatique vers les travées automatiques lorsqu’une façade était enregistrée en mode manuel sans aucune travée.
+- Nettoyage des anciennes sauvegardes incohérentes.
