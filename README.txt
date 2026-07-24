@@ -5,3 +5,5 @@ Base officielle issue de la V9.3.3 fonctionnelle.
 - Cache navigateur neutralisé et moteur chargé avec un identifiant de version.
 - Moteur de calcul des façades conservé sans modification fonctionnelle.
 - Correctif V9.3.3 de façade manquante conservé.
+
+Version cache-fix : fichiers principaux renommés pour empêcher Safari/Fichiers de réutiliser la V9.3.2.
