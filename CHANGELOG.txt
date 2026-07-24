@@ -1,8 +1,4 @@
-V9.4.1 — 24/07/2026
-- Correction du badge Build resté à 9.3.4.
-- Nouveau fichier principal afin de contourner le cache iPhone/Safari.
-- Ajout d’une indication vers le réglage des garde-corps intérieurs dans l’étape Façades.
-
-V9.4
-- Correction des accès sur la travée la plus haute des pignons.
-- Garde-corps intérieur configurable par façade avec impact sur le matériel.
+V9.4.2
+- Correction erreur JavaScript bloquant la vue 3D (référence de façade incorrecte).
+- Vue de face : trappe et échelle dessinées niveau par niveau sur la travée d’accès effective du pignon.
+- Nouveau nom de moteur et paramètre de cache.
