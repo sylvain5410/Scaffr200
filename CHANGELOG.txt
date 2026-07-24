@@ -1,5 +1,7 @@
-V9.7.1
-- Correction de la logique des cadres Comabi : premier plancher à 1 m.
-- Montants cumulables sous le cadre, façade par façade.
-- Exemples : 0,50 m + cadre = plancher à 1,50 m ; 1 m + cadre = 2 m ; 1 m + 0,50 m + cadre = 2,50 m.
-- Synchronisation vue de face, vue 3D et nomenclature.
+V9.7.2
+- Remplacement des quantités de montants par de simples cases à cocher.
+- Ajout des cases Cadre 2 m, Cadre de départ et Manchon de départ.
+- Composition indépendante pour chaque façade.
+- Synchronisation avec la vue de face, la vue 3D et la nomenclature.
+- Cadre 2 m : premier plancher à 1 m.
+- Montants et cadre de départ cumulés sous le cadre.
