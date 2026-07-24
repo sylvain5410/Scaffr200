@@ -1,12 +1,6 @@
-V9.2.4
-- Correction du catalogue chargé trop tôt : noms et poids unitaires restaurés dans la liste de matériel.
-- Poids de ligne et poids total recalculés correctement.
-- Impression : Nord/Sud sur une feuille, Est/Ouest sur une feuille, dessus/côté sur une feuille, 3D sur une feuille.
-- Toutes les vues sont régénérées depuis la configuration courante avant impression.
+ScaffR200 PRO V9.2.5 — correctif de navigation iPhone
 
-V9.2.3
-- Correction définitive du message d'erreur à l'ouverture de Matériel.
-- Remplacement de renderSearch() par calc() pour la liste simple.
-- Synchronisation du formulaire chantier, des options et de toutes les façades avant impression.
-- Génération immédiate des vues de face, dessus, côté et isométrique dans l'aperçu d'impression.
-- Migration de sauvegarde vers scaffr200-v9-2-3.
+- Correction de la régression empêchant l'ouverture des onglets.
+- Ajout d'une navigation de secours indépendante des calculs secondaires.
+- Un onglet reste accessible même si son rendu ou son calcul rencontre une erreur.
+- Conservation de la mise en page d'impression V9.2.4.
