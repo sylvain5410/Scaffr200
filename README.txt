@@ -1,4 +1,3 @@
-ScaffR200 PRO V9.6.1
-
+ScaffR200 PRO V9.6.2
 Ouvrir index.html.
-La vue 3D reporte le complément de hauteur au départ, puis utilise des niveaux standards de 2 m.
+Correction réelle du moteur WebGL : le complément de hauteur est placé à la base.

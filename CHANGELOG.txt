@@ -1,17 +1,7 @@
-V9.6.1
-- Correction de la hauteur de départ dans la vue 3D.
-- 9 m : départ 1 m.
-- 10 m : départ 2 m.
-- 9,50 m : départ 1,50 m.
-- 10,50 m : départ 2,50 m.
-- Les niveaux suivants restent espacés de 2 m.
-
-ScaffR200 PRO V9.6
-- Réglage du plancher par travée : auto, normal, trappe + échelle, aucun.
-- Synchronisation nomenclature, vue de face et 3D.
-- Conservation des accès et diagonales manuels.
-
-V9.6 - 24/07/2026
-- Mode travées manuelles ordonnées confirmé comme implantation commune aux calculs et vues.
-- Diagnostic enrichi : façades, travées, niveaux, accès et zones diagonalées.
-- Conservation des corrections V9.4.2 pour la 3D et les accès de pignon.
+V9.6.2
+- Correction du branchement des niveaux dans la vue 3D WebGL.
+- 9 m : départ 1 m puis niveaux de 2 m.
+- 9,50 m : départ 1,50 m puis niveaux de 2 m.
+- 10 m : départ 2 m puis niveaux de 2 m.
+- 10,50 m : départ 2,50 m puis niveaux de 2 m.
+- Mise à jour des identifiants visibles du moteur 3D et du cache.
