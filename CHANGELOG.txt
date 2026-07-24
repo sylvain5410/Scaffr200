@@ -1,7 +1,11 @@
-V9.4.1
-- Nouvelle nomenclature professionnelle.
-- Désignations simplifiées et références conservées en information secondaire.
-- Poids renseignés pour les composants automatiques principaux.
-- Quantités tactiles modifiables et restauration automatique par ligne.
-- PDF/CSV alignés sur la nouvelle nomenclature.
-- Moteur de calcul V9.3.3 conservé.
+V9.3.4 — Base stable
+- Harmonisation de tous les numéros de version visibles vers V9.3.4.
+- Mise à jour du numéro de build, du rapport imprimé, de la vue 3D et des journaux d’erreur.
+- Ajout d’instructions anti-cache et d’un paramètre de version sur core-engine.js.
+- Renommage cohérent du fichier d’export du catalogue.
+- Aucune modification du moteur de calcul ni de la logique des façades.
+
+V9.3.3
+- Correction de la façade manquante dans la nomenclature, les vues de face et la 3D.
+- Repli automatique vers les travées automatiques lorsqu’une façade était enregistrée en mode manuel sans aucune travée.
+- Nettoyage des anciennes sauvegardes incohérentes.
