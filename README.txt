@@ -1,3 +1,3 @@
-ScaffR200 PRO V9.6.3
-Base : V9.6.2.
-La vue de face reprend le même départ de hauteur à la base que la vue 3D.
+ScaffR200 PRO V9.7
+Base : V9.6.3 validée.
+Chaque façade possède son propre choix de départ.

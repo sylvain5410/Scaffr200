@@ -1,4 +1,6 @@
-V9.6.3
-- Vue de face synchronisée avec la logique de hauteur de la vue 3D.
-- Complément de hauteur placé à la base : 9 m = 1 m, 9,50 m = 1,50 m, 10 m = 2 m, 10,50 m = 2,50 m.
-- Trappes, échelles, planchers, lisses, plinthes et diagonales suivent ces niveaux dans la vue de face.
+V9.7
+- Choix indépendant du départ pour chaque façade.
+- Modes : automatique, cadre 2 m, cadre de départ 1,20 m, montants 0,50 / 0,70 / 1 / 2 / 3 m, manchon seul et combinaisons manchon + montant.
+- Première hauteur synchronisée dans la vue de face et la vue 3D.
+- Matériel de départ ajouté automatiquement à la nomenclature.
+- Compatibilité avec les sauvegardes précédentes.
