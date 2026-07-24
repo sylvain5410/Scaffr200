@@ -1,8 +1,5 @@
-ScaffR200 PRO V9.3.1 — 24/07/2026
-
-- Correction de l’erreur « #partSearch null » à l’ouverture de l’onglet Matériel.
-- Le catalogue embarqué est maintenant transmis correctement au moteur : les vrais noms et poids unitaires s’affichent.
-- Calcul du poids de ligne et du poids total restauré.
-- Impression : Nord et Sud sur la même feuille ; Est et Ouest sur la suivante.
-- La vue 3D imprimée est capturée avec le même moteur WebGL et le même modèle que l’onglet 3D.
-- Repli automatique sur la vue schématique uniquement si la capture WebGL est impossible.
+V9.3.2
+- Correction de la façade Nord parfois ignorée après configuration sur iPhone.
+- Synchronisation forcée des quatre formulaires de façade avant chaque calcul.
+- La nomenclature, les vues de face, la vue 3D et l’impression utilisent désormais le même état de façade.
+- Version et build mis à jour.

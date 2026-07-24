@@ -1,4 +1,3 @@
-ScaffR200 PRO V9.3.1
+ScaffR200 PRO V9.3.2
 
-Ouvrir index.html sur iPhone dans Safari ou dans l’enveloppe habituelle de l’application.
-Cette version corrige la liste Matériel, la navigation et la cohérence de la vue 3D imprimée.
+Correctif de synchronisation iPhone : la façade Nord et toutes les façades visibles sont relues directement depuis le formulaire avant le calcul matériel, les plans, la 3D et l’impression.
