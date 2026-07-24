@@ -1,7 +1,6 @@
-V9.2.2
-- Correction de l’erreur à l’ouverture de l’onglet Matériel.
-- Ajout d’un composant de secours pour les références automatiques absentes du catalogue.
-- Nouvelle géométrie 3D des échelles : inclinaison longitudinale, deux montants, barreaux et dépassement au-dessus du plancher.
-- Ancrages rouges dans la vue 3D.
-- Ancrages rouges et abaissés sur les plans.
-- Mise à jour des numéros de version et des exports.
+V9.2.3
+- Correction définitive du message d'erreur à l'ouverture de Matériel.
+- Remplacement de renderSearch() par calc() pour la liste simple.
+- Synchronisation du formulaire chantier, des options et de toutes les façades avant impression.
+- Génération immédiate des vues de face, dessus, côté et isométrique dans l'aperçu d'impression.
+- Migration de sauvegarde vers scaffr200-v9-2-3.
