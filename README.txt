@@ -1,5 +1,5 @@
-ScaffR200 PRO V9.7.3
+ScaffR200 PRO V9.8
 
-Correction du calcul automatique de la composition de départ.
-Pour une hauteur de 5 m : cadre 2 m directement au départ, premier plancher à 1 m, puis niveaux à 3 m et 5 m.
+Nouveau moteur d’assemblage commun par façade. La composition de départ, le premier plancher, les niveaux de 2 m, les cadres supplémentaires, les vues et la nomenclature utilisent la même structure de calcul.
+
 Ouvrir index.html.
