@@ -1,4 +1,7 @@
-V9.3.3
-- Correction de la façade manquante dans la nomenclature, les vues de face et la 3D.
-- Repli automatique vers les travées automatiques lorsqu’une façade était enregistrée en mode manuel sans aucune travée.
-- Nettoyage des anciennes sauvegardes incohérentes.
+V9.4.1
+- Nouvelle nomenclature professionnelle.
+- Désignations simplifiées et références conservées en information secondaire.
+- Poids renseignés pour les composants automatiques principaux.
+- Quantités tactiles modifiables et restauration automatique par ligne.
+- PDF/CSV alignés sur la nouvelle nomenclature.
+- Moteur de calcul V9.3.3 conservé.
