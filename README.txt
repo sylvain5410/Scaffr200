@@ -1,4 +1,4 @@
-ScaffR200 PRO V9.2.3
+ScaffR200 PRO V9.2.4
 
 Correctif iPhone :
 - l'onglet Matériel ouvre directement la liste simple ;
@@ -9,3 +9,6 @@ Correctif iPhone :
 - les faces et plans sont donc présents sans devoir ouvrir auparavant l'onglet Plans.
 
 Ouvrir index.html dans Safari.
+
+
+V9.2.4 corrige la nomenclature et la mise en page d’impression iPhone.

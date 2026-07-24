@@ -1,3 +1,9 @@
+V9.2.4
+- Correction du catalogue chargé trop tôt : noms et poids unitaires restaurés dans la liste de matériel.
+- Poids de ligne et poids total recalculés correctement.
+- Impression : Nord/Sud sur une feuille, Est/Ouest sur une feuille, dessus/côté sur une feuille, 3D sur une feuille.
+- Toutes les vues sont régénérées depuis la configuration courante avant impression.
+
 V9.2.3
 - Correction définitive du message d'erreur à l'ouverture de Matériel.
 - Remplacement de renderSearch() par calc() pour la liste simple.
