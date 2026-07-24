@@ -1,12 +1,11 @@
-ScaffR200 PRO — V9.4
+ScaffR200 PRO — V9.4.1
 
-Base : V9.3.4 CACHE FIX stable.
+Correctif de distribution de la V9.4 :
+- numéro de build clairement affiché 9.4.1 ;
+- nouveau nom de fichier pour éviter le cache iPhone/Safari ;
+- indication visible que les garde-corps intérieurs se règlent dans l’étape 2 « Façades ».
 
-Évolutions V9.4 :
-- Pignons : les échelles et planchers à trappe sont maintenant représentés et comptés sur la travée sommitale jusqu'au niveau le plus haut.
-- Nouveau réglage par façade : garde-corps intérieur.
-- Choix disponibles : aucun, 1 lisse, 2 lisses, ou 2 lisses + 1 plinthe.
-- Le choix modifie automatiquement la liste de matériel.
-- Les protections intérieures sont également visibles dans la vue 3D.
-
-Lancer index.html.
+Fonctions V9.4 conservées :
+- accès pignon représenté sur la travée sommitale ;
+- garde-corps intérieur par façade : aucun, 1 lisse, 2 lisses, 2 lisses + 1 plinthe ;
+- incidence automatique sur la nomenclature et la représentation 3D.

@@ -1,8 +1,8 @@
-V9.4 — 24/07/2026
-- Correction de l'accès toute hauteur sur les pignons : maintien de la travée sommitale dans les niveaux supérieurs.
-- Ajout du plancher à trappe et de l'échelle sur la travée la plus haute dans les vues et le calcul.
-- Ajout d'un choix de garde-corps intérieur pour chaque façade : aucun / 1 lisse / 2 lisses / 2 lisses + plinthe.
-- Synchronisation du nouveau choix avec la nomenclature et la vue 3D.
+V9.4.1 — 24/07/2026
+- Correction du badge Build resté à 9.3.4.
+- Nouveau fichier principal afin de contourner le cache iPhone/Safari.
+- Ajout d’une indication vers le réglage des garde-corps intérieurs dans l’étape Façades.
 
-V9.3.4
-- Base stable officielle et correctif cache iPhone/Safari.
+V9.4
+- Correction des accès sur la travée la plus haute des pignons.
+- Garde-corps intérieur configurable par façade avec impact sur le matériel.
