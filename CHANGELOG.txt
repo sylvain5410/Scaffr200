@@ -1,5 +1,15 @@
-V9.2.6
-- Correction de la configuration des façades sur iPhone.
-- Réparation automatique des anciennes données de façade incomplètes ou corrompues.
-- Les champs, sélecteurs et cases à cocher mettent à jour le modèle et la sauvegarde.
-- Navigation et calcul protégés contre une façade manquante.
+V9.3.0
+- Reprise de la base stable V9.2.2.
+- Conservation du formulaire complet de configuration des façades.
+- Nomenclature simple maintenue avec désignations et poids issus du catalogue.
+- Impression regroupée : Nord/Sud, Est/Ouest, dessus/côté, puis 3D.
+- Recalcul systématique avant impression.
+- Cohérence des numéros de version et de build.
+
+V9.2.2
+- Correction de l’erreur à l’ouverture de l’onglet Matériel.
+- Ajout d’un composant de secours pour les références automatiques absentes du catalogue.
+- Nouvelle géométrie 3D des échelles : inclinaison longitudinale, deux montants, barreaux et dépassement au-dessus du plancher.
+- Ancrages rouges dans la vue 3D.
+- Ancrages rouges et abaissés sur les plans.
+- Mise à jour des numéros de version et des exports.
