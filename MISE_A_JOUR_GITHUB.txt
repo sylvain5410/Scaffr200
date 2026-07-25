@@ -1,0 +1,13 @@
+CORRECTIF GITHUB PAGES V9.9.4
+
+Envoyer les 7 fichiers de ce dossier à la racine du dépôt GitHub.
+Il est indispensable de remplacer aussi service-worker.js.
+
+Le service worker précédent utilisait une stratégie cache d'abord et bloquait index.html sur V9.9.3.1.
+Le nouveau service worker utilise le réseau en priorité et supprime les anciens caches lors de son activation.
+
+Après le commit GitHub :
+1. Attendre la fin du déploiement GitHub Pages.
+2. Ouvrir le site dans Safari.
+3. Actualiser une fois.
+4. La version affichée doit être Build 9.9.4.
