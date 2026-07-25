@@ -1,3 +1,8 @@
+V10.0.3 — 25/07/2026
+- Correction ReferenceError configuredCount dans renderControls().
+- Calcul local du nombre de façades configurées pour éviter les erreurs de portée JavaScript.
+- Cache, moteur et export mis à jour en V10.0.3.
+
 V10.0.2 — 25/07/2026
 - Première étape de fiabilisation du moteur de calcul.
 - Contrôle des quantités invalides, négatives ou non entières.
