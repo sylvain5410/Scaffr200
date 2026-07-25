@@ -1,5 +1,16 @@
-ScaffR200 PRO V9.8
+ScaffR200 PRO V9.8.1
+====================
 
-Nouveau moteur d’assemblage commun par façade. La composition de départ, le premier plancher, les niveaux de 2 m, les cadres supplémentaires, les vues et la nomenclature utilisent la même structure de calcul.
+Ouvrir index.html dans Safari, Chrome ou Edge.
 
-Ouvrir index.html.
+Nouveauté V9.8.1
+- Le nombre de façades choisi dans l’onglet « Chantier » pilote directement l’onglet « Façades ».
+- 1 façade choisie : 1 seule fiche visible.
+- 2 façades choisies : 2 fiches visibles.
+- 3 façades choisies : 3 fiches visibles.
+- 4 façades choisies : 4 fiches visibles.
+- Les façades supplémentaires sont masquées et désactivées automatiquement.
+- La case « Utiliser » n’est plus affichée dans les fiches de façade.
+- Le titre principal affiche maintenant V9.8.1.
+
+La logique du moteur d’assemblage V9.8 et le départ automatique validé sont conservés.

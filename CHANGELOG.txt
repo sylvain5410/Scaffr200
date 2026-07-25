@@ -1,6 +1,10 @@
+V9.8.1 — 25/07/2026
+- Synchronisation du nombre de façades entre les onglets Chantier et Façades.
+- Affichage uniquement des fiches correspondant au nombre sélectionné.
+- Suppression de la case visible « Utiliser » dans la configuration des façades.
+- Désactivation automatique des façades qui dépassent le nombre choisi.
+- Correction du titre principal en V9.8.1.
+- Nouveau nom du moteur JavaScript pour limiter les problèmes de cache mobile.
+
 V9.8
-- Ajout d’un objet d’assemblage unique pour chaque façade.
-- Résumé détaillé de la composition de départ.
-- Calcul commun du premier plancher et des niveaux pour la face, la 3D et la nomenclature.
-- Calcul des cadres supplémentaires depuis le même assemblage.
-- Conservation du départ automatique validé : 5 m = cadre 2 m direct, plancher à 1 m.
+- Moteur d’assemblage commun pour les départs, les niveaux, les vues et la nomenclature.
