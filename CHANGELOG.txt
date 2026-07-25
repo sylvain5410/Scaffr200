@@ -1,3 +1,10 @@
+V9.9.6
+- Rehausse 3D corrigée : montants de 1 m sur toutes les lignes extérieures.
+- Côté intérieur : un montant de 1 m uniquement à chaque extrémité.
+- Ajout de deux garde-corps d’extrémité superposés de chaque côté.
+- Liste matériel mise en cohérence : montants et garde-corps d’extrémité de rehausse comptés.
+- Cache et numéros de version actualisés.
+
 V9.9.5
 - Glisser-déposer tactile des rectangles de travées avant validation.
 - Aperçu immédiat de l’ordre choisi.
