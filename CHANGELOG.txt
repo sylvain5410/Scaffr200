@@ -1,7 +1,6 @@
-V9.9.4
-- Copie stricte de la solution exacte affichée vers l’éditeur manuel.
-- Aucun recalcul lors du clic sur « Utiliser et choisir l’ordre ».
-- Résumé visible de l’ordre chargé et du total exact.
-- L’ordre manuel reste la source des vues et de la nomenclature.
-- Désinscription des anciens service workers et suppression des caches PWA.
-- Nouveaux noms de fichiers anti-cache.
+V9.9.5
+- Glisser-déposer tactile des rectangles de travées avant validation.
+- Aperçu immédiat de l’ordre choisi.
+- Validation fidèle de la séquence déplacée.
+- Position de l’accès ajustée lors du déplacement.
+- Cache GitHub Pages en réseau prioritaire conservé.

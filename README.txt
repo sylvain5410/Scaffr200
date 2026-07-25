@@ -1,7 +1,3 @@
-ScaffR200 PRO V9.9.4
+ScaffR200 Pro V9.9.5
 
-Ouvrir index.html.
-
-Correction principale : le bouton « Utiliser et choisir l’ordre » copie exactement la solution visible dans l’éditeur manuel, sans recalcul ni remplacement de travée.
-Un bandeau vert affiche immédiatement l’ordre chargé et son total.
-Cette version désactive aussi les anciens service workers et vide les caches PWA pouvant bloquer les mises à jour GitHub Pages.
+Éditeur tactile de l’ordre des travées avant validation. Maintenir puis glisser les rectangles horizontalement. L’ordre validé alimente les vues et la nomenclature. Correctif GitHub Pages/service worker conservé.
