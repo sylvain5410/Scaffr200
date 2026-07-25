@@ -1,4 +1,4 @@
-ScaffR200 PRO V10.1.0 — Vue 3D professionnelle
+ScaffR200 PRO V10.1.1 — Vue 3D professionnelle
 
 - Caméra tactile optimisée pour iPhone : rotation à un doigt, zoom et déplacement à deux doigts.
 - Barre compacte dans la vue 3D avec Perspective, Faces A/B/C/D et vue de dessus.
