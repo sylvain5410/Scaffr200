@@ -1,3 +1,12 @@
+ScaffR200 PRO V10.1.0 — Vue 3D professionnelle
+
+- Caméra tactile optimisée pour iPhone : rotation à un doigt, zoom et déplacement à deux doigts.
+- Barre compacte dans la vue 3D avec Perspective, Faces A/B/C/D et vue de dessus.
+- Boutons de zoom et centrage automatique de tout le montage.
+- Plein écran nettoyé, sans grands textes masquant le dessin.
+- Inspection d’une pièce par simple toucher, avec panneau masquable.
+- Conservation du moteur de calcul automatique de la V10.0.4.
+
 V10.0.4 — 25/07/2026
 - Nouveau calcul automatique à partir de la hauteur de façade.
 - Choix de la distance entre le haut de façade et le dernier plancher : 1,00 à 3,00 m.
