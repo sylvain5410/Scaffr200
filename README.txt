@@ -1,11 +1,9 @@
-ScaffR200 PRO V9.9
+ScaffR200 Pro V9.9.1
 
-Nouveautés :
-- Trois propositions d'implantation des travées pour chaque façade : écart minimal, moins de travées et travées équilibrées.
-- Une proposition peut être appliquée directement et devient une séquence manuelle ordonnée, modifiable travée par travée.
-- La vue de dessus affiche la longueur réelle de chaque travée.
-- La nomenclature, les vues de face et la 3D utilisent la séquence choisie.
-- Le nombre de façades choisi dans Chantier continue de limiter les fiches visibles.
+Corrections principales :
+- Trois propositions d’implantation réellement distinctes : écart minimal, moins de travées et travées équilibrées.
+- Pour les travées de 0,80 m et 1,20 m, la nomenclature compte 2 planchers acier de largeur 0,36 m au lieu d’un plancher alu-bois.
+- Les garde-corps longitudinaux sont calculés avec des longerons correspondant à la longueur de la travée, à la place des lisses.
+- Les garde-corps intérieurs et de rehausse utilisent également les longerons.
 
-Ouvrir index.html.
-Les résultats doivent être vérifiés selon la notice fabricant et les contraintes du chantier.
+Ouvrir index.html après extraction complète de l’archive.

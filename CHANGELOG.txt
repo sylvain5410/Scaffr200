@@ -1,6 +1,6 @@
-V9.9
-- Ajout de trois stratégies de composition des travées.
-- Bouton d'application directe d'une implantation proposée.
-- Passage automatique en mode manuel après application, afin de conserver l'ordre exact.
-- Dimensions des travées ajoutées à la vue de dessus.
-- Harmonisation des libellés et du numéro de version.
+V9.9.1 — 25/07/2026
+- Correction des propositions d’implantation dupliquées.
+- Ajout d’une stratégie « moins de travées » qui privilégie réellement le nombre minimal de travées.
+- Ajout d’une stratégie « travées équilibrées » distincte.
+- Travées 0,80 m et 1,20 m : 2 planchers acier 0,36 m par niveau planché.
+- Garde-corps : remplacement des lisses par les longerons adaptés à chaque longueur de travée.
