@@ -1,10 +1,6 @@
-V9.8.1 — 25/07/2026
-- Synchronisation du nombre de façades entre les onglets Chantier et Façades.
-- Affichage uniquement des fiches correspondant au nombre sélectionné.
-- Suppression de la case visible « Utiliser » dans la configuration des façades.
-- Désactivation automatique des façades qui dépassent le nombre choisi.
-- Correction du titre principal en V9.8.1.
-- Nouveau nom du moteur JavaScript pour limiter les problèmes de cache mobile.
-
-V9.8
-- Moteur d’assemblage commun pour les départs, les niveaux, les vues et la nomenclature.
+V9.9
+- Ajout de trois stratégies de composition des travées.
+- Bouton d'application directe d'une implantation proposée.
+- Passage automatique en mode manuel après application, afin de conserver l'ordre exact.
+- Dimensions des travées ajoutées à la vue de dessus.
+- Harmonisation des libellés et du numéro de version.
