@@ -1,7 +1,6 @@
-V9.9.2 - 25/07/2026
-- Suppression des implantations comportant un écart.
-- Recherche de toutes les combinaisons exactes disponibles.
-- Navigation entre solutions exactes.
-- Passage direct vers l’éditeur d’ordre des travées.
-- Flèches gauche/droite adaptées à l’ordre horizontal.
-- Conservation des règles planchers acier 0,36 m et longerons de V9.9.1.
+V9.9.3 - 25/07/2026
+- Source unique d’implantation pour le résumé, les vues, la 3D et la nomenclature.
+- Mise à jour immédiate lors du changement de solution exacte.
+- Suppression des doublons liés uniquement à l’ordre des travées.
+- Éditeur manuel ordonné conservé après validation.
+- Nouveau nom de moteur pour limiter le cache iPhone.

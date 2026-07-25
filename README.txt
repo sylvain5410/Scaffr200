@@ -1,13 +1,10 @@
-ScaffR200 PRO V9.9.2
+ScaffR200 PRO V9.9.3
 
-Ouvrir index.html sur iPhone ou ordinateur.
+Ouvrir index.html.
 
-Nouveautés :
-- aucune proposition avec écart : seules les combinaisons exactes sont acceptées ;
-- navigation Précédente / Suivante entre les implantations exactes ;
-- bouton « Utiliser et choisir l’ordre » pour passer à l’éditeur manuel ;
-- chaque travée peut être déplacée à gauche ou à droite, supprimée ou remplacée ;
-- 2 planchers acier de 0,36 m pour les travées de 0,80 m et 1,20 m ;
-- longerons utilisés pour les garde-corps.
-
-Si aucune combinaison exacte n’existe, l’application le signale et propose la composition manuelle.
+Corrections principales :
+- la solution exacte affichée est la source unique de calcul ;
+- le résumé, les vues et la nomenclature utilisent la même implantation ;
+- les permutations d’une même combinaison ne sont pas dupliquées ;
+- après validation, l’ordre des travées reste modifiable avec les flèches gauche/droite ;
+- les règles V9.9.1 sont conservées : 2 planchers acier 0,36 m pour les travées 0,80 m et 1,20 m, et longerons pour les garde-corps.
