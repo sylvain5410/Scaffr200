@@ -1,6 +1,5 @@
-V9.9.3 - 25/07/2026
-- Source unique d’implantation pour le résumé, les vues, la 3D et la nomenclature.
-- Mise à jour immédiate lors du changement de solution exacte.
-- Suppression des doublons liés uniquement à l’ordre des travées.
-- Éditeur manuel ordonné conservé après validation.
-- Nouveau nom de moteur pour limiter le cache iPhone.
+V9.9.3.1
+- Correctif de cache iPhone/Safari.
+- Nouveau nom du fichier moteur.
+- Harmonisation du titre, du build, de l assistant, du moteur 3D et de l impression.
+- Fonctionnalites V9.9.3 conservees.
