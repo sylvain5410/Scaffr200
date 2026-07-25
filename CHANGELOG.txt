@@ -1,3 +1,12 @@
+V9.9.9
+- Façade seule : 4 garde-corps d’extrémité et 2 plinthes d’extrémité par niveau.
+- Exemple 6 m / 3 niveaux sans rehausse : 12 garde-corps d’extrémité et 6 plinthes.
+- Avec rehausse : ajout de 4 garde-corps d’extrémité (2 à gauche et 2 à droite), sans plinthe supplémentaire.
+- Exemple 6 m / 3 niveaux avec rehausse : 16 garde-corps d’extrémité et 6 plinthes.
+- Vue 3D : les deux lisses normales restent présentes et deux lisses sont ajoutées au-dessus avec la rehausse.
+- Vue 3D : les quatre garde-corps d’extrémité de rehausse sont dessinés sans plinthe.
+- Cache, moteur et numéros de version actualisés.
+
 V9.9.7
 - Vue 3D : un garde-corps d’extrémité à gauche et un à droite sur la rehausse.
 - Aucun ajout de plinthe d’extrémité pour la rehausse.
