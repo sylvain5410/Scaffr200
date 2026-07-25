@@ -1,11 +1,11 @@
-V10.0.1 — 25/07/2026
+V10.0.2 — 25/07/2026
 - Première étape de fiabilisation du moteur de calcul.
 - Contrôle des quantités invalides, négatives ou non entières.
 - Vérification socles à vis / cales bois.
 - Vérification automatique des garde-corps d’extrémité, avec ajout de 4 unités en cas de rehausse.
 - Signalement des références provisoires utilisées dans la nomenclature.
 - Ajout des compteurs de pièces calculées et de références provisoires dans le diagnostic.
-- Version du modèle exporté portée à 10.0.1.
+- Version du modèle exporté portée à 10.0.2.
 
 ScaffR200 Pro v10.0
 - Vue 3D : garde-corps, lisses, diagonales et plinthes longitudinales déplacés sur le plan extérieur de toutes les façades.
@@ -44,3 +44,6 @@ V9.9.5
 - Validation fidèle de la séquence déplacée.
 - Position de l’accès ajustée lors du déplacement.
 - Cache GitHub Pages en réseau prioritaire conservé.
+
+V10.0.2
+- Correction du blocage de l’onglet Matériel : appel de scaffoldFloorLevels corrigé.
