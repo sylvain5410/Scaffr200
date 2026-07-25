@@ -1,3 +1,10 @@
+ScaffR200 Pro v9.10.0
+- Vue 3D : garde-corps, lisses, diagonales et plinthes longitudinales déplacés sur le plan extérieur de toutes les façades.
+- Le plan intérieur est désormais le côté mur (profondeur 0) et le plan extérieur la profondeur complète de l’échafaudage.
+- Les protections intérieures optionnelles restent seules côté mur.
+- Les garde-corps d’extrémité restent transversaux aux extrémités.
+- Les ancrages partent du plan extérieur vers la façade.
+
 V9.9.9
 - Façade seule : 4 garde-corps d’extrémité et 2 plinthes d’extrémité par niveau.
 - Exemple 6 m / 3 niveaux sans rehausse : 12 garde-corps d’extrémité et 6 plinthes.
