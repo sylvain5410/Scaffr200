@@ -1,3 +1,11 @@
+V10.0.4 — 25/07/2026
+- Nouveau calcul automatique à partir de la hauteur de façade.
+- Choix de la distance entre le haut de façade et le dernier plancher : 1,00 à 3,00 m.
+- Calcul automatique du dernier plancher, du premier plancher et du nombre de niveaux espacés de 2 m.
+- Composition automatique du départ : cadre 2 m, montant 0,50 m, montant 1 m, ou combinaison 1 m + 0,50 m.
+- Pour un plancher de départ à 2 m : choix montant 1 m ou cadre de départ.
+- Mode manuel de composition du départ conservé.
+
 V10.0.3 — 25/07/2026
 - Correction ReferenceError configuredCount dans renderControls().
 - Calcul local du nombre de façades configurées pour éviter les erreurs de portée JavaScript.
