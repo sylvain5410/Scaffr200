@@ -1,6 +1,7 @@
-V9.9.1 — 25/07/2026
-- Correction des propositions d’implantation dupliquées.
-- Ajout d’une stratégie « moins de travées » qui privilégie réellement le nombre minimal de travées.
-- Ajout d’une stratégie « travées équilibrées » distincte.
-- Travées 0,80 m et 1,20 m : 2 planchers acier 0,36 m par niveau planché.
-- Garde-corps : remplacement des lisses par les longerons adaptés à chaque longueur de travée.
+V9.9.2 - 25/07/2026
+- Suppression des implantations comportant un écart.
+- Recherche de toutes les combinaisons exactes disponibles.
+- Navigation entre solutions exactes.
+- Passage direct vers l’éditeur d’ordre des travées.
+- Flèches gauche/droite adaptées à l’ordre horizontal.
+- Conservation des règles planchers acier 0,36 m et longerons de V9.9.1.
