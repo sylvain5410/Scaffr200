@@ -1,5 +1,7 @@
-V9.9.3.1
-- Correctif de cache iPhone/Safari.
-- Nouveau nom du fichier moteur.
-- Harmonisation du titre, du build, de l assistant, du moteur 3D et de l impression.
-- Fonctionnalites V9.9.3 conservees.
+V9.9.4
+- Copie stricte de la solution exacte affichée vers l’éditeur manuel.
+- Aucun recalcul lors du clic sur « Utiliser et choisir l’ordre ».
+- Résumé visible de l’ordre chargé et du total exact.
+- L’ordre manuel reste la source des vues et de la nomenclature.
+- Désinscription des anciens service workers et suppression des caches PWA.
+- Nouveaux noms de fichiers anti-cache.
