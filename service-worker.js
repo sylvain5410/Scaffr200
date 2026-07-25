@@ -1,4 +1,4 @@
-const CACHE = 'scaffr200-v996-20260725';
+const CACHE = 'scaffr200-v997-20260725';
 
 self.addEventListener('install', event => {
   self.skipWaiting();

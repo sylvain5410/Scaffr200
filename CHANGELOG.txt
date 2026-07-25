@@ -1,3 +1,11 @@
+V9.9.7
+- Vue 3D : un garde-corps d’extrémité à gauche et un à droite sur la rehausse.
+- Aucun ajout de plinthe d’extrémité pour la rehausse.
+- Nomenclature : remplacement des longerons par les lisses de garde-corps R200.
+- Les garde-corps extérieurs, intérieurs et de rehausse utilisent les références de lisses correspondantes.
+- Quantité de garde-corps d’extrémité de rehausse corrigée à 2 au total par façade.
+- Cache et numéros de version actualisés.
+
 V9.9.6
 - Rehausse 3D corrigée : montants de 1 m sur toutes les lignes extérieures.
 - Côté intérieur : un montant de 1 m uniquement à chaque extrémité.
