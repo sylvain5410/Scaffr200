@@ -1,4 +1,4 @@
-ScaffR200 PRO V10.1.2
+ScaffR200 PRO V10.1.3
 
 Correctifs et évolutions :
 - correction du message null/querySelector lors du passage à l’étape suivante ;
