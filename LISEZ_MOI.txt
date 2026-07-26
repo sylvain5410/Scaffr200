@@ -1,0 +1,9 @@
+IMPORTANT — iPHONE
+
+1. Supprimez l’ancienne copie ou l’ancien dossier ScaffR200 de l’app Fichiers.
+2. Décompressez cette archive dans un nouveau dossier.
+3. Ouvrez uniquement : OUVRIR_SCAFFR200_V10_2_0.html
+4. Le bandeau doit afficher : Build 10.2.0 FORCE OPEN.
+
+N’ouvrez pas un ancien raccourci d’écran d’accueil : il pointe encore vers la V10.1.3.
+Si l’application est installée sur l’écran d’accueil, supprimez l’icône puis ouvrez ce nouveau fichier.
