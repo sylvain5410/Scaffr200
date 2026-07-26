@@ -1,23 +1,15 @@
-# ScaffR200 Pro V10.2.0
+# ScaffR200 PRO V10.2.1
 
-Version GitHub Pages prête à publier.
+Version GitHub Pages avec calcul par segments des façades complexes.
 
 ## Publication
+Téléverser tous les fichiers à la racine du dépôt GitHub, en remplaçant l'ancien `index.html`.
 
-Téléverser tous les fichiers de ce dossier à la racine du dépôt `sylvain5410/ScaffR200` puis valider avec **Commit changes**.
+## Fonctions principales
+- décrochement en retrait ou en avancée ;
+- hauteur gauche et droite indépendantes ;
+- calcul des parties horizontales et des deux retours ;
+- nomenclature fusionnée ;
+- contrôles de géométrie.
 
-Le fichier principal doit rester nommé `index.html`.
-
-Adresse de l'application :
-`https://sylvain5410.github.io/Scaffr200/`
-
-## Nouveautés V10.2.0
-
-- un décrochement maximum par façade ;
-- retrait ou avancée de façade ;
-- position, largeur et profondeur paramétrables ;
-- hauteur gauche et hauteur droite différentes ;
-- position du changement de hauteur ;
-- contrôles des dimensions impossibles ;
-- représentation dans les vues de face et de dessus ;
-- estimation prudente du matériel basée sur la hauteur maximale de la façade complexe.
+La 3D détaillée des retours sera complétée dans une version suivante.

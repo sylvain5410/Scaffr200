@@ -1,9 +1,11 @@
-ScaffR200 Pro V10.2.0 — 26/07/2026
+ScaffR200 PRO V10.2.1 — 26/07/2026
 
-- Ajout des façades avec un décrochement.
-- Choix retrait ou avancée.
-- Saisie de la position, de la largeur et de la profondeur.
-- Ajout des hauteurs gauche/droite et de la position de rupture.
-- Contrôle des décrochements hors dimensions.
-- Mise à jour des vues de face et de dessus.
-- Préparation du modèle de façades segmentées.
+- Calcul d'une façade complexe par segments.
+- Découpage en partie gauche, décrochement central et partie droite.
+- Ajout des deux retours d'échafaudage correspondant à la profondeur du décrochement.
+- Niveaux, garde-corps, plinthes et planchers limités selon la hauteur gauche/droite.
+- Ancrages filtrés selon la hauteur réelle au point considéré.
+- Fusion de tous les segments dans une nomenclature unique.
+- Diagnostic indiquant le nombre de segments calculés.
+
+Important : cette version constitue la première intégration du calcul segmenté. La représentation 3D complète des retours reste prévue pour la V10.3.0.
