@@ -1,5 +1,9 @@
-# ScaffR200 Pro V10.2.4
+# ScaffR200 PRO V10.2.5
 
-Correction de l'ouverture de l'onglet Façades après la suppression du mode de départ automatique.
+Version GitHub Pages ciblée :
+- pignons représentés par niveaux horizontaux en gradins ;
+- même géométrie en vue de face et en 3D ;
+- matériel du pignon compté par travée active et par niveau ;
+- plinthes affichées en rouge.
 
-La hauteur saisie correspond directement à la hauteur du dernier plancher. Le départ est composé manuellement pour chaque façade.
+Téléverser le contenu de ce dossier à la racine du dépôt GitHub.

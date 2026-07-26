@@ -1,4 +1,6 @@
-V10.2.4 - 26/07/2026
-- Correction de l'erreur null sur .startMode.
-- Le mode de départ reste toujours manuel.
-- La hauteur saisie reste la hauteur exacte du dernier plancher.
+V10.2.5 - 26/07/2026
+- Correction des pignons dans la vue de face.
+- Correction des pignons dans la vue 3D.
+- Niveaux supérieurs dessinés en gradins horizontaux.
+- Calcul matériel des pignons basé sur les travées actives à chaque niveau.
+- Plinthes rouges dans les vues et la légende.
