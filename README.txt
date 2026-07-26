@@ -1,6 +1,10 @@
-ScaffR200 PRO V10.2.0 — CACHE FIX
+ScaffR200 PRO V10.1.3
 
-Ouvrir en priorité : ScaffR200_V10_2_0_CACHE_FIX.html
-
-Cette archive ne contient volontairement aucune ancienne version afin d'éviter d'ouvrir par erreur la V10.1.3.
-Le bandeau doit afficher : ScaffR200 Pro v10.2.0 — Build 10.2.0 · 26/07/2026.
+Correctifs et évolutions :
+- correction du message null/querySelector lors du passage à l’étape suivante ;
+- choix manuel du dépassement de 1 m : aucun, gauche, droite ou des deux côtés ;
+- longueur d’échafaudage recalculée automatiquement selon les côtés choisis ;
+- contrôle des angles d’une maison fermée ;
+- blocage si deux dépassements se chevauchent au même angle ;
+- avertissement lorsqu’un angle n’est couvert par aucun dépassement ;
+- répercussion dans les travées, la nomenclature, les plans et la vue 3D.

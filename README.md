@@ -1,12 +1,10 @@
-# ScaffR200 PRO V10.2.2 — GitHub Pages
+# ScaffR200 Pro V10.2.3
 
-Version bâtiment multi-volumes. Téléverser tous les fichiers à la racine du dépôt GitHub en remplaçant `index.html`.
+Version simplifiée sans décrochement de façade.
 
-Nouveautés :
-- façade simple, un décrochement ou mode multi-volumes ;
-- deux volumes indépendants (retrait ou avancée) ;
-- position, largeur et profondeur de chaque volume ;
-- retours perpendiculaires calculés comme de vraies façades ;
-- contrôle du chevauchement des volumes ;
-- vue de dessus distinguant les deux volumes ;
-- hauteurs gauche/droite conservées dans le calcul.
+- La hauteur saisie correspond exactement au dernier plancher d'échafaudage.
+- Le départ se compose manuellement pour chaque façade.
+- Les niveaux sont espacés de 2 m.
+- Le diagnostic signale une composition de départ incompatible avec la hauteur choisie.
+
+Pour GitHub Pages, placer `index.html` et `core-engine-v10102-20260725.js` à la racine du dépôt.
