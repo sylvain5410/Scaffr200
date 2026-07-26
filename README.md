@@ -1,10 +1,5 @@
-# ScaffR200 Pro V10.2.3
+# ScaffR200 Pro V10.2.4
 
-Version simplifiée sans décrochement de façade.
+Correction de l'ouverture de l'onglet Façades après la suppression du mode de départ automatique.
 
-- La hauteur saisie correspond exactement au dernier plancher d'échafaudage.
-- Le départ se compose manuellement pour chaque façade.
-- Les niveaux sont espacés de 2 m.
-- Le diagnostic signale une composition de départ incompatible avec la hauteur choisie.
-
-Pour GitHub Pages, placer `index.html` et `core-engine-v10102-20260725.js` à la racine du dépôt.
+La hauteur saisie correspond directement à la hauteur du dernier plancher. Le départ est composé manuellement pour chaque façade.

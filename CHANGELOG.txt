@@ -1,5 +1,4 @@
-ScaffR200 PRO V10.1.3
-- Correctif navigation Étape suivante.
-- Dépassements manuels de 1 m par façade.
-- Détection des chevauchements aux angles.
-- Calcul automatique des longueurs après choix gauche/droite/deux côtés.
+V10.2.4 - 26/07/2026
+- Correction de l'erreur null sur .startMode.
+- Le mode de départ reste toujours manuel.
+- La hauteur saisie reste la hauteur exacte du dernier plancher.
