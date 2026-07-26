@@ -1,26 +1,23 @@
-# ScaffR200 PRO — GitHub Pages
+# ScaffR200 Pro V10.2.0
 
-Base officielle de publication : **V10.1.3 — Phase 1 GitHub**.
-
-## Fichiers à conserver à la racine
-
-- `index.html`
-- `core-engine-v10102-20260725.js`
-- `service-worker.js`
-- `.nojekyll`
+Version GitHub Pages prête à publier.
 
 ## Publication
 
-Dans GitHub : **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
+Téléverser tous les fichiers de ce dossier à la racine du dépôt `sylvain5410/ScaffR200` puis valider avec **Commit changes**.
 
-L'adresse du site sera :
+Le fichier principal doit rester nommé `index.html`.
 
-`https://sylvain5410.github.io/scaffr200-s/`
+Adresse de l'application :
+`https://sylvain5410.github.io/Scaffr200/`
 
-Le bandeau de l'application doit afficher :
+## Nouveautés V10.2.0
 
-`Build 10.1.3 GITHUB · 26/07/2026`
-
-## Mise à jour
-
-Remplacer les fichiers à la racine du dépôt puis valider avec **Commit changes**. Le fichier `index.html` désinscrit les anciens service workers et supprime les anciens caches au chargement pour éviter qu'une ancienne version reste affichée.
+- un décrochement maximum par façade ;
+- retrait ou avancée de façade ;
+- position, largeur et profondeur paramétrables ;
+- hauteur gauche et hauteur droite différentes ;
+- position du changement de hauteur ;
+- contrôles des dimensions impossibles ;
+- représentation dans les vues de face et de dessus ;
+- estimation prudente du matériel basée sur la hauteur maximale de la façade complexe.

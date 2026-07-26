@@ -1,5 +1,9 @@
-V10.2.0 CACHE FIX
-- Correction du titre et du numéro de version restés en V10.1.3.
-- Correction du numéro de build.
-- Nouveau nom de fichier pour forcer l'ouverture de la version mise à jour sur iPhone.
-- Suppression des anciens fichiers HTML de l'archive pour éviter toute confusion.
+ScaffR200 Pro V10.2.0 — 26/07/2026
+
+- Ajout des façades avec un décrochement.
+- Choix retrait ou avancée.
+- Saisie de la position, de la largeur et de la profondeur.
+- Ajout des hauteurs gauche/droite et de la position de rupture.
+- Contrôle des décrochements hors dimensions.
+- Mise à jour des vues de face et de dessus.
+- Préparation du modèle de façades segmentées.

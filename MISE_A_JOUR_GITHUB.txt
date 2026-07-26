@@ -1,13 +1,8 @@
-CORRECTIF GITHUB PAGES V9.9.4
-
-Envoyer les 7 fichiers de ce dossier à la racine du dépôt GitHub.
-Il est indispensable de remplacer aussi service-worker.js.
-
-Le service worker précédent utilisait une stratégie cache d'abord et bloquait index.html sur V9.9.3.1.
-Le nouveau service worker utilise le réseau en priorité et supprime les anciens caches lors de son activation.
-
-Après le commit GitHub :
-1. Attendre la fin du déploiement GitHub Pages.
-2. Ouvrir le site dans Safari.
-3. Actualiser une fois.
-4. La version affichée doit être Build 9.9.4.
+1. Ouvrir le dépôt GitHub sylvain5410/ScaffR200.
+2. Cliquer sur Add file puis Upload files.
+3. Envoyer TOUS les fichiers de ce dossier, sans envoyer le dossier lui-même.
+4. Confirmer que index.html est à la racine.
+5. Cliquer sur Commit changes.
+6. Attendre le nouveau déploiement GitHub Pages.
+7. Ouvrir : https://sylvain5410.github.io/Scaffr200/
+8. Le bandeau doit afficher Build 10.2.0 GITHUB.

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>ScaffR200 PRO v10.1.3 — GitHub</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a4f83"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><title>ScaffR200 PRO v10.1.3</title>
 <style>
 :root{--b:#0a4f83;--bg:#f2f5f7;--line:#d6dee5;--ok:#24733c;--warn:#9a6500;--red:#a52d2d}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17212b}header{background:var(--b);color:white;padding:calc(16px + env(safe-area-inset-top)) 16px 16px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:23px}header p{margin:4px 0 0;opacity:.9}.nav{display:flex;gap:7px;overflow:auto;padding:12px 12px 4px;position:sticky;top:75px;background:var(--bg);z-index:4}.nav button{white-space:nowrap}.nav .on{background:var(--b);color:white}main{max-width:1250px;margin:auto;padding:12px}.page{display:none}.page.on{display:block}.card{background:white;border-radius:12px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}label{font-weight:700;display:flex;flex-direction:column;gap:5px}input,select,button{font:inherit}input,select{padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:white;width:100%}button{border:0;border-radius:8px;padding:10px 13px;font-weight:700;cursor:pointer;background:#e5eaee}.primary{background:var(--b);color:#fff}.danger{background:var(--red);color:#fff}.facade{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden}.facade-head{display:flex;justify-content:space-between;align-items:center;padding:11px;background:#eef4f8}.facade-body{padding:12px}.inline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.check{display:flex;flex-direction:row;align-items:center;gap:7px;font-weight:700}.check input{width:auto}.manual{display:none;margin-top:10px}.manual.on{display:grid}.proposal{background:#e8f1f8;padding:10px;border-radius:8px;margin-top:10px;font-weight:700}.bay-solutions{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin-top:10px}.bay-solution{border:1px solid var(--line);border-radius:9px;padding:10px;background:#f8fafb}.bay-solution b{display:block;margin-bottom:5px}.bay-solution small{display:block;min-height:34px}.bay-solution button{margin-top:8px;width:100%}.bay-strip{display:flex;height:30px;margin-top:7px;border:1px solid #aac0cf;border-radius:6px;overflow:hidden;background:white}.bay-strip span{display:flex;align-items:center;justify-content:center;border-right:1px solid #aac0cf;font-size:11px;min-width:18px}.bay-strip span:last-child{border-right:0}.bay-strip.reorderable span{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:transform .12s,background .12s}.bay-strip.reorderable span.dragging{opacity:.55;transform:scale(.96);background:#d7ebf8}.drag-help{display:block;margin-top:7px;color:#526270;font-weight:400}.order-preview{margin-top:8px;padding:8px;border-left:4px solid var(--ok);background:#eaf7ed;border-radius:7px;font-weight:700}.start-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:7px;padding:10px;border:1px solid #b8c4ce;border-radius:8px;background:#f8fafb}
 .manual-sequence{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -164,7 +164,7 @@
 
 
 .gable-field[hidden]{display:none!important}
-.facade-type-note{font-size:12px;color:#52616d;margin-top:4px}.auto-length-note{display:block;margin-top:5px;padding:7px 8px;border-radius:7px;background:#e8f1f8;color:#174f73;font-weight:700}.new-project-actions{margin-top:12px}
+.facade-type-note{font-size:12px;color:#52616d;margin-top:4px}.complex-box{margin-top:12px;padding:12px;border:1px solid #b8c4ce;border-radius:10px;background:#f8fafb}.complex-fields[hidden]{display:none}.complex-error{margin-top:8px;padding:8px;border-radius:7px;background:#fde8e8;color:#8a1f1f;font-weight:700}.auto-length-note{display:block;margin-top:5px;padding:7px 8px;border-radius:7px;background:#e8f1f8;color:#174f73;font-weight:700}.new-project-actions{margin-top:12px}
 .gable-badge{display:inline-block;padding:2px 7px;border-radius:999px;background:#fff0cc;color:#7a4b00;font-size:11px;font-weight:700;margin-left:6px}
 
 .material-note{font-size:13px;color:#52616d}
@@ -338,7 +338,7 @@
 
 .v9-hero{border-left:5px solid #b11b1e;background:linear-gradient(135deg,rgba(177,27,30,.08),rgba(10,79,131,.05))}.v9-hero h2{display:flex;align-items:center;gap:8px}.v9-hero h2:after{content:"NOUVEAU";font-size:10px;padding:3px 7px;border-radius:999px;background:#b11b1e;color:white}.control-error,.control-warn,.control-ok{padding:10px 12px;border-radius:8px;margin:8px 0;border-left:4px solid}.control-error{background:#fff1f1;border-color:#b11b1e}.control-warn{background:#fff8e8;border-color:#d08a00}.control-ok{background:#eef9f1;border-color:#24834a}.scaff3d-badge-v8{background:rgba(10,79,131,.92)}
 
-/* V10.1.3 — Vue 3D professionnelle */
+/* V10.2.0 — Vue 3D professionnelle */
 .scaff3d-probar{position:absolute;left:12px;right:12px;bottom:12px;z-index:6;display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:8px;border-radius:12px;background:rgba(9,24,34,.88);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);pointer-events:auto!important}
 .scaff3d-probar button{padding:8px 10px;border-radius:8px;background:#f7fafb;color:#162630;border:0;font-size:12px;font-weight:800;pointer-events:auto!important}
 .scaff3d-probar button.active{background:#0a6ea8;color:#fff}
@@ -354,10 +354,10 @@
 if('serviceWorker' in navigator){window.addEventListener('load',async()=>{try{const regs=await navigator.serviceWorker.getRegistrations();await Promise.all(regs.map(r=>r.unregister()));if('caches' in window){const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)));}}catch(e){console.warn('Nettoyage cache non bloquant',e);}});}
 </script>
 
-<header><h1>ScaffR200 Pro <small>v10.1.3</small></h1><p>Configurateur chantier R200 / M368</p><span style="display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#ffffff22;font-size:11px;font-weight:700">Build 10.1.3 GITHUB · 26/07/2026</span></header>
-<div class="nav" id="nav" data-build="10.1.3-20260725"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
+<header><h1>ScaffR200 Pro <small>v10.2.0</small></h1><p>Configurateur chantier R200 / M368</p><span style="display:inline-block;margin-top:6px;padding:3px 7px;border-radius:999px;background:#ffffff22;font-size:11px;font-weight:700">Build 10.2.0 GITHUB · 26/07/2026</span></header>
+<div class="nav" id="nav" data-build="10.2.0-20260726"><button data-page="chantier" class="on">1. Chantier</button><button data-page="facades">2. Façades</button><button data-page="options">3. Options</button><button data-page="materiel">4. Matériel</button><button data-page="catalogue">5. Catalogue</button><button data-page="plans">6. Plans 2D / 3D</button><button data-page="controle">7. Contrôle</button><button data-page="documents">8. Documents</button></div>
 <main>
-<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V10.1.3</h2><p>Renseignez le chantier puis lancez une implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div><div class="inline new-project-actions"><button id="newProjectBtn" class="danger">Nouveau projet</button><span class="catalog-help">Remet à zéro le chantier, les façades, les options, la liste et la vue 3D.</span></div></div><div class="card notice"><b>V10.1.3 :</b> Nouveau projet et implantation automatique des angles : la longueur d’échafaudage est calculée depuis la largeur réelle de façade, avec 1 m par côté choisi manuellement. Le résultat pilote les travées, la nomenclature, les plans et la 3D.<br><br><b>V10.1.0 :</b> Vue 3D professionnelle : caméra tactile optimisée, barre compacte de vues rapides, zoom, centrage automatique, mode plein écran plus propre et inspection des pièces au toucher.<br><br><b>V10.0.4 :</b> Nouveau calcul automatique en hauteur : saisie de la hauteur de façade et de la distance du dernier plancher sous le haut. L’application calcule le dernier plancher, le premier plancher, le nombre de niveaux et la composition de départ. Pour un premier plancher à 2 m, choix entre montant 1 m ou cadre de départ.<br><br><b>V10.0.3 :</b> Correctif de stabilité : le diagnostic recalcule localement le nombre de façades configurées, ce qui supprime l’erreur « configuredCount » lors de l’ouverture des onglets. Première phase de fiabilisation du moteur : contrôle des quantités entières et positives, égalité socles/cales, vérification des protections d’extrémité et détection des références provisoires utilisées.<br><br><b>V10.0 :</b> Calcul des protections d’extrémité corrigé : une façade seule compte 4 garde-corps et 2 plinthes par niveau. Avec rehausse, ajout de 2 garde-corps superposés à gauche et 2 à droite, sans plinthe supplémentaire. Les 2 lisses normales restent en place et 2 lisses sont ajoutées au-dessus.<br><br><b>V9.9.6 :</b> Rehausse corrigée : montants de 1 m sur le plan extérieur, montants intérieurs uniquement aux deux extrémités, deux garde-corps d’extrémité superposés de chaque côté et nomenclature mise en cohérence.<br><br><b>V9.9.5 :</b> Les rectangles des travées peuvent être déplacés au doigt avant validation. L’ordre choisi est copié exactement dans l’éditeur, puis utilisé par les vues et la nomenclature.<br><br><b>V9.9.4 :</b> Le bouton « Utiliser et choisir l’ordre » copie strictement la solution affichée, sans recalcul. Un résumé confirme immédiatement l’ordre chargé. Nettoyage automatique des anciens caches et service workers GitHub Pages.<br><br><b>V9.9.3 :</b> L’implantation affichée devient la source unique pour le résumé, les vues et la nomenclature. Les combinaisons identiques ne sont comptées qu’une seule fois et l’ordre reste modifiable après validation.<br><br><b>V9.9.2 :</b> Implantations exactes uniquement, navigation entre les solutions exactes et ordre des travées librement modifiable. Aucun écart n’est accepté.<br><br><b>V9.9.1 :</b> Planchers acier 0,36 m doublés sur les travées de 0,80 m et 1,20 m, et longerons utilisés pour les garde-corps.<br><br><b>V9.9 :</b> Gestion avancée des travées : trois propositions d’implantation par façade, application directe d’une proposition en mode manuel et dimensions de chaque travée visibles dans la vue de dessus. Le nombre de façades choisi dans Chantier continue de piloter les fiches visibles.<br><br><b>V9.8 :</b> Nouveau moteur d’assemblage commun : la composition du départ, les niveaux, les cadres complémentaires, les vues et la nomenclature utilisent désormais le même modèle de façade. Le cadre 2 m place le premier plancher à 1 m. Chaque élément coché sous le cadre ajoute sa hauteur : montant 0,50 m + cadre = 1,50 m ; montant 1 m + cadre = 2 m ; montant 1 m + montant 0,50 m + cadre = 2,50 m. Le cadre de départ ajoute 1 m et le manchon est compté dans le matériel sans modifier la hauteur utile.<br><br><b>V9.7.1 :</b> Le cadre Comabi place le premier plancher à 1 m. Les montants sont cumulables sous le cadre : 0,50 m + cadre = plancher à 1,50 m ; 1 m + cadre = 2 m ; 1 m + 0,50 m + cadre = 2,50 m.<br><br><b>V9.7 :</b> Chaque façade possède maintenant son propre choix de départ. Ce choix commande la première hauteur dans la vue de face et la 3D, ainsi que les éléments ajoutés à la nomenclature.<br><br><b>V9.6.3 :</b> La vue de face utilise maintenant le même départ de hauteur à la base que la vue 3D (9 m = 1 m, 9,50 m = 1,50 m, 10 m = 2 m, 10,50 m = 2,50 m).<br><br><b>V9.6.2 :</b> Correction WebGL : la vue 3D place réellement le complément de hauteur à la base (9 m = départ 1 m, 10 m = 2 m, 9,50 m = 1,50 m, 10,50 m = 2,50 m).<br><br><b>V9.6 :</b> Gestion manuelle du plancher de chaque travée : automatique, normal, trappe + échelle ou sans plancher. Accès et diagonales restent configurables travée par travée.<br><br><b>V9.4.2 :</b> Correction de la vue 3D et affichage des trappes/échelles à chaque niveau du pignon.<br><br><b>V9.4.1 :</b> Les garde-corps intérieurs se règlent séparément pour chaque façade dans l’étape <b>2. Façades</b>.<br><br><b>V9.4 :</b> correctif de stabilité : catalogue correctement chargé, liste de matériel avec désignations et poids, navigation sans erreur et impression 3D issue du même moteur que la vue interactive. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
+<section class="page on" id="chantier"><div class="card v9-hero"><h2>Assistant de conception V10.2.0</h2><p>Façades complexes : décrochement, hauteurs gauche/droite et implantation automatique. Les travées, niveaux, accès et diagonales sont préparés sur le même modèle que la 3D et la nomenclature.</p><div class="grid"><label>Hauteur de niveau standard (m)<input id="assistantLift" type="number" min="1.5" max="2.5" step="0.1" value="2"></label><label>Façade d'accès<select id="assistantAccess"><option value="A">Façade 1</option><option value="B">Façade 2</option><option value="C">Façade 3</option><option value="D">Façade 4</option></select></label><label>Priorité d'implantation<select id="assistantPriority"><option value="few">Moins de travées</option><option value="exact">Écart minimal</option></select></label></div><div class="inline" style="margin-top:12px"><button id="assistantRun" class="primary">Calculer l'implantation complète</button><button id="assistantCheck">Vérifier le chantier</button><span id="assistantStatus" class="catalog-help">Prêt.</span></div></div><div class="card"><h2>Chantier</h2><div class="grid"><label>Nom<input id="projectName"></label><label>Client<input id="clientName"></label><label>Adresse<input id="address"></label><label>Système<select id="system"><option>R200 Progress</option><option>R200 Record</option><option>M368</option></select></label><label>Configuration<select id="configuration"><option value="closed">Maison fermée — façades reliées</option><option value="independent">Façades indépendantes</option></select></label><label>Nombre de façades<select id="facadeCount"><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label></div><div class="inline new-project-actions"><button id="newProjectBtn" class="danger">Nouveau projet</button><span class="catalog-help">Remet à zéro le chantier, les façades, les options, la liste et la vue 3D.</span></div></div><div class="card notice"><b>V10.2.0 :</b> Nouveau projet et implantation automatique des angles : la longueur d’échafaudage est calculée depuis la largeur réelle de façade, avec 1 m par côté choisi manuellement. Le résultat pilote les travées, la nomenclature, les plans et la 3D.<br><br><b>V10.1.0 :</b> Vue 3D professionnelle : caméra tactile optimisée, barre compacte de vues rapides, zoom, centrage automatique, mode plein écran plus propre et inspection des pièces au toucher.<br><br><b>V10.0.4 :</b> Nouveau calcul automatique en hauteur : saisie de la hauteur de façade et de la distance du dernier plancher sous le haut. L’application calcule le dernier plancher, le premier plancher, le nombre de niveaux et la composition de départ. Pour un premier plancher à 2 m, choix entre montant 1 m ou cadre de départ.<br><br><b>V10.0.3 :</b> Correctif de stabilité : le diagnostic recalcule localement le nombre de façades configurées, ce qui supprime l’erreur « configuredCount » lors de l’ouverture des onglets. Première phase de fiabilisation du moteur : contrôle des quantités entières et positives, égalité socles/cales, vérification des protections d’extrémité et détection des références provisoires utilisées.<br><br><b>V10.0 :</b> Calcul des protections d’extrémité corrigé : une façade seule compte 4 garde-corps et 2 plinthes par niveau. Avec rehausse, ajout de 2 garde-corps superposés à gauche et 2 à droite, sans plinthe supplémentaire. Les 2 lisses normales restent en place et 2 lisses sont ajoutées au-dessus.<br><br><b>V9.9.6 :</b> Rehausse corrigée : montants de 1 m sur le plan extérieur, montants intérieurs uniquement aux deux extrémités, deux garde-corps d’extrémité superposés de chaque côté et nomenclature mise en cohérence.<br><br><b>V9.9.5 :</b> Les rectangles des travées peuvent être déplacés au doigt avant validation. L’ordre choisi est copié exactement dans l’éditeur, puis utilisé par les vues et la nomenclature.<br><br><b>V9.9.4 :</b> Le bouton « Utiliser et choisir l’ordre » copie strictement la solution affichée, sans recalcul. Un résumé confirme immédiatement l’ordre chargé. Nettoyage automatique des anciens caches et service workers GitHub Pages.<br><br><b>V9.9.3 :</b> L’implantation affichée devient la source unique pour le résumé, les vues et la nomenclature. Les combinaisons identiques ne sont comptées qu’une seule fois et l’ordre reste modifiable après validation.<br><br><b>V9.9.2 :</b> Implantations exactes uniquement, navigation entre les solutions exactes et ordre des travées librement modifiable. Aucun écart n’est accepté.<br><br><b>V9.9.1 :</b> Planchers acier 0,36 m doublés sur les travées de 0,80 m et 1,20 m, et longerons utilisés pour les garde-corps.<br><br><b>V9.9 :</b> Gestion avancée des travées : trois propositions d’implantation par façade, application directe d’une proposition en mode manuel et dimensions de chaque travée visibles dans la vue de dessus. Le nombre de façades choisi dans Chantier continue de piloter les fiches visibles.<br><br><b>V9.8 :</b> Nouveau moteur d’assemblage commun : la composition du départ, les niveaux, les cadres complémentaires, les vues et la nomenclature utilisent désormais le même modèle de façade. Le cadre 2 m place le premier plancher à 1 m. Chaque élément coché sous le cadre ajoute sa hauteur : montant 0,50 m + cadre = 1,50 m ; montant 1 m + cadre = 2 m ; montant 1 m + montant 0,50 m + cadre = 2,50 m. Le cadre de départ ajoute 1 m et le manchon est compté dans le matériel sans modifier la hauteur utile.<br><br><b>V9.7.1 :</b> Le cadre Comabi place le premier plancher à 1 m. Les montants sont cumulables sous le cadre : 0,50 m + cadre = plancher à 1,50 m ; 1 m + cadre = 2 m ; 1 m + 0,50 m + cadre = 2,50 m.<br><br><b>V9.7 :</b> Chaque façade possède maintenant son propre choix de départ. Ce choix commande la première hauteur dans la vue de face et la 3D, ainsi que les éléments ajoutés à la nomenclature.<br><br><b>V9.6.3 :</b> La vue de face utilise maintenant le même départ de hauteur à la base que la vue 3D (9 m = 1 m, 9,50 m = 1,50 m, 10 m = 2 m, 10,50 m = 2,50 m).<br><br><b>V9.6.2 :</b> Correction WebGL : la vue 3D place réellement le complément de hauteur à la base (9 m = départ 1 m, 10 m = 2 m, 9,50 m = 1,50 m, 10,50 m = 2,50 m).<br><br><b>V9.6 :</b> Gestion manuelle du plancher de chaque travée : automatique, normal, trappe + échelle ou sans plancher. Accès et diagonales restent configurables travée par travée.<br><br><b>V9.4.2 :</b> Correction de la vue 3D et affichage des trappes/échelles à chaque niveau du pignon.<br><br><b>V9.4.1 :</b> Les garde-corps intérieurs se règlent séparément pour chaque façade dans l’étape <b>2. Façades</b>.<br><br><b>V9.4 :</b> correctif de stabilité : catalogue correctement chargé, liste de matériel avec désignations et poids, navigation sans erreur et impression 3D issue du même moteur que la vue interactive. Les résultats restent des aides à la préparation et doivent être validés selon la notice fabricant, l’étude de stabilité et les contraintes réelles du chantier.</div></div></section>
 <section class="page" id="facades"><div class="card"><h2>Configuration des façades</h2><div id="cornerValidation" class="notice" style="display:none;margin-bottom:12px"></div><div id="facadeList"></div></div></section>
 <section class="page" id="options"><div class="card"><h2>Options générales</h2><div class="grid"><label class="check"><input id="useLisses" type="checkbox" checked>Ajouter 2 garde-corps par travée et par niveau</label><label class="check"><input id="usePlinthes" type="checkbox" checked>Ajouter 1 plinthe par travée et niveau planché</label><label class="check"><input id="useDiags" type="checkbox" checked>Calculer les diagonales</label><label class="check"><input id="useEnd" type="checkbox" checked>Ajouter les protections d’extrémité</label><label class="check"><input id="useCales" type="checkbox" checked>Ajouter les cales bois</label><label>Type d’accès<select id="accessMode"><option value="trap">Planchers à trappe + échelles</option><option value="stairs">Escaliers</option></select></label><label class="check"><input id="useAnchors" type="checkbox" checked>Ajouter les ancrages (2ᵉ étage, 1 cadre sur 2, 1 étage sur 2, en quinconce)</label></div></div></section>
 <section class="page" id="materiel">
@@ -481,7 +481,7 @@ if('serviceWorker' in navigator){window.addEventListener('load',async()=>{try{co
 <p class="plan-note">Les dessins sont des représentations de préparation basées sur les données saisies. Ils ne constituent pas une étude de stabilité ni un plan d’exécution validé par le fabricant.</p>
 </div>
 </section>
-<section class="page" id="controle"><div class="card"><h2>Diagnostic chantier V10.1.3</h2><div class="summary"><div class="metric"><b id="controlScore">0 %</b>indice de préparation</div><div class="metric"><b id="controlErrors">0</b>erreurs</div><div class="metric"><b id="controlWarnings">0</b>avertissements</div><div class="metric"><b id="diagFacades">0</b>façades actives</div><div class="metric"><b id="diagBays">0</b>travées totales</div><div class="metric"><b id="diagLevels">0</b>niveaux cumulés</div><div class="metric"><b id="diagAccess">0</b>accès</div><div class="metric"><b id="diagDiags">0</b>zones diagonalées</div><div class="metric"><b id="diagPieces">0</b>pièces calculées</div><div class="metric"><b id="diagProvisional">0</b>références provisoires</div></div><div class="inline" style="margin-top:12px"><button id="controlRun" class="primary">Vérifier maintenant</button></div></div>
+<section class="page" id="controle"><div class="card"><h2>Diagnostic chantier V10.2.0</h2><div class="summary"><div class="metric"><b id="controlScore">0 %</b>indice de préparation</div><div class="metric"><b id="controlErrors">0</b>erreurs</div><div class="metric"><b id="controlWarnings">0</b>avertissements</div><div class="metric"><b id="diagFacades">0</b>façades actives</div><div class="metric"><b id="diagBays">0</b>travées totales</div><div class="metric"><b id="diagLevels">0</b>niveaux cumulés</div><div class="metric"><b id="diagAccess">0</b>accès</div><div class="metric"><b id="diagDiags">0</b>zones diagonalées</div><div class="metric"><b id="diagPieces">0</b>pièces calculées</div><div class="metric"><b id="diagProvisional">0</b>références provisoires</div></div><div class="inline" style="margin-top:12px"><button id="controlRun" class="primary">Vérifier maintenant</button></div></div>
 <div class="card"><h2>Contrôle du montage</h2>
 <p>Ce contrôle repère les oublis les plus courants. Il ne remplace pas l’étude ni la notice fabricant.</p>
 <div id="controlList" class="controls"></div>
@@ -507,7 +507,7 @@ const ITEMS=[{"reference":"04101004","designation":"RCM23 Socle à vis articulé
 const BAY_LENGTHS=[3,2.5,2,1.5,1.2,.8,.44], NAMES=['A','B','C','D'], DEFAULT_FACADE_NAMES=['Nord','Est','Sud','Ouest'];
 window.ITEMS=ITEMS;
 </script>
-<script src="core-engine-v10102-20260725.js?v=1010320260726"></script>
+<script src="core-engine-v10102-20260725.js?v=1020020260726"></script>
 <script>
 const refs={socle:'04101004',cale:'AUTO-CALE-BOIS',cadre2:'04002004',cadreDepart:'04002009',manchon:'00026717',m050:'00026700',m070:'AUTO-MONTANT-070',m100:'00026705',m200:'00026710',m300:'00026715',asym:'04002006',lisse:{3:'00010520',2.5:'00010925',2:'00010920',1.5:'00010915',1.2:'AUTO-LISSE-1200',.8:'00010550',.44:'AUTO-LISSE-0440'},longeron:{3:'04204011',2.5:'04204010',2:'04204009',1.5:'04204008',1.2:'04204002',.8:'04204007',.44:'04204005'},plinthe:{3:'04010201',2.5:'04010202',2:'04010204',1.5:'04010205',1.2:'04010206',.8:'04010208',.44:'04010227'},deck:{3:'04010320',2.5:'04010321',2:'04010322',1.5:'04010323',1.2:'AUTO-PLANCHER-1200',.8:'AUTO-PLANCHER-0800',.44:'AUTO-PLANCHER-0440'},steelDeck036:{1.2:'04210108',.8:'04210110'},diag:{3:'04005005',2.5:'04005006',2:'04005007',1.5:'04005008'},trap:'AUTO-TRAPPE',ladder:'02460034',stair:'AUTO-ESCALIER',stairGuard:'AUTO-GC-ESCALIER',anchor:'AUTO-ANCRAGE',endGuard:{'.73':'04204031','1':'04204032'},endPlinth:{'.73':'04711001','1':'04010207'}};
 const startMap={
@@ -521,7 +521,7 @@ m300:[refs.m300,2],
 manchon:[refs.manchon,2]
 };
 let q={},bomLedger={},currentBomContext='Calcul automatique',lastSummary={fc:0,len:0,area:0},state={facades:{},extraMaterials:{},materialOverrides:{}};const $=s=>document.querySelector(s),fmt=n=>new Intl.NumberFormat('fr-FR',{maximumFractionDigits:2}).format(n);
-function def(i){return {name:DEFAULT_FACADE_NAMES[i],enabled:i===0,type:'straight',buildingLength:12,length:12,autoCorners:true,height:6,ridgeHeight:8,width:.73,levels:2,topFloorOffset:2,autoStart2Choice:'m100',access:i===0,interiorGuard:'none',mode:'auto',starts:{cadre2:true},startMode:'auto',startParts:{cadre2:true,cadreDepart:false,manchon:false,m050:false,m070:false,m100:false,m200:false,m300:false},startPosts:{m050:0,m070:0,m100:0,m200:0,m300:0},asym:false,rehausse:false,baySequence:[],accessBay:0,diagBays:[],deckModes:[],extendMode:'both',bays:{3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0}}}NAMES.forEach((n,i)=>state.facades[n]=def(i));
+function def(i){return {name:DEFAULT_FACADE_NAMES[i],enabled:i===0,type:'straight',buildingLength:12,length:12,autoCorners:true,height:6,ridgeHeight:8,complexEnabled:false,setbackType:'retrait',setbackPosition:4,setbackWidth:2,setbackDepth:1,variableHeight:false,leftHeight:6,rightHeight:6,heightBreak:6,width:.73,levels:2,topFloorOffset:2,autoStart2Choice:'m100',access:i===0,interiorGuard:'none',mode:'auto',starts:{cadre2:true},startMode:'auto',startParts:{cadre2:true,cadreDepart:false,manchon:false,m050:false,m070:false,m100:false,m200:false,m300:false},startPosts:{m050:0,m070:0,m100:0,m200:0,m300:0},asym:false,rehausse:false,baySequence:[],accessBay:0,diagBays:[],deckModes:[],extendMode:'both',bays:{3:0,2.5:0,2:0,1.5:0,1.2:0,.8:0,.44:0}}}NAMES.forEach((n,i)=>state.facades[n]=def(i));
 function exactBaySolutions(target,limit=120){
   const T=Math.round(Math.max(0,+target||0)*100);
   const lens=BAY_LENGTHS.map(x=>({m:+x,c:Math.round(+x*100)}));
@@ -806,16 +806,40 @@ function normalizeFacadeShape(d){
   if(!['straight','gable'].includes(d.type))d.type='straight';
   d.height=Math.max(2,+d.height||2);
   d.ridgeHeight=Math.max(d.height,+d.ridgeHeight||d.height+2);
+  d.complexEnabled=!!d.complexEnabled;
+  d.variableHeight=!!d.variableHeight;
+  d.leftHeight=Math.max(2,+d.leftHeight||d.height);
+  d.rightHeight=Math.max(2,+d.rightHeight||d.height);
+  const L=Math.max(.1,+d.buildingLength||+d.length||.1);
+  d.heightBreak=Math.max(.1,Math.min(L-.1,+d.heightBreak||L/2));
+  d.setbackPosition=Math.max(0,+d.setbackPosition||0);
+  d.setbackWidth=Math.max(.1,+d.setbackWidth||1);
+  d.setbackDepth=Math.max(.1,+d.setbackDepth||1);
+  if(!['retrait','avancee'].includes(d.setbackType))d.setbackType='retrait';
 }
 function facadeMaxHeight(d){
   normalizeFacadeShape(d);
-  return d.type==='gable'?d.ridgeHeight:d.height;
+  if(d.type==='gable')return d.ridgeHeight;
+  return d.variableHeight?Math.max(d.leftHeight,d.rightHeight):d.height;
 }
 function facadeProfileHeight(d,u,total){
   normalizeFacadeShape(d);
-  if(d.type!=='gable'||total<=0)return d.height;
-  const ratio=Math.max(0,1-Math.abs((u/total)-.5)*2);
-  return d.height+(d.ridgeHeight-d.height)*ratio;
+  if(d.type==='gable'&&total>0){
+    const ratio=Math.max(0,1-Math.abs((u/total)-.5)*2);
+    return d.height+(d.ridgeHeight-d.height)*ratio;
+  }
+  if(d.variableHeight){
+    return u<d.heightBreak?d.leftHeight:d.rightHeight;
+  }
+  return d.height;
+}
+function complexGeometryError(d){
+  normalizeFacadeShape(d);
+  const L=Math.max(.1,+d.buildingLength||+d.length||.1);
+  if(d.complexEnabled&&d.setbackPosition+d.setbackWidth>L+.001)return `Le décrochement dépasse la façade (${fmt(d.setbackPosition+d.setbackWidth)} m sur ${fmt(L)} m).`;
+  if(d.complexEnabled&&d.setbackDepth>6)return 'La profondeur du décrochement semble supérieure à 6 m.';
+  if(d.variableHeight&&(d.heightBreak<=0||d.heightBreak>=L))return 'La position du changement de hauteur doit être comprise dans la façade.';
+  return '';
 }
 function build(){
   let wrap=$('#facadeList');wrap.innerHTML='';
@@ -844,6 +868,8 @@ function build(){
         <label>Largeur réelle de façade (m)<input class="buildingLength" type="number" step=".01" min="0" value="${d.buildingLength??d.length}"><span class="auto-length-note">Échafaudage calculé : <span class="scaffoldLength">${fmt(d.calculatedScaffoldLength||d.length)}</span> m</span></label>
         <label><span class="heightLabel">${d.type==='gable'?'Hauteur à l’égout':'Hauteur'} (m)</span><input class="height" type="number" step=".5" min="2" value="${d.height}"></label>
         <label class="gable-field" ${d.type==='gable'?'':'hidden'}>Hauteur au faîtage (m)<input class="ridgeHeight deferred-number" type="number" step=".5" min="2" value="${d.ridgeHeight}"><span class="facade-type-note">La pointe doit être supérieure ou égale à l’égout.</span></label>
+        <label class="check"><input class="complexEnabled" type="checkbox" ${d.complexEnabled?'checked':''}> Ajouter un décrochement</label>
+        <label class="check"><input class="variableHeight" type="checkbox" ${d.variableHeight?'checked':''}> Hauteur différente à gauche et à droite</label>
         <label>Largeur<select class="width"><option value=".73">0,73 m</option><option value="1">1,00 m</option></select></label>
         <label>Dernier plancher sous le haut<select class="topFloorOffset"><option value="1" ${d.topFloorOffset===1?'selected':''}>1,00 m</option><option value="1.5" ${d.topFloorOffset===1.5?'selected':''}>1,50 m</option><option value="2" ${d.topFloorOffset===2?'selected':''}>2,00 m</option><option value="2.5" ${d.topFloorOffset===2.5?'selected':''}>2,50 m</option><option value="3" ${d.topFloorOffset===3?'selected':''}>3,00 m</option></select></label>
         <label>Départ automatique si plancher à 2 m<select class="autoStart2Choice"><option value="m100" ${d.autoStart2Choice==='m100'?'selected':''}>Montant 1 m + cadre 2 m</option><option value="cadreDepart" ${d.autoStart2Choice==='cadreDepart'?'selected':''}>Cadre de départ + cadre 2 m</option></select></label>
@@ -858,6 +884,21 @@ function build(){
         <label>Garde-corps intérieur<select class="interiorGuard"><option value="none">Aucun</option><option value="one">1 garde-corps</option><option value="two">2 garde-corps</option><option value="twoToe">2 garde-corps + 1 plinthe</option></select></label>
         <label class="check"><input class="asym" type="checkbox" ${d.asym?'checked':''}>Cadres asymétriques au dernier niveau</label>
         <label class="check"><input class="rehausse" type="checkbox" ${d.rehausse?'checked':''}>Rehausse au dernier étage</label>
+      </div>
+      <div class="complex-box">
+        <b>Façade complexe</b>
+        <div class="grid complex-setback complex-fields" ${d.complexEnabled?'':'hidden'} style="margin-top:10px">
+          <label>Type de décrochement<select class="setbackType"><option value="retrait">Retrait de façade</option><option value="avancee">Avancée de façade</option></select></label>
+          <label>Position depuis la gauche (m)<input class="setbackPosition" type="number" min="0" step=".1" value="${d.setbackPosition}"></label>
+          <label>Largeur du décrochement (m)<input class="setbackWidth" type="number" min=".1" step=".1" value="${d.setbackWidth}"></label>
+          <label>Profondeur (m)<input class="setbackDepth" type="number" min=".1" step=".1" value="${d.setbackDepth}"></label>
+        </div>
+        <div class="grid complex-height complex-fields" ${d.variableHeight?'':'hidden'} style="margin-top:10px">
+          <label>Hauteur côté gauche (m)<input class="leftHeight" type="number" min="2" step=".5" value="${d.leftHeight}"></label>
+          <label>Hauteur côté droit (m)<input class="rightHeight" type="number" min="2" step=".5" value="${d.rightHeight}"></label>
+          <label>Changement de hauteur depuis la gauche (m)<input class="heightBreak" type="number" min=".1" step=".1" value="${d.heightBreak}"></label>
+        </div>
+        <div class="complex-error" hidden></div>
       </div>
       <div style="margin-top:12px"><b>Composition du départ</b>
         <div class="grid" style="margin-top:8px">
@@ -896,6 +937,7 @@ function build(){
     el.querySelector('.width').value=String(d.width);
     el.querySelector('.extendMode').value=d.extendMode||'both';
     el.querySelector('.interiorGuard').value=d.interiorGuard||'none';
+    el.querySelector('.setbackType').value=d.setbackType||'retrait';
 
     function renderAutoPlacement(){
       const box=el.querySelector('.auto-placement');
@@ -1066,6 +1108,18 @@ function build(){
       }
       el.querySelector('.gable-field').hidden=d.type!=='gable';
       el.querySelector('.heightLabel').textContent=d.type==='gable'?'Hauteur à l’égout':'Hauteur';
+      d.complexEnabled=el.querySelector('.complexEnabled').checked;
+      d.variableHeight=el.querySelector('.variableHeight').checked;
+      d.setbackType=el.querySelector('.setbackType').value||'retrait';
+      d.setbackPosition=Math.max(0,+el.querySelector('.setbackPosition').value||0);
+      d.setbackWidth=Math.max(.1,+el.querySelector('.setbackWidth').value||.1);
+      d.setbackDepth=Math.max(.1,+el.querySelector('.setbackDepth').value||.1);
+      d.leftHeight=Math.max(2,+el.querySelector('.leftHeight').value||d.height);
+      d.rightHeight=Math.max(2,+el.querySelector('.rightHeight').value||d.height);
+      d.heightBreak=Math.max(.1,+el.querySelector('.heightBreak').value||d.buildingLength/2);
+      el.querySelector('.complex-setback').hidden=!d.complexEnabled;
+      el.querySelector('.complex-height').hidden=!d.variableHeight;
+      const geomErr=complexGeometryError(d),errBox=el.querySelector('.complex-error');errBox.hidden=!geomErr;errBox.textContent=geomErr;
       d.width=+el.querySelector('.width').value||.73;d.topFloorOffset=+el.querySelector('.topFloorOffset').value||2;d.autoStart2Choice=el.querySelector('.autoStart2Choice').value||'m100';d.levels=Math.max(1,buildFacadeAssembly(d).floors.length);el.querySelector('.levels').value=d.levels;
       d.access=el.querySelector('.access').checked;d.interiorGuard=el.querySelector('.interiorGuard').value||'none';d.asym=el.querySelector('.asym').checked;d.rehausse=el.querySelector('.rehausse').checked;d.extendMode=el.querySelector('.extendMode').value||'none';
       d.startMode=el.querySelector('.startMode').value||'auto';
@@ -1080,7 +1134,8 @@ function build(){
       const diags=d.diagBays.length?` | Diagonales : ${d.diagBays.map(x=>x+1).join(', ')}`:'';
       const extLabel={none:'aucun',left:'gauche',right:'droite',both:'gauche + droite'}[d.extendMode]||'aucun';
       const innerLabel={none:'aucun',one:'1 garde-corps',two:'2 garde-corps',twoToe:'2 garde-corps + plinthe'}[d.interiorGuard]||'aucun';
-      el.querySelector('.proposal').textContent=`${d.type==='gable'?`Pignon : égout ${fmt(d.height)} m / faîtage ${fmt(d.ridgeHeight)} m | `:''}Composition : ${comp(b)} — ${fmt(bLen(b))} m | Départ : ${starts} | Dépassement : ${extLabel} | GC intérieur : ${innerLabel}${order}${acc}${diags}`;
+      const complexLabel=d.complexEnabled?`Décrochement ${d.setbackType==='retrait'?'en retrait':'en avancée'} : ${fmt(d.setbackWidth)} × ${fmt(d.setbackDepth)} m à ${fmt(d.setbackPosition)} m | `:'';const heightLabel=d.variableHeight?`Hauteurs G/D : ${fmt(d.leftHeight)} / ${fmt(d.rightHeight)} m (rupture à ${fmt(d.heightBreak)} m) | `:'';
+      el.querySelector('.proposal').textContent=`${d.type==='gable'?`Pignon : égout ${fmt(d.height)} m / faîtage ${fmt(d.ridgeHeight)} m | `:''}${complexLabel}${heightLabel}Composition : ${comp(b)} — ${fmt(bLen(b))} m | Départ : ${starts} | Dépassement : ${extLabel} | GC intérieur : ${innerLabel}${order}${acc}${diags}`;
     }
 
     el.querySelectorAll('input,select').forEach(x=>{
@@ -1109,6 +1164,7 @@ function syncAllFacadeCardsFromDOM(){
     d.name=(value('.facade-name')||'').trim()||DEFAULT_FACADE_NAMES[i];
     d.enabled=true;
     d.type=value('.facadeType')||d.type||'straight';
+    d.complexEnabled=checked('.complexEnabled');d.variableHeight=checked('.variableHeight');d.setbackType=value('.setbackType')||d.setbackType||'retrait';d.setbackPosition=Math.max(0,+(value('.setbackPosition')||d.setbackPosition||0));d.setbackWidth=Math.max(.1,+(value('.setbackWidth')||d.setbackWidth||1));d.setbackDepth=Math.max(.1,+(value('.setbackDepth')||d.setbackDepth||1));d.leftHeight=Math.max(2,+(value('.leftHeight')||d.leftHeight||d.height||2));d.rightHeight=Math.max(2,+(value('.rightHeight')||d.rightHeight||d.height||2));d.heightBreak=Math.max(.1,+(value('.heightBreak')||d.heightBreak||1));
     d.buildingLength=Math.max(0,+(value('.buildingLength')||d.buildingLength||d.length||0));
     d.height=Math.max(2,+(value('.height')||d.height||2));
     const ridge=value('.ridgeHeight');
@@ -1273,6 +1329,7 @@ function renderControls(){
   used.forEach(n=>{
     const d=state.facades[n],seq=orderedBays(d);
     if(!seq.length){messages.push(['error',`${facadeLabel(n)} : aucune travée.`]);return}
+    const geomError=complexGeometryError(d);if(geomError)messages.push(['error',`${facadeLabel(n)} : ${geomError}`]);else if(d.complexEnabled||d.variableHeight)messages.push(['ok',`${facadeLabel(n)} : géométrie complexe cohérente.`]);
     ensureStartAssembly(d);
     if(facadeStartHeight(d)>facadeMaxHeight(d))messages.push(['warn',`${facadeLabel(n)} : le premier plancher dépasse la hauteur de la façade.`]);
     if(d.access&&(d.accessBay<0||d.accessBay>=seq.length))messages.push(['warn',`${facadeLabel(n)} : position d’accès invalide, la première travée sera utilisée.`]);
@@ -1293,7 +1350,7 @@ function renderControls(){
     }
     if(d.rehausse)messages.push(['ok',`${facadeLabel(n)} : rehausse ajoutée avec ${seq.length+3} montants de 1 m, ${seq.length*2} lisses supplémentaires et 4 garde-corps d’extrémité.`]);
   });
-  // V10.1.3 — audit du moteur de nomenclature.
+  // V10.2.0 — audit du moteur de nomenclature.
   const bomEntries=Object.entries(q||{});
   const invalidQuantities=bomEntries.filter(([,qty])=>!Number.isFinite(Number(qty))||Number(qty)<0||Math.round(Number(qty))!==Number(qty));
   if(invalidQuantities.length)messages.push(['error',`${invalidQuantities.length} quantité(s) de matériel sont invalides, négatives ou non entières.`]);
@@ -1649,7 +1706,12 @@ function frontSvg(data){
     s+=`<polygon points="${buildingLeft},${baseY} ${buildingRight},${baseY} ${buildingRight},${baseY-eave*yScale} ${mid},${baseY-ridge*yScale} ${buildingLeft},${baseY-eave*yScale}" class="svg-building-outline"/>`;
   }else{
     const wallH=+d.height||height;
-    s+=`<rect x="${buildingLeft}" y="${baseY-wallH*yScale}" width="${Math.max(2,buildingRight-buildingLeft)}" height="${wallH*yScale}" class="svg-building-outline"/>`;
+    if(d.variableHeight){
+      const breakX=buildingLeft+Math.max(0,Math.min(total,d.heightBreak))*xScale;
+      const lh=d.leftHeight,rh=d.rightHeight;
+      s+=`<path d="M ${buildingLeft} ${baseY} L ${buildingRight} ${baseY} L ${buildingRight} ${baseY-rh*yScale} L ${breakX} ${baseY-rh*yScale} L ${breakX} ${baseY-lh*yScale} L ${buildingLeft} ${baseY-lh*yScale} Z" class="svg-building-outline"/>`;
+    }else s+=`<rect x="${buildingLeft}" y="${baseY-wallH*yScale}" width="${Math.max(2,buildingRight-buildingLeft)}" height="${wallH*yScale}" class="svg-building-outline"/>`;
+    if(d.complexEnabled){const p=buildingLeft+d.setbackPosition*xScale,w=d.setbackWidth*xScale;s+=`<line x1="${p}" y1="${baseY}" x2="${p}" y2="${baseY-facadeProfileHeight(d,d.setbackPosition,total)*yScale}" stroke="#9a6500" stroke-dasharray="6 4"/><line x1="${p+w}" y1="${baseY}" x2="${p+w}" y2="${baseY-facadeProfileHeight(d,d.setbackPosition+d.setbackWidth,total)*yScale}" stroke="#9a6500" stroke-dasharray="6 4"/>`;}
   }
 
   s+=`<g data-facade="${data.key}" class="plan-facade-selectable ${data.key===selectedPlanFacade?'plan-facade-selected':''}">`;
@@ -1794,6 +1856,11 @@ function topSvg(){
     // Draw extension zones distinctly.
     if(startExtension)s+=orient==='h'?`<rect x="${sx}" y="${sy}" width="${startExtension*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy}" width="${sw}" height="${startExtension*scale}" fill="#f4c87a" opacity=".8"/>`;
     if(endExtension)s+=orient==='h'?`<rect x="${sx+sw-endExtension*scale}" y="${sy}" width="${endExtension*scale}" height="${sh}" fill="#f4c87a" opacity=".8"/>`:`<rect x="${sx}" y="${sy+sh-endExtension*scale}" width="${sw}" height="${endExtension*scale}" fill="#f4c87a" opacity=".8"/>`;
+    if(d.complexEnabled){
+      const pos=Math.max(0,Math.min(total,d.setbackPosition))*scale,ww=Math.max(.1,Math.min(total-d.setbackPosition,d.setbackWidth))*scale,dep=d.setbackDepth*scale*(d.setbackType==='retrait'?-1:1);
+      if(orient==='h'){const yy=(k==='A'?sy+sh:sy);const dir=(k==='A'?1:-1);s+=`<path d="M ${start+pos} ${yy} L ${start+pos} ${yy+dir*dep} L ${start+pos+ww} ${yy+dir*dep} L ${start+pos+ww} ${yy}" fill="none" stroke="#9a6500" stroke-width="4"/>`;}
+      else{const xx=(k==='B'?sx:sx+sw);const dir=(k==='B'?-1:1);s+=`<path d="M ${xx} ${start+pos} L ${xx+dir*dep} ${start+pos} L ${xx+dir*dep} ${start+pos+ww} L ${xx} ${start+pos+ww}" fill="none" stroke="#9a6500" stroke-width="4"/>`;}
+    }
     const tx=orient==='h'?sx+sw/2:(k==='B'?sx+31:sx-21),ty=orient==='h'?(k==='A'?sy-9:sy+sh+22):sy+sh/2;
     s+=`<text x="${tx}" y="${ty}" text-anchor="middle" class="svg-label" ${orient==='v'?`transform="rotate(-90 ${tx} ${ty})"`:''}>${escapeHtml(d.name)} - échafaudage ${fmt(total)} m</text></g>`;
   }
@@ -2191,7 +2258,7 @@ async function createScaff3D(host){
   host.innerHTML=`
     <div class="scaff3d-loading">Chargement du moteur 3D…</div>
     <div class="scaff3d-overlay">
-      <div class="scaff3d-status">Vue 3D professionnelle · V10.1.3</div>
+      <div class="scaff3d-status">Vue 3D professionnelle · V10.2.0</div>
 <div class="scaff3d-badge-v8">ASSEMBLAGE R200</div>
 <div class="scaff3d-quality"></div>
       <div class="scaff3d-probar" aria-label="Caméra 3D professionnelle">
@@ -2814,7 +2881,7 @@ function renderPlan(){
   renderPlanEditor();
   const total=data.seq.reduce((a,b)=>a+b,0);
   $('#planInfo').textContent=currentPlanView==='three'
-    ?`Vue 3D V10.1.3 : 1 doigt pour tourner, 2 doigts pour zoomer et déplacer, vues rapides et centrage automatique.`
+    ?`Vue 3D V10.2.0 : 1 doigt pour tourner, 2 doigts pour zoomer et déplacer, vues rapides et centrage automatique.`
     :`${data.d.name} : ${data.seq.length} travée(s), ${fmt(total)} m de longueur, ${data.d.type==='gable'?`pignon ${fmt(data.d.height)} m à l’égout / ${fmt(data.d.ridgeHeight)} m au faîtage`:`${fmt(data.height)} m de hauteur`}, largeur ${fmt(data.width)} m.`;
 }
 function clearProjectStorage(){
@@ -2916,7 +2983,7 @@ async function buildPrintReport(){
   const iso=`<div class="print-sheet print-sheet-3d"><h2>Vue isométrique 3D</h2><div class="print-view">${isoContent}</div></div>`;
   selectedPlanFacade=oldSelected;
 
-  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v10.1.3</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><table class="print-bom"><thead><tr><th>Élément</th><th class="right">Quantité</th><th class="right">Poids unitaire</th><th class="right">Poids ligne</th></tr></thead><tbody>${rows}</tbody></table><div class="print-total">Poids total : ${fmt(totalWeight)} kg</div></div>${northSouth}${eastWest}${topAndSide}${iso}`;
+  report.innerHTML=`<div class="print-sheet"><h1>ScaffR200 Pro v10.2.0</h1><p><b>Chantier :</b> ${escapeHtml(state.projectName||'—')} &nbsp; <b>Client :</b> ${escapeHtml(state.clientName||'—')}</p><h2>Liste de matériel</h2><table class="print-bom"><thead><tr><th>Élément</th><th class="right">Quantité</th><th class="right">Poids unitaire</th><th class="right">Poids ligne</th></tr></thead><tbody>${rows}</tbody></table><div class="print-total">Poids total : ${fmt(totalWeight)} kg</div></div>${northSouth}${eastWest}${topAndSide}${iso}`;
 }
 function csv(){let rows=[['Famille','Référence','Désignation','Origine','Quantité','Ajout manuel','Poids unitaire kg','Poids total kg','Donnée poids']];materialReferences().map(r=>[r,effectiveMaterialQuantity(r,q[r]||0)]).filter(([,n])=>n>0).forEach(([r,n])=>{let it=item(r),origins=Object.entries(bomLedger[r]||{}).filter(([,v])=>v!==0).map(([k,v])=>k+' : '+v).join(' | ');rows.push([it.section||'',r,it.designation,origins,n,(state.extraMaterials||{})[r]||0,weight(it)||'',weight(it)?weight(it)*n:'',weight(it)?'Renseigné':'À confirmer'])});let text=rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download='scaffr200-v9-8-nomenclature.csv';a.click()}
 
@@ -3037,7 +3104,7 @@ load();recalculateAutomaticImplantation();build();selectedPlanFacade=availableFa
 window.addEventListener('error', function(event) {
   const status = document.getElementById('status');
   if (status) status.textContent = 'Une erreur de dessin a été détectée. Les autres onglets restent utilisables.';
-  console.error('ScaffR200 v9.7:', event.error || event.message);
+  console.error('ScaffR200 v10.2.0:', event.error || event.message);
 });
 </script>
 
